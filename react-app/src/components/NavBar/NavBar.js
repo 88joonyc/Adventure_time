@@ -12,7 +12,7 @@ const NavBar = () => {
 
   let content = null
 
-  if (!sessionUser) {
+  if (true) {
     content = (
       <nav>
       <div className="navbar-container">
@@ -23,7 +23,7 @@ const NavBar = () => {
         </div>
         <div>
           <NavLink to='/login' exact={true} activeClassName='active'>
-            Login
+            Sing In
           </NavLink>
         </div>
         <div>
@@ -31,14 +31,36 @@ const NavBar = () => {
             Sign Up
           </NavLink>
         </div>
-        <div>
-          <NavLink to='/users' exact={true} activeClassName='active'>
-            Users
-          </NavLink>
-        </div>
-        <div>
-          <LogoutButton />
-        </div>
+         {/* <div className='navbar-drop-container'>
+          <div className=''>
+              <i className="icon far fa-user-circle fa-3x"></i>
+              <div className=''>
+                <div className=''>
+                <p>{`${sessionUser?.first_name} ${sessionUser?.last_name}`}</p>
+                <p>Email: {sessionUser?.email}</p>
+
+                </div>
+
+                <div className=''>
+                <p>Free Sneax</p>
+                <p>Account</p>
+                <p>Banking</p>
+                <p>Recurring</p>
+                <p>History</p>
+                <p>Settings</p>
+                </div>
+
+                <div className=''>
+                <p>Help Center</p>
+                <p>Contact Us</p>
+                <p>Disclosures</p>
+                </div>
+                <LogoutButton />
+
+                </div>
+                </div>
+        </div> */}
+
       </div>
     </nav>
     )
