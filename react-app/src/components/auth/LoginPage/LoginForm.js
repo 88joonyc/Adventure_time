@@ -70,6 +70,7 @@ const LoginForm = () => {
       </div>
       <div className="login-image-container">
         <div className="login-image-space">
+          <div className='login-imaage'></div>
           <img  className='login-image' src='https://cdn2.lamag.com/wp-content/uploads/sites/6/2021/05/eric-ward-uD0W-swVGgE-unsplash.jpg'/>
         </div>
       </div>

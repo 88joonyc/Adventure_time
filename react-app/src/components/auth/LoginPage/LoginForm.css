@@ -12,16 +12,20 @@
     width: 100%;
 }
 
-h1{
+h1 {
     font-size: 48px;
 }
 
-.login-image-container {}
+.login-image-container {
+    height: 820px;
+    background-size: cover;
+    /* background-image: url('event.jpeg'); */
+    /* margin-left: -250px; */
+}
 
 .login-image {
     height: 800px;
     margin-left: -250px;
-
 }
 
 .login-image-space {
@@ -41,7 +45,7 @@ h1{
 
 .email-input-container {}
 
-.input-container{
+.input-container {
     display: block;
     font-size: xx-large;
 }
