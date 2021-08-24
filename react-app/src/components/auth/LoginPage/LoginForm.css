@@ -19,8 +19,7 @@ h1 {
 .login-image-container {
     height: 820px;
     background-size: cover;
-    /* background-image: url('event.jpeg'); */
-    /* margin-left: -250px; */
+    background-image: url('event3.jpeg');
 }
 
 .login-image {

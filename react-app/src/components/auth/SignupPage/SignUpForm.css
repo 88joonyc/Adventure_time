@@ -1,0 +1,12 @@
+.signup-form-container {
+    display: grid;
+    grid-template-columns: repeat(2, 50%);
+    background-color: rgb(249, 250, 252);
+    width: 100%;
+}
+
+.signup-image-container {
+    background-image: url('speech2.jpeg');
+    height: 820px;
+    background-size: cover;
+}
