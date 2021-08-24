@@ -10,3 +10,10 @@
     height: 820px;
     background-size: cover;
 }
+
+.singup-form {
+    height: fit-content;
+    margin: 0 auto;
+    position: relative;
+    top: 100px;
+}

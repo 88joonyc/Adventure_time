@@ -31,7 +31,7 @@ h1 {
     overflow: hidden;
 }
 
-.login-button {
+.verify-button {
     background-color: rgb(190, 16, 16);
     border-radius: 4px;
     color: white;
@@ -46,14 +46,14 @@ h1 {
 
 }
 
-.login-input {
+.user-input {
     height: 2em;
     appearance: none;
     border: none;
     background-color: inherit;
 }
 
-.login-label {
+.input-label {
     margin: 5px 10px 2px 10px;
     font-size: 12px;
     font-weight: 400;

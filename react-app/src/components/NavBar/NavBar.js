@@ -1,12 +1,18 @@
 
 import React from 'react';
 import { NavLink } from 'react-router-dom';
-import LogoutButton from './auth/LogoutButton';
+import LogoutButton from '../auth/LogoutButton';
+import { useSelector } from 'react-redux';
 
 const NavBar = () => {
+  const sessionUser = useSelector(state => state.session.user)
+
+
+
   return (
     <nav>
-      <ul>
+
+      <ul className="navbar-unordered">
         <li>
           <NavLink to='/' exact={true} activeClassName='active'>
             Home

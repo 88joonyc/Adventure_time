@@ -10,7 +10,7 @@ class User(db.Model, UserMixin):
     first_name = db.Column(db.String(50), nullable=False)
     last_name = db.Column(db.String(50), nullable=False)
     email = db.Column(db.String(255), nullable=False, unique=True)
-    image = db.Column(db.String(255) )
+    image = db.Column(db.String(1000) )
     hashed_password = db.Column(db.String(255), nullable=False)
 
     @property
