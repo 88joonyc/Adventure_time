@@ -22,6 +22,14 @@ h1 {
     background-image: url('event3.jpeg');
 }
 
+.logo-image-container {
+    content: url('../../NavBar/adventure_time-logo.jpeg');
+}
+
+.sign-up-link {
+    font-size: 47%;
+}
+
 .login-image {
     height: 800px;
     margin-left: -250px;
@@ -42,8 +50,6 @@ h1 {
     width: 100%;
     height: 50px;
     font-size: 15px;
-
-
 }
 
 .user-input {

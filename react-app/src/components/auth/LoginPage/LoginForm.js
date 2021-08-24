@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { Redirect } from 'react-router-dom';
+import { Redirect, Link } from 'react-router-dom';
 import { login } from '../../../store/session';
 
 import './LoginForm.css'
@@ -35,6 +35,7 @@ const LoginForm = () => {
   return (
     <div className='login-form-container'>
       <div className='login-form'>
+      <img src='./adventure_time-logo.jpg' className="logo-image-container"/>
       <h1 className="">Log in</h1>
         <form onSubmit={onLogin}>
           <div>
@@ -64,6 +65,7 @@ const LoginForm = () => {
               />
           </div>
               <button className='verify-button' type='submit'>Login</button>
+              <Link className="sign-up-link" to='/sign-up'>Sign up for Adventure Time!</Link>
           </div>
         </form>
       </div>
