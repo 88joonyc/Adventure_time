@@ -1,0 +1,47 @@
+.login-form {
+    height: fit-content;
+    margin: 0 auto;
+    position: relative;
+    top: 100px;
+}
+
+.login-form-container {
+    display: grid;
+    grid-template-columns: repeat(2, 50%);
+    background-color: rgb(249, 250, 252);
+    width: 100%;
+}
+
+h1{
+    font-size: 48px;
+}
+
+.login-image-container {}
+
+.login-image {
+    height: 800px;
+    margin-left: -250px;
+
+}
+
+.login-image-space {
+    overflow: hidden;
+}
+
+.login-button {
+    background-color: red;
+}
+
+.email-input {
+    background-color: red;
+    width: 100px;
+    height: 100px;
+    font-size: xxx-large;
+}
+
+.email-input-container {}
+
+.input-container{
+    display: block;
+    font-size: xx-large;
+}
