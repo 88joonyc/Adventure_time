@@ -23,7 +23,8 @@ h1 {
 }
 
 .logo-image-container {
-    content: url('../../NavBar/adventure_time-logo.jpeg');
+    content: url('../../NavBar/adventure_time-logo2.jpeg');
+    width: 150px;
 }
 
 .sign-up-link {

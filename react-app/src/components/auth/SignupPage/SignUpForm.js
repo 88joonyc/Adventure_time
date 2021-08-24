@@ -62,6 +62,9 @@ const SignUpForm = () => {
         </div>
       </div>
     <div className='singup-form'>
+        <Link to="/">
+          <img className="logo-image-container"/>
+        </Link>
       <form onSubmit={onSignUp}>
         <div>
           {errors.map((error, ind) => (
