@@ -8,12 +8,15 @@ const NavBar = () => {
   const sessionUser = useSelector(state => state.session.user)
 
 
+  let content = null
 
-  return (
-    <nav>
+  if (sessionUser) {
+    content = (
+      <nav>
 
       <ul className="navbar-unordered">
         <li>
+
           <NavLink to='/' exact={true} activeClassName='active'>
             Home
           </NavLink>
@@ -38,6 +41,14 @@ const NavBar = () => {
         </li>
       </ul>
     </nav>
+    )
+  }
+
+
+  return (
+    <>
+      {content}
+    </>
   );
 }
 
