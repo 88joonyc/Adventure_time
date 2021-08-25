@@ -38,7 +38,7 @@ const LoginForm = () => {
         <Link to="/">
           <img className="logo-image-container"/>
         </Link>
-      <h1 className="">Log in</h1>
+      <h1 className="">Log In</h1>
         <form onSubmit={onLogin}>
           <div>
             {errors.map((error, ind) => (
@@ -68,6 +68,7 @@ const LoginForm = () => {
           </div>
               <button className='verify-button' type='submit'>Login</button>
               <Link className="sign-up-link" to='/sign-up'>Sign up for Adventure Time!</Link>
+              <button className="demo-button" onClick={() => } >Demo Login</button>
           </div>
         </form>
       </div>
