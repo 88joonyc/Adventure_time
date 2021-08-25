@@ -18,8 +18,9 @@ const update = (event) => ({
     event
 })
 
-const remove = () => ({
-    type: REMOVE_EVENT
+const remove = (eventId) => ({
+    type: REMOVE_EVENT,
+    eventId
 })
 
 export const all_events = () => async dispatch => {
@@ -29,16 +30,14 @@ export const all_events = () => async dispatch => {
 }
 
 export const create_event = (payload) => async dispatch => {
-    console.log("=================================", payload)
     const res = await fetch('/api/events/', {
         method: 'POST',
         headers: {"Content-Type": 'application/json'},
         body: JSON.stringify(payload)
     })
     const data = res.json()
-    console.log("=================================", data)
     if (res.ok) {
-        console.log("=================================", data)
+
         await dispatch(add(data))
         if (data.errors) return data.errors
     }
@@ -73,7 +72,7 @@ export const delete_event = (id) => async dispatch => {
     const res = await fetch(`/api/events/remove/${id}`, {
         method: 'DELETE',
     })
-    dispatch(remove(res))
+    dispatch(remove(id))
     return res
 }
 
@@ -97,9 +96,11 @@ const events_reducer = (state = initialState, action ) => {
             return { events: action.events }
 
         case REMOVE_EVENT:
-            console.log('this is actionasdasdasd======================',action)
             const data = {...state};
-            delete data[action.eventId]
+            console.log('this is actionasdasdasd======================',action.eventId)
+            console.log('this is actionasdasdasd======================',data)
+            let hoo = delete data[action.eventId]
+            console.log('this is actionasdasdasd======================',hoo)
             return data
 
         case EDIT_EVENT:

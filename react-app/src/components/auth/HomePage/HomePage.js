@@ -18,7 +18,7 @@ let content = null
 
 useEffect(() => {
     dispatch(eventActions.all_events())
-}, [])
+}, [eventActions])
 
 const handleDelete = (e) => {
     const ask = window.confirm("are you sure")
