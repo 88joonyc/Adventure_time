@@ -14,7 +14,6 @@ const sessionUser = useSelector(state => state.session)
 const events = useSelector(state => state.events_reducer?.events?.events)
 
 let content = null
-console.log('this is evetns',events[0].id)
 
 useEffect(() => {
     dispatch(eventActions.all_events())
@@ -23,16 +22,25 @@ useEffect(() => {
 
 
 if (sessionUser.user) {
-    content = (<>
-        {/* {console.log(events[0])} */}
-        {events?.map(event => {
+    content = (
+        <>
+        {events?.map(event => (
             <>
-            <h1>{event.id}</h1>
-            <h1>h1</h1>
+            <div>
+                <h3>{event.host_id}</h3>
+                <p>{event.venue_id}</p>
+                <p>{event.category_id}</p>
+                <p>{event.name}</p>
+                <p>{event.start_time}</p>
+                <p>{event.end_time}</p>
+                <p>{event.capcaity}</p>
+                <img src={event.image}/>
+                <p>{event.cost}</p>
+                <button>delete</button>
+            </div>
             </>
+        ))}
 
-        })}
-        {/* <h1>h1</h1> */}
     </>)
 } else {
     content = (

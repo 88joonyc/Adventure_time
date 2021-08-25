@@ -7,6 +7,7 @@ import HomePage from './components/auth//HomePage/HomePage';
 import NavBar from './components/NavBar/NavBar';
 import ProtectedRoute from './components/auth/ProtectedRoute';
 import UsersList from './components/UsersList';
+import HostForm from './components/Pages/Host/Host';
 import User from './components/User';
 import { authenticate } from './store/session';
 
@@ -39,6 +40,9 @@ function App() {
         </ProtectedRoute>
         <ProtectedRoute path='/users/:userId' exact={true} >
           <User />
+        </ProtectedRoute>
+        <ProtectedRoute path='/host' exact={true} >
+          <HostForm />
         </ProtectedRoute>
         <Route path='/' exact={true} >
       <NavBar />

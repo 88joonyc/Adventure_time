@@ -1,6 +1,6 @@
 
 import React, { useState } from 'react';
-import { NavLink } from 'react-router-dom';
+import { NavLink, Link } from 'react-router-dom';
 import LogoutButton from '../auth/LogoutButton';
 import { useSelector } from 'react-redux';
 
@@ -10,27 +10,53 @@ const NavBar = () => {
   const sessionUser = useSelector(state => state.session.user)
 
   const [ searchBar, toggleSearch ] = useState(false)
+  const [ eventPage, toggleCreate ] = useState(false)
 
 
   let content = null
 
   let verificationtabs = (
-
     <>
-
-              <div className='login-signup'>
-                <NavLink className="signup-link" to='/login' exact={true} activeClassName='active'>
-                  Log In
-                </NavLink>
-              </div>
-              <div className='login-signup'>
-                <NavLink className="signup-link" to='/sign-up' exact={true} activeClassName='active'>
-                  Sign Up
-                </NavLink>
-              </div>
-
+      <div className='login-signup'>
+        <NavLink className="signup-link" to='/login' exact={true} activeClassName='active'>
+          Log In
+        </NavLink>
+      </div>
+      <div className='login-signup'>
+        <NavLink className="signup-link" to='/sign-up' exact={true} activeClassName='active'>
+          Sign Up
+        </NavLink>
+      </div>
     </>
   )
+
+  let usertab = (
+    <>
+    {/* <button onClick={() =>toggleCreate(!eventPage)}>+</button> */}
+    <Link className="create-event" to='/'>+</Link>
+    <LogoutButton />
+    </>
+  )
+  let eventsPage
+
+  // if (eventPage) {
+  //   eventsPage = (
+  //     <>
+  //     <div className='events-form-container'>
+  //     <form>
+  //       <div>
+  //         <label> venue
+  //           <input />
+  //         </label>
+  //       </div>
+  //       <button>hi</button>
+
+  //     </form>
+  //     </div>
+
+  //     </>
+  //   )
+  // }
 
   if (searchBar) {
     content = (
@@ -57,21 +83,17 @@ const NavBar = () => {
               <button className="searchbar-toggle" onClick={() => toggleSearch(!searchBar)}>
                 Search
               </button>
-              {sessionUser ? <LogoutButton /> : verificationtabs}
+              {sessionUser ? usertab : verificationtabs}
             </div>
           </div>
       </nav>
     )
   }
 
-  if (true) {
-
-  }
-
-
   return (
     <>
       {content}
+      {eventsPage}
     </>
   );
 }
