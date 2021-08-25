@@ -29,14 +29,17 @@ export const all_events = () => async dispatch => {
 }
 
 export const create_event = (payload) => async dispatch => {
+    console.log("=================================", payload)
     const res = await fetch('/api/events/', {
         method: 'POST',
         headers: {"Content-Type": 'application/json'},
         body: JSON.stringify(payload)
     })
     const data = res.json()
+    console.log("=================================", data)
     if (res.ok) {
-        dispatch(add(data))
+        console.log("=================================", data)
+        await dispatch(add(data))
         if (data.errors) return data.errors
     }
     return data

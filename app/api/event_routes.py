@@ -1,6 +1,8 @@
-from flask import Blueprint, jsonify
+from flask import Blueprint, jsonify, request
 from flask_login import login_required, current_user
-from app.models import Event, Venue
+from app.models import db, Event, Venue
+from app.forms import EventForm
+
 
 event_routes = Blueprint('events', __name__)
 
@@ -24,13 +26,13 @@ def event(id):
     return user.to_dict()
 
 
-@event_routes.route('/<int:id>', methods=['POST'])
+@event_routes.route('/', methods=['POST'])
 @login_required
-def create(id):
-    form = EventForm(request.form)
+def create():
+    form = EventForm()
     form['csrf_token'].data = request.cookies['csrf_token']
-    print('============this is my validateion=============================', form.valideate_on_sbumit())
-    if form.valideate_on_submit():
+    print('============this is my validateion=============================', form.validate_on_submit)
+    if form.validate_on_submit:
         event = Event(
             host_id = current_user.id,
             venue_id = form.data['venue_id'],
@@ -42,7 +44,7 @@ def create(id):
             image = form.data['image'],
             cost = form.data['cost'],
         )
-        db.session.add()
+        db.session.add(event)
         db.session.commit()
         return event.to_dict()
 

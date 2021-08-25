@@ -33,7 +33,7 @@ const NavBar = () => {
   let usertab = (
     <>
     {/* <button onClick={() =>toggleCreate(!eventPage)}>+</button> */}
-    <Link className="create-event" to='/'>+</Link>
+    <NavLink className="create-event" to='/host'>+</NavLink>
     <LogoutButton />
     </>
   )
