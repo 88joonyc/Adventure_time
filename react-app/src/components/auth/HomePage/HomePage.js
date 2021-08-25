@@ -12,7 +12,7 @@ const history = useHistory
 const sessionUser = useSelector(state => state.session.user)
 const events = useSelector(state => state.events_reducer?.events?.events)
 
-const [ eventId, setEventId ] = useState('')
+// const [ eventId, setEventId ] = useState('')
 
 let content = null
 
@@ -20,11 +20,11 @@ useEffect(() => {
     dispatch(eventActions.all_events())
 }, [])
 
-const handleDelete = async () => {
-    // await eventActions.delete_event(eventId)
+const handleDelete = (e) => {
     const ask = window.confirm("are you sure")
+    const eventId = e.target.value
     if (ask){
-        await dispatch(eventActions.delete_event(eventId))
+        dispatch(eventActions.delete_event(eventId))
     }
 }
 
@@ -49,7 +49,7 @@ if (sessionUser) {
                         {(event?.host_id === sessionUser?.id ) ? (
                             <>
                                 <button>edit</button>
-                                <button onClick={() => (handleDelete(), setEventId(event.id))}>delete</button>
+                                <button onClick={(e) => (handleDelete(e))} value={event.id}>delete</button>
                             </>
                          ) : null}
                     </div>
