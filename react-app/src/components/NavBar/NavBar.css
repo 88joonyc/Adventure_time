@@ -18,3 +18,41 @@ body {
     position: relative;
     right: 10px;
 }
+
+.login-signup {
+    background-color: red;
+}
+
+.search-input {
+    width: 40%;
+    padding-left: 20px;
+    margin-left: 40px;
+    height: 42px;
+    margin-bottom: 7px;
+    margin-top: 7px;
+}
+
+.cancel-button {
+    margin-left: 40%;
+    border: none;
+    background-color: inherit;
+    font-size: 1rem;
+    color: blue;
+}
+
+.cancel-button:hover {
+    cursor: pointer;
+    background-color: saddlebrown;
+    height: 100%;
+}
+
+.searchbar-toggle {}
+
+.searchbar-toggle:hover {
+    cursor: pointer;
+    background-color: saddlebrown;
+}
+
+.signup-link{
+    margin-left: 20px;
+}

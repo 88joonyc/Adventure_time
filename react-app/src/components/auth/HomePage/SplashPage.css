@@ -10,7 +10,27 @@
 }
 
 .bottom-sent {
-    padding-bottom: 60px;
+    padding-bottom: 10px;
+}
+
+h3 {
+    font-size: 1.30 rem
+}
+
+p {
+    font-size: 16px;
+}
+
+.event-button {
+    border: none;
+    border-radius: 5px;
+    width: 200px;
+    height: 50px;
+    margin-left: 50px;
+    margin-bottom: 7%;
+    background-color: rgb(50, 211, 247);
+    color: rgb(255, 253, 253);
+    font-size: 90%
 }
 
 .opening-sent {
@@ -19,5 +39,11 @@
     /* height: 300px; */
     margin: 0;
     padding-left: 40px;
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Monoton', cursive;
+}
+
+.covid-message {
+    width: 90%;
+    margin: 0 auto;
+    margin-top: 40px;
 }

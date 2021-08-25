@@ -1,5 +1,5 @@
 
-import React from 'react';
+import React, { useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import LogoutButton from '../auth/LogoutButton';
 import { useSelector } from 'react-redux';
@@ -9,62 +9,52 @@ import './NavBar.css'
 const NavBar = () => {
   const sessionUser = useSelector(state => state.session.user)
 
+  const [ searchBar, toggleSearch ] = useState(false)
+
 
   let content = null
 
-  if (true) {
+  if (searchBar) {
     content = (
-      <nav>
-      <div className="navbar-container">
-        <div>
-          <NavLink to='/' exact={true} activeClassName='active'>
-            <img className="navbar-image logo-image-container"/>
-          </NavLink>
-        </div>
-        <div>
-          <NavLink to='/login' exact={true} activeClassName='active'>
-            Sign In
-          </NavLink>
-        </div>
-        <div>
-          <NavLink to='/sign-up' exact={true} activeClassName='active'>
-            Sign Up
-          </NavLink>
-          <LogoutButton />
-        </div>
-         {/* <div className='navbar-drop-container'>
-          <div className=''>
-              <i className="icon far fa-user-circle fa-3x"></i>
-              <div className=''>
-                <div className=''>
-                <p>{`${sessionUser?.first_name} ${sessionUser?.last_name}`}</p>
-                <p>Email: {sessionUser?.email}</p>
-
-                </div>
-
-                <div className=''>
-                <p>Free Sneax</p>
-                <p>Account</p>
-                <p>Banking</p>
-                <p>Recurring</p>
-                <p>History</p>
-                <p>Settings</p>
-                </div>
-
-                <div className=''>
-                <p>Help Center</p>
-                <p>Contact Us</p>
-                <p>Disclosures</p>
-                </div>
-                <LogoutButton />
-
-                </div>
-                </div>
-        </div> */}
-
-      </div>
-    </nav>
+    <>
+    <div>
+      <input
+        placeholder='Search events'
+        className='search-input'
+      />
+    <button className='cancel-button' onClick={() => toggleSearch(!searchBar)}>cancel</button>
+    </div>
+    </>
     )
+  } else {
+        content = (
+          <nav>
+          <div className="navbar-container">
+            <div>
+              <NavLink to='/' exact={true} activeClassName='active'>
+                <img className="navbar-image logo-image-container"/>
+              </NavLink>
+            </div>
+            <button className="searchbar-toggle" onClick={() => toggleSearch(!searchBar)}>Search Bar</button>
+            <div className='login-signup'>
+              <NavLink to='/login' exact={true} activeClassName='active'>
+                Log In
+              </NavLink>
+            </div>
+            <div className='login-signup'>
+              <NavLink className="signup-link" to='/sign-up' exact={true} activeClassName='active'>
+                Sign Up
+              </NavLink>
+            </div>
+            {sessionUser ?
+            <LogoutButton /> : null}
+          </div>
+        </nav>
+    )
+  }
+
+  if (true) {
+
   }
 
 
