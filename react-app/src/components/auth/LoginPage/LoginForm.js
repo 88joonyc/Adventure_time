@@ -32,6 +32,10 @@ const LoginForm = () => {
     return <Redirect to='/' />;
   }
 
+  const demoUser = async (e) => {
+    await dispatch(login('demo@aa.io', 'password'))
+  }
+
   return (
     <div className='login-form-container'>
       <div className='login-form'>
@@ -68,9 +72,9 @@ const LoginForm = () => {
           </div>
               <button className='verify-button' type='submit'>Login</button>
               <Link className="sign-up-link" to='/sign-up'>Sign up for Adventure Time!</Link>
-              <button className="demo-button" onClick={() => } >Demo Login</button>
           </div>
         </form>
+              <button className="demo-button" onClick={() => demoUser()} >Demo Login</button>
       </div>
       <div className="login-image-container">
         <div className="login-image-space">

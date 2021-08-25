@@ -89,3 +89,18 @@ h1 {
     display: block;
     font-size: xx-large;
 }
+
+.demo-button {
+    border: none;
+    color: blue;
+    background-color: inherit;
+}
+
+.demo-button:hover {
+    border: none;
+    color: blue;
+    cursor: pointer;
+    background-color: inherit;
+    border-radius: 2px;
+    box-shadow: 1px 1px 0 rgb(211, 215, 237);
+}
