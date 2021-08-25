@@ -1,6 +1,14 @@
 .navbar-container {
     display: flex;
     background-color: white;
+    justify-content: space-between;
+    margin-top: -10px;
+}
+
+.searchbar-container {
+    margin-top: -8px;
+    /* display: inline; */
+    /* justify-content: space-around; */
 }
 
 .navbar-image {
@@ -20,7 +28,16 @@ body {
 }
 
 .login-signup {
-    background-color: red;
+    padding: 20px 10px;
+}
+
+.login-signup:hover {
+    background-color: rgb(232, 243, 253);
+}
+
+.right-side-control {
+    display: flex;
+    flex-direction: row;
 }
 
 .search-input {
@@ -33,7 +50,7 @@ body {
 }
 
 .cancel-button {
-    margin-left: 40%;
+    margin-left: 30%;
     border: none;
     background-color: inherit;
     font-size: 1rem;
@@ -42,17 +59,26 @@ body {
 
 .cancel-button:hover {
     cursor: pointer;
-    background-color: saddlebrown;
-    height: 100%;
+    background-color: rgb(190, 212, 233);
+    /* height: 100%; */
 }
 
-.searchbar-toggle {}
+.searchbar-toggle {
+    border: none;
+    background-color: inherit;
+    font-family: inherit;
+    width: 85px
+}
 
 .searchbar-toggle:hover {
     cursor: pointer;
-    background-color: saddlebrown;
+    background-color: rgb(232, 243, 253);
 }
 
-.signup-link{
+.signup-link {
     margin-left: 20px;
+    text-decoration: none;
+    color: rgb(13, 24, 29);
+    font-weight: lighter;
+    font-size: small;
 }

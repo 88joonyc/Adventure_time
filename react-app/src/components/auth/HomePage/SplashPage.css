@@ -5,6 +5,10 @@
     background-position: center center;
 }
 
+body {
+    font-family: 'Noto Sans JP', sans-serif;
+}
+
 .top-sent {
     padding-top: 60px;
 }
