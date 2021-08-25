@@ -7,27 +7,26 @@ import SplashPage from './SplashPage'
 
 const HomePage = () => {
 const dispatch = useDispatch()
-// const { userId } = useParams()
 const history = useHistory
 
 const sessionUser = useSelector(state => state.session.user)
 const events = useSelector(state => state.events_reducer?.events?.events)
 
-let content = null
+const [ eventId, setEventId ] = useState('')
 
-console.log(sessionUser)
+let content = null
 
 useEffect(() => {
     dispatch(eventActions.all_events())
 }, [])
 
-const userbutt = (
-    <>
-        <button>edit</button>
-        <button onChange>delete</button>
-    </>
-)
-
+const handleDelete = async () => {
+    // await eventActions.delete_event(eventId)
+    const ask = window.confirm("are you sure")
+    if (ask){
+        await dispatch(eventActions.delete_event(eventId))
+    }
+}
 
 
 if (sessionUser) {
@@ -47,7 +46,12 @@ if (sessionUser) {
                         <p className='card-print'>{event.capcaity}</p>
                         <img src={event.image}/>
                         <p className='card-print'>{event.cost}</p>
-                        {(event?.host_id === sessionUser?.id )? userbutt : null}
+                        {(event?.host_id === sessionUser?.id ) ? (
+                            <>
+                                <button>edit</button>
+                                <button onClick={() => (handleDelete(), setEventId(event.id))}>delete</button>
+                            </>
+                         ) : null}
                     </div>
                     </>
                 ))}
