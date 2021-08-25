@@ -4,7 +4,11 @@ import './SplashPage.css'
 const SplashPage = () => {
     return (
     <>
-    <img className='spalsh-image' />
+    <div className='spalsh-image'>
+        <p className="opening-sent top-sent">It's TIME</p>
+        <p className="opening-sent bottom-sent">to get Wild!</p>
+        <button>Find your next event</button>
+    </div>
     <div>
         <h3>
             Re-open confidently with Eventbrite’s COVID-19 Safety Playbook
