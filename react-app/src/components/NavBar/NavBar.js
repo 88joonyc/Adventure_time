@@ -30,6 +30,7 @@ const NavBar = () => {
           <NavLink to='/sign-up' exact={true} activeClassName='active'>
             Sign Up
           </NavLink>
+          <LogoutButton />
         </div>
          {/* <div className='navbar-drop-container'>
           <div className=''>
