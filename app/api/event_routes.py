@@ -33,14 +33,14 @@ def create(id):
     if form.valideate_on_submit():
         event = Event(
             host_id = current_user.id,
-            venue_id = form.data['venue_id']
-            category_id = form.data['category_id']
-            name = form.data['name']
-            start_time = form.data['start_time']
-            end_time = form.data['end_time']
-            capacity = form.data['capacity']
-            image = form.data['image']
-            cost = form.data['cost']
+            venue_id = form.data['venue_id'],
+            category_id = form.data['category_id'],
+            name = form.data['name'],
+            start_time = form.data['start_time'],
+            end_time = form.data['end_time'],
+            capacity = form.data['capacity'],
+            image = form.data['image'],
+            cost = form.data['cost'],
         )
         db.session.add()
         db.session.commit()

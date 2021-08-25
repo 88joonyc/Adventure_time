@@ -22,8 +22,8 @@ const remove = () => ({
     type: REMOVE_EVENT
 })
 
-export const all_events = (payload) => async dispatch => {
-    const res = await fetch(`/api/events/${id}`)
+export const all_events = () => async dispatch => {
+    const res = await fetch(`/api/events/`)
     const events = await res.json()
     dispatch(load(events))
 }
@@ -33,7 +33,7 @@ export const create_event = (payload) => async dispatch => {
         method: 'POST',
         headers: {"Content-Type": 'application/json'},
         body: JSON.stringify(payload)
-    }),
+    })
     const data = res.json()
     if (res.ok) {
         dispatch(add(data))
@@ -57,7 +57,7 @@ export const edit_event = (host_id, venue_id, category_id, name, start_time, end
             image,
             cost
         })
-    }),
+    })
     const data = res.json()
     if (res.ok) {
         dispatch(update(data))
@@ -78,6 +78,34 @@ const initialState = {}
 
 const events_reducer = (state = initialState, action ) => {
     switch (action.type) {
-        case: LOAD:
+        case LOAD:
+            if (state) {
+                state = null
+                const all = {
+                    ...state
+                }
+                if (action.events.events) {
+                    action.events.events.forEach((event => {
+                        all[event.id] = event
+                    }))
+            }
+        }
+        case ADD_EVENT:
+            return { events: action.events }
+
+        case REMOVE_EVENT:
+            const data = {...state};
+            return data
+
+        case EDIT_EVENT:
+            return {
+                ...state,
+                [action.event.id]: action.event
+            }
+        default:
+            return state
     }
+
 }
+
+export default events_reducer
