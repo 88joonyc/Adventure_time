@@ -16,6 +16,7 @@ const HostForm = () => {
   const [start_time, setStart] = useState('');
   const [end_time, setEnd] = useState('');
   const [capacity, setCap] = useState('');
+  const [image, setImg] = useState('');
   const [cost, setCost] = useState('');
 
   const user = useSelector(state => state.session.user);
@@ -30,6 +31,7 @@ const HostForm = () => {
         start_time,
         end_time,
         capacity,
+        image,
         cost,
       }
 
@@ -106,6 +108,14 @@ const HostForm = () => {
                             type='number'
                             onChange={(e) => setCap(e.target.value)}
                             required="true"
+                        />
+                    </label>
+                </div>
+                <div>
+                    <label> Image
+                        <input
+                            type='text'
+                            onChange={(e) => setImg(e.target.value)}
                         />
                     </label>
                 </div>
