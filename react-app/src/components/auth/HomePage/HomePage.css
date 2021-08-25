@@ -22,3 +22,10 @@ img {
 .card-print {
     font-size: 10px;
 }
+
+.edit-container {
+    position:fixed;
+    top: 25%;
+    right: 30%;
+    background-color: grey;
+}

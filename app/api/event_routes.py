@@ -31,7 +31,6 @@ def event(id):
 def create():
     form = EventForm()
     form['csrf_token'].data = request.cookies['csrf_token']
-    print('============this is my validateion=============================', form.validate_on_submit)
     if form.validate_on_submit:
         event = Event(
             host_id = current_user.id,
@@ -44,6 +43,7 @@ def create():
             image = form.data['image'],
             cost = form.data['cost'],
         )
+        print('============this is my validateion=============================', event )
         db.session.add(event)
         db.session.commit()
         return event.to_dict()
