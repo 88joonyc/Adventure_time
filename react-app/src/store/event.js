@@ -97,7 +97,9 @@ const events_reducer = (state = initialState, action ) => {
             return { events: action.events }
 
         case REMOVE_EVENT:
+            console.log('this is actionasdasdasd======================',action)
             const data = {...state};
+            delete data[action.eventId]
             return data
 
         case EDIT_EVENT:
