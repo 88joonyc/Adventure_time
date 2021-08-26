@@ -22,10 +22,3 @@
 .create-event:hover {
     background-color: rgb(240, 248, 255);
 }
-
-.ticket-icon {
-    content: url('./createe-event.png');
-    height: 16px;
-    /* padding-bottom: 5px; */
-    width: auto;
-}

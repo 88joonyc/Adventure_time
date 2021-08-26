@@ -1,5 +1,4 @@
 @import url('./EventForm.css');
-
 .navbar-container {
     display: flex;
     background-color: white;
@@ -71,7 +70,7 @@ body {
     font-family: inherit;
     display: flex;
     flex-direction: column;
-    margin-top: 4px;
+    margin-top: 8px;
     font-size: 11px;
     /* margin-bottom: -3px; */
     align-items: center;
@@ -94,6 +93,21 @@ body {
 .search-icon {
     content: url(./outline_search_black_24dp.png);
     width: auto;
-    height: 20px;
+    height: 16px;
+    padding: 0 20px ;
     /* margin-bottom: -2px; */
+}
+
+.ticket-icon {
+    content: url('./createe-event.png');
+    height: 16px;
+    /* padding-bottom: 5px; */
+    width: auto;
+}
+
+.ticketing-icon {
+    content: url('./ticket.png');
+    height: 16px;
+    /* padding-bottom: 5px; */
+    width: auto;
 }
