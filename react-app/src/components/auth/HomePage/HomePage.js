@@ -22,6 +22,7 @@ const [eventId, setId] = useState([]);
 const [venue_id, setVenue] = useState('');
 const [category_id, setCategory] = useState('');
 const [name, setName] = useState('');
+const [description, setDescript] = useState('');
 const [start_time, setStart] = useState('');
 const [end_time, setEnd] = useState('');
 const [capacity, setCap] = useState('');
@@ -36,7 +37,7 @@ const updateVenue = (e) => {
 
 const handleSubmit =  async (e) => {
     e.preventDefault()
-    let data = await dispatch(eventActions.edit_event(sessionUser.id, venue_id, category_id, name, moment(start_time).format('YYYY-MM-DD hh:mm:ss'), moment(end_time).format('YYYY-MM-DD hh:mm:ss'), capacity, image, cost, eventId))
+    let data = await dispatch(eventActions.edit_event(sessionUser.id, venue_id, category_id, name, description, moment(start_time).format('YYYY-MM-DD hh:mm:ss'), moment(end_time).format('YYYY-MM-DD hh:mm:ss'), capacity, image, cost, eventId))
     await dispatch(eventActions.all_events())
     return data
 }
@@ -93,6 +94,16 @@ if (editForm) {
                             <input
                                 type="text"
                                 value={name}
+                                onChange={(e) => setName(e.target.value)}
+                                required="true"
+                            />
+                        </label>
+                    </div>
+                    <div>
+                        <label> description
+                            <textarea
+                                type="text"
+                                value={description}
                                 onChange={(e) => setName(e.target.value)}
                                 required="true"
                             />
@@ -164,13 +175,13 @@ if (sessionUser) {
             <div className='card-container'>
                 {events?.map(event => (
                     <>
-                        <Link to=''>
+                        {/* <Link className='card-per' to={`/event/${event.id}`}> */}
                             <div className="event-cards">
                                 <h4>{event.host_id}</h4>
                                 <p className='card-print'>{event.venue_id}</p>
                                 <p className='card-print'>{event.category_id}</p>
                                 <p className='card-print'>{event.name}</p>
-                                {/* <p className='card-print'>{event.description}</p> */}
+                                <p hidden="true" className='card-print'>{event.description}</p>
                                 <p className='card-print'>{event.start_time}</p>
                                 <p className='card-print'>{event.end_time}</p>
                                 <p className='card-print'>{event.capacity}</p>
@@ -178,12 +189,12 @@ if (sessionUser) {
                                 <p className='card-print'>{event.cost}</p>
                                 {(event?.host_id === sessionUser?.id ) ? (
                                     <>
-                                        <button onClick={() => (toggleEdit(!editForm), setVenue(event.venue_id), setCategory(event.category_id), setName(event.name), setStart(event.start_time), setEnd(event.end_time), setCap(event.capacity), setImg(event.image), setCost(event.cost), setId(event.id))}>edit</button>
+                                        <button onClick={() => (toggleEdit(!editForm), setVenue(event.venue_id), setCategory(event.category_id), setName(event.name), setStart(event.start_time), setEnd(event.end_time), setCap(event.capacity), setImg(event.image), setCost(event.cost), setDescript(event.description), setId(event.id))}>edit</button>
                                         <button onClick={(e) => (handleDelete(e))} value={event.id}>delete</button>
                                     </>
                                 ) : null}
                             </div>
-                        </Link>
+                        {/* </Link> */}
                     </>
                 ))}
             </div>

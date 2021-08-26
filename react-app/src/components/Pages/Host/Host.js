@@ -13,6 +13,7 @@ const HostForm = () => {
   const [venue_id, setVenue] = useState('');
   const [category_id, setCategory] = useState('');
   const [name, setName] = useState('');
+  const [description, setDescript] = useState('');
   const [start_time, setStart] = useState('');
   const [end_time, setEnd] = useState('');
   const [capacity, setCap] = useState('');
@@ -30,6 +31,7 @@ const HostForm = () => {
         venue_id,
         category_id,
         name,
+        description,
         start_time: start_time.split("T").join(" ").concat(":00"),
         end_time: end_time.split("T").join(" ").concat(":00"),
         capacity,
@@ -76,6 +78,15 @@ const HostForm = () => {
                         <input
                             type="text"
                             onChange={(e) => setName(e.target.value)}
+                            required="true"
+                        />
+                    </label>
+                </div>
+                <div>
+                    <label> description
+                        <textarea
+                            type="text"
+                            onChange={(e) => setDescript(e.target.value)}
                             required="true"
                         />
                     </label>
