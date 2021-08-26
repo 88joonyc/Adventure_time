@@ -1,6 +1,6 @@
 .event-cards {
-    width: 260px;
-    height: 350px;
+    width: 275px;
+    height: 330px;
     margin: 0 auto;
     border: 1px solid black;
 }
@@ -11,8 +11,9 @@
 }
 
 .box {
-    width: 80%;
+    width: 90%;
     margin: 0 auto;
+    padding-top: 40px;
 }
 
 img {
@@ -29,7 +30,16 @@ img {
     right: 25%;
     background-color: grey;
     width: 50%;
-    ;
+}
+
+.opening-message {
+    width: 90%;
+    margin: 0 auto;
+    margin-top: 40px;
+    /* border: 1px solid black; */
+    box-shadow: 2px 2px 5px rgb(211, 214, 227);
+    padding: 20px;
+    border-left: 4px solid rgb(186, 68, 237);
 }
 
 .container {
@@ -37,5 +47,20 @@ img {
 }
 
 .card-per {
-    padding: 1px;
+    /* padding: 10px; */
+}
+
+.spalsh-image-2 {
+    background-image: url('./large-group-activity2.jpeg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+}
+
+.top-home-sent {
+    color: rgb(210, 37, 210);
+    font-size: 50px;
+    margin: 0;
+    padding-left: 40px;
+    font-family: 'Monoton', cursive;
 }

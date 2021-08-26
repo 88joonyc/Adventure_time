@@ -1,5 +1,4 @@
 @import url('./HomePage.css');
-
 .spalsh-image {
     background-image: url('./edm2.jpeg');
     background-repeat: no-repeat;
@@ -52,4 +51,8 @@ p {
     width: 90%;
     margin: 0 auto;
     margin-top: 40px;
+    /* border: 1px solid black; */
+    box-shadow: 2px 2px 5px rgb(227, 211, 211);
+    padding: 20px;
+    border-left: 4px solid rgb(237, 68, 68);
 }

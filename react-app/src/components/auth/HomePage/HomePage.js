@@ -169,12 +169,12 @@ if (editForm) {
 
 const opening = (
     <>
-    <div className='spalsh-image'>
-        <p className="opening-sent top-sent">It's TIME</p>
-        <p className="opening-sent bottom-sent">to get Wild!</p>
+    <div className='spalsh-image-2'>
+        <p className="top-sent top-home-sent">Get down</p>
+        <p className="bottom-sent top-home-sent">for the HOOK!</p>
         <button onClick={console.log('jello')} className="event-button">Find your next event</button>
     </div>
-    <div className='covid-message'>
+    <div className='opening-message'>
         <h3>
             Re-open confidently with Adventure Time's COVID-19 Safety Playbook
         </h3>
@@ -189,6 +189,7 @@ const opening = (
 if (sessionUser) {
     content = (
         <>
+            <h1>Popular in </h1>
         <div className='box' >
             <div className='card-container'>
                 {events?.map(event => (
