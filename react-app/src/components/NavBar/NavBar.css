@@ -92,6 +92,6 @@ body {
 .search-icon {
     content: url(./outline_search_black_24dp.png);
     width: auto;
-    height: 60%;
+    height: 40%;
     margin-bottom: -2px;
 }
