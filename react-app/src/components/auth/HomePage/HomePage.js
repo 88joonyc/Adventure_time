@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { Redirect, Link, useHistory, useParams } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 
 import moment from 'moment'
 
@@ -16,9 +16,8 @@ const history = useHistory()
 const sessionUser = useSelector(state => state.session.user)
 const events = useSelector(state => state.events_reducer?.events?.events)
 
-// const [ eventId, setEventId ] = useState('')
-const [ editForm, toggleEdit ] = useState(false)
 const [errors, setErrors] = useState([]);
+const [ editForm, toggleEdit ] = useState(false)
 const [eventId, setId] = useState([]);
 const [venue_id, setVenue] = useState('');
 const [category_id, setCategory] = useState('');
@@ -47,10 +46,6 @@ let content = null
 useEffect(() => {
     dispatch(eventActions.all_events())
 }, [dispatch])
-
-const test = () => {
-    console.log('==========================================', moment(start_time).format('MMM DD HH:mm:ss'))
-}
 
 const handleDelete = async (e) => {
     const ask = window.confirm("are you sure")
@@ -151,7 +146,6 @@ if (editForm) {
                         </label>
                     </div>
                     <button type='submit'>edit</button>
-                    <button onClick={() => test()} type='button'>test</button>
                 </form>
             </div>
         </div>
