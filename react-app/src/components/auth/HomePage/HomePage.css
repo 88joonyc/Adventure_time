@@ -24,8 +24,15 @@ img {
 }
 
 .edit-container {
-    position:fixed;
-    top: 25%;
-    right: 30%;
+    position: fixed;
+    top: 20%;
+    right: 25%;
     background-color: grey;
+    width: 50%;;
+}
+
+.container {
+    background-color: red;
+    ;
+
 }

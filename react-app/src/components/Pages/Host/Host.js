@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux'
-import { Redirect, Link } from 'react-router-dom';
+import { Redirect, Link, useHistory } from 'react-router-dom';
 import { create_event } from '../../../store/event';
 
 import NavBar from '../../NavBar/NavBar';
@@ -21,21 +21,27 @@ const HostForm = () => {
 
   const user = useSelector(state => state.session.user);
   const dispatch = useDispatch();
+  const history = useHistory()
 
   const handleSubmit =  async (e) => {
+      console.log(start_time.split("T").join(" ").concat(":00"))
       e.preventDefault()
       const payload = {
         venue_id,
         category_id,
         name,
-        start_time,
-        end_time,
+        start_time: start_time.split("T").join(" ").concat(":00"),
+        end_time: end_time.split("T").join(" ").concat(":00"),
         capacity,
         image,
         cost,
       }
 
       let data = await dispatch(create_event(payload))
+      if (data) {
+        history.push('/')
+      }
+
       return data
   }
 
@@ -77,28 +83,18 @@ const HostForm = () => {
                 <div>
                     <label> start_day
                         <input
-                            type="date"
+                            type="datetime-local"
                             onChange={(e) => setStart(e.target.value)}
                             required="true"
-                        />
-                    </label>
-                    <label> start_time
-                        <input
-                            type="time"
                         />
                     </label>
                 </div>
                 <div>
                     <label> end_day
                         <input
-                            type='date'
+                            type='datetime-local'
                             onChange={(e) => setEnd(e.target.value)}
                             required="true"
-                        />
-                    </label>
-                    <label> end_time
-                        <input
-                            type='time'
                         />
                     </label>
                 </div>
