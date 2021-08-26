@@ -34,7 +34,7 @@ const NavBar = () => {
     <>
     {/* <button onClick={() =>toggleCreate(!eventPage)}>+</button> */}
     <NavLink className="create-event" to='/host'>{<img className='ticket-icon'/>} Create </NavLink>
-    <NavLink className="create-event" to='/host'>{<img className='ticketing-icon'/>} Tickets </NavLink>
+    <NavLink className="create-event" to='/tickets'>{<img className='ticketing-icon'/>} Tickets </NavLink>
     <LogoutButton />
     </>
   )
