@@ -36,5 +36,4 @@ class Event(db.Model):
             'capacity': self.capacity,
             'image': self.image,
             'cost': self.cost,
-            'venue': self.venue,
         }

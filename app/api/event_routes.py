@@ -1,24 +1,10 @@
 from flask import Blueprint, jsonify, request
 from flask_login import login_required, current_user
-from app.models import db, Event, Venue, Category
+from app.models import db, Event, Venue, Category, User
 from app.forms import EventForm
 
 
 event_routes = Blueprint('events', __name__)
-
-
-# @event_routes.route('/')
-# def events():
-#     events = Event.query.all()
-#     # events = [event.to_dict() for event in events_query]
-
-#     # for event in events:
-#     #     event['venue'] = null
-#     #     return {"events" : events}
-
-
-#     return {'events': [event.to_dict() for event in events]}
-
 
 @event_routes.route('/')
 def evented():
@@ -28,6 +14,7 @@ def evented():
     for event in events:
         event['venue'] = Venue.query.get(event["venue_id"]).to_dict()
         event['category'] = Category.query.get(event["category_id"]).to_dict()
+        event['user'] = User.query.get(event["host_id"]).to_dict()
     return {'events': events}
 
 
