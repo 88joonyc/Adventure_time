@@ -10,6 +10,7 @@ class Event(db.Model):
     venue_id = db.Column(db.Integer, db.ForeignKey('venues.id'), nullable=False)
     category_id = db.Column(db.Integer, db.ForeignKey('categories.id'), nullable=False)
     name = db.Column(db.String(255), nullable=False)
+    description = db.Column(db.String(5000), nullable=False)
     start_time = db.Column(db.DateTime, nullable=False)
     end_time = db.Column(db.DateTime, nullable=False)
     capacity = db.Column(db.Integer )
@@ -30,6 +31,7 @@ class Event(db.Model):
             'venue_id': self.venue_id,
             'category_id': self.category_id,
             'name': self.name,
+            'description': self.description,
             'start_time': self.start_time,
             'end_time': self.end_time,
             'capacity': self.capacity,

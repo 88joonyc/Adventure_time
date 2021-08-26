@@ -1,7 +1,7 @@
 """empty message
 
 Revision ID: c6ee453739ca
-Revises: 
+Revises:
 Create Date: 2021-08-25 13:42:49.756987
 
 """
@@ -56,6 +56,7 @@ def upgrade():
     sa.Column('venue_id', sa.Integer(), nullable=False),
     sa.Column('category_id', sa.Integer(), nullable=False),
     sa.Column('name', sa.String(length=255), nullable=False),
+    sa.Column('description', sa.String(length=5000), nullable=False),
     sa.Column('start_time', sa.DateTime(), nullable=False),
     sa.Column('end_time', sa.DateTime(), nullable=False),
     sa.Column('capacity', sa.Integer(), nullable=True),

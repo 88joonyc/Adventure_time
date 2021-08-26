@@ -15,6 +15,8 @@
     flex-direction: column;
     font-size: 11px;
     color: black;
+    justify-content: center;
+    align-items: center;
 }
 
 .create-event:hover {
@@ -23,7 +25,7 @@
 
 .ticket-icon {
     content: url('./createe-event.png');
-    height: 30px;
+    height: 16px;
     /* padding-bottom: 5px; */
     width: auto;
 }

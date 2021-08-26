@@ -1,5 +1,5 @@
 from flask_wtf import FlaskForm
-from wtforms import StringField, DateField, IntegerField, DateTimeField
+from wtforms import StringField, DateField, IntegerField, DateTimeField, TextAreaField
 from wtforms.validators import DataRequired, Email, ValidationError
 
 
@@ -8,6 +8,7 @@ class EventForm(FlaskForm):
     venue_id = IntegerField('venue_id', validators=[DataRequired()])
     category_id = IntegerField('category_id', validators=[DataRequired()])
     name = StringField('name', validators=[DataRequired()])
+    description = TextAreaField('description', validators=[DataRequired()])
     start_time = DateTimeField('start_time', validators=[DataRequired()])
     end_time = DateTimeField('end_time', validators=[DataRequired()])
     capacity = IntegerField('capacity', validators=[DataRequired()])

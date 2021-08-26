@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { useHistory } from 'react-router-dom';
+import { useHistory, Link } from 'react-router-dom';
 
 import moment from 'moment'
 
@@ -164,23 +164,26 @@ if (sessionUser) {
             <div className='card-container'>
                 {events?.map(event => (
                     <>
-                    <div className="event-cards">
-                        <h4>{event.host_id}</h4>
-                        <p className='card-print'>{event.venue_id}</p>
-                        <p className='card-print'>{event.category_id}</p>
-                        <p className='card-print'>{event.name}</p>
-                        <p className='card-print'>{event.start_time}</p>
-                        <p className='card-print'>{event.end_time}</p>
-                        <p className='card-print'>{event.capacity}</p>
-                        <img src={event.image}/>
-                        <p className='card-print'>{event.cost}</p>
-                        {(event?.host_id === sessionUser?.id ) ? (
-                            <>
-                                <button onClick={() => (toggleEdit(!editForm), setVenue(event.venue_id), setCategory(event.category_id), setName(event.name), setStart(event.start_time), setEnd(event.end_time), setCap(event.capacity), setImg(event.image), setCost(event.cost), setId(event.id))}>edit</button>
-                                <button onClick={(e) => (handleDelete(e))} value={event.id}>delete</button>
-                            </>
-                         ) : null}
-                    </div>
+                        <Link to=''>
+                            <div className="event-cards">
+                                <h4>{event.host_id}</h4>
+                                <p className='card-print'>{event.venue_id}</p>
+                                <p className='card-print'>{event.category_id}</p>
+                                <p className='card-print'>{event.name}</p>
+                                {/* <p className='card-print'>{event.description}</p> */}
+                                <p className='card-print'>{event.start_time}</p>
+                                <p className='card-print'>{event.end_time}</p>
+                                <p className='card-print'>{event.capacity}</p>
+                                <img src={event.image}/>
+                                <p className='card-print'>{event.cost}</p>
+                                {(event?.host_id === sessionUser?.id ) ? (
+                                    <>
+                                        <button onClick={() => (toggleEdit(!editForm), setVenue(event.venue_id), setCategory(event.category_id), setName(event.name), setStart(event.start_time), setEnd(event.end_time), setCap(event.capacity), setImg(event.image), setCost(event.cost), setId(event.id))}>edit</button>
+                                        <button onClick={(e) => (handleDelete(e))} value={event.id}>delete</button>
+                                    </>
+                                ) : null}
+                            </div>
+                        </Link>
                     </>
                 ))}
             </div>

@@ -37,6 +37,7 @@ def create():
             venue_id = form.data['venue_id'],
             category_id = form.data['category_id'],
             name = form.data['name'],
+            description = form.data['description'],
             start_time = form.data['start_time'],
             end_time = form.data['end_time'],
             capacity = form.data['capacity'],
@@ -55,6 +56,7 @@ def edit(id):
     event.venue_id = form.data['venue_id']
     event.category_id = form.data['category_id']
     event.name = form.data['name']
+    event.description = form.data['description']
     event.start_time = form.data['start_time']
     event.end_time = form.data['end_time']
     event.capacity = form.data['capacity']
