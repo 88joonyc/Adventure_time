@@ -24,7 +24,7 @@ const categories_reducer = (state = initialState, action ) => {
                 }
                 if (action.categories.categories) {
                     action.categories.categories.forEach((category => {
-                        cats.push(all[category.id] = category.type)
+                        cats.push(all[category.id] = category)
                     }))
                 }
                 return {"categories": cats }

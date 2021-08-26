@@ -6,8 +6,8 @@ import { all_categories } from '../../../store/category';
 
 import NavBar from '../../NavBar/NavBar';
 
-
 import './Host.css'
+import { all_venues } from '../../../store/venue';
 
 const HostForm = () => {
   const [errors, setErrors] = useState([]);
@@ -20,13 +20,12 @@ const HostForm = () => {
   const [capacity, setCap] = useState('');
   const [image, setImg] = useState('');
   const [cost, setCost] = useState('');
+  const [venue_search, setVenueSearch] = useState('');
 
   const user = useSelector(state => state.session.user);
   const event = useSelector(state => state.events_reducer);
   const category = useSelector(state => (state?.categories_reducer?.categories));
-  const venue = useSelector(state => state.events_reducer.events?.events);
-
-  console.log('===============cat=============================================',category)
+  const venue = useSelector(state => state?.venues_reducer?.venues);
 
   const dispatch = useDispatch();
   const history = useHistory()
@@ -57,7 +56,38 @@ const HostForm = () => {
   useEffect( async () => {
     dispatch(all_events())
     dispatch(all_categories())
+    dispatch(all_venues())
   }, [])
+
+
+  let venue_content = null
+
+  const filter = (memory, query) => {
+      return memory.filter((brain) => {
+          const venue_name = brain.name.toLowerCase()
+          const venue_address = brain.address.toLowerCase()
+          if (venue_name.includes(query)) return venue_name.includes(query)
+          if (venue_address.includes(query)) return venue_address.includes(query)
+      })
+
+  }
+
+//   const place = filter(venue, venue_search)
+
+  if (venue_search) {
+      venue_content = (
+          <>
+          {/* {place.map(ven => ( */}
+                <ul>
+                    <li>
+                        {/* <button onClick={setVenue(ven.id)}>{ven.address}</button> */}
+                    </li>
+                </ul>
+            {/* ))} */}
+            </>
+        )
+    // if (venue_search.toLowerCase().includes()
+  }
 
   return (
         <>
@@ -85,9 +115,9 @@ const HostForm = () => {
                             required="true"
                         >
                             <option>select</option>
-                            {category?.map(cat => {
-                                <option>{cat.type}</option>
-                            })}
+                            {category?.map(cat => (
+                                <option value={cat.id}>{cat.type}</option>
+                            ))}
                         </select>
                     </label>
                             <button onClick={() =>console.log(category)}>what</button>
@@ -102,19 +132,19 @@ const HostForm = () => {
                             value={venue_id}
                             onChange={(e) => setVenue(e.target.value)}
                             required="true"
+                            // placeholder="search for a venue address"
+                            hidden='true'
+                        />
+                        <input
+                            type="text"
+                            value={venue_search}
+                            onChange={(e) => setVenueSearch(e.target.value)}
+                            // required="true"
                             placeholder="search for a venue address"
                         />
+                        {venue_content}
                     </label>
                     <b>Venue is required*</b>
-                </div>
-                <div>
-                    <label> description
-                        <textarea
-                            type="text"
-                            onChange={(e) => setDescript(e.target.value)}
-                            required="true"
-                        />
-                    </label>
                 </div>
                 <h2>Capacity</h2>
                 <b>Tell us how many attendees can register at maximum.</b>
@@ -156,6 +186,10 @@ const HostForm = () => {
                             onChange={(e) => setImg(e.target.value)}
                         />
                     </label>
+                </div>
+                <h3>image preview</h3>
+                <div>
+                    <img src={image}/>
                 </div>
                 <div>
                     <label> cost

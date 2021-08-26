@@ -18,15 +18,16 @@ const venues_reducer = (state = initialState, action ) => {
     switch (action.type) {
         case LOAD:
             if (state) {
-                state = null
+                const venues = []
                 const all = {
                     ...state
                 }
                 if (action.venues.venues) {
                     action.venues.venues.forEach((venue => {
-                        all[venue.id] = venue
+                        venues.push(all[venue.id] = venue)
                     }))
-            }
+                }
+                return {"venues": venues }
         }
         default:
             return state
