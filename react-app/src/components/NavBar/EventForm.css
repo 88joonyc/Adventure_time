@@ -7,7 +7,7 @@
 }
 
 .create-event {
-    padding-top: 4px;
+    padding-top: 6.5px;
     padding-right: 20px;
     padding-left: 20px;
     text-decoration: none;
@@ -24,6 +24,6 @@
 .ticket-icon {
     content: url('./createe-event.png');
     height: 30px;
-    padding-bottom: 5px;
+    /* padding-bottom: 5px; */
     width: auto;
 }

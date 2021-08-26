@@ -71,8 +71,9 @@ body {
     font-family: inherit;
     display: flex;
     flex-direction: column;
-    margin-top: 2px;
+    margin-top: 3px;
     font-size: 11px;
+    margin-bottom: -3px;
 }
 
 .searchbar-toggle:hover {
@@ -92,4 +93,5 @@ body {
     content: url(./outline_search_black_24dp.png);
     width: auto;
     height: 60%;
+    margin-bottom: -2px;
 }
