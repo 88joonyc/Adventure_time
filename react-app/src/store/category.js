@@ -8,7 +8,6 @@ const load = (categories) => ({
 export const all_categories = () => async dispatch => {
     const res = await fetch(`/api/categories`)
     const cats = await res.json()
-    console.log('====================thsu cats----------------------------------',cats)
     dispatch(load(cats))
 
 }
@@ -22,14 +21,12 @@ const categories_reducer = (state = initialState, action ) => {
                 const all = {
                     ...state
                 }
-                // console.log('==================action========================',action.categories.categories)
-                console.log('==================all========================',all)
                 if (action.categories.categories) {
                     action.categories.categories.forEach((category => {
                         all[category.id] = category.type
                     }))
                 }
-                return all
+                return {"categories": all}
         }
         default:
             return state

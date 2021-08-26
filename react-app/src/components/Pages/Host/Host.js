@@ -23,14 +23,16 @@ const HostForm = () => {
 
   const user = useSelector(state => state.session.user);
   const event = useSelector(state => state.events_reducer);
-  const category = useSelector(state => state.events_reducer.events?.events);
+  const category = useSelector(state => state.categories_reducer.categories);
   const venue = useSelector(state => state.events_reducer.events?.events);
+
+  console.log('===============cat=============================================',category)
 
   const dispatch = useDispatch();
   const history = useHistory()
 
   const handleSubmit =  async (e) => {
-      console.log(start_time.split("T").join(" ").concat(":00"))
+    //   console.log(start_time.split("T").join(" ").concat(":00"))
       e.preventDefault()
       const payload = {
         venue_id,
