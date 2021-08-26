@@ -17,7 +17,7 @@ const sessionUser = useSelector(state => state.session.user)
 const events = useSelector(state => state.events_reducer?.events?.events)
 
 const [errors, setErrors] = useState([]);
-const [ editForm, toggleEdit ] = useState(false)
+const [editForm, toggleEdit] = useState(false)
 const [eventId, setId] = useState([]);
 const [venue_id, setVenue] = useState('');
 const [category_id, setCategory] = useState('');
@@ -36,8 +36,8 @@ const updateVenue = (e) => {
 
 const handleSubmit =  async (e) => {
     e.preventDefault()
-
     let data = await dispatch(eventActions.edit_event(sessionUser.id, venue_id, category_id, name, moment(start_time).format('YYYY-MM-DD hh:mm:ss'), moment(end_time).format('YYYY-MM-DD hh:mm:ss'), capacity, image, cost, eventId))
+    await dispatch(eventActions.all_events())
     return data
 }
 
@@ -56,7 +56,9 @@ const handleDelete = async (e) => {
     }
 }
 
-const thisdate = moment(start_time).format('YYYY-MM-DDTHH:MMZ')
+const handleCancel = () => {
+    toggleEdit(!editForm)
+}
 
 let edit = null
 
@@ -146,6 +148,7 @@ if (editForm) {
                         </label>
                     </div>
                     <button type='submit'>edit</button>
+                    <button onClick={() => {handleCancel()}} type='button'>cancel</button>
                 </form>
             </div>
         </div>
