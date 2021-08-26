@@ -3,11 +3,11 @@ import { useSelector, useDispatch } from 'react-redux'
 import {  useHistory } from 'react-router-dom';
 import { create_event, all_events } from '../../../store/event';
 import { all_categories } from '../../../store/category';
+import { all_venues } from '../../../store/venue';
 
 import NavBar from '../../NavBar/NavBar';
 
 import './Host.css'
-import { all_venues } from '../../../store/venue';
 
 const HostForm = () => {
   const [errors, setErrors] = useState([]);
