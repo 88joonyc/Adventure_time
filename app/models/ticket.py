@@ -17,14 +17,6 @@ class Ticket(db.Model):
     def to_dict(self):
         return {
             'id': self.id,
-            'host_id': self.host_id,
-            'venue_id': self.venue_id,
-            'category_id': self.category_id,
-            'name': self.name,
-            'description': self.description,
-            'start_time': self.start_time,
-            'end_time': self.end_time,
-            'capacity': self.capacity,
-            'image': self.image,
-            'cost': self.cost,
+            'user_id': self.user_id,
+            'event_id': self.event_id,
         }
