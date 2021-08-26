@@ -23,7 +23,6 @@ class Event(db.Model):
     venue = db.relationship('Venue', back_populates='venues')
     host = db.relationship('User', backref='users')
 
-
     def to_dict(self):
         return {
             'id': self.id,

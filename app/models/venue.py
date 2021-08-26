@@ -28,5 +28,3 @@ class Venue(db.Model):
             'latitude': self.latitude,
             'longitude': self.longitude,
         }
-
-    # def to_dict(self):

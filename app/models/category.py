@@ -12,8 +12,6 @@ class Category(db.Model):
 
     categories = db.relationship('Event', back_populates='categories')
 
-
-
     def to_dict(self):
         return {
             'id': self.id,
