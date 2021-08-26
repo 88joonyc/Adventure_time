@@ -43,7 +43,6 @@ def create():
             image = form.data['image'],
             cost = form.data['cost'],
         )
-        print('============this is my validateion=============================', event )
         db.session.add(event)
         db.session.commit()
         return event.to_dict()
@@ -52,6 +51,7 @@ def create():
 @login_required
 def edit(id):
     event = Event.query.get(id)
+    form = EventForm()
     event.venue_id = form.data['venue_id']
     event.category_id = form.data['category_id']
     event.name = form.data['name']

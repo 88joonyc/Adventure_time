@@ -19,10 +19,11 @@ const events = useSelector(state => state.events_reducer?.events?.events)
 // const [ eventId, setEventId ] = useState('')
 const [ editForm, toggleEdit ] = useState(false)
 const [errors, setErrors] = useState([]);
+const [eventId, setId] = useState([]);
 const [venue_id, setVenue] = useState('');
 const [category_id, setCategory] = useState('');
 const [name, setName] = useState('');
-const [start_time, setStart] = useState(events?.start_time);
+const [start_time, setStart] = useState('');
 const [end_time, setEnd] = useState('');
 const [capacity, setCap] = useState('');
 const [image, setImg] = useState('');
@@ -37,19 +38,7 @@ const updateVenue = (e) => {
 const handleSubmit =  async (e) => {
     e.preventDefault()
 
-    // payload
-    // venue_id,
-    // category_id,
-    // name,
-    // start_time,
-    // end_time,
-    // capacity,
-    // image,
-    // cost,
-
-
-
-    let data = await dispatch(eventActions.edit_event())
+    let data = await dispatch(eventActions.edit_event(sessionUser.id, venue_id, category_id, name, moment(start_time).format('MMM DD HH:MM:SS'), end_time, capacity, image, cost, eventId ))
     return data
 }
 
@@ -58,6 +47,10 @@ let content = null
 useEffect(() => {
     dispatch(eventActions.all_events())
 }, [dispatch])
+
+const test = () => {
+    console.log('==========================================', moment(start_time).format('MMM DD HH:mm:SSZ'))
+}
 
 const handleDelete = async (e) => {
     const ask = window.confirm("are you sure")
@@ -69,12 +62,6 @@ const handleDelete = async (e) => {
 }
 
 const thisdate = moment(start_time).format('YYYY-MM-DDTHH:MMZ')
-
-
-const handleEdit = () => {
-    console.log(thisdate)
-    console.log(start_time)
-}
 
 let edit = null
 
@@ -163,7 +150,8 @@ if (editForm) {
                             />
                         </label>
                     </div>
-                    <button onClick={() => handleEdit()} type='button'>edit</button>
+                    <button type='submit'>edit</button>
+                    <button onClick={() => test()} type='button'>test</button>
                 </form>
             </div>
         </div>
@@ -191,7 +179,7 @@ if (sessionUser) {
                         <p className='card-print'>{event.cost}</p>
                         {(event?.host_id === sessionUser?.id ) ? (
                             <>
-                                <button onClick={() => (toggleEdit(!editForm), setVenue(event.venue_id), setCategory(event.category_id), setName(event.name), setStart(event.start_time), setEnd(event.end_time), setCap(event.capacity), setImg(event.image), setCost(event.cost))}>edit</button>
+                                <button onClick={() => (toggleEdit(!editForm), setVenue(event.venue_id), setCategory(event.category_id), setName(event.name), setStart(event.start_time), setEnd(event.end_time), setCap(event.capacity), setImg(event.image), setCost(event.cost), setId(event.id))}>edit</button>
                                 <button onClick={(e) => (handleDelete(e))} value={event.id}>delete</button>
                             </>
                          ) : null}

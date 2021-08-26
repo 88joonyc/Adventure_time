@@ -44,8 +44,8 @@ export const create_event = (payload) => async dispatch => {
     return data
 }
 
-export const edit_event = (host_id, venue_id, category_id, name, start_time, end_time, capacity, image, cost) => async dispatch => {
-    const res = await fetch('/api/events/', {
+export const edit_event = (host_id, venue_id, category_id, name, start_time, end_time, capacity, image, cost, id) => async dispatch => {
+    const res = await fetch(`/api/events/edit/${id}`, {
         method: 'PUT',
         headers: {"Content-Type": 'application/json'},
         body: JSON.stringify({
@@ -97,10 +97,7 @@ const events_reducer = (state = initialState, action ) => {
 
         case REMOVE_EVENT:
             const data = {...state};
-            console.log('this is actionasdasdasd======================',action.eventId)
-            console.log('this is actionasdasdasd======================',data)
             let hoo = delete data[action.eventId]
-            console.log('this is actionasdasdasd======================',hoo)
             return data
 
         case EDIT_EVENT:
