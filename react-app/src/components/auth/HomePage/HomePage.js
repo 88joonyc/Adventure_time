@@ -38,7 +38,7 @@ const updateVenue = (e) => {
 const handleSubmit =  async (e) => {
     e.preventDefault()
 
-    let data = await dispatch(eventActions.edit_event(sessionUser.id, venue_id, category_id, name, moment(start_time).format('MMM DD HH:MM:SS'), end_time, capacity, image, cost, eventId ))
+    let data = await dispatch(eventActions.edit_event(sessionUser.id, venue_id, category_id, name, moment(start_time).format('YYYY-MM-DD hh:mm:ss'), moment(end_time).format('YYYY-MM-DD hh:mm:ss'), capacity, image, cost, eventId))
     return data
 }
 
@@ -49,7 +49,7 @@ useEffect(() => {
 }, [dispatch])
 
 const test = () => {
-    console.log('==========================================', moment(start_time).format('MMM DD HH:mm:SSZ'))
+    console.log('==========================================', moment(start_time).format('MMM DD HH:mm:ss'))
 }
 
 const handleDelete = async (e) => {
