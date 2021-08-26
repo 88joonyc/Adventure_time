@@ -20,7 +20,7 @@ ticket_routes = Blueprint('tickets', __name__)
 
 
 @ticket_routes.route('/')
-def ticket(id):
+def ticket():
     tickets = Ticket.query.all()
     return {'tickets': [ticket.to_dict() for ticket in tickets]}
 

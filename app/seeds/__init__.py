@@ -3,6 +3,7 @@ from .users import seed_users, undo_users
 from .venues import seed_venues, undo_venues
 from .categories import seed_categories, undo_categories
 from .events import seed_events, undo_events
+from .tickets import seed_tickets, undo_tickets
 
 # Creates a seed group to hold our commands
 # So we can type `flask seed --help`
@@ -16,6 +17,7 @@ def seed():
     seed_venues()
     seed_categories()
     seed_events()
+    seed_tickets()
     # Add other seed functions here
 
 
@@ -26,4 +28,5 @@ def undo():
     undo_venues()
     undo_categories()
     undo_events()
+    undo_tickets()
     # Add other undo functions here
