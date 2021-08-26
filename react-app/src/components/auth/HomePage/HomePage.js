@@ -205,7 +205,7 @@ if (sessionUser) {
                                     <p className='card-print card-date'>{moment(event.start_time).format('ddd, MMM D, h:mm A')}</p>
                                     {/* <p className='card-print'>{moment(event.end_time).format('ddd, MMM D, h:mm A')}</p> */}
                                     <p className='card-print'>starts at ${event.cost}</p>
-                                    <p className='card-print card-venue'>{event.venue.name}</p>
+                                    <p className='card-print'>{event.venue.name}</p>
                                     <p className='card-print'>{event.user.email}</p>
                                     <p className='card-print'>Limited to: {event.capacity} seats!</p>
                                 </div>

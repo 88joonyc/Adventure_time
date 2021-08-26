@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux'
-import { Redirect, Link, useHistory } from 'react-router-dom';
+import {  useHistory } from 'react-router-dom';
 import { create_event, all_events } from '../../../store/event';
+import { all_categories } from '../../../store/category';
 
 import NavBar from '../../NavBar/NavBar';
 
@@ -21,7 +22,9 @@ const HostForm = () => {
   const [cost, setCost] = useState('');
 
   const user = useSelector(state => state.session.user);
-  const event = useSelector(state => state.events_reducer.events?.events);
+  const event = useSelector(state => state.events_reducer);
+  const category = useSelector(state => state.events_reducer.events?.events);
+  const venue = useSelector(state => state.events_reducer.events?.events);
 
   const dispatch = useDispatch();
   const history = useHistory()
@@ -49,8 +52,9 @@ const HostForm = () => {
       return data
   }
 
-  useEffect(() => {
+  useEffect( async () => {
     dispatch(all_events())
+    dispatch(all_categories())
   }, [])
 
   return (
