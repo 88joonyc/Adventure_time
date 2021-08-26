@@ -62,8 +62,10 @@ const HostForm = () => {
 
   let venue_content = null
 
+  console.log(venue)
+
   const filter = (memory, query) => {
-      return memory.filter((brain) => {
+      return memory?.filter((brain) => {
           const venue_name = brain.name.toLowerCase()
           const venue_address = brain.address.toLowerCase()
           if (venue_name.includes(query)) return venue_name.includes(query)
@@ -72,18 +74,18 @@ const HostForm = () => {
 
   }
 
-//   const place = filter(venue, venue_search)
+  const place = filter(venue, venue_search)
 
   if (venue_search) {
       venue_content = (
           <>
-          {/* {place.map(ven => ( */}
+          {place?.map(ven => (
                 <ul>
                     <li>
-                        {/* <button onClick={setVenue(ven.id)}>{ven.address}</button> */}
+                        <button onClick={() => setVenue(ven?.id)}>{ven?.address}</button>
                     </li>
                 </ul>
-            {/* ))} */}
+            ))}
             </>
         )
     // if (venue_search.toLowerCase().includes()
