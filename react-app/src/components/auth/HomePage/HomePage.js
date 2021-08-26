@@ -167,6 +167,24 @@ if (editForm) {
     )
 }
 
+const opening = (
+    <>
+    <div className='spalsh-image'>
+        <p className="opening-sent top-sent">It's TIME</p>
+        <p className="opening-sent bottom-sent">to get Wild!</p>
+        <button onClick={console.log('jello')} className="event-button">Find your next event</button>
+    </div>
+    <div className='covid-message'>
+        <h3>
+            Re-open confidently with Adventure Time's COVID-19 Safety Playbook
+        </h3>
+        <p>
+            We partnered with risk management and health experts to empower event creators to thoughtfully consider potential safety and security risks at your event.
+        </p>
+    </div>
+    </>
+)
+
 
 if (sessionUser) {
     content = (
@@ -183,10 +201,11 @@ if (sessionUser) {
                                 <p className='card-print'>{event.category.type}</p>
                                 <p hidden="true" className='card-print'>{event.description}</p>
                                 <p className='card-print'>{moment(event.start_time).format('ddd, MMM D, h:mm A')}</p>
-                                <p className='card-print'>{event.end_time}</p>
+                                {/* <p className='card-print'>{moment(event.end_time).format('ddd, MMM D, h:mm A')}</p> */}
                                 <p className='card-print'>starts at ${event.cost}</p>
                                 <p className='card-print'>{event.venue.name}</p>
-                                <p className='card-print'>{event.capacity}</p>
+                                <p className='card-print'>{event.user.email}</p>
+                                <p className='card-print'>Limited to: {event.capacity} seats!</p>
                                 {(event?.host_id === sessionUser?.id ) ? (
                                     <>
                                         <button onClick={() => (toggleEdit(!editForm), setVenue(event.venue_id), setCategory(event.category_id), setName(event.name), setStart(event.start_time), setEnd(event.end_time), setCap(event.capacity), setImg(event.image), setCost(event.cost), setDescript(event.description), setId(event.id))}>edit</button>
@@ -201,6 +220,10 @@ if (sessionUser) {
         </div>
         {edit}
     </>)
+
+
+
+
 } else {
     content = (
         <>
@@ -209,7 +232,12 @@ if (sessionUser) {
     )
 }
 
-    return (content)
+    return (
+        <>
+        {sessionUser? opening : null}
+        {content}
+        </>
+    )
 }
 
 export default HomePage
