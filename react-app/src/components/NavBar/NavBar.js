@@ -81,7 +81,8 @@ const NavBar = () => {
             </div>
                 <div className="right-side-control">
               <button className="searchbar-toggle" onClick={() => toggleSearch(!searchBar)}>
-                Search
+                {<img className='search-icon'/>}
+                search
               </button>
               {sessionUser ? usertab : verificationtabs}
             </div>

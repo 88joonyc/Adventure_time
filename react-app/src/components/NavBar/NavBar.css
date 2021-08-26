@@ -69,7 +69,10 @@ body {
     border: none;
     background-color: inherit;
     font-family: inherit;
-    width: 85px
+    display: flex;
+    flex-direction: column;
+    margin-top: 2px;
+    font-size: 11px;
 }
 
 .searchbar-toggle:hover {
@@ -83,4 +86,10 @@ body {
     color: rgb(13, 24, 29);
     font-weight: lighter;
     font-size: small;
+}
+
+.search-icon {
+    content: url(./outline_search_black_24dp.png);
+    width: auto;
+    height: 60%;
 }
