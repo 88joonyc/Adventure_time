@@ -4,12 +4,14 @@ import session from './session'
 import events_reducer from './event';
 import categories_reducer from './category';
 import venues_reducer from './venue';
+import tickets_reducer from './ticket';
 
 const rootReducer = combineReducers({
   session,
   events_reducer,
   categories_reducer,
   venues_reducer,
+  tickets_reducer,
 });
 
 
