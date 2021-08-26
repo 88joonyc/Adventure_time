@@ -18,15 +18,16 @@ const categories_reducer = (state = initialState, action ) => {
     switch (action.type) {
         case LOAD:
             if (state) {
+                const cats = []
                 const all = {
                     ...state
                 }
                 if (action.categories.categories) {
                     action.categories.categories.forEach((category => {
-                        all[category.id] = category.type
+                        cats.push(all[category.id] = category.type)
                     }))
                 }
-                return {"categories": all}
+                return {"categories": cats }
         }
         default:
             return state

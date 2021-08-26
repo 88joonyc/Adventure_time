@@ -23,7 +23,7 @@ const HostForm = () => {
 
   const user = useSelector(state => state.session.user);
   const event = useSelector(state => state.events_reducer);
-  const category = useSelector(state => state.categories_reducer.categories);
+  const category = useSelector(state => (state?.categories_reducer?.categories));
   const venue = useSelector(state => state.events_reducer.events?.events);
 
   console.log('===============cat=============================================',category)
@@ -85,9 +85,12 @@ const HostForm = () => {
                             required="true"
                         >
                             <option>select</option>
-                            {event?.venue}
+                            {category?.map(cat => {
+                                <option>{cat.type}</option>
+                            })}
                         </select>
                     </label>
+                            <button onClick={() =>console.log(category)}>what</button>
                 </div>
                 </div>
                 <h2>Location</h2>
