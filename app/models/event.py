@@ -19,8 +19,8 @@ class Event(db.Model):
     created_at = db.Column(db.DateTime(timezone=True), server_default=func.now())
     updated_at = db.Column(db.DateTime(timezone=True), server_default=func.now())
 
-    category = db.relationship('Category', backref='categories')
-    venue = db.relationship('User', backref='venues')
+    categories = db.relationship('Category', back_populates='categories')
+    venue = db.relationship('Venue', back_populates='venues')
     host = db.relationship('User', backref='users')
 
 
@@ -37,4 +37,5 @@ class Event(db.Model):
             'capacity': self.capacity,
             'image': self.image,
             'cost': self.cost,
+            'venue': self.venue,
         }

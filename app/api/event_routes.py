@@ -13,11 +13,41 @@ def events():
     # events = [event.to_dict() for event in events_query]
 
     # for event in events:
-    #     event['venue'] = Venue.query.get(event['venue_id'])
+    #     event['venue'] = null
     #     return {"events" : events}
 
 
     return {'events': [event.to_dict() for event in events]}
+
+
+@event_routes.route('/<int:id>')
+def evented(id):
+    events_query = Event.query.all()
+    venues = Venue.query.get(id)
+    events = [ event.to_dict() for event in events_query ]
+    for event in events:
+        # dis = Venue.query(event)
+
+        event['venue'] = Venue.query.get(event["venue_id"]).to_dict()
+
+        # event['venue'] = None
+        print('=============================event========================', event["venue_id"])
+        # print('=============================event========================',dis)
+        # event['venue'] = Venue.query.filter(Venue.id == event.venue_id).to_dict()
+        # event['venue'] = Venue.query.get(1)
+        print(id)
+
+    print('=============================events========================',events)
+    # venue = Venue.query.filter()
+    # events = [event.to_dict() for event in events_query]
+
+    # for event in events:
+    # event['venue'] = Venue.query.get(event['venue_id'])
+    #     return {"events" : events}
+
+
+    # return {'events': [ event.to_dict() for event in events ]}
+    return {'events': events}
 
 
 @event_routes.route('/<int:id>')

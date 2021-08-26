@@ -11,12 +11,12 @@ class Venue(db.Model):
     city = db.Column(db.String(50), nullable=False)
     state = db.Column(db.String(50), nullable=False)
     zip_code = db.Column(db.Integer, nullable=False)
-    latitude = db.Column(db.Float(2, 5), nullable=False)
-    longitude = db.Column(db.Float(2, 5), nullable=False)
+    latitude = db.Column(db.String(2, 5), nullable=False)
+    longitude = db.Column(db.String(2, 5), nullable=False)
     created_at = db.Column(db.DateTime(timezone=True), server_default=func.now())
     updated_at = db.Column(db.DateTime(timezone=True), server_default=func.now())
 
-
+    venues = db.relationship('Event', back_populates='venue')
 
     def to_dict(self):
         return {
@@ -28,3 +28,5 @@ class Venue(db.Model):
             'latitude': self.latitude,
             'longitude': self.longitude,
         }
+
+    # def to_dict(self):
