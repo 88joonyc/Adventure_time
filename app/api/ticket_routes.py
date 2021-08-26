@@ -25,32 +25,24 @@ def ticket():
     return {'tickets': [ticket.to_dict() for ticket in tickets]}
 
 
-# @ticket_routes.route('/', methods=['POST'])
-# @login_required
-# def create():
-#     form = EventForm()
-#     form['csrf_token'].data = request.cookies['csrf_token']
-#     if form.validate_on_submit:
-#         event = Event(
-#             host_id = current_user.id,
-#             venue_id = form.data['venue_id'],
-#             category_id = form.data['category_id'],
-#             name = form.data['name'],
-#             description = form.data['description'],
-#             start_time = form.data['start_time'],
-#             end_time = form.data['end_time'],
-#             capacity = form.data['capacity'],
-#             image = form.data['image'],
-#             cost = form.data['cost'],
-#         )
-#         db.session.add(event)
-#         db.session.commit()
-#         return event.to_dict()
+@ticket_routes.route('/', methods=['POST'])
+@login_required
+def create():
+    form = TicketForm()
+    form['csrf_token'].data = request.cookies['csrf_token']
+    if form.validate_on_submit:
+        ticket = Ticket(
+            user_id = current_user.id,
+            event_id = form.data['event_id'],
+        )
+        db.session.add(ticket)
+        db.session.commit()
+        return ticket.to_dict()
 
-# @ticket_routes.route('/remove/<int:id>', methods=['DELETE'])
-# @login_required
-# def rubbish(id):
-#     event = Event.query.get(id)
-#     db.session.delete(event)
-#     db.session.commit()
-#     return event.to_dict()
+@ticket_routes.route('/remove/<int:id>', methods=['DELETE'])
+@login_required
+def rubbish(id):
+    ticket = Ticket.query.get(id)
+    db.session.delete(ticket)
+    db.session.commit()
+    return ticket.to_dict()
