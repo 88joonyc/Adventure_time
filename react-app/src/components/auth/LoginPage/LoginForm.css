@@ -104,3 +104,13 @@ h1 {
     border-radius: 2px;
     box-shadow: 1px 1px 0 rgb(211, 215, 237);
 }
+
+.logout-button {
+    border: none;
+    background-color: inherit;
+}
+
+.logout-button:hover {
+    background-color: rgb(240, 248, 255);
+    cursor: pointer;
+}

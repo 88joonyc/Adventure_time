@@ -2,7 +2,7 @@ import React from 'react';
 import { useDispatch } from 'react-redux';
 import { logout } from '../../store/session';
 
-// import 'LoginForm.css'
+import './LoginPage/LoginForm.css'
 
 const LogoutButton = () => {
   const dispatch = useDispatch()
@@ -10,7 +10,7 @@ const LogoutButton = () => {
     await dispatch(logout());
   };
 
-  return <button onClick={onLogout}>Logout</button>;
+  return <button className="logout-button" onClick={onLogout}>Logout</button>;
 };
 
 export default LogoutButton;

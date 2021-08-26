@@ -34,7 +34,7 @@ body {
 }
 
 .login-signup:hover {
-    background-color: rgb(232, 243, 253);
+    background-color: rgb(240, 248, 255);
 }
 
 .right-side-control {
@@ -74,7 +74,7 @@ body {
 
 .searchbar-toggle:hover {
     cursor: pointer;
-    background-color: rgb(232, 243, 253);
+    background-color: rgb(240, 248, 255);
 }
 
 .signup-link {
