@@ -24,7 +24,7 @@ h1 {
 
 .logo-image-container {
     content: url('../../NavBar/adventure_time-logo2.jpeg');
-    width: 150px;
+    max-height: 70px;
 }
 
 .sign-up-link {

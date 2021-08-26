@@ -22,6 +22,7 @@ class Event(db.Model):
     categories = db.relationship('Category', back_populates='categories')
     venue = db.relationship('Venue', back_populates='venues')
     host = db.relationship('User', backref='users')
+    tickets = db.relationship('Ticket', back_populates="events")
 
     def to_dict(self):
         return {

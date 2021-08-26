@@ -22,8 +22,8 @@ const HostForm = () => {
   const [cost, setCost] = useState('');
   const [venue_search, setVenueSearch] = useState('');
 
-  const user = useSelector(state => state.session.user);
-  const event = useSelector(state => state.events_reducer);
+//   const user = useSelector(state => state.session.user);
+//   const event = useSelector(state => state.events_reducer);
   const category = useSelector(state => (state?.categories_reducer?.categories));
   const venue = useSelector(state => state?.venues_reducer?.venues);
 
@@ -54,7 +54,7 @@ const HostForm = () => {
   }
 
   useEffect( async () => {
-    dispatch(all_events())
+    // dispatch(all_events())
     dispatch(all_categories())
     dispatch(all_venues())
   }, [])
@@ -125,9 +125,9 @@ const HostForm = () => {
                             <button onClick={() =>console.log(category)}>what</button>
                 </div>
                 </div>
+                <div className="host-card">
                 <h2>Location</h2>
                 <p>Help people in the area discover your event and let attendees know where to show up.</p>
-                <div>
                     <label> Venue location
                         <input
                             type="number"
@@ -148,63 +148,65 @@ const HostForm = () => {
                     </label>
                     <b>Venue is required*</b>
                 </div>
-                <h2>Capacity</h2>
-                <b>Tell us how many attendees can register at maximum.</b>
-                <div>
-                    <label> capacity
-                        <input
-                            type='number'
-                            onChange={(e) => setCap(e.target.value)}
-                            required="true"
-                        />
-                    </label>
+                <div className="host-card">
+                    <h2>Capacity</h2>
+                    <b>Tell us how many attendees can register at maximum.</b>
+                        <label> capacity
+                            <input
+                                type='number'
+                                onChange={(e) => setCap(e.target.value)}
+                                required="true"
+                            />
+                        </label>
                 </div>
-                <h2>Date and time</h2>
-                <p>Tell event-goers when your event starts and ends so they can make plans to attend.</p>
-                <div>
-                    <label> Start
-                        <input
-                            type="datetime-local"
-                            onChange={(e) => setStart(e.target.value)}
-                            required="true"
-                        />
-                    </label>
+                <div className="host-card">
+                    <h2>Date and time</h2>
+                    <p>Tell event-goers when your event starts and ends so they can make plans to attend.</p>
+                        <label> Start
+                            <input
+                                type="datetime-local"
+                                onChange={(e) => setStart(e.target.value)}
+                                required="true"
+                            />
+                        </label>
+                    <div>
+                        <label> end_day
+                            <input
+                                type='datetime-local'
+                                onChange={(e) => setEnd(e.target.value)}
+                                required="true"
+                                />
+                        </label>
+                    </div>
                 </div>
-                <div>
-                    <label> end_day
-                        <input
-                            type='datetime-local'
-                            onChange={(e) => setEnd(e.target.value)}
-                            required="true"
-                        />
-                    </label>
+                <div className="host-card">
+                    <h2>Main Event Image</h2>
+                    <p>This is the first image attendees will see at the top of your listing. Use a high quality image: 2160x1080px (2:1 ratio).</p>
+                        <label> Image
+                            <input
+                                type='text'
+                                onChange={(e) => setImg(e.target.value)}
+                            />
+                        </label>
+                    <h3>image preview</h3>
+                    <div>
+                        <img src={image}/>
+                    </div>
                 </div>
-                <h2>Main Event Image</h2>
-                <p>This is the first image attendees will see at the top of your listing. Use a high quality image: 2160x1080px (2:1 ratio).</p>
-                <div>
-                    <label> Image
-                        <input
-                            type='text'
-                            onChange={(e) => setImg(e.target.value)}
-                        />
-                    </label>
+                <div className="host-card">
+                    <h2>Cost</h2>
+                    <p>Add details for anys costs associated with attending your event.</p>
+                        <label> cost
+                            <input
+                                type='number'
+                                onChange={(e) => setCost(e.target.value)}
+                                required="true"
+                            />
+                        </label>
                 </div>
-                <h3>image preview</h3>
-                <div>
-                    <img src={image}/>
-                </div>
-                <div>
-                    <label> cost
-                        <input
-                            type='number'
-                            onChange={(e) => setCost(e.target.value)}
-                            required="true"
-                        />
-                    </label>
-                </div>
+                <div className="host-card">
                 <h2>Description</h2>
                 <p>Add more details to your event like your schedule, sponsors, or featured guests.</p>
-                <div>
                     <label> Description
                         <textarea
                             type='text'

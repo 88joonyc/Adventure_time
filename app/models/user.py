@@ -16,6 +16,8 @@ class User(db.Model, UserMixin):
     created_at = db.Column(db.DateTime(timezone=True), server_default=func.now())
     updated_at = db.Column(db.DateTime(timezone=True), server_default=func.now())
 
+    tickets = db.relationship("Ticket")
+
 
     @property
     def password(self):
