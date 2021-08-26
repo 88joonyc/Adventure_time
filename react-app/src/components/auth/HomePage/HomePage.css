@@ -76,6 +76,9 @@ img {
     background-position: center center;
 }
 
+
+/* ----------------------------------- */
+
 .top-home-sent {
     color: rgb(210, 37, 210);
     font-size: 50px;
@@ -83,9 +86,6 @@ img {
     padding-left: 40px;
     font-family: 'Monoton', cursive;
 }
-
-
-/* ----------------------------------- */
 
 .card-print {
     font-size: 10px;
@@ -102,4 +102,9 @@ img {
 
 .card-date {
     color: rgb(255, 116, 66);
+}
+
+.card-venue {
+    font-size: 13px;
+    color: rgb(135, 132, 148);
 }
