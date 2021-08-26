@@ -37,8 +37,7 @@ const updateVenue = (e) => {
 const handleSubmit =  async (e) => {
     e.preventDefault()
 
-    // e.preventDefault()
-    // const payload = {
+    // payload
     // venue_id,
     // category_id,
     // name,
@@ -47,10 +46,11 @@ const handleSubmit =  async (e) => {
     // capacity,
     // image,
     // cost,
-    // }
 
-    // let data = await dispatch((payload))
-    // return data
+
+
+    let data = await dispatch(eventActions.edit_event())
+    return data
 }
 
 let content = null
