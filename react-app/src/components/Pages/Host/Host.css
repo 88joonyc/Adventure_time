@@ -1,0 +1,13 @@
+.host-container {
+    background-color: brown;
+    height: 100%;
+    width: 100%;
+}
+
+b:hover {
+    color: red;
+}
+
+.host-card {
+    background-color: royalblue;
+}

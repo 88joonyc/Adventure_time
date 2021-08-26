@@ -1,7 +1,7 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux'
 import { Redirect, Link, useHistory } from 'react-router-dom';
-import { create_event } from '../../../store/event';
+import { create_event, all_events } from '../../../store/event';
 
 import NavBar from '../../NavBar/NavBar';
 
@@ -21,6 +21,8 @@ const HostForm = () => {
   const [cost, setCost] = useState('');
 
   const user = useSelector(state => state.session.user);
+  const event = useSelector(state => state.events_reducer.events?.events);
+
   const dispatch = useDispatch();
   const history = useHistory()
 
@@ -47,40 +49,54 @@ const HostForm = () => {
       return data
   }
 
+  useEffect(() => {
+    dispatch(all_events())
+  }, [])
 
   return (
         <>
         <NavBar/>
-        <div>
+        <div className="host-container">
             <form onSubmit={(e) =>{handleSubmit(e)}}>
+                <div className="host-card">
+                    <h2>Basic Info</h2>
+                    <p>Name your event and tell event-goers why they should come. Add details that highlight what makes it unique.</p>
+                    <label> Event Title
+                        <input
+                            type="text"
+                            onChange={(e) => setName(e.target.value)}
+                            required="true"
+                            placeholder='Be clear and descriptive.'
+                        />
+                    </label>
+                    <b>Title is required*</b>
                 <div>
-                    <label> venue_id
+                    <label> category_id
+                        <select
+                            type="number"
+                            value={category_id}
+                            onChange={(e) => setCategory(e.target.value)}
+                            required="true"
+                        >
+                            <option>select</option>
+                            {event?.venue}
+                        </select>
+                    </label>
+                </div>
+                </div>
+                <h2>Location</h2>
+                <p>Help people in the area discover your event and let attendees know where to show up.</p>
+                <div>
+                    <label> Venue location
                         <input
                             type="number"
                             value={venue_id}
                             onChange={(e) => setVenue(e.target.value)}
                             required="true"
+                            placeholder="search for a venue address"
                         />
                     </label>
-                </div>
-                <div>
-                    <label> category_id
-                        <input
-                            type="number"
-                            value={category_id}
-                            onChange={(e) => setCategory(e.target.value)}
-                            required="true"
-                        />
-                    </label>
-                </div>
-                <div>
-                    <label> name
-                        <input
-                            type="text"
-                            onChange={(e) => setName(e.target.value)}
-                            required="true"
-                        />
-                    </label>
+                    <b>Venue is required*</b>
                 </div>
                 <div>
                     <label> description
@@ -91,8 +107,21 @@ const HostForm = () => {
                         />
                     </label>
                 </div>
+                <h2>Capacity</h2>
+                <b>Tell us how many attendees can register at maximum.</b>
                 <div>
-                    <label> start_day
+                    <label> capacity
+                        <input
+                            type='number'
+                            onChange={(e) => setCap(e.target.value)}
+                            required="true"
+                        />
+                    </label>
+                </div>
+                <h2>Date and time</h2>
+                <p>Tell event-goers when your event starts and ends so they can make plans to attend.</p>
+                <div>
+                    <label> Start
                         <input
                             type="datetime-local"
                             onChange={(e) => setStart(e.target.value)}
@@ -109,15 +138,8 @@ const HostForm = () => {
                         />
                     </label>
                 </div>
-                <div>
-                    <label> capacity
-                        <input
-                            type='number'
-                            onChange={(e) => setCap(e.target.value)}
-                            required="true"
-                        />
-                    </label>
-                </div>
+                <h2>Main Event Image</h2>
+                <p>This is the first image attendees will see at the top of your listing. Use a high quality image: 2160x1080px (2:1 ratio).</p>
                 <div>
                     <label> Image
                         <input
@@ -131,6 +153,17 @@ const HostForm = () => {
                         <input
                             type='number'
                             onChange={(e) => setCost(e.target.value)}
+                            required="true"
+                        />
+                    </label>
+                </div>
+                <h2>Description</h2>
+                <p>Add more details to your event like your schedule, sponsors, or featured guests.</p>
+                <div>
+                    <label> Description
+                        <textarea
+                            type='text'
+                            onChange={(e) => setDescript(e.target.value)}
                             required="true"
                         />
                     </label>

@@ -15,13 +15,13 @@ def evented():
         event['venue'] = Venue.query.get(event["venue_id"]).to_dict()
         event['category'] = Category.query.get(event["category_id"]).to_dict()
         event['user'] = User.query.get(event["host_id"]).to_dict()
+        # event['categories'] = Category.query.all()
     return {'events': events}
 
-
-@event_routes.route('/<int:id>')
-def event(id):
-    user = Event.query.get(id)
-    return user.to_dict()
+# @event_routes.route('/<int:id>')
+# def event(id):
+#     user = Event.query.get(id)
+#     return user.to_dict()
 
 
 @event_routes.route('/', methods=['POST'])
