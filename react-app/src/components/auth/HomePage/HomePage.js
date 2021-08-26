@@ -198,15 +198,17 @@ if (sessionUser) {
                             <div className="event-cards">
                                 {/* <h4>{event.host_id}</h4> */}
                                 <img src={event.image}/>
-                                <h2 className='card-print'>{event.name}</h2>
-                                <p className='card-print'>{event.category.type}</p>
-                                <p hidden="true" className='card-print'>{event.description}</p>
-                                <p className='card-print'>{moment(event.start_time).format('ddd, MMM D, h:mm A')}</p>
-                                {/* <p className='card-print'>{moment(event.end_time).format('ddd, MMM D, h:mm A')}</p> */}
-                                <p className='card-print'>starts at ${event.cost}</p>
-                                <p className='card-print'>{event.venue.name}</p>
-                                <p className='card-print'>{event.user.email}</p>
-                                <p className='card-print'>Limited to: {event.capacity} seats!</p>
+                                <div className='card-info-container'>
+                                    <h2 className='card-print card-name'>{event.name}</h2>
+                                    {/* <p className='card-print'>{event.category.type}</p> */}
+                                    <p hidden="true" className='card-print'>{event.description}</p>
+                                    <p className='card-print card-date'>{moment(event.start_time).format('ddd, MMM D, h:mm A')}</p>
+                                    {/* <p className='card-print'>{moment(event.end_time).format('ddd, MMM D, h:mm A')}</p> */}
+                                    <p className='card-print'>starts at ${event.cost}</p>
+                                    <p className='card-print'>{event.venue.name}</p>
+                                    <p className='card-print'>{event.user.email}</p>
+                                    <p className='card-print'>Limited to: {event.capacity} seats!</p>
+                                </div>
                                 {(event?.host_id === sessionUser?.id ) ? (
                                     <>
                                         <button onClick={() => (toggleEdit(!editForm), setVenue(event.venue_id), setCategory(event.category_id), setName(event.name), setStart(event.start_time), setEnd(event.end_time), setCap(event.capacity), setImg(event.image), setCost(event.cost), setDescript(event.description), setId(event.id))}>edit</button>
