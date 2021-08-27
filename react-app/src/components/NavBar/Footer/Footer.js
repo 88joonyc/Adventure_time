@@ -47,7 +47,8 @@ const FooterBar = () => {
               <div className="footer-three">
                 <ul>
                   <p className="footer-title">Bio</p>
-                  <li className="footer-lists">My email address</li>
+                  <li className="footer-lists">My email address:</li>
+                  <li className="footer-lists">joonyc88@gmail.com</li>
                 </ul>
               </div>
               <div className="footer-four">
