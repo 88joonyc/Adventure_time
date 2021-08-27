@@ -5,6 +5,7 @@ import { all_tickets } from '../../../store/ticket';
 import CovBar from '../../NavBar/CovBar/CovBar';
 import FooterBar from '../../NavBar/Footer/Footer';
 import { one_event } from '../../../store/event';
+import { one_ticket } from '../../../store/ticket';
 
 import moment from 'moment';
 
@@ -24,7 +25,8 @@ const EachEvent = () => {
 
   useEffect( async () => {
     dispatch(all_tickets())
-    dispatch(one_event(1))
+    dispatch(one_event(eventId.eventId))
+    dispatch(one_ticket(eventId.eventId))
 
   }, [])
 
