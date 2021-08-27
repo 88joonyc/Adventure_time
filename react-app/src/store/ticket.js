@@ -23,6 +23,12 @@ export const all_tickets = () => async dispatch => {
     dispatch(load(tickets))
 }
 
+export const one_ticket = (id) => async dispatch => {
+    const res = await fetch(`/api/tickets/${id}`)
+    const tickets = await res.json()
+    dispatch(load(tickets))
+}
+
 export const create_ticket = (payload) => async dispatch => {
     const res = await fetch('/api/tickets/', {
         method: 'POST',

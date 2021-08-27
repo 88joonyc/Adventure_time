@@ -4,6 +4,7 @@ import {  useHistory, Link, useParams } from 'react-router-dom';
 import { all_tickets } from '../../../store/ticket';
 import CovBar from '../../NavBar/CovBar/CovBar';
 import FooterBar from '../../NavBar/Footer/Footer';
+import { one_event } from '../../../store/event';
 
 import moment from 'moment';
 
@@ -23,6 +24,7 @@ const EachEvent = () => {
 
   useEffect( async () => {
     dispatch(all_tickets())
+    dispatch(one_event(1))
 
   }, [])
 

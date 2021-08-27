@@ -17,6 +17,20 @@ def ticketed():
 
     return {'tickets': tickets}
 
+@ticket_routes.route('/<int:id>')
+def ticks(id):
+    ticket_query = Ticket.query.filter(Ticket.id == id)
+    tickets = [ ticket.to_dict() for ticket in ticket_query ]
+    for ticket in tickets:
+        ticket['event'] = Event.query.get(ticket["event_id"]).to_dict()
+        # ticket['category'] = Category.query.get(event["category_id"]).to_dict()
+        # event['ticket'] = Ticket.query.get(event["id"]).to_dict()
+        # event['categories'] = Category.query.all()
+    return {'tickets': tickets}
+    # return {'events': [event.to_dict() for event in events]}
+
+
+
 # @ticket_routes.route('/')
 # def ticket():
 #     tickets = Ticket.query.all()
