@@ -45,7 +45,7 @@ function App() {
         <ProtectedRoute path='/tickets' exact={true} >
           <TicketPage />
         </ProtectedRoute>
-        <ProtectedRoute path='/tickets' exact={true} >
+        <ProtectedRoute path='/event/<:id>' exact={true} >
           <EachEvent />
         </ProtectedRoute>
         <Route path='/' exact={true} >

@@ -185,9 +185,7 @@ const opening = (
     </>
 )
 
-
-if (sessionUser) {
-    content = (
+const need = (
         <>
             <h1>Popular in </h1>
         <div className='box' >
@@ -225,12 +223,10 @@ if (sessionUser) {
     </>)
 
 
-
-
-} else {
+if (!sessionUser) {
     content = (
         <>
-            <SplashPage/>
+        <SplashPage/>
         </>
     )
 }
@@ -239,6 +235,7 @@ if (sessionUser) {
         <>
         {sessionUser? opening : null}
         {content}
+        {need}
         </>
     )
 }
