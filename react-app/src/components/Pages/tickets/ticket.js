@@ -49,16 +49,16 @@ const TicketPage = () => {
                 </div>
                 <div className='ticket-info-card' >
                   <div className="users-boxes">
-                    <h3>Orders ></h3>
+                    <h3>Orders {`>`}</h3>
                   {tickets?.map(tix=> (
                     <h1>{tix.id}</h1>
                   ))}
                   </div>
                   <div className="users-boxes">
-                    <h3>Interests ></h3>
+                    <h3>Interests {`>`}</h3>
                   </div>
                   <div className="users-boxes">
-                    <h3>Collection ></h3>
+                    <h3>Collection {`>`}</h3>
                   </div>
                 </div>
             </div>

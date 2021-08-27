@@ -1,33 +1,30 @@
 from flask import Blueprint, jsonify, request
 from flask_login import login_required, current_user
-from app.models import db, Ticket
+from app.models import db, Ticket, Event, Venue
 from app.forms import TicketForm
 
 
 ticket_routes = Blueprint('tickets', __name__)
 
-# @ticket_routes.route('/')
-# def evented():
-#     events_query = Event.query.all()
-#     venues = Venue.query.all()
-#     events = [ event.to_dict() for event in events_query ]
-#     for event in events:
-#         event['venue'] = Venue.query.get(event["venue_id"]).to_dict()
-#         event['category'] = Category.query.get(event["category_id"]).to_dict()
-#         event['user'] = User.query.get(event["host_id"]).to_dict()
-#         # event['categories'] = Category.query.all()
-#     return {'events': events}
-
+@ticket_routes.route('/')
+def ticketed():
+    tickets_query = Ticket.query.all()
+    events = Event.query.all()
+    tickets = [ ticket.to_dict() for ticket in tickets_query ]
+    for ticket in tickets:
+        ticket['event'] = Event.query.get(ticket["event_id"]).to_dict()
+        ticket['venue'] = Venue.query.get(ticket["event_id"]).to_dict()
+    return {'tickets': tickets}
 
 # @ticket_routes.route('/')
 # def ticket():
 #     tickets = Ticket.query.all()
 #     return {'tickets': [ticket.to_dict() for ticket in tickets]}
 
-@ticket_routes.route('/')
-def ticket():
-    tickets = Ticket.query.filter(Ticket.user_id == current_user.id)
-    return {'tickets': [ticket.to_dict() for ticket in tickets]}
+# @ticket_routes.route('/')
+# def ticket():
+#     tickets = Ticket.query.filter(Ticket.user_id == current_user.id)
+#     return {'tickets': [ticket.to_dict() for ticket in tickets]}
 
 
 @ticket_routes.route('/', methods=['POST'])

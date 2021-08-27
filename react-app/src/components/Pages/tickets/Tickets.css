@@ -21,6 +21,8 @@
 
 .user-stats {
     padding: 0 10px;
+    font-size: small;
+    color: grey;
 }
 
 .ticker-grid {
@@ -56,10 +58,12 @@
 
 .user-marks {
     display: flex;
+    padding: 8px;
 }
 
 .name {
-    padding: 1%
+    padding: 1%;
+    font-size: large;
 }
 
 .users-boxes {
