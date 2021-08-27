@@ -16,7 +16,10 @@ const EachEvent = () => {
   const [errors, setErrors] = useState([]);
 
   const user = useSelector(state => state.session.user)
-  const tickets = useSelector(state => (state?.tickets_reducer?.tickets));
+  const ticket = useSelector(state => (state?.tickets_reducer));
+  const event = useSelector(state => (state?.events_reducer?.events));
+
+  console.log('=================ev===========================',event)
 
 
   const dispatch = useDispatch();
@@ -25,8 +28,8 @@ const EachEvent = () => {
 
   useEffect( async () => {
     dispatch(all_tickets())
-    dispatch(one_event(eventId.eventId))
-    dispatch(one_ticket(eventId.eventId))
+    dispatch(one_event(eventId?.eventId))
+    dispatch(one_ticket(eventId?.eventId))
 
   }, [])
 
@@ -36,8 +39,8 @@ const EachEvent = () => {
   return (
         <>
           <CovBar/>
-
-
+            <h1>{event?.events[0].id}</h1>
+            {/* <h1>{ticket?.tickets[0]?.id}</h1> */}
           <FooterBar/>
         </>
   );
