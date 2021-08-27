@@ -94,6 +94,7 @@ const HostForm = () => {
         <div className="host-container">
             <form onSubmit={(e) =>{handleSubmit(e)}}>
                 <div className="host-card">
+                    <img className="basic-info-img"/>
                     <h2>Basic Info</h2>
                     <p>Name your event and tell event-goers why they should come. Add details that highlight what makes it unique.</p>
                     <label> Event Title
@@ -101,6 +102,7 @@ const HostForm = () => {
                             type="text"
                             onChange={(e) => setName(e.target.value)}
                             required="true"
+                            className='host-input'
                             placeholder='Be clear and descriptive.'
                         />
                     </label>
@@ -150,7 +152,7 @@ const HostForm = () => {
                         >
                             <option>select</option>
                             {venue?.map(ven => (
-                                <option value={ven.id}>{ven.name} • {ven.city} • {ven.state}</option>
+                                <option value={ven.id}>{ven.name}, address: {ven.address} {ven.city}, {ven.state}</option>
                             ))}
                         </select>
                     </label>
