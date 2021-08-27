@@ -8,12 +8,13 @@ ticket_routes = Blueprint('tickets', __name__)
 
 @ticket_routes.route('/')
 def ticketed():
-    tickets_query = Ticket.query.all()
+    tickets_query = Ticket.query.filter(Ticket.user_id == current_user.id)
     events = Event.query.all()
     tickets = [ ticket.to_dict() for ticket in tickets_query ]
     for ticket in tickets:
         ticket['event'] = Event.query.get(ticket["event_id"]).to_dict()
         ticket['venue'] = Venue.query.get(ticket["event_id"]).to_dict()
+
     return {'tickets': tickets}
 
 # @ticket_routes.route('/')

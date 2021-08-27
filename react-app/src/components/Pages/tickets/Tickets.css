@@ -26,7 +26,7 @@
 }
 
 .ticker-grid {
-    height: 800px;
+    height: 100%;
     display: grid;
     grid-template-columns: 1fr 2fr;
 }
@@ -36,7 +36,9 @@
 }
 
 .ticket-container {
-    height: 800px;
+    min-height: 800px;
+
+
 }
 
 .profile-img {
