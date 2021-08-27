@@ -248,7 +248,7 @@ const HostForm = () => {
                             type='text'
                             onChange={(e) => setDescript(e.target.value)}
                             required="true"
-                            className='host-input'
+                            className='host-input text-area'
                         />
                     </label>
                     </div>

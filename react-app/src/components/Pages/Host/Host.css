@@ -29,6 +29,21 @@ b:hover {
     left: 40px;
 }
 
+input {
+    /* font-family: 'Poiret One', cursive; */
+    font-family: 'Julius Sans One', sans-serif;
+}
+
+select {
+    font-family: 'Julius Sans One', sans-serif;
+}
+
+.text-area {
+    height: 160px;
+    padding: 20px;
+    font-family: 'Julius Sans One', sans-serif;
+}
+
 .basic-info-img {
     content: url('./icons8-finn-480.png');
 }
