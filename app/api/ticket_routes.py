@@ -23,8 +23,7 @@ def ticks(id):
     tickets = [ ticket.to_dict() for ticket in ticket_query if ticket.user_id == current_user.id ]
     for ticket in tickets:
         ticket['event'] = Event.query.get(ticket["event_id"]).to_dict()
-        # ticket['category'] = Category.query.get(event["category_id"]).to_dict()
-        # event['ticket'] = Ticket.query.get(event["id"]).to_dict()
+        # ticket['category'] = Category.query.get(ticket["id"]).to_dict()
         # event['categories'] = Category.query.all()
     return {'tickets': tickets}
     # return {'events': [event.to_dict() for event in events]}

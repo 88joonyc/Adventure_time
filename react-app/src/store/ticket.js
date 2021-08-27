@@ -52,7 +52,7 @@ export const delete_ticket = (id) => async dispatch => {
     return res
 }
 
-const initialState = {}
+const initialState = null
 
 const tickets_reducer = (state = initialState, action ) => {
     switch (action.type) {

@@ -27,7 +27,7 @@ def event(id):
     for event in events:
         event['venue'] = Venue.query.get(event["venue_id"]).to_dict()
         event['category'] = Category.query.get(event["category_id"]).to_dict()
-        event['ticket'] = Ticket.query.get(event["id"]).to_dict()
+        event['host'] = User.query.get(event["host_id"]).to_dict()
         # event['categories'] = Category.query.all()
     return {'events': events}
     # return {'events': [event.to_dict() for event in events]}

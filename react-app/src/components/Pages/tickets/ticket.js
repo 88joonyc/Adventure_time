@@ -23,7 +23,11 @@ const TicketPage = () => {
   useEffect( async () => {
     dispatch(all_tickets())
 
-  }, [])
+  }, [all_tickets])
+
+  const runonce = () => {
+    dispatch(all_tickets())
+  }
 
 const none_content = (
     <>
@@ -39,19 +43,19 @@ const none_content = (
 
 const some_content = (
     <>
-                       {tickets?.map(tix=> (
-                      <Link to={`/event/${tix.event_id}`} className='tix-link'>
-                          <div className="ticket-card">
-                            <img className="tix-card-img" src={tix.event.image}/>
-                            <div className='tix-card-info'>
-                              <p className='tix-date'>{moment(tix.event.start_time).format('ddd, MMM Do, [at] LT')}</p>
-                              <p className='tix-title'>{tix.event.name}</p>
-                            </div>
-                            <button>some buttom</button>
-                          </div>
-                      </Link>
-                        ))}
-                    </>
+      {tickets?.map(tix=> (
+    <Link to={`/event/${tix.event_id}`} className='tix-link'>
+        <div className="ticket-card">
+          <img className="tix-card-img" src={tix.event.image}/>
+          <div className='tix-card-info'>
+            <p className='tix-date'>{moment(tix.event.start_time).format('ddd, MMM Do, [at] LT')}</p>
+            <p className='tix-title'>{tix.event.name}</p>
+          </div>
+          <button>some buttom</button>
+        </div>
+    </Link>
+      ))}
+  </>
   )
 
   return (
@@ -78,7 +82,7 @@ const some_content = (
                 <div className='ticket-info-card' >
                   <div className="users-boxes">
                     <h3>Orders {`>`}</h3>
-                  {tickets[0] ?  some_content : none_content}
+                  {tickets ?  some_content : (none_content, runonce())}
                   </div>
                   <div className="users-boxes">
                     <h3>Interests {`>`}</h3>
