@@ -27,10 +27,11 @@ const FooterBar = () => {
               <div className="footer-one">
                 <ul>
                   <p className="footer-title">GitHub</p>
-                  <li className="footer-lists">How it works</li>
-                  <li className="footer-lists">Pricing</li>
-                  <li className="footer-lists">Content Standards</li>
-                  <li className="footer-lists">Taxes</li>
+                  <li className="footer-lists">See how it works</li>
+                  <li> <a className="footer-linked" href="https://github.com/88joonyc/Adventure_time">Download</a> </li>
+                  <li className="footer-lists">On GibHub Repo</li>
+                  <li className="footer-lists">Now</li>
+                  <li> <a className="footer-linked" href="https://github.com/88joonyc/" >My GitHub</a> </li>
                 </ul>
               </div>
               <div className="footer-two">
@@ -48,7 +49,7 @@ const FooterBar = () => {
               <div className="footer-three">
                 <ul>
                   <p className="footer-title">Bio</p>
-                  <li className="footer-lists">My Linkedin</li>
+                  <li className="footer-lists">My email address</li>
                 </ul>
               </div>
               <div className="footer-four">
@@ -57,8 +58,9 @@ const FooterBar = () => {
                   <li className="footer-lists">click</li>
                   <li className="footer-lists">on</li>
                   <li className="footer-lists">the</li>
-                  <li className="footer-lists">linke</li>
-                  <li className="footer-lists">here</li>
+                  <li className="footer-lists">linkedin</li>
+                  <li className="footer-lists">profile</li>
+                  <li> <a className="footer-linked" href='https:///linkedin.com/in/pchang1216'>here</a> </li>
                 </ul>
               </div>
             </div>
