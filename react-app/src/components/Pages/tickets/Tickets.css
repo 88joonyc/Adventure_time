@@ -33,6 +33,7 @@
 
 .ticket-info-card {
     margin: 0 auto;
+    width: 97%
 }
 
 .ticket-container {
@@ -107,4 +108,9 @@
 
 .tix-link:hover {
     text-decoration: none;
+}
+
+.no-tickets-img {
+    content: url('./outline_view_quilt_black_24dp.png');
+    width: 100px;
 }

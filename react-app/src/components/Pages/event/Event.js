@@ -7,7 +7,7 @@ import FooterBar from '../../NavBar/Footer/Footer';
 
 import moment from 'moment';
 
-import './Tickets.css'
+import './Event.css'
 
 const TicketPage = () => {
   const [errors, setErrors] = useState([]);
@@ -25,35 +25,8 @@ const TicketPage = () => {
 
   }, [])
 
-  let none_content = null
+  let venue_content = null
 
-  none_content = (
-              <>
-                <div>
-                    <div>
-                      <img className='no-tickets-img' />
-                        <h3>No upcoming orders</h3>
-                    </div>
-                </div>
-              </>
-  )
-
-  none_content = (
-    <>
-                       {tickets?.map(tix=> (
-                      <Link className='tix-link'>
-                          <div className="ticket-card">
-                            <img className="tix-card-img" src={tix.event.image}/>
-                            <div className='tix-card-info'>
-                              <p className='tix-date'>{moment(tix.event.start_time).format('ddd, MMM Do, [at] LT')}</p>
-                              <p className='tix-title'>{tix.event.name}</p>
-                            </div>
-                            <button>some buttom</button>
-                          </div>
-                      </Link>
-                        ))}
-                    </>
-  )
 
   return (
         <>
@@ -79,7 +52,18 @@ const TicketPage = () => {
                 <div className='ticket-info-card' >
                   <div className="users-boxes">
                     <h3>Orders {`>`}</h3>
-                  {!tickets ?  ({}) : {none_content}}
+                        {tickets?.map(tix=> (
+                      <Link className='tix-link'>
+                          <div className="ticket-card">
+                            <img className="tix-card-img" src={tix.event.image}/>
+                            <div className='tix-card-info'>
+                              <p className='tix-date'>{moment(tix.event.start_time).format('ddd, MMM Do, [at] LT')}</p>
+                              <p className='tix-title'>{tix.event.name}</p>
+                            </div>
+                            <button>some buttom</button>
+                          </div>
+                      </Link>
+                        ))}
                   </div>
                   <div className="users-boxes">
                     <h3>Interests {`>`}</h3>
