@@ -9,6 +9,7 @@ import ProtectedRoute from './components/auth/ProtectedRoute';
 import UsersList from './components/UsersList';
 import HostForm from './components/Pages/Host/Host';
 import TicketPage from './components/Pages/tickets/Ticket';
+import EachEvent from './components/Pages/event/Event';
 import User from './components/User';
 import { authenticate } from './store/session';
 import FourOhFour from './components/auth/404/404';
@@ -43,6 +44,9 @@ function App() {
         </ProtectedRoute>
         <ProtectedRoute path='/tickets' exact={true} >
           <TicketPage />
+        </ProtectedRoute>
+        <ProtectedRoute path='/tickets' exact={true} >
+          <EachEvent />
         </ProtectedRoute>
         <Route path='/' exact={true} >
         <NavBar />

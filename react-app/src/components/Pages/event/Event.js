@@ -9,7 +9,7 @@ import moment from 'moment';
 
 import './Event.css'
 
-const TicketPage = () => {
+const EachEvent = () => {
   const [errors, setErrors] = useState([]);
 
   const user = useSelector(state => state.session.user)
@@ -80,4 +80,4 @@ const TicketPage = () => {
   );
 };
 
-export default TicketPage;
+export default EachEvent;
