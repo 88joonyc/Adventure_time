@@ -78,7 +78,8 @@
 }
 
 .ticket-card:hover {
-    box-shadow: 5px 5px 10px violet;
+    box-shadow: 5px 5px 10px rgb(119, 155, 165);
+    transition: all ease 0.3s;
 }
 
 .tix-card-img {
