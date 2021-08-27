@@ -55,7 +55,7 @@ const FooterBar = () => {
               <div className="footer-four">
                 <ul>
                   <p className="footer-title">Linked</p>
-                  <li className="footer-lists">click</li>
+                  <li className="footer-lists">Click</li>
                   <li className="footer-lists">on</li>
                   <li className="footer-lists">the</li>
                   <li className="footer-lists">linkedin</li>
