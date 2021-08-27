@@ -126,22 +126,33 @@ const HostForm = () => {
                 <h2>Location</h2>
                 <p>Help people in the area discover your event and let attendees know where to show up.</p>
                     <label> Venue location
-                        <input
+                        {/* <input
                             type="number"
                             value={venue_id}
                             onChange={(e) => setVenue(e.target.value)}
                             required="true"
                             // placeholder="search for a venue address"
                             hidden='true'
-                        />
-                        <input
+                        /> */}
+                        {/* <input
                             type="text"
                             value={venue_search}
                             onChange={(e) => setVenueSearch(e.target.value)}
                             // required="true"
                             placeholder="search for a venue address"
                         />
-                        {venue_content}
+                        {venue_content} */}
+                        <select
+                            type="number"
+                            value={venue_id}
+                            onChange={(e) => setVenue(e.target.value)}
+                            required="true"
+                        >
+                            <option>select</option>
+                            {venue?.map(ven => (
+                                <option value={ven.id}>{ven.name} • {ven.city} • {ven.state}</option>
+                            ))}
+                        </select>
                     </label>
                     <b>Venue is required*</b>
                 </div>

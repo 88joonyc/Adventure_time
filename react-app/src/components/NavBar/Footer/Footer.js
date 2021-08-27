@@ -78,7 +78,6 @@ const FooterBar = () => {
       </>
     )
   }
-
   return (
     <>
       {content}
