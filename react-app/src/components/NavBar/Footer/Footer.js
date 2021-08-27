@@ -26,7 +26,7 @@ const FooterBar = () => {
             <div className="footer-tabs">
               <div className="footer-one">
                 <ul>
-                  <p className="footer-title">School</p>
+                  <p className="footer-title">GitHub</p>
                   <li>this</li>
                   <li>this</li>
                   <li>this</li>

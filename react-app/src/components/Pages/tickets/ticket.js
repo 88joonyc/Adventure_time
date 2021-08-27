@@ -26,14 +26,15 @@ const TicketPage = () => {
   }, [])
 
 const none_content = (
-              <>
-                <div>
-                    <div>
-                      <img className='no-tickets-img' />
-                        <h3>No upcoming orders</h3>
-                    </div>
-                </div>
-              </>
+    <>
+      <div className="no-tix-cont">
+        <div className="no-tix">
+          <img className='no-tickets-img'/>
+          <h2>No upcoming orders</h2>
+
+        </div>
+      </div>
+    </>
   )
 
 const some_content = (
@@ -77,7 +78,7 @@ const some_content = (
                 <div className='ticket-info-card' >
                   <div className="users-boxes">
                     <h3>Orders {`>`}</h3>
-                  {!tickets ?  some_content : none_content}
+                  {tickets ?  some_content : none_content}
                   </div>
                   <div className="users-boxes">
                     <h3>Interests {`>`}</h3>
