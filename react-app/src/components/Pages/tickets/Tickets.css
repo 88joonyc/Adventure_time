@@ -37,8 +37,6 @@
 
 .ticket-container {
     min-height: 800px;
-
-
 }
 
 .profile-img {
@@ -71,4 +69,15 @@
 .users-boxes {
     width: 600px;
     border-bottom: 1px solid rgb(204, 206, 213);
+}
+
+.ticket-card {
+    padding: 20px;
+    display: grid;
+    grid-template-columns: 4fr 5fr 1fr;
+}
+
+.tix-card-img {
+    width: 100%;
+    height: cover;
 }

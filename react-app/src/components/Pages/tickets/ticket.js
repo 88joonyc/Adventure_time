@@ -50,9 +50,15 @@ const TicketPage = () => {
                 <div className='ticket-info-card' >
                   <div className="users-boxes">
                     <h3>Orders {`>`}</h3>
-                  {tickets?.map(tix=> (
-                    <h1>{tix.id}</h1>
-                  ))}
+                      {tickets?.map(tix=> (
+                        <div className="ticket-card">
+                          <img className="tix-card-img" src={tix.event.image}/>
+                          <p>{tix.id}</p>
+                          <p>{tix.id}</p>
+                          <p>{tix.id}</p>
+                          <button>some buttom</button>
+                        </div>
+                      ))}
                   </div>
                   <div className="users-boxes">
                     <h3>Interests {`>`}</h3>
