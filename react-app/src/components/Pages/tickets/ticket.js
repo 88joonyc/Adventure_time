@@ -40,7 +40,7 @@ const none_content = (
 const some_content = (
     <>
                        {tickets?.map(tix=> (
-                      <Link className='tix-link'>
+                      <Link to={`/event/${tix.event_id}`} className='tix-link'>
                           <div className="ticket-card">
                             <img className="tix-card-img" src={tix.event.image}/>
                             <div className='tix-card-info'>
