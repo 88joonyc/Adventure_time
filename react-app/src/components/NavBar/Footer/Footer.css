@@ -47,5 +47,9 @@
 
 .footer-linked {
     color: rgb(176, 234, 228);
+}
 
+.footer-linked:hover {
+    color: rgb(0, 255, 132);
+    box-shadow: 10px 10px 40px rgb(0, 255, 132);
 }

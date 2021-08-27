@@ -75,3 +75,17 @@ select {
 .info-input {
     width: 80%;
 }
+
+.host-submit-buttom {
+    border: none;
+    width: 100%;
+    height: 60px;
+    background-color: rgb(13, 49, 103);
+    color: white;
+    font-size: x-large;
+}
+
+.host-submit-buttom:hover {
+    cursor: pointer;
+    box-shadow: 3px 3px 10px rgb(38, 9, 230);
+}

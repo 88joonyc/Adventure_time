@@ -253,7 +253,7 @@ const HostForm = () => {
                     </label>
                     </div>
                 </div>
-                <button type='submit'>create</button>
+                <button className="host-submit-buttom" type='submit'>+ Create event</button>
             </form>
         </div>
         </>
