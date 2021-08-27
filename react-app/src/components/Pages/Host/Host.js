@@ -55,7 +55,8 @@ const HostForm = () => {
     // dispatch(all_events())
     dispatch(all_categories())
     dispatch(all_venues())
-  }, [])
+    textareamax()
+  }, [description])
 
 
   let venue_content = null
@@ -88,6 +89,18 @@ const HostForm = () => {
         )
     // if (venue_search.toLowerCase().includes()
   }
+  let maxnumber
+
+  const textareamax = () => {
+    let amountleft = 5000 - description.length
+    console.log(amountleft)
+    maxnumber = (
+        <>
+        <p>{amountleft}</p>
+        <h1>h1</h1>
+        </>
+    )
+  }
 
   return (
         <>
@@ -101,7 +114,7 @@ const HostForm = () => {
                         <label> Event Title
                             <input
                                 type="text"
-                                onChange={(e) => setName(e.target.value)}
+                                onChange={(e) => setName(e.target.value)} // limited to 255 char
                                 required="true"
                                 className='host-input'
                                 placeholder='Be clear and descriptive.'
@@ -213,7 +226,7 @@ const HostForm = () => {
                             <label> Image
                                 <input
                                     type='text'
-                                    onChange={(e) => setImg(e.target.value)}
+                                    onChange={(e) => setImg(e.target.value)} // img is limited to 500 char
                                     className='host-input'
                                 />
                             </label>
@@ -246,11 +259,12 @@ const HostForm = () => {
                     <label> Description
                         <textarea
                             type='text'
-                            onChange={(e) => setDescript(e.target.value)}
+                            onChange={(e) => setDescript(e.target.value)} // limited to 5000 char
                             required="true"
                             className='host-input text-area'
-                        />
+                            />
                     </label>
+                    {maxnumber}
                     </div>
                 </div>
                 <button className="host-submit-buttom" type='submit'>+ Create event</button>
