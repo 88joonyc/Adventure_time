@@ -27,22 +27,20 @@ const FooterBar = () => {
               <div className="footer-one">
                 <ul>
                   <p className="footer-title">GitHub</p>
-                  <li className="footer-lists">See how it works</li>
+                  <li className="footer-lists">See how it works:</li>
                   <li> <a className="footer-linked" href="https://github.com/88joonyc/Adventure_time">Download</a> </li>
-                  <li className="footer-lists">On GibHub Repo</li>
-                  <li className="footer-lists">Now</li>
+                  <li className="footer-lists">this GibHub Repo</li>
+                  <li className="footer-lists">Now and visit my GitHub for more!</li>
                   <li> <a className="footer-linked" href="https://github.com/88joonyc/" >My GitHub</a> </li>
                 </ul>
               </div>
               <div className="footer-two">
                 <ul>
-                  <p className="footer-title">Work</p>
-                  <li className="footer-lists">Developer Site</li>
-                  <li className="footer-lists">this</li>
-                  <li className="footer-lists">is</li>
-                  <li className="footer-lists">my</li>
-                  <li className="footer-lists">Github</li>
-                  <li className="footer-lists">address</li>
+                  <p className="footer-title">Special Thanks</p>
+                  <li className="footer-lists">to</li>
+                  <li> <a className="footer-linked" href="https://open.appacademy.io/" >App Academy</a> </li>
+                  <li className="footer-lists">April Cohort</li>
+                  <li className="footer-lists">2021</li>
 
                 </ul>
               </div>
@@ -55,11 +53,12 @@ const FooterBar = () => {
               <div className="footer-four">
                 <ul>
                   <p className="footer-title">Linked</p>
-                  <li className="footer-lists">Click</li>
-                  <li className="footer-lists">on</li>
-                  <li className="footer-lists">the</li>
-                  <li className="footer-lists">linkedin</li>
-                  <li className="footer-lists">profile</li>
+                  <li className="footer-lists">Like the Site?</li>
+                  <li className="footer-lists">like me</li>
+                  <li className="footer-lists">wanna visit?</li>
+                  <li className="footer-lists">wanna snoop?</li>
+                  <li className="footer-lists">Like snoop?</li>
+                  <li className="footer-lists">Visit my Likedin below:</li>
                   <li> <a className="footer-linked" href='https:///linkedin.com/in/pchang1216'>here</a> </li>
                 </ul>
               </div>
