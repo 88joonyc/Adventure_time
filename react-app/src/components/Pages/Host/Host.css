@@ -89,3 +89,20 @@ select {
     cursor: pointer;
     box-shadow: 3px 3px 10px rgb(38, 9, 230);
 }
+
+.bad-image {
+    content: url('https://c8.alamy.com/comp/JF67XY/computer-plate-414-request-url-too-long-JF67XY.jpg');
+    width: 400px;
+    height: 100%;
+    box-shadow: 5px 5px 20px rgb(255, 158, 53);
+}
+
+.good-image {
+    max-width: 400px;
+    height: 100%;
+    box-shadow: 5px 5px 20px rgb(48, 36, 157);
+}
+
+.required {
+    font-size: x-small;
+}

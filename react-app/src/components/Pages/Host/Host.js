@@ -17,7 +17,7 @@ const HostForm = () => {
   const [end_time, setEnd] = useState('');
   const [capacity, setCap] = useState('');
   const [image, setImg] = useState('');
-  const [cost, setCost] = useState('');
+  const [cost, setCost] = useState(0);
   const [venue_search, setVenueSearch] = useState('');
 
 //   const user = useSelector(state => state.session.user);
@@ -55,8 +55,9 @@ const HostForm = () => {
     // dispatch(all_events())
     dispatch(all_categories())
     dispatch(all_venues())
-    textareamax()
-  }, [description])
+    textdescripmax()
+    textnamemax()
+  }, [description, name])
 
 
   let venue_content = null
@@ -89,18 +90,29 @@ const HostForm = () => {
         )
     // if (venue_search.toLowerCase().includes()
   }
-  let maxnumber
 
-  const textareamax = () => {
-    let amountleft = 5000 - description.length
+let maxdescript
+const textdescripmax = () => {
+    let amountleft = 5000 - description?.length
     console.log(amountleft)
-    maxnumber = (
+    maxdescript = (
         <>
-        <p>{amountleft}</p>
-        <h1>h1</h1>
+    <p>{amountleft} / 5000 left</p>
+    </>
+    )
+}
+let maxname
+const textnamemax = () => {
+    let amountleft = 255 - name?.length
+    console.log(amountleft)
+    maxname = (
+        <>
+        <p>{amountleft} / 255 left</p>
         </>
     )
-  }
+}
+textdescripmax()
+textnamemax()
 
   return (
         <>
@@ -114,13 +126,14 @@ const HostForm = () => {
                         <label> Event Title
                             <input
                                 type="text"
-                                onChange={(e) => setName(e.target.value)} // limited to 255 char
+                                onChange={(e) => (setName(e.target.value))} // limited to 255 char
                                 required="true"
                                 className='host-input'
                                 placeholder='Be clear and descriptive.'
                             />
+                        <b className="required">Title is required* {maxname}</b>
+
                         </label>
-                        <b>Title is required*</b>
                         <div>
                             <label> category_id
                                 <select
@@ -135,8 +148,8 @@ const HostForm = () => {
                                         <option value={cat.id}>{cat.type}</option>
                                     ))}
                                 </select>
+                                <b className="required">Category is required*</b>
                             </label>
-                                    <button onClick={() =>console.log(category)}>what</button>
                         </div>
                     </div>
                 </div>
@@ -175,7 +188,7 @@ const HostForm = () => {
                                 ))}
                             </select>
                         </label>
-                        <b>Venue is required*</b>
+                        <b className="required">Venue is required*</b>
                     </div>
                 </div>
                 <div className="host-card">
@@ -190,6 +203,7 @@ const HostForm = () => {
                                 required="true"
                                 className='host-input'
                             />
+                            <b className="required">Capacity is required*</b>
                         </label>
                     </div>
                 </div>
@@ -214,6 +228,7 @@ const HostForm = () => {
                                     required="true"
                                     className='host-input'
                                     />
+                                    <b className="required">Start and end times are required*</b>
                             </label>
                         </div>
                     </div>
@@ -232,7 +247,8 @@ const HostForm = () => {
                             </label>
                         <h3>image preview</h3>
                         <div>
-                            <img src={image}/>
+                            {image?.length > 500 ? <img className="bad-image"/> : <img className="good-image" src={image}/> }
+
                         </div>
                     </div>
                 </div>
@@ -264,7 +280,7 @@ const HostForm = () => {
                             className='host-input text-area'
                             />
                     </label>
-                    {maxnumber}
+                        <b className="required">A short (or long) description is required* {maxdescript}</b>
                     </div>
                 </div>
                 <button className="host-submit-buttom" type='submit'>+ Create event</button>
