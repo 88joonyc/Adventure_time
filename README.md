@@ -7,7 +7,7 @@ This is the starter for the Flask React project.
 1. Clone this repository (only this branch)
 
    ```bash
-   git clone https://github.com/appacademy-starters/python-project-starter.git
+   git clone https://github.com/88joonyc/Adventure_time.git
    ```
 
 2. Install dependencies
@@ -132,3 +132,6 @@ of your Heroku app in the url and tag name:
    ```bash=3
    docker push registry.heroku.com/{NAME_OF_HEROKU_APP}/web
    ```
+
+
+Visit the live app powered by Heroku [here](https://adventure--time.herokuapp.com/ "Named link title")
