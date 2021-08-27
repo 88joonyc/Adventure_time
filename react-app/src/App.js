@@ -8,7 +8,7 @@ import NavBar from './components/NavBar/NavBar';
 import ProtectedRoute from './components/auth/ProtectedRoute';
 import UsersList from './components/UsersList';
 import HostForm from './components/Pages/Host/Host';
-import TicketPage from './components/Pages/tickets/ticket';
+import TicketPage from './components/Pages/tickets/Ticket';
 import User from './components/User';
 import { authenticate } from './store/session';
 import FourOhFour from './components/auth/404/404';

@@ -111,6 +111,9 @@
 }
 
 .no-tickets-img {
-    content: url('./outline_view_quilt_black_24dp.png');
-    width: 100px;
+    content: url('./ticket-logo.gif');
+    width: 80%;
+    height: 80%;
+
+
 }

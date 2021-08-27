@@ -25,9 +25,7 @@ const TicketPage = () => {
 
   }, [])
 
-  let none_content = null
-
-  none_content = (
+const none_content = (
               <>
                 <div>
                     <div>
@@ -38,7 +36,7 @@ const TicketPage = () => {
               </>
   )
 
-  none_content = (
+const some_content = (
     <>
                        {tickets?.map(tix=> (
                       <Link className='tix-link'>
@@ -79,7 +77,7 @@ const TicketPage = () => {
                 <div className='ticket-info-card' >
                   <div className="users-boxes">
                     <h3>Orders {`>`}</h3>
-                  {!tickets ?  ({}) : {none_content}}
+                  {!tickets ?  some_content : none_content}
                   </div>
                   <div className="users-boxes">
                     <h3>Interests {`>`}</h3>
