@@ -134,4 +134,4 @@ of your Heroku app in the url and tag name:
    ```
 
 
-Visit our live app powered by Heroku [here](https://adventure--time.herokuapp.com/ "Named link title")
+Visit the live app powered by Heroku [here](https://adventure--time.herokuapp.com/ "Named link title")
