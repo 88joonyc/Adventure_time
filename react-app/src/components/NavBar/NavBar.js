@@ -3,15 +3,33 @@ import React, { useState } from 'react';
 import { NavLink, Link } from 'react-router-dom';
 import LogoutButton from '../auth/LogoutButton';
 import { useSelector } from 'react-redux';
+import { useEffect } from 'react';
 
 import './NavBar.css'
 
 const NavBar = () => {
+
   const sessionUser = useSelector(state => state.session.user)
 
   const [ searchBar, toggleSearch ] = useState(false)
   const [ eventPage, toggleCreate ] = useState(false)
+  const [ showMenu, setShowMenu ] = useState(false);
 
+  useEffect(() => {
+        if (!showMenu) return;
+
+        const closeMenu = () => {
+            setShowMenu(false);
+        };
+        document.addEventListener('click', closeMenu);
+
+        return () => document.removeEventListener('click', closeMenu);
+    }, [showMenu]);
+
+  const openMenu = () => {
+      if (showMenu) return;
+      setShowMenu(true);
+  };
 
   let content = null
 
@@ -35,7 +53,21 @@ const NavBar = () => {
     {/* <button onClick={() =>toggleCreate(!eventPage)}>+</button> */}
     <NavLink className="create-event" to='/host'>{<img className='ticket-icon'/>} Create </NavLink>
     <NavLink className="create-event" to='/tickets'>{<img className='ticketing-icon'/>} Tickets </NavLink>
-    <LogoutButton />
+    <div className='dropddown-tab'>
+            <button className='toggle-drop-button' onClick={openMenu}>
+              <div className="drop-button-items">
+                  <div className='drop-nav-email'>{sessionUser?.email}</div>
+                  <img className='profile-pic' src={sessionUser?.image}/>
+              </div>
+            </button>
+            {showMenu && (
+                <div className='menu-dropdown'>
+                    <div className='dropdown-items'>{sessionUser?.email}</div>
+                    <div className='dropdown-items'>{<LogoutButton />}</div>
+                </div>
+            )}
+        </div>
+
     </>
   )
 

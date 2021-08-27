@@ -24,5 +24,5 @@ class SignUpForm(FlaskForm):
     first_name = StringField('first_name', validators=[DataRequired() ])
     last_name = StringField('last_name', validators=[DataRequired() ])
     email = StringField('email', validators=[DataRequired(), email_exists ])
-    image = StringField('image',)
+    image = StringField('image', default=('https://image.flaticon.com/icons/png/512/149/149071.png'))
     password = StringField('password', validators=[DataRequired()])

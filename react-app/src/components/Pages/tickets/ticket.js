@@ -78,7 +78,7 @@ const some_content = (
                 <div className='ticket-info-card' >
                   <div className="users-boxes">
                     <h3>Orders {`>`}</h3>
-                  {tickets ?  some_content : none_content}
+                  {tickets[0] ?  some_content : none_content}
                   </div>
                   <div className="users-boxes">
                     <h3>Interests {`>`}</h3>

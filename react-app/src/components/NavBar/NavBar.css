@@ -1,4 +1,5 @@
 @import url('./EventForm.css');
+@import url(./dropdown.css);
 .navbar-container {
     display: flex;
     background-color: white;

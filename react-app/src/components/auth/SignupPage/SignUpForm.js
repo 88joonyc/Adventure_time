@@ -19,7 +19,8 @@ const SignUpForm = () => {
   const onSignUp = async (e) => {
     e.preventDefault();
     if (password === repeatPassword) {
-      const data = await dispatch(signUp(firstName, lastName, email, image, password));
+
+      const data = await dispatch(signUp(firstName, lastName, email, (!image ? 'https://image.flaticon.com/icons/png/512/149/149071.png' : image), password));
       if (data) {
         setErrors(data)
       }

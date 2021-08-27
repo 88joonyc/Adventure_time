@@ -30,7 +30,7 @@ def upgrade():
     sa.Column('first_name', sa.String(length=50), nullable=False),
     sa.Column('last_name', sa.String(length=50), nullable=False),
     sa.Column('email', sa.String(length=255), nullable=False),
-    sa.Column('image', sa.String(length=1000), nullable=True),
+    sa.Column('image', sa.String(length=1000), server_default="https://image.flaticon.com/icons/png/512/149/149071.png", nullable=True),
     sa.Column('hashed_password', sa.String(length=255), nullable=False),
     sa.Column('created_at', sa.DateTime(timezone=True), server_default=sa.text('now()'), nullable=True),
     sa.Column('updated_at', sa.DateTime(timezone=True), server_default=sa.text('now()'), nullable=True),
