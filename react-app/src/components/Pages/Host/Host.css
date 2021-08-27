@@ -12,15 +12,51 @@ b:hover {
 .host-card {
     background-color: inherit;
     border-bottom: 1px solid rgb(225, 225, 242);
-    padding: 20px;
+    padding: 40px 20px;
+    display: grid;
+    grid-template-columns: 2fr 9fr;
 }
 
 .host-input {
     width: 100%;
 }
 
+.basic-img-settings {
+    width: 80px;
+    height: 80px;
+    position: relative;
+    top: 25px;
+    left: 40px;
+}
+
 .basic-info-img {
-    content: url('./outline_analytics_black_24dp.png');
-    width: 5%;
-    height: 5%;
+    content: url('./icons8-finn-480.png');
+}
+
+.location-info-img {
+    content: url('./icons8-lumpy-space-princess-500.png');
+}
+
+.description-img {
+    content: url('./icons8-bmo-500.png');
+}
+
+.capacity-img {
+    content: url('./icons8-quest-100.png');
+}
+
+.cos-img {
+    content: url('./icons8-coins-64.png');
+}
+
+.mainimg-img {
+    content: url('./icons8-jake-500.png');
+}
+
+.date-img {
+    content: url('./icons8-schedule-480.png');
+}
+
+.info-input {
+    width: 80%;
 }
