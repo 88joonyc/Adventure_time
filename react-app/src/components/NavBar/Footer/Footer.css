@@ -3,12 +3,14 @@
     justify-content: center;
     border-top: 1px solid rgb(103, 96, 135);
     border-bottom: 1px solid rgb(103, 96, 135);
-    padding: 10px 0;
-    margin-top: 14%;
+    padding: 20px 0;
+    margin-top: 5%;
     font-size: medium;
+    margin-left: -14%
 }
 
 .footer-container {
+    margin-top: 100px;
     color: rgb(189, 191, 205);
     font-family: 'Spectral', serif;
     font-size: small;

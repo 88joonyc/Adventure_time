@@ -40,6 +40,11 @@ const FooterBar = () => {
                   <li>this</li>
                   <li>this</li>
                   <li>this</li>
+                  <li>this</li>
+                  <li>this</li>
+                  <li>this</li>
+                  <li>this</li>
+
                 </ul>
               </div>
               <div className="footer-three">
