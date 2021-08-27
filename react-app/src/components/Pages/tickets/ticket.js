@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux'
-import {  useHistory } from 'react-router-dom';
+import {  useHistory, Link } from 'react-router-dom';
 import { all_tickets } from '../../../store/ticket';
 import CovBar from '../../NavBar/CovBar/CovBar';
 import FooterBar from '../../NavBar/Footer/Footer';
+
+import moment from 'moment';
 
 import './Tickets.css'
 
@@ -50,15 +52,18 @@ const TicketPage = () => {
                 <div className='ticket-info-card' >
                   <div className="users-boxes">
                     <h3>Orders {`>`}</h3>
-                      {tickets?.map(tix=> (
-                        <div className="ticket-card">
-                          <img className="tix-card-img" src={tix.event.image}/>
-                          <p>{tix.id}</p>
-                          <p>{tix.id}</p>
-                          <p>{tix.id}</p>
-                          <button>some buttom</button>
-                        </div>
-                      ))}
+                        {tickets?.map(tix=> (
+                      <Link className='tix-link'>
+                          <div className="ticket-card">
+                            <img className="tix-card-img" src={tix.event.image}/>
+                            <div className='tix-card-info'>
+                              <p className='tix-date'>{moment(tix.event.start_time).format('ddd, MMM Do, [at] LT')}</p>
+                              <p className='tix-title'>{tix.event.name}</p>
+                            </div>
+                            <button>some buttom</button>
+                          </div>
+                      </Link>
+                        ))}
                   </div>
                   <div className="users-boxes">
                     <h3>Interests {`>`}</h3>

@@ -67,7 +67,7 @@
 }
 
 .users-boxes {
-    width: 600px;
+    width: 97%;
     border-bottom: 1px solid rgb(204, 206, 213);
 }
 
@@ -77,7 +77,33 @@
     grid-template-columns: 4fr 5fr 1fr;
 }
 
+.ticket-card:hover {
+    box-shadow: 5px 5px 10px violet;
+}
+
 .tix-card-img {
     width: 100%;
     height: cover;
+}
+
+.tix-card-info {
+    padding: 10px;
+}
+
+.tix-date {
+    font-size: .9em;
+    color: rgb(230, 135, 18);
+}
+
+.tix-title {
+    font-size: 25px;
+    font-family: 'Bebas Neue', cursive;
+}
+
+.tix-link {
+    text-decoration: none;
+}
+
+.tix-link:hover {
+    text-decoration: none;
 }
