@@ -1,0 +1,7 @@
+.cov-message {
+    background-color: rgb(254, 250, 142);
+    font-size: small;
+    font-family: 'IBM Plex Serif', serif;
+    /* margin-left: none; */
+    padding: 17px;
+}

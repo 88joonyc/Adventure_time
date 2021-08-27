@@ -1,6 +1,7 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
 import { Route, Redirect } from 'react-router-dom';
+
 import NavBar from '../NavBar/NavBar';
 
 const ProtectedRoute = props => {
@@ -8,6 +9,7 @@ const ProtectedRoute = props => {
   return (
     <Route {...props}>
       <NavBar/>
+
       {(user)? props.children  : <Redirect to='/login' />}
     </Route>
   )
