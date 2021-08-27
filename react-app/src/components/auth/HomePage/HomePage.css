@@ -92,19 +92,40 @@ img {
     padding-left: 17px;
     padding-top: 1px;
     margin-top: -2px;
+    font-family: 'Roboto', sans-serif;
 }
 
-.card-name {
-    padding-top: 20px;
-    font-size: 16px;
+.card-name-home {
+    padding-top: 15px;
+    font-size: 18px;
     max-height: 40px;
 }
 
 .card-date {
     color: rgb(255, 116, 66);
+    font-size: small;
 }
 
 .card-venue {
     font-size: 13px;
-    color: rgb(135, 132, 148);
+    color: rgb(155, 139, 223);
+}
+
+.card-venue-home {
+    font-size: 13px;
+    color: rgb(153, 161, 191);
+}
+
+.card-cost-home {
+    margin-top: -10px;
+    color: rgb(185, 181, 203);
+}
+
+.card-user-home {
+    color: rgb(75, 72, 82);
+}
+
+.card-cap-home {
+    font-size: xx-small;
+    color: rgb(142, 95, 95);
 }
