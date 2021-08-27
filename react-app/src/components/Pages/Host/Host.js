@@ -1,11 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux'
 import {  useHistory } from 'react-router-dom';
-import { create_event, all_events } from '../../../store/event';
+import { create_event  } from '../../../store/event';
 import { all_categories } from '../../../store/category';
 import { all_venues } from '../../../store/venue';
-
-import NavBar from '../../NavBar/NavBar';
 
 import './Host.css'
 
@@ -93,7 +91,6 @@ const HostForm = () => {
 
   return (
         <>
-        <NavBar/>
         <div className="host-container">
             <form onSubmit={(e) =>{handleSubmit(e)}}>
                 <div className="host-card">

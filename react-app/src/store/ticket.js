@@ -17,7 +17,7 @@ const remove = (ticketId) => ({
     ticketId
 })
 
-export const all_Tickets = () => async dispatch => {
+export const all_tickets = () => async dispatch => {
     const res = await fetch(`/api/tickets/`)
     const tickets = await res.json()
     dispatch(load(tickets))

@@ -8,8 +8,10 @@ import NavBar from './components/NavBar/NavBar';
 import ProtectedRoute from './components/auth/ProtectedRoute';
 import UsersList from './components/UsersList';
 import HostForm from './components/Pages/Host/Host';
+import TicketPage from './components/Pages/tickets/ticket';
 import User from './components/User';
 import { authenticate } from './store/session';
+import FourOhFour from './components/auth/404/404';
 
 function App() {
   const [loaded, setLoaded] = useState(false);
@@ -35,19 +37,23 @@ function App() {
         <Route path='/sign-up' exact={true}>
           <SignUpForm />
         </Route>
-        <ProtectedRoute path='/users' exact={true} >
+        {/* <ProtectedRoute path='/users' exact={true} >
           <UsersList/>
         </ProtectedRoute>
         <ProtectedRoute path='/users/:userId' exact={true} >
           <User />
-        </ProtectedRoute>
+        </ProtectedRoute> */}
         <ProtectedRoute path='/host' exact={true} >
           <HostForm />
         </ProtectedRoute>
         <Route path='/' exact={true} >
-      <NavBar />
-          <HomePage />
+        <ProtectedRoute path='/tickets' exact={true} >
+          <TicketPage />
+        </ProtectedRoute>
+        <NavBar />
+        <HomePage />
         </Route>
+        <FourOhFour/>
       </Switch>
     </BrowserRouter>
   );

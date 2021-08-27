@@ -38,7 +38,25 @@ const NavBar = () => {
     <LogoutButton />
     </>
   )
-  let eventsPage
+
+  // this is a search bar
+
+
+  let venue_content = null
+
+  //   const filter = (memory, query) => {
+    //       return memory?.filter((brain) => {
+      //           const venue_name = brain.name.toLowerCase()
+      //           const venue_address = brain.address.toLowerCase()
+      //           if (venue_name.includes(query)) return venue_name.includes(query)
+      //           if (venue_address.includes(query)) return venue_address.includes(query)
+      //       })
+
+      //   }
+
+      //   const place = filter(venue, venue_search)
+
+    let eventsPage
 
   // if (eventPage) {
   //   eventsPage = (
