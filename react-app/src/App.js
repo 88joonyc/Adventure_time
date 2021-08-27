@@ -46,10 +46,10 @@ function App() {
         <ProtectedRoute path='/host' exact={true} >
           <HostForm />
         </ProtectedRoute>
-        <Route path='/' exact={true} >
         <ProtectedRoute path='/tickets' exact={true} >
           <TicketPage />
         </ProtectedRoute>
+        <Route path='/' exact={true} >
         <NavBar />
         <HomePage />
         </Route>
