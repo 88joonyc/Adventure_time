@@ -27,47 +27,48 @@ const FooterBar = () => {
               <div className="footer-one">
                 <ul>
                   <p className="footer-title">GitHub</p>
-                  <li>this</li>
-                  <li>this</li>
-                  <li>this</li>
-                  <li>this</li>
+                  <li className="footer-lists">How it works</li>
+                  <li className="footer-lists">Pricing</li>
+                  <li className="footer-lists">Content Standards</li>
+                  <li className="footer-lists">Taxes</li>
                 </ul>
               </div>
               <div className="footer-two">
                 <ul>
-                  <p className="footer-title">work</p>
-                  <li>this</li>
-                  <li>this</li>
-                  <li>this</li>
-                  <li>this</li>
-                  <li>this</li>
-                  <li>this</li>
-                  <li>this</li>
-                  <li>this</li>
+                  <p className="footer-title">Work</p>
+                  <li className="footer-lists">Developer Site</li>
+                  <li className="footer-lists">this</li>
+                  <li className="footer-lists">is</li>
+                  <li className="footer-lists">my</li>
+                  <li className="footer-lists">Github</li>
+                  <li className="footer-lists">address</li>
 
                 </ul>
               </div>
               <div className="footer-three">
                 <ul>
                   <p className="footer-title">Bio</p>
-                  <li>this</li>
-                  <li>this</li>
-                  <li>this</li>
-                  <li>this</li>
-                  <li>this</li>
+                  <li className="footer-lists">My Linkedin</li>
                 </ul>
               </div>
               <div className="footer-four">
                 <ul>
                   <p className="footer-title">Linked</p>
-                  <li>this</li>
-                  <li>this</li>
-                  <li>this</li>
-                  <li>this</li>
+                  <li className="footer-lists">click</li>
+                  <li className="footer-lists">on</li>
+                  <li className="footer-lists">the</li>
+                  <li className="footer-lists">linke</li>
+                  <li className="footer-lists">here</li>
                 </ul>
               </div>
             </div>
-              <div className='footer-message'>© 2021 Adventure Time. All Rights Reserved. Terms. Privacy Policy. California Privacy Notice. Cookies.  <Link to='/https://www.linkedin.com/in/pchang1216'>Linkedin</Link> </div>
+              <div className='footer-message'>© 2021 Adventure Time. All Rights Reserved by Paul Chang. Terms. Privacy Policy. New Jersy Privacy Notice. Cookies. </div>
+            <div className='footer-footer'>
+              <div className="my-links">1</div>
+              <div className="my-links">2</div>
+              <div className="my-links">3</div>
+              <div className="my-links">4</div>
+            </div>
             </div>
 
       </nav>
