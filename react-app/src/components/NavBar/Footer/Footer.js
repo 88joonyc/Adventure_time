@@ -62,7 +62,7 @@ const FooterBar = () => {
                 </ul>
               </div>
             </div>
-              <div className='Footer-message'>© 2021 Adventure Time. All Rights Reserved. Terms. Privacy Policy. California Privacy Notice. Cookies.  <Link to='/https://www.linkedin.com/in/pchang1216'>Linkedin</Link> </div>
+              <div className='footer-message'>© 2021 Adventure Time. All Rights Reserved. Terms. Privacy Policy. California Privacy Notice. Cookies.  <Link to='/https://www.linkedin.com/in/pchang1216'>Linkedin</Link> </div>
             </div>
 
       </nav>
