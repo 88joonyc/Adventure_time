@@ -3,50 +3,79 @@ import React, { useState } from 'react';
 import { Link  } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 
-import './CovBar.css'
+import './Footer.css'
 
-const CovBar = () => {
+const FooterBar = () => {
   const sessionUser = useSelector(state => state.session.user)
 
-  const [ searchBar, toggleSearch ] = useState(false)
-  const [ eventPage, toggleCreate ] = useState(false)
 
   let content = null
 
-  if (searchBar) {
+  if (false) {
     content = (
     <>
-    <div className="searchbar-container">
-      <input
-        placeholder='Search events'
-        className='search-input'
-      />
-      <button className='cancel-button' onClick={() => toggleSearch(!searchBar)}>cancel</button>
-    </div>
+
     </>
     )
   } else {
       content = (
+
+        <>
         <nav>
-          <div className="">
-            <div>
-
+          <div className="footer-container">
+            <div className="footer-tabs">
+              <div className="footer-one">
+                <ul>
+                  <p className="footer-title">School</p>
+                  <li>this</li>
+                  <li>this</li>
+                  <li>this</li>
+                  <li>this</li>
+                </ul>
+              </div>
+              <div className="footer-two">
+                <ul>
+                  <p className="footer-title">work</p>
+                  <li>this</li>
+                  <li>this</li>
+                  <li>this</li>
+                  <li>this</li>
+                </ul>
+              </div>
+              <div className="footer-three">
+                <ul>
+                  <p className="footer-title">Bio</p>
+                  <li>this</li>
+                  <li>this</li>
+                  <li>this</li>
+                  <li>this</li>
+                  <li>this</li>
+                </ul>
+              </div>
+              <div className="footer-four">
+                <ul>
+                  <p className="footer-title">Linked</p>
+                  <li>this</li>
+                  <li>this</li>
+                  <li>this</li>
+                  <li>this</li>
+                </ul>
+              </div>
             </div>
-
-<div className='cov-message'>Communities around the world are feeling the effects of the coronavirus (COVID-19) on their live experiences. We’re here to help in any way we can. <Link>Learn more</Link> </div>
-
+              <div className='Footer-message'>© 2021 Adventure Time. All Rights Reserved. Terms. Privacy Policy. California Privacy Notice. Cookies.  <Link to='/https://www.linkedin.com/in/pchang1216'>Linkedin</Link> </div>
             </div>
 
       </nav>
+
+      </>
     )
   }
 
   return (
     <>
       {content}
-      {/* {eventsPage} */}
     </>
   );
 }
 
-export default CovBar;
+export default FooterBar;
