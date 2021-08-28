@@ -6,7 +6,8 @@ import moment from 'moment'
 
 import * as eventActions from '../../../store/event'
 import SplashPage from './SplashPage'
-
+import { all_categories } from '../../../store/category';
+import { all_venues } from '../../../store/venue';
 
 
 const HomePage = () => {
@@ -15,6 +16,8 @@ const history = useHistory()
 
 const sessionUser = useSelector(state => state.session.user)
 const events = useSelector(state => state.events_reducer?.events?.events)
+const category = useSelector(state => (state?.categories_reducer?.categories));
+const venue = useSelector(state => state?.venues_reducer?.venues);
 
 const [errors, setErrors] = useState([]);
 const [editForm, toggleEdit] = useState(false)
@@ -46,6 +49,8 @@ let content = null
 
 useEffect(() => {
     dispatch(eventActions.all_events())
+    dispatch(all_categories())
+    dispatch(all_venues())
 }, [dispatch])
 
 const handleDelete = async (e) => {
@@ -69,98 +74,131 @@ if (editForm) {
         <>
             <div className='edit-panel-container'>
                 <div className="edit-container">
-                <form onSubmit={(e) =>{handleSubmit(e)}}>
+                <form className='edit-form' onSubmit={(e) =>{handleSubmit(e)}}>
                     <div>
-                        <label> venue_id
-                            <input
+                        <label className='edit-labels'> Venue selection
+                            {/* <input
                                 type="number"
                                 value={venue_id}
                                 onChange={(e) => setVenue(e.target.value)}
                                 required="true"
-                            />
+                                className='edit-input'
+                            /> */}
+                            <select
+                                type="number"
+                                value={venue_id}
+                                onChange={(e) => setVenue(e.target.value)}
+                                required="true"
+                                className='edit-input'
+                            >
+                                <option>select</option>
+                                {venue?.map(ven => (
+                                    <option value={ven.id}>{ven.name}, address: {ven.address} {ven.city}, {ven.state}</option>
+                                ))}
+                            </select>
                         </label>
                     </div>
                     <div>
-                        <label> category_id
-                            <input
+                        <label className='edit-labels'> Category
+                            {/* <input
                                 type="number"
                                 value={category_id}
                                 onChange={(e) => setCategory(e.target.value)}
                                 required="true"
-                            />
+                                className='edit-input'
+                            /> */}
+                            <select
+                                    type="number"
+                                    value={category_id}
+                                    onChange={(e) => setCategory(e.target.value)}
+                                    required="true"
+                                    className='edit-input'
+                                >
+                                    <option>select</option>
+                                    {category?.map(cat => (
+                                        <option value={cat.id}>{cat.type}</option>
+                                    ))}
+                            </select>
                         </label>
                     </div>
                     <div>
-                        <label> name
+                        <label className='edit-labels'> Name of event
                             <input
                                 type="text"
                                 value={name}
                                 onChange={(e) => setName(e.target.value)}
                                 required="true"
+                                className='edit-input'
                             />
                         </label>
                     </div>
                     <div>
-                        <label> description
+                        <label className='edit-labels'> Description to event
                             <textarea
                                 type="text"
                                 value={description}
                                 onChange={(e) => setName(e.target.value)}
                                 required="true"
+                                className='edit-textarea'
                             />
                         </label>
                     </div>
                     <div>
-                        <label> start_day
+                        <label className='edit-labels'> Start of event
                             <input
                                 type="datetime-local"
                                 value={moment(start_time).format('YYYY-MM-DDTHH:mm')}
                                 onChange={(e) => setStart(e.target.value)}
                                 required="true"
+                                className='edit-input'
                             />
                         </label>
                     </div>
                     <div>
-                        <label> end_day
+                        <label className='edit-labels'> End of event
                             <input
                                 type='datetime-local'
                                 value={moment(end_time).format('YYYY-MM-DDTHH:mm')}
                                 onChange={(e) => setEnd(e.target.value)}
                                 required="true"
+                                className='edit-input'
                             />
                         </label>
                     </div>
                     <div>
-                        <label> capacity
+                        <label className='edit-labels'> Capacity limit
                             <input
                                 type='number'
                                 value={capacity}
                                 onChange={(e) => setCap(e.target.value)}
                                 required="true"
+                                className='edit-input'
                             />
                         </label>
                     </div>
                     <div>
-                        <label> Image
+                        <label className='edit-labels'> Main event image
                             <input
                                 type='text'
                                 value={image}
                                 onChange={(e) => setImg(e.target.value)}
+                                className='edit-input'
                             />
                         </label>
                     </div>
                     <div>
-                        <label> cost
+                        <label className='edit-labels'> ticket costs
                             <input
                                 type='number'
                                 value={cost}
                                 onChange={(e) => setCost(e.target.value)}
                                 required="true"
+                                className='edit-input'
                             />
                         </label>
                     </div>
-                    <button type='submit'>edit</button>
-                    <button onClick={() => {handleCancel()}} type='button'>cancel</button>
+                    <button className='edit-form-buttons' type='submit'>Update</button>
+                    <button className='edit-form-buttons' onClick={() => {handleCancel()}} type='button'>Cancel</button>
                 </form>
             </div>
         </div>
@@ -201,7 +239,8 @@ const need = (
                                 <div className="event-cards">
                                     {/* <h4>{event.host_id}</h4> */}
                                     <img src={event.image}/>
-                            <Link className='card-per' to={`/event/${event.id}`}>
+                                    <button type='button' className='heart-button'>{<img className="red-heart" />}</button>
+                                    <Link className='card-per' to={`/event/${event.id}`}>
                                     <div className='card-info-container'>
                                         <h2 className='card-print card-name-home'>{event?.name}</h2>
                                         {/* <p className='card-print'>{event.category.type}</p> */}
