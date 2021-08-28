@@ -17,6 +17,7 @@ class User(db.Model, UserMixin):
     updated_at = db.Column(db.DateTime(timezone=True), server_default=func.now())
 
     tickets = db.relationship("Ticket")
+    users = db.relationship("Heart", back_populates='hearts')
 
 
     @property

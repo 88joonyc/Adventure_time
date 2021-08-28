@@ -4,3 +4,4 @@ from .category import Category
 from .venue import Venue
 from .event import Event
 from .ticket import Ticket
+from .heart import Heart
