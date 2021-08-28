@@ -11,7 +11,7 @@ class Heart(db.Model):
     created_at = db.Column(db.DateTime(timezone=True), server_default=func.now())
     updated_at = db.Column(db.DateTime(timezone=True), server_default=func.now())
 
-    tickets = db.relationship('User', back_populates='hearts')
+    users = db.relationship('User', back_populates='hearts')
     events = db.relationship('Event', back_populates='hearts')
 
     def to_dict(self):
