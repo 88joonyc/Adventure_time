@@ -10,6 +10,7 @@
 
 .event-page-card {
     border: 1px solid rgb(239, 239, 255);
+
 }
 
 .event-page-topcard {
@@ -19,6 +20,7 @@
     grid-template-columns: 5fr 2fr;
     grid-template-rows: 1fr;
 }
+
 
 .event-page-card {
     padding: 20px;
@@ -173,7 +175,8 @@
 }
 
 .ticket-prices-start {
-    margin-top: 30%;
+    margin-top: 35%;
+    margin-bottom: -35%;
 }
 
 .event-page {

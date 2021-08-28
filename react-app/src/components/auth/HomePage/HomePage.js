@@ -209,8 +209,8 @@ const need = (
                                     </div>
                                         {(event?.host_id === sessionUser?.id ) ? (
                                             <>
-                                                <button onClick={() => (toggleEdit(!editForm), setVenue(event.venue_id), setCategory(event.category_id), setName(event.name), setStart(event.start_time), setEnd(event.end_time), setCap(event.capacity), setImg(event.image), setCost(event.cost), setDescript(event.description), setId(event.id))}>edit</button>
-                                                <button onClick={(e) => (handleDelete(e))} value={event.id}>delete</button>
+                                                <button type='button' onClick={() => (toggleEdit(!editForm), setVenue(event.venue_id), setCategory(event.category_id), setName(event.name), setStart(event.start_time), setEnd(event.end_time), setCap(event.capacity), setImg(event.image), setCost(event.cost), setDescript(event.description), setId(event.id))}>edit</button>
+                                                <button type='button' onClick={(e) => (handleDelete(e))} value={event.id}>delete</button>
                                             </>
                                         ) : null}
                                 </div>
