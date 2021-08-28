@@ -38,21 +38,40 @@
 
 .general-ticketing-panel {
     border: 1px solid black;
+    display: grid;
+    grid-template-rows: 1fr 3fr 3fr 3fr .8fr;
 }
 
 .ticketing-panel-title {
     border-bottom: 1px solid rgb(205, 209, 228);
-    height: 11%;
-    text-align: center;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
 }
 
-.ticketing-panel-info {}
+.ticketing-panel-info {
+    border-bottom: 1px solid rgb(205, 209, 228);
+    width: 92%;
+    margin: 0 auto;
+    padding: 20px 10px;
+    font-family: 'Martel', serif;
+    font-size: large;
+}
 
 .ticketing-image {
     width: 100%;
 }
 
-.ticketing-calculate-panel{
-    background-color: black;
+.ticketing-calculate-panel {
     height: 100%;
+}
+
+.title-datetimestamp {
+    font-size: x-small;
+    color: rgb(163, 172, 193);
+}
+
+.ticket-small-print {
+    font-size: xx-small;
 }

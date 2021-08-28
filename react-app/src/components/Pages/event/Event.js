@@ -61,10 +61,20 @@ const EachEvent = () => {
       <div className='ticket-panel-container'>
         <div className='ticketing-panel'>
           <div className='general-ticketing-panel'>
-            <div className='ticketing-panel-title'>{event?.events[0]?.name}</div>
-            <div className='ticketing-panel-info'></div>
-            <div className='ticketing-panel-info'></div>
-            <div className='ticketing-panel-info'></div>
+            <div className='ticketing-panel-title'>{event?.events[0]?.name} <div className='title-datetimestamp'>{moment(event?.events[0]?.start_time).format('ddd, MMMM do, YYYY [at] h:mm A')}</div></div>
+            <div className='ticketing-panel-info'>
+              VIP Pass
+              <p className='ticket-small-print'>Please text 202-830-2776 to confirm a reservation for your ticket. RSVP does not guarantee a reservation for seating. Admission prices/times are subject to change based on demand, special events, and/or holiday weekends.</p>
+            </div>
+            <div className='ticketing-panel-info'>
+              Advanced Ticketing
+              <p className='ticket-small-print'>Advanced ticket purchase highly suggested.  Limited amount of tickets will be available the day of for a higher price due to capacity limitations at the venues.</p>
+            </div>
+            <div className='ticketing-panel-info'>
+              General Admission
+              <p className='ticket-small-print'>ss</p>
+
+            </div>
           <div>
             {ticket?.length ? content : <button className="register-button">register</button> }
           </div>
