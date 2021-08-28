@@ -115,8 +115,8 @@ const EachEvent = () => {
             <div className="event-page-card">
               <div>
                 <p>{moment(event?.events[0]?.start_time).format('MMM do')}</p>
-                <p className='events-page-card-naem'>{event?.events[0]?.name}</p>
-                <p className='event-card-basic-info'>By: {event?.events[0]?.host?.first_name} {event?.events[0]?.host?.last_name} </p>
+                {(event?.events[0]?.name.toString().length > 50) ? <p className='events-page-card-naem-long'>{event?.events[0]?.name}</p> : <p className='events-page-card-naem-short'>{event?.events[0]?.name}</p> }
+                <p className='event-card-basic-info event-name-info'>By: {event?.events[0]?.host?.first_name} {event?.events[0]?.host?.last_name} </p>
                 <p className='event-card-basic-info'>Contact: {event?.events[0]?.host?.email} </p>
                 <p className='follower-number'>0 followers {<button className='follow-me-button'>follow</button>}</p>
                 {event?.events[0]?.cost ? <p className='ticket-prices-start'>Tickets start at: ${event?.events[0]?.cost}</p> : <p className='ticket-prices-start'>Free</p>}
