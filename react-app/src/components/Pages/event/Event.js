@@ -15,6 +15,7 @@ const EachEvent = () => {
   const eventId = useParams()
   const [errors, setErrors] = useState([]);
   const [panel, setPanel] = useState(false);
+  const [ticketqty, setTicketQty] = useState(0)
 
   const user = useSelector(state => state.session.user)
   const ticket = useSelector(state => (state?.tickets_reducer?.tickets));
@@ -64,6 +65,25 @@ const EachEvent = () => {
             <div className='ticketing-panel-info'>
               VIP Pass
               <p className='ticket-small-print'>Please text 202-830-2776 to confirm a reservation for your ticket. RSVP does not guarantee a reservation for seating. Admission prices/times are subject to change based on demand, special events, and/or holiday weekends.</p>
+              <select onChange={(e) => setTicketQty(e.target.value)}>
+                <option> - select quantity - </option>
+                <option value='1'> - 1 - </option>
+                <option value='2'> - 2 - </option>
+                <option value='3'> - 3 - </option>
+                <option value='4'> - 4 - </option>
+                <option value='5'> - 5 - </option>
+                <option value='6'> - 6 - </option>
+                <option value='7'> - 7 - </option>
+                <option value='8'> - 8 - </option>
+                <option value='9'> - 9 - </option>
+                <option value='10'> - 10 - </option>
+                {/* {(n = 1) => {
+                  while (n <= 10) {
+                    <option value={n}> - {n} - </option>
+                    n += 1
+                  }
+                }} */}
+              </select>
             </div>
             <div className='ticketing-panel-info'>
               Advanced Ticketing
@@ -87,7 +107,7 @@ const EachEvent = () => {
               </div>
             <div className='ticketing-calculate-panel'>
                 <div className='cost-panel'>
-                    {event?.events[0]?.cost ? <p>This isdasssssssdhabsdkjbksbnaksads</p> : <h2>this event is free you cheap shit</h2>}
+                    {event?.events[0]?.cost ? <p>{ticketqty}</p> : <h2>this event is free you cheap shit</h2>}
 
                   </div>
             </div>
