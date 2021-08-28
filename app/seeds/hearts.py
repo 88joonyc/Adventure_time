@@ -24,7 +24,7 @@ def seed_hearts():
     athree2 = Heart(
         user_id=2, event_id=3,)
 
-    aour2 = Heart(
+    afour2 = Heart(
         user_id=2, event_id=4,)
 
     aone3 = Heart(

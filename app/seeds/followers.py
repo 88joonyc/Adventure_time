@@ -25,7 +25,7 @@ def seed_followers():
     athree1 = Follower(
         promoter_id=1, follower_id=7,)
 
-    aour1 = Follower(
+    afour1 = Follower(
         promoter_id=1, follower_id=8,)
 
     aone3 = Follower(
@@ -123,7 +123,7 @@ def seed_followers():
     atree1 = Follower(
         promoter_id=6, follower_id=7,)
 
-    aour1 = Follower(
+    apour1 = Follower(
         promoter_id=6, follower_id=8,)
 
     awun3 = Follower(

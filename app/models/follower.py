@@ -11,8 +11,8 @@ class Follower(db.Model):
     created_at = db.Column(db.DateTime(timezone=True), server_default=func.now())
     updated_at = db.Column(db.DateTime(timezone=True), server_default=func.now())
 
-    tickets = db.relationship('User', back_populates='tickets')
-    events = db.relationship('Event', back_populates='tickets')
+    promoter = db.relationship('User', back_populates='promoters')
+    follower = db.relationship('User', back_populates='followers')
 
     def to_dict(self):
         return {
