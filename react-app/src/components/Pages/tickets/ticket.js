@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux'
 import {  useHistory, Link } from 'react-router-dom';
-import { all_tickets } from '../../../store/ticket';
+import * as actiontickets from '../../../store/ticket';
 import CovBar from '../../NavBar/CovBar/CovBar';
 import FooterBar from '../../NavBar/Footer/Footer';
 
@@ -21,12 +21,12 @@ const TicketPage = () => {
 
 
   useEffect( async () => {
-    dispatch(all_tickets())
+    dispatch(actiontickets.all_tickets())
 
-  }, [all_tickets])
+  }, [])
 
   const runonce = () => {
-    dispatch(all_tickets())
+    dispatch(actiontickets.all_tickets())
   }
 
 const none_content = (
@@ -41,6 +41,13 @@ const none_content = (
     </>
   )
 
+
+const unregisterforthisevent = async (e) => {
+  e.preventDefault()
+  await dispatch(actiontickets.delete_ticket(e.target.value))
+  runonce()
+}
+
 const some_content = (
     <>
       {tickets?.map(tix=> (
@@ -51,7 +58,9 @@ const some_content = (
             <p className='tix-date'>{moment(tix.event.start_time).format('ddd, MMM Do, [at] LT')}</p>
             <p className='tix-title'>{tix.event.name}</p>
           </div>
-          <button>some button</button>
+          <div className='register-button-container'>
+            <button type='button' className="unregister-tickets-page" value={tix.id} onClick={(e) => unregisterforthisevent(e)}>Unregister</button>
+          </div>
         </div>
     </Link>
       ))}

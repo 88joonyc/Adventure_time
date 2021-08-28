@@ -36,7 +36,26 @@
     min-height: 800px;
 }
 
+.unregister-tickets-page {
+    background-color: rgb(194, 23, 23);
+    color: white;
+    width: 100%;
+    height: 100px;
+}
+
+.unregister-tickets-page:hover {
+    box-shadow: 2px 2px 10px rgb(255, 21, 21);
+    transition: all ease-in-out 0.5s;
+    cursor: pointer;
+}
+
 .side-panel-container {}
+
+.register-button-container {
+    display: flex;
+    align-content: center;
+    justify-content: center;
+}
 
 
 /* -------------------------------------------------- */
@@ -67,7 +86,6 @@
 }
 
 .events-description-text {
-    height: 1px;
     padding: 5px 10px;
 }
 
@@ -113,13 +131,19 @@
     max-height: 30px;
 }
 
+.events-page-card-naem-very-long {
+    font-family: 'Abril Fatface', cursive;
+    font-size: 15px;
+    max-height: 30px;
+}
+
 .events-page-card-naem-short {
     font-family: 'Abril Fatface', cursive;
     font-size: 25px;
     max-height: 30px;
 }
 
-.event-name-info  {
+.event-name-info {
     padding-top: 45px;
 }
 

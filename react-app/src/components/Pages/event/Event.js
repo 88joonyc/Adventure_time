@@ -44,8 +44,6 @@ const EachEvent = () => {
   const registerforthisevent = async (e) => {
     e.preventDefault()
     let id = event?.events[0]?.id
-
-    console.log('============sd========================', id)
     await dispatch(actiontickets.create_ticket( id ))
     runonce()
   }
@@ -116,6 +114,7 @@ const EachEvent = () => {
               <div>
                 <p>{moment(event?.events[0]?.start_time).format('MMM do')}</p>
                 {(event?.events[0]?.name.toString().length > 50) ? <p className='events-page-card-naem-long'>{event?.events[0]?.name}</p> : <p className='events-page-card-naem-short'>{event?.events[0]?.name}</p> }
+                {(event?.events[0]?.name.toString().length > 100) ? <p className='events-page-card-naem-very-long'>{event?.events[0]?.name}</p> : null /*<p className='events-page-card-naem-short'>{event?.events[0]?.name}</p> */ }
                 <p className='event-card-basic-info event-name-info'>By: {event?.events[0]?.host?.first_name} {event?.events[0]?.host?.last_name} </p>
                 <p className='event-card-basic-info'>Contact: {event?.events[0]?.host?.email} </p>
                 <p className='follower-number'>0 followers {<button className='follow-me-button'>follow</button>}</p>
