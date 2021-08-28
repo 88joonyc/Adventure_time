@@ -219,7 +219,9 @@ const EachEvent = () => {
     )
   }
 
+
   // ===========================================map===========================================================================
+
 
   let map_panel = (
     <>
@@ -241,7 +243,14 @@ const EachEvent = () => {
         </div>
 
         <div>
-          <div className='map-info-map'>map</div>
+          <div className='map-info-map'>map
+
+           <div style={{ height: '50vh', width: '90%' }}>
+
+      </div>
+
+
+          </div>
         </div>
         <div>
           <div className='map-info-map'>hi</div>
@@ -265,6 +274,9 @@ const EachEvent = () => {
     </>
   )
 
+
+
+// this is my api key  in react root .env
 
 
 
