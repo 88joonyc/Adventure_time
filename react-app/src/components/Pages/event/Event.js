@@ -217,71 +217,73 @@ const EachEvent = () => {
 
   return (
         <>
-          <div className='event-page-topcard'>
-            <div className='event-page-img-container'>
-              <img className='event-page-img'src={event?.events[0]?.image}/>
-            </div>
-            <div className="event-page-card">
-              <div>
-                <p>{moment(event?.events[0]?.start_time).format('MMM do')}</p>
-                {(event?.events[0]?.name.toString().length > 50) ? <p className='events-page-card-naem-long'>{event?.events[0]?.name}</p> : <p className='events-page-card-naem-short'>{event?.events[0]?.name}</p> }
-                {(event?.events[0]?.name.toString().length > 100) ? <p className='events-page-card-naem-very-long'>{event?.events[0]?.name}</p> : null /*<p className='events-page-card-naem-short'>{event?.events[0]?.name}</p> */ }
-                <p className='event-card-basic-info event-name-info'>By: {event?.events[0]?.host?.first_name} {event?.events[0]?.host?.last_name} </p>
-                <p className='event-card-basic-info'>Contact: {event?.events[0]?.host?.email} </p>
-                <p className='follower-number'>0 followers {<button className='follow-me-button'>follow</button>}</p>
-                {event?.events[0]?.cost ? <p className='ticket-prices-start'>Tickets start at: ${event?.events[0]?.cost}</p> : <p className='ticket-prices-start'>Free</p>}
+          <div className='event-page'>
+            <div className='event-page-topcard'>
+              <div className='event-page-img-container'>
+                <img className='event-page-img'src={event?.events[0]?.image}/>
               </div>
-            </div>
-          </div>
-          <div className="purchase-tix-bar">
-            <button type='button' onClick={() => (setPanel(!panel))} className='ticket-button'>Tickets</button>
-          </div>
-          <div className='event-page-bot-grid'>
-            <div className='events-main-cont-container'>
-              <div className='events-main-cont'>
-                <div class='events-description-text'>
-                  <p>
-                    {moment(event?.events[0]?.start_time).format('MMM do')}
-                    - SINGLE DAY PASS - One (1) general admission RSVP to attend
-                  {event?.events[0]?.name} in {event?.events[0]?.venue?.city},
-                  {event?.events[0]?.venue?.state}.
-                  </p>
-                  <h2 className="events-description-label">About this event</h2>
-                  <p className="events-description-innertext">{event?.events[0]?.description}</p>
-                  <div className="tags">Tags</div>
+              <div className="event-page-card">
+                <div>
+                  <p>{moment(event?.events[0]?.start_time).format('MMM do')}</p>
+                  {(event?.events[0]?.name.toString().length > 50) ? <p className='events-page-card-naem-long'>{event?.events[0]?.name}</p> : <p className='events-page-card-naem-short'>{event?.events[0]?.name}</p> }
+                  {(event?.events[0]?.name.toString().length > 100) ? <p className='events-page-card-naem-very-long'>{event?.events[0]?.name}</p> : null /*<p className='events-page-card-naem-short'>{event?.events[0]?.name}</p> */ }
+                  <p className='event-card-basic-info event-name-info'>By: {event?.events[0]?.host?.first_name} {event?.events[0]?.host?.last_name} </p>
+                  <p className='event-card-basic-info'>Contact: {event?.events[0]?.host?.email} </p>
+                  <p className='follower-number'>0 followers {<button className='follow-me-button'>follow</button>}</p>
+                  {event?.events[0]?.cost ? <p className='ticket-prices-start'>Tickets start at: ${event?.events[0]?.cost}</p> : <p className='ticket-prices-start'>Free</p>}
                 </div>
               </div>
             </div>
-            <div className='side-panel-container'>
-              <div className='event-page-sidepanel'>
-                  <div className="events-info-label">
-                    <p>Capacity:</p>
+            <div className="purchase-tix-bar">
+              <button type='button' onClick={() => (setPanel(!panel))} className='ticket-button'>Tickets</button>
+            </div>
+            <div className='event-page-bot-grid'>
+              <div className='events-main-cont-container'>
+                <div className='events-main-cont'>
+                  <div class='events-description-text'>
+                    <p>
+                      {moment(event?.events[0]?.start_time).format('MMM do')}
+                      - SINGLE DAY PASS - One (1) general admission RSVP to attend
+                    {event?.events[0]?.name} in {event?.events[0]?.venue?.city},
+                    {event?.events[0]?.venue?.state}.
+                    </p>
+                    <h2 className="events-description-label">About this event</h2>
+                    <p className="events-description-innertext">{event?.events[0]?.description}</p>
+                    <div className="tags">Tags</div>
                   </div>
-                  <div className='events-address-para'>
-                    <p>{event?.events[0]?.capacity}</p>
-                  </div>
-                  <div className="events-info-label">
-                    <p>Category:</p>
-                  </div>
-                  <div className='events-address-para'>
-                    <p>{event?.events[0]?.category?.type}</p>
-                  </div>
-                  <p>Date and time</p>
-                  <p>Starts: </p>
-                  <p>{moment(event?.events[0]?.start_time).format('ddd, MMMM do, YYYY [at] h:mm A')}</p>
-                  <p>Ends:</p>
-                  <p>{moment(event?.events[0]?.end_time).format('ddd, MMMM do, YYYY [at] h:mm A')}</p>
-                  <p className="events-address-label">Location:</p>
-                  <div className='events-page-location'>
-                    <p className="events-address-para">{event?.events[0]?.venue?.name}</p>
-                    <p className="events-address-para">{event?.events[0]?.venue?.address}</p>
-                    <p className="events-address-para">{event?.events[0]?.venue?.city}, {event?.events[0]?.venue?.state}</p>
-                    <p className="events-address-para">{event?.events[0]?.venue?.zip_code}</p>
-                    <p className="events-address-para">Lat: {event?.events[0]?.venue?.latitude} Lon: {event?.events[0]?.venue?.longitude} </p>
-                    <button>view map</button>
-                  </div>
-                  <p className="events-address-label">Refund Policy: </p>
-                  <p  className="events-address-para">Contact the organizer to request a refund. Adventure Time's fee is nonrefundable. </p>
+                </div>
+              </div>
+              <div className='side-panel-container'>
+                <div className='event-page-sidepanel'>
+                    <div className="events-info-label">
+                      <p>Capacity:</p>
+                    </div>
+                    <div className='events-address-para'>
+                      <p>{event?.events[0]?.capacity}</p>
+                    </div>
+                    <div className="events-info-label">
+                      <p>Category:</p>
+                    </div>
+                    <div className='events-address-para'>
+                      <p>{event?.events[0]?.category?.type}</p>
+                    </div>
+                    <p>Date and time</p>
+                    <p>Starts: </p>
+                    <p>{moment(event?.events[0]?.start_time).format('ddd, MMMM do, YYYY [at] h:mm A')}</p>
+                    <p>Ends:</p>
+                    <p>{moment(event?.events[0]?.end_time).format('ddd, MMMM do, YYYY [at] h:mm A')}</p>
+                    <p className="events-address-label">Location:</p>
+                    <div className='events-page-location'>
+                      <p className="events-address-para">{event?.events[0]?.venue?.name}</p>
+                      <p className="events-address-para">{event?.events[0]?.venue?.address}</p>
+                      <p className="events-address-para">{event?.events[0]?.venue?.city}, {event?.events[0]?.venue?.state}</p>
+                      <p className="events-address-para">{event?.events[0]?.venue?.zip_code}</p>
+                      <p className="events-address-para">Lat: {event?.events[0]?.venue?.latitude} Lon: {event?.events[0]?.venue?.longitude} </p>
+                      <button>view map</button>
+                    </div>
+                    <p className="events-address-label">Refund Policy: </p>
+                    <p  className="events-address-para">Contact the organizer to request a refund. Adventure Time's fee is nonrefundable. </p>
+                </div>
               </div>
             </div>
           </div>
