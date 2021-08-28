@@ -6,27 +6,11 @@ from app.forms import FollowerForm
 
 follower_routes = Blueprint('followers', __name__)
 
-@follower_routes.route('/')
-def followers():
-    followers_query = Follower.query.filter(Follower.user_id == current_user.id)
-    events = Event.query.all()
-    followers = [ follower.to_dict() for follower in followers_query ]
-    for follower in followers:
-        follower['event'] = Event.query.get(follower["event_id"]).to_dict()
-        follower['venue'] = Venue.query.get(follower["event_id"]).to_dict()
-
-    return {'followers': followers}
-
 
 @follower_routes.route('/<int:id>')
 def follows(id):
-    follower_query = Follower.query.filter(Follower.event_id == id)
-    followers = [ follower.to_dict() for follower in follower_query if follower.user_id == current_user.id ]
-    for follower in followers:
-        follower['event'] = Event.query.get(follower["event_id"]).to_dict()
-        # event['categories'] = Category.query.all()
-    return {'followers': followers}
-    # return {'followers': [follower.to_dict() for event in followers]}
+    followers = Follower.query.filter(Follower.promoter_id == id)
+    return {'followers': [ follower.to_dict() for follower in followers ]}
 
 
 @follower_routes.route('/', methods=['POST'])
