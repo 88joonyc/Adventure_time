@@ -239,6 +239,7 @@ const EachEvent = () => {
             </div>
           </div>
         </div>
+
         <div>
           <div className='map-info-map'>map</div>
         </div>
@@ -247,6 +248,18 @@ const EachEvent = () => {
         </div>
         <div>
           <div className='map-info-map'>hi</div>
+        </div>
+
+        <div className='map-info-marker'>
+          <div>
+            <div className='map-info-marker'>hi</div>
+          </div>
+          <div>
+            <div className='map-info-marker'>hi</div>
+          </div>
+          <div>
+            <div className='map-info-marker'>hi</div>
+          </div>
         </div>
     </div>
     </>

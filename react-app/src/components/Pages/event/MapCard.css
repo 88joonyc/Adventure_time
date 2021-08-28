@@ -1,5 +1,12 @@
-.map-info-container {}
+.map-info-container {
+    background-color: crimson;
 
-.map-info-marker {}
+}
 
-.map-info-map {}
+.map-info-marker {
+    background-color: cyan;
+}
+
+.map-info-map {
+    background-color: darkblue;
+}
