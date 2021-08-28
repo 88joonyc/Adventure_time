@@ -30,10 +30,11 @@ export const one_ticket = (id) => async dispatch => {
 }
 
 export const create_ticket = (payload) => async dispatch => {
+
     const res = await fetch('/api/tickets/', {
         method: 'POST',
         headers: {"Content-Type": 'application/json'},
-        body: JSON.stringify(payload)
+        body: JSON.stringify({event_id: payload})
     })
     const data = res.json()
     if (res.ok) {

@@ -1,14 +1,5 @@
 @import url(./TicketPanel.css);
 
-.unregister-button {
-    background-color: red;
-}
-
-.register-button {
-    background-color: green;
-
-}
-
 .event-page-img {
     width: 100%;
     height: 100%;

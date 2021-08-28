@@ -43,10 +43,11 @@ const EachEvent = () => {
 
   const registerforthisevent = async (e) => {
     e.preventDefault()
-    let time = event?.events[0]?.name
-    let payload = {time}
+    let id = event?.events[0]?.id
 
-    await dispatch(actiontickets.create_ticket( payload ))
+    console.log('============sd========================', id)
+    await dispatch(actiontickets.create_ticket( id ))
+    runonce()
   }
 
   const unregisterforthisevent = async (e) => {
