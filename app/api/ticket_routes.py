@@ -17,6 +17,7 @@ def ticketed():
 
     return {'tickets': tickets}
 
+
 @ticket_routes.route('/<int:id>')
 def ticks(id):
     ticket_query = Ticket.query.filter(Ticket.event_id == id)

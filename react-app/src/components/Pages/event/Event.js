@@ -25,20 +25,34 @@ const EachEvent = () => {
 
   useEffect( async () => {
     dispatch(actiontickets.one_ticket(eventId?.eventId))
-    dispatch(one_event(eventId?.eventId))
+    await dispatch(one_event(eventId?.eventId))
 
-  }, [dispatch])
+  }, [])
+
+  const runonce = () => {
+    dispatch(actiontickets.one_ticket(eventId?.eventId))
+  }
+
+  if (!ticket) {
+    runonce()
+  }
 
 // This is my ticket modal which pops up when green 'ticket' is pressed
 
   let ticket_panel = null
 
-  const registerforthisevent = () => {
+  const registerforthisevent = async (e) => {
+    e.preventDefault()
+    let time = event?.events[0]?.name
+    let payload = {time}
 
+    await dispatch(actiontickets.create_ticket( payload ))
   }
 
-  const unregisterforthisevent = () => {
-
+  const unregisterforthisevent = async (e) => {
+    e.preventDefault()
+    await dispatch(actiontickets.delete_ticket(ticket[0]?.id))
+    runonce()
   }
 
   if (panel) {
@@ -63,7 +77,7 @@ const EachEvent = () => {
             </div>
             <div className='register-button-contaienr'>
           <div className='registering-buttons'>
-            {ticket?.length ? <button onClick={() => unregisterforthisevent()} className="unregister-button">unregister</button> : <button onClick={() => registerforthisevent()} className="register-button">register</button> }
+            {ticket?.length ? <button onClick={(e) => unregisterforthisevent(e)} className="unregister-button">unregister</button> : <button onClick={(e) => registerforthisevent(e)} className="register-button">register</button> }
           </div>
             </div>
           </div>
