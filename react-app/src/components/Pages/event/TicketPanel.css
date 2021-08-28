@@ -1,0 +1,8 @@
+.ticket-panel-container {
+    position: fixed;
+    display: flex;
+    align-content: center;
+    bottom: 40%;
+    right: 20%;
+    width: 50%;
+}

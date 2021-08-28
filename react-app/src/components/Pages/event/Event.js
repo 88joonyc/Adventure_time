@@ -14,6 +14,7 @@ import './Event.css'
 const EachEvent = () => {
   const eventId = useParams()
   const [errors, setErrors] = useState([]);
+  const [panel, setPanel] = useState(false);
 
   const user = useSelector(state => state.session.user)
   const ticket = useSelector(state => (state?.tickets_reducer?.tickets));
@@ -22,12 +23,11 @@ const EachEvent = () => {
   const dispatch = useDispatch();
   const history = useHistory()
 
-
   useEffect( async () => {
     dispatch(one_ticket(eventId?.eventId))
     dispatch(one_event(eventId?.eventId))
 
-  }, [])
+  }, [dispatch])
 
   let venue_content = null
   let content = null
@@ -35,7 +35,6 @@ const EachEvent = () => {
   ticket?.map(tx=> {
     if (tx?.event) {
       content = (
-
         <>
           <button className="unregister-button">unregister</button>
           <p>{ticket?.[0]?.event?.name} </p>
@@ -54,39 +53,98 @@ const EachEvent = () => {
     }
   })
 
+// This is my ticket modal which pops up when green 'ticket' is pressed
+
+  let ticket_panel = null
+
+  if (panel) {
+    ticket_panel = (
+      <>
+      <div className='ticket-panel-container'>
+        {ticket?.length ? content : <button className="register-button">register</button> }
+        <h1>hi</h1>
+      </div>
+      </>
+    )
+  }
+
+
+
+
+
+
   return (
         <>
-            <div className='event-page-img'>
-              <img src={event?.events[0]?.image}/>
+          <div className='event-page-topcard'>
+            <div className='event-page-img-container'>
+              <img className='event-page-img'src={event?.events[0]?.image}/>
             </div>
             <div className="event-page-card">
-              <h1>{event?.events[0]?.start_time}</h1>
-              <h1>{event?.events[0]?.name}</h1>
-              <h1>0 followers</h1> <button>follow</button>
-              <h1>{event?.events[0]?.cost}</h1>
-
+              <div>
+                <p>{moment(event?.events[0]?.start_time).format('MMM do')}</p>
+                <p className='events-page-card-naem'>{event?.events[0]?.name}</p>
+                <p className='event-card-basic-info'>By: {event?.events[0]?.host?.first_name} {event?.events[0]?.host?.last_name} </p>
+                <p className='event-card-basic-info'>Contact: {event?.events[0]?.host?.email} </p>
+                <p className='follower-number'>0 followers {<button className='follow-me-button'>follow</button>}</p>
+                {event?.events[0]?.cost ? <p className='ticket-prices-start'>Tickets start at: ${event?.events[0]?.cost}</p> : <p className='ticket-prices-start'>Free</p>}
+              </div>
             </div>
-          <CovBar/>
-          <div className='events-main-cont'>
-            <h1>{event?.events[0]?.description}</h1>
           </div>
-            <h1>{event?.events[0]?.capacity}</h1>
-            <h1>{event?.events[0]?.category?.type}</h1>
-            <h1>{event?.events[0]?.start_time}</h1>
-            <h1>{event?.events[0]?.end_time}</h1>
-            <h1>{event?.events[0]?.venue?.name}</h1>
-            <h1>{event?.events[0]?.venue?.address}</h1>
-            <h1>{event?.events[0]?.venue?.city}</h1>
-            <h1>{event?.events[0]?.venue?.state}</h1>
-            <h1>{event?.events[0]?.venue?.zip_code}</h1>
-            <h1>{event?.events[0]?.venue?.latitude}</h1>
-            <h1>{event?.events[0]?.venue?.longitude}</h1>
-            <button>view map</button>
-            <h1>Refund Policy: </h1>
-            <p>Contact the organizer to request a refund. Adventure Time's fee is nonrefundable. </p>
+          <div className="purchase-tix-bar">
+            <button type='button' onClick={() => (setPanel(!panel))} className='ticket-button'>Tickets</button>
+          </div>
+          <div className='event-page-bot-grid'>
+            <div className='events-main-cont-container'>
+              <div className='events-main-cont'>
+                <div class='events-description-text'>
+                  <p>
+                    {moment(event?.events[0]?.start_time).format('MMM do')}
+                    - SINGLE DAY PASS - One (1) general admission RSVP to attend
+                  {event?.events[0]?.name} in {event?.events[0]?.venue?.city},
+                  {event?.events[0]?.venue?.state}.
+                  </p>
+                  <h2 className="events-description-innertext">About this event</h2>
+                  <p className="events-description-innertext">{event?.events[0]?.description}</p>
+                  <div className="tags">Tags</div>
+                </div>
+              </div>
+            </div>
+            <div className='side-panel-container'>
+              <div className='event-page-sidepanel'>
+                  <div className="events-info-label">
+                    <p>Capacity:</p>
+                  </div>
+                  <div className='events-address-para'>
+                    <p>{event?.events[0]?.capacity}</p>
+                  </div>
+                  <div className="events-info-label">
+                    <p>Category:</p>
+                  </div>
+                  <div className='events-address-para'>
+                    <p>{event?.events[0]?.category?.type}</p>
+                  </div>
+                  <p>Date and time</p>
+                  <p>Starts: </p>
+                  <p>{moment(event?.events[0]?.start_time).format('ddd, MMMM do, YYYY [at] h:mm A')}</p>
+                  <p>Ends:</p>
+                  <p>{moment(event?.events[0]?.end_time).format('ddd, MMMM do, YYYY [at] h:mm A')}</p>
+                  <p className="events-address-label">Location:</p>
+                  <div className='events-page-location'>
+                    <p className="events-address-para">{event?.events[0]?.venue?.name}</p>
+                    <p className="events-address-para">{event?.events[0]?.venue?.address}</p>
+                    <p className="events-address-para">{event?.events[0]?.venue?.city}, {event?.events[0]?.venue?.state}</p>
+                    <p className="events-address-para">{event?.events[0]?.venue?.zip_code}</p>
+                    <p className="events-address-para">Lat: {event?.events[0]?.venue?.latitude} Lon: {event?.events[0]?.venue?.longitude} </p>
+                    <button>view map</button>
+                  </div>
+                  <p className="events-address-label">Refund Policy: </p>
+                  <p  className="events-address-para">Contact the organizer to request a refund. Adventure Time's fee is nonrefundable. </p>
+              </div>
+            </div>
+          </div>
 
+            {ticket_panel}
 
-            {ticket ? content :  <button className="register-button">register</button>}
           <FooterBar/>
         </>
   );

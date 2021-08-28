@@ -1,3 +1,5 @@
+@import url(./TicketPanel.css);
+
 .unregister-button {
     background-color: red;
 }
@@ -7,11 +9,135 @@
 }
 
 .event-page-img {
-    width: 200px;
+    width: 100%;
+    height: 100%;
 }
 
-.event-page-card {}
+.event-page-img-container {
+    height: 400px;
+}
+
+.event-page-card {
+    border: 1px solid rgb(239, 239, 255);
+}
+
+.event-page-topcard {
+    height: 400px;
+    display: grid;
+    /* background-color: blue; */
+    grid-template-columns: 5fr 2fr;
+    grid-template-rows: 1fr;
+}
+
+.event-page-card {
+    padding: 20px;
+}
+
+.event-page-sidepanel {}
+
+.event-page-bot-grid {
+    display: grid;
+    grid-template-columns: 5fr 2fr;
+    border-bottom: 1px solid rgb(235, 235, 240);
+}
+
+.events-main-cont-container {
+    min-height: 800px;
+}
+
+.side-panel-container {}
+
+
+/* -------------------------------------------------- */
+
+.purchase-tix-bar {
+    width: 100%;
+    height: 70px;
+    background-color: inherit;
+    border-top: 1px solid rgb(235, 235, 240);
+    border-bottom: 1px solid rgb(235, 235, 240);
+}
+
+.ticket-button {
+    border: none;
+    background-color: rgb(41, 77, 5);
+    color: white;
+    font-family: 'Julius Sans One', sans-serif;
+    float: right;
+    padding: 0 150px;
+    height: 100%;
+    border-radius: 10px;
+    font-size: medium;
+}
+
+.ticket-button:hover {
+    cursor: pointer;
+    box-shadow: 3px 3px 10px rgb(169, 187, 189);
+}
+
+.events-description-text {
+    height: 1px;
+    padding: 5px 10px;
+}
+
+.events-description-innertext {
+    padding-top: 12px;
+}
 
 .events-main-cont {
-    background-color: lavender;
+    /* background-color: lavender; */
+    padding: 40px 120px
+}
+
+.tags {
+    padding: 50px 0;
+}
+
+.events-page-location {
+    width: 250px;
+    padding: 10px;
+    margin-bottom: 30px;
+}
+
+.events-address-para {
+    font-size: small;
+    padding: 0;
+    margin: 0;
+    color: rgb(108, 125, 145);
+}
+
+.events-address-label {
+    font-size: medium;
+    padding: 5px 0;
+    margin: 0;
+}
+
+.events-info-label {
+    padding: 0 0;
+}
+
+.events-page-card-naem {
+    font-family: 'Abril Fatface', cursive;
+    font-size: 23px;
+}
+
+.event-card-basic-info {
+    margin: 0;
+    font-size: small;
+    color: rgb(61, 74, 97);
+}
+
+.follow-me-button {
+    border-color: rgb(18, 171, 79);
+    color: rgb(18, 171, 79);
+    background-color: inherit;
+    border-radius: 4px;
+}
+
+.follower-number {
+    font-size: small;
+}
+
+.ticket-prices-start {
+    margin-top: 130px;
 }

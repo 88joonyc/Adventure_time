@@ -51,7 +51,7 @@ const some_content = (
             <p className='tix-date'>{moment(tix.event.start_time).format('ddd, MMM Do, [at] LT')}</p>
             <p className='tix-title'>{tix.event.name}</p>
           </div>
-          <button>some buttom</button>
+          <button>some button</button>
         </div>
     </Link>
       ))}
@@ -71,7 +71,7 @@ const some_content = (
                       <p className='name'>{user.last_name}</p>
                     </div>
                     <div className="user-marks">
-                        <p className="user-stats">0 orders</p>
+                        <p className="user-stats">{tickets?.length} orders</p>
                         <p> * </p>
                         <p className="user-stats">0 likes</p>
                         <p> * </p>
@@ -82,7 +82,7 @@ const some_content = (
                 <div className='ticket-info-card' >
                   <div className="users-boxes">
                     <h3>Orders {`>`}</h3>
-                  {tickets ?  some_content : (none_content, runonce())}
+                  {tickets?.length ?  some_content : (none_content, runonce())}
                   </div>
                   <div className="users-boxes">
                     <h3>Interests {`>`}</h3>

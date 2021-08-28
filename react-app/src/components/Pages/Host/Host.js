@@ -135,7 +135,7 @@ textnamemax()
 
                         </label>
                         <div>
-                            <label> category_id
+                            <label> Category selection:
                                 <select
                                     type="number"
                                     value={category_id}
@@ -196,7 +196,7 @@ textnamemax()
                     <div className="info-input">
                         <h2>Capacity</h2>
                         <b>Tell us how many attendees can register at maximum.</b>
-                        <label> capacity
+                        <label>
                             <input
                                 type='number'
                                 onChange={(e) => setCap(e.target.value)}
@@ -212,7 +212,7 @@ textnamemax()
                     <div className="info-input">
                         <h2>Date and time</h2>
                         <p>Tell event-goers when your event starts and ends so they can make plans to attend.</p>
-                            <label> Start
+                            <label> Start date and time
                                 <input
                                     type="datetime-local"
                                     onChange={(e) => setStart(e.target.value)}
@@ -221,7 +221,7 @@ textnamemax()
                                 />
                             </label>
                         <div>
-                            <label> end_day
+                            <label> End date and time
                                 <input
                                     type='datetime-local'
                                     onChange={(e) => setEnd(e.target.value)}
@@ -238,7 +238,7 @@ textnamemax()
                     <div className="info-input">
                         <h2>Main Event Image</h2>
                         <p>This is the first image attendees will see at the top of your listing. Use a high quality image: 2160x1080px (2:1 ratio).</p>
-                            <label> Image
+                            <label> Image URL:
                                 <input
                                     type='text'
                                     onChange={(e) => setImg(e.target.value)} // img is limited to 500 char
@@ -257,7 +257,7 @@ textnamemax()
                     <div className="info-input">
                         <h2>Cost</h2>
                         <p>Add details for anys costs associated with attending your event.</p>
-                        <label> cost
+                        <label>
                             <input
                                 type='number'
                                 onChange={(e) => setCost(e.target.value)}
@@ -272,7 +272,7 @@ textnamemax()
                     <div className="info-input">
                     <h2>Description</h2>
                     <p>Add more details to your event like your schedule, sponsors, or featured guests.</p>
-                    <label> Description
+                    <label>
                         <textarea
                             type='text'
                             onChange={(e) => setDescript(e.target.value)} // limited to 5000 char
