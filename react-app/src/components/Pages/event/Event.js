@@ -6,6 +6,7 @@ import CovBar from '../../NavBar/CovBar/CovBar';
 import FooterBar from '../../NavBar/Footer/Footer';
 import { one_event } from '../../../store/event';
 import * as actiontickets from '../../../store/ticket';
+import * as actionfollowers from '../../../store/follower';
 
 import moment from 'moment';
 
@@ -23,6 +24,7 @@ const EachEvent = () => {
   const user = useSelector(state => state.session.user)
   const ticket = useSelector(state => (state?.tickets_reducer?.tickets));
   const event = useSelector(state => (state?.events_reducer?.events));
+  const followers = useSelector(state => (state?.followers_reducer?.followers));
 
   const dispatch = useDispatch();
   const history = useHistory()
@@ -30,10 +32,13 @@ const EachEvent = () => {
   useEffect( async () => {
     dispatch(actiontickets.one_ticket(eventId?.eventId))
     await dispatch(one_event(eventId?.eventId))
+
   }, [])
 
   const runonce = () => {
     dispatch(actiontickets.one_ticket(eventId?.eventId))
+    dispatch(actionfollowers.enter_promoter_id(eventId?.eventId))
+
   }
 
   if (!ticket) {
@@ -279,6 +284,25 @@ const EachEvent = () => {
 // this is my api key  in react root .env
 
 
+// ===========================================follow/unfollow===========================================================================
+
+
+const follow = async () => {
+  const  following = await dispatch(actionfollowers.follow(event?.events[0]?.id))
+  if (following) {
+    runonce()
+  }
+}
+
+
+const unfollow = async () => {
+  const unfollowing = await dispatch(actionfollowers.leave_loser(event?.events[0]?.id))
+  if (unfollowing) {
+    runonce()
+  }
+}
+
+
 
 // ===========================================return===========================================================================
   return (
@@ -295,7 +319,7 @@ const EachEvent = () => {
                   {(event?.events[0]?.name.toString().length > 100) ? <p className='events-page-card-naem-very-long'>{event?.events[0]?.name}</p> : null /*<p className='events-page-card-naem-short'>{event?.events[0]?.name}</p> */ }
                   <p className='event-card-basic-info event-name-info'>By: {event?.events[0]?.host?.first_name} {event?.events[0]?.host?.last_name} </p>
                   <p className='event-card-basic-info'>Contact: {event?.events[0]?.host?.email} </p>
-                  <p className='follower-number'>0 followers {<button className='follow-me-button'>follow</button>}</p>
+                  <p className='follower-number'>{followers?.length} followers { followers?.follower_id == user.id ? <button onClick={() => follow() } className='unfollow-me-button'>unfollow</button> : <button onClick={() => unfollow()} className='follow-me-button'>follow</button> }</p>
                   {event?.events[0]?.cost ? <p className='ticket-prices-start'>Tickets start at: ${event?.events[0]?.cost}</p> : <p className='ticket-prices-start'>Free</p>}
                 </div>
               </div>

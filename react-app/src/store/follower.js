@@ -17,19 +17,19 @@ const remove = (followerId) => ({
     followerId
 })
 
-export const all_followers = () => async dispatch => {
-    const res = await fetch(`/api/followers/`)
-    const followers = await res.json()
-    dispatch(load(followers))
-}
+// export const all_followers = () => async dispatch => {
+//     const res = await fetch(`/api/followers/`)
+//     const followers = await res.json()
+//     dispatch(load(followers))
+// }
 
-export const one_follower = (id) => async dispatch => {
+export const enter_promoter_id = (id) => async dispatch => {
     const res = await fetch(`/api/followers/${id}`)
     const followers = await res.json()
     dispatch(load(followers))
 }
 
-export const start_follow = (payload) => async dispatch => {
+export const follow = (payload) => async dispatch => {
 
     const res = await fetch('/api/followers/', {
         method: 'POST',

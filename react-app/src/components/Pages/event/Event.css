@@ -1,6 +1,5 @@
 @import url(./TicketPanel.css);
 @import url(./MapCard.css);
-
 .event-page-img {
     width: 100%;
     height: 100%;
@@ -73,7 +72,6 @@
     display: flex;
     justify-content: flex-end;
     align-items: center;
-
 }
 
 .ticket-button {
@@ -171,14 +169,32 @@
     color: rgb(18, 171, 79);
     background-color: inherit;
     border-radius: 4px;
+    width: 80px;
 }
 
 .follow-me-button:hover {
-    /* border-color: rgb(18, 171, 79);
-    color: rgb(18, 171, 79);
-    background-color: inherit;
-    border-radius: 4px; */
     cursor: pointer;
+    color: white;
+    transition: ease-in-out 2.4s;
+    border: .5px solid rgb(37, 71, 155);
+    background-color: rgb(55, 255, 0);
+    box-shadow: 3px 3px 14px rgb(26, 113, 71);
+}
+
+.unfollow-me-button {
+    border-color: rgb(3, 162, 61);
+    background-color: rgb(0, 255, 102);
+    box-shadow: 3px 3px 14px rgb(26, 113, 71);
+    color: rgb(115, 123, 215);
+    border-radius: 4px;
+    width: 80px;
+}
+
+.unfollow-me-button:hover {
+    cursor: pointer;
+    color: white;
+    transition: ease-in-out 1.4s;
+    border: .5px dotted white;
 }
 
 .follower-number {

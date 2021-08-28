@@ -7,11 +7,16 @@ from app.forms import FollowerForm
 follower_routes = Blueprint('followers', __name__)
 
 
-@follower_routes.route('/<int:id>')
-def follows(id):
-    followers = Follower.query.filter(Follower.promoter_id == id)
-    return {'followers': [ follower.to_dict() for follower in followers ]}
+# @follower_routes.route('/<int:id>')
+# def follows(id):
+#     followers = Follower.query.filter(Follower.promoter_id == id)
+#     return {'followers': [ follower.to_dict() for follower in followers ]}
 
+@follower_routes.route('/<int:id>')
+def ticketed(id):
+    followers_query = Follower.query.filter(Follower.promoter_id == id)
+    followers = [ follower.to_dict() for follower in followers_query if follower.follower_id == current_user.id ]
+    return {'followers': followers}
 
 @follower_routes.route('/', methods=['POST'])
 @login_required
