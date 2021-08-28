@@ -55,6 +55,14 @@ const EachEvent = () => {
     runonce()
   }
 
+  let thispaypanel = (
+    <>
+    <p>Order summary</p>
+    <p>{ticketqty} X VIP Pass ${event?.events[0]?.cost}</p>
+    <p>Order summary</p>
+    </>
+  )
+
   if (panel) {
     ticket_panel = (
       <>
@@ -64,9 +72,9 @@ const EachEvent = () => {
             <div className='ticketing-panel-title'>{event?.events[0]?.name} <div className='title-datetimestamp'>{moment(event?.events[0]?.start_time).format('ddd, MMMM do, YYYY [at] h:mm A')}</div></div>
             <div className='ticketing-panel-info'>
               VIP Pass
-              <p className='ticket-small-print'>Please text 202-830-2776 to confirm a reservation for your ticket. RSVP does not guarantee a reservation for seating. Admission prices/times are subject to change based on demand, special events, and/or holiday weekends.</p>
+              <p className='ticket-small-print'>Please call to confirm a reservation for your ticket. RSVP does not guarantee a reservation for seating. Admission prices/times are subject to change based on demand, special events, and/or holiday weekends.</p>
               <select onChange={(e) => setTicketQty(e.target.value)}>
-                <option> - select quantity - </option>
+                <option value='0'> - select quantity - </option>
                 <option value='1'> - 1 - </option>
                 <option value='2'> - 2 - </option>
                 <option value='3'> - 3 - </option>
@@ -107,7 +115,7 @@ const EachEvent = () => {
               </div>
             <div className='ticketing-calculate-panel'>
                 <div className='cost-panel'>
-                    {event?.events[0]?.cost ? <p>{ticketqty}</p> : <h2>this event is free you cheap shit</h2>}
+                    {(event?.events[0]?.cost && ticketqty) ? thispaypanel : <img className="no-quantity-shopping"/>}
 
                   </div>
             </div>
