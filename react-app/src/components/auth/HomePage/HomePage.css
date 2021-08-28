@@ -1,3 +1,5 @@
+@import url(./EditForm.css);
+
 .event-cards {
     width: 285px;
     height: 250px;
@@ -43,14 +45,6 @@ img {
     /* bottom: 10px; */
 }
 
-.edit-container {
-    position: fixed;
-    top: 20%;
-    right: 25%;
-    background-color: grey;
-    width: 50%;
-}
-
 .opening-message {
     width: 90%;
     margin: 0 auto;
@@ -61,9 +55,6 @@ img {
     border-left: 4px solid rgb(186, 68, 237);
 }
 
-.container {
-    background-color: red;
-}
 
 .card-per {
     text-decoration: none;
@@ -77,7 +68,7 @@ img {
 }
 
 
-/* ----------------------------------- */
+/* --------------------------card---------------------------------- */
 
 .top-home-sent {
     color: rgb(210, 37, 210);

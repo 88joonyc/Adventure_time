@@ -14,6 +14,7 @@ import User from './components/User';
 import { authenticate } from './store/session';
 import FourOhFour from './components/auth/404/404';
 import FooterBar from './components/NavBar/Footer/Footer';
+import EditPanel from './components/test/EditMod';
 
 function App() {
   const [loaded, setLoaded] = useState(false);
@@ -48,6 +49,9 @@ function App() {
         <ProtectedRoute path='/event/:eventId' exact={true} >
           <EachEvent />
         </ProtectedRoute>
+        {/* <ProtectedRoute path='/testme' exact={true} >
+          <EditPanel />
+        </ProtectedRoute> */}
         <Route path='/' exact={true} >
         <NavBar />
         <HomePage />

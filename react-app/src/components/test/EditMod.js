@@ -4,12 +4,12 @@ import { useHistory, Link } from 'react-router-dom';
 
 import moment from 'moment'
 
-import * as eventActions from '../../../store/event'
-import SplashPage from './SplashPage'
+import * as eventActions from '../../store/event'
 
 
 
-const HomePage = () => {
+
+const EditPanel = () => {
 const dispatch = useDispatch()
 const history = useHistory()
 
@@ -28,12 +28,6 @@ const [end_time, setEnd] = useState('');
 const [capacity, setCap] = useState('');
 const [image, setImg] = useState('');
 const [cost, setCost] = useState('');
-
-const updateVenue = (e) => {
-    e.preventDefault()
-    setVenue(e.target.value)
-}
-
 
 const handleSubmit =  async (e) => {
     e.preventDefault()
@@ -60,14 +54,13 @@ const handleDelete = async (e) => {
 const handleCancel = () => {
     toggleEdit(!editForm)
 }
-/* --------------------------edit form ----------------------------------------------------- */
 
 let edit = null
 
 if (editForm) {
     edit = (
         <>
-            <div className='edit-panel-container'>
+            <div className='container'>
                 <div className="edit-container">
                 <form onSubmit={(e) =>{handleSubmit(e)}}>
                     <div>
@@ -168,28 +161,6 @@ if (editForm) {
     )
 }
 
-/* --------------------------opening message------------ ------------------------------------------- */
-
-
-const opening = (
-    <>
-    <div className='spalsh-image-2'>
-        <p className="top-sent top-home-sent">Get down</p>
-        <p className="bottom-sent top-home-sent">for the HOOK!</p>
-        <button onClick={console.log('jello')} className="event-button">Find your next event</button>
-    </div>
-    <div className='opening-message'>
-        <h3>
-            Re-open confidently with Adventure Time's COVID-19 Safety Playbook
-        </h3>
-        <p>
-            We partnered with risk management and health experts to empower event creators to thoughtfully consider potential safety and security risks at your event.
-        </p>
-    </div>
-    </>
-)
-
-/* -------------------------- cards------------ ------------------------------------------- */
 
 const need = (
         <>
@@ -228,27 +199,14 @@ const need = (
         {edit}
         </>)
 
-/* --------------------------splash--------------------------------------------------------------- */
-
-
-if (!sessionUser) {
-    content = (
-        <>
-        <SplashPage/>
-        </>
-    )
-}
-
-/* --------------------------return--------------------------------------------------------------- */
 
     return (
         <>
-        {sessionUser? opening : null}
+
         {content}
         {need}
         </>
     )
 }
 
-/* --------------------------end--------------------------------------------------------------- */
-export default HomePage
+export default EditPanel
