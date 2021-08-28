@@ -21,23 +21,31 @@
 }
 
 .ticket-cancel-button {
-    background-color: rgba(217, 226, 242, 0.455);
+    background-color: white;
+    opacity: .3;
     height: 45px;
     width: 45px;
     border-radius: 45px;
     font-size: 20px;
     border: none;
+    margin: -30px;
     float: right;
-    margin: 10px;
+    position: relative;
+    top: 40px;
+    right: 40px;
 }
 
 .ticket-cancel-button:hover {
     box-shadow: 10px 10px 80px rgb(230, 30, 30);
+    background-color: rgba(217, 226, 242, 1);
     cursor: pointer;
+    border: 1px solid white;
+    color: white;
+    background-color: inherit;
 }
 
 .general-ticketing-panel {
-    border: 1px solid black;
+    border: 1px solid rgb(218, 217, 223);
     display: grid;
     grid-template-rows: .8fr 3.5fr 3.5fr 3.5fr .6fr;
 }
@@ -61,11 +69,14 @@
 }
 
 .ticketing-image {
+    /* object-fit: cover; */
     width: 100%;
+    height: 240px;
+    /* width: cover;; */
 }
 
 .ticketing-calculate-panel {
-    border: 1px solid black;
+    /* border: 1px solid black; */
     /* height: 400px; */
     /* width: 50%; */
 }
@@ -108,10 +119,51 @@
 }
 
 .cost-panel {
-    background-color: orange;
+    background-color: rgb(254, 242, 222);
     /* width: 80%; */
 }
 
-.no-quantity-shopping{
+.no-quantity-shopping {
     content: url(./baseline_shopping_cart_black_24dp.png);
+    /* width: 50px; */
+    height: 100%;
+    padding: 60% 0;
+    margin: 0 auto;
+}
+
+.shopping-cart {
+    display: flex;
+    /* margin-top: 20%; */
+
+}
+/* ---------------------------------------------------- */
+
+.payslip {
+    padding: 20px;
+    background-color: white;
+}
+
+.order-summary {
+    font-size: large;
+}
+
+.order-summary-calc {
+    font-size: small;
+    border-bottom: 1px solid rgb(189, 193, 216);
+    padding-bottom: 15px;
+}
+
+.subtotal-summary {
+    display: flex;
+    justify-content: space-between;
+    font-size: small;
+}
+
+.text {
+    display: flex;
+    font-size: small;
+}
+
+.fee-bottom {
+    border-bottom: 1px solid rgb(189, 193, 216);
 }

@@ -16,6 +16,9 @@ const EachEvent = () => {
   const [errors, setErrors] = useState([]);
   const [panel, setPanel] = useState(false);
   const [ticketqty, setTicketQty] = useState(0)
+  const [tier, setTier] = useState('')
+  const [multiplier, setMultiplier] = useState('')
+  const [overload, toggleOverload] = useState('false')
 
   const user = useSelector(state => state.session.user)
   const ticket = useSelector(state => (state?.tickets_reducer?.tickets));
@@ -27,7 +30,6 @@ const EachEvent = () => {
   useEffect( async () => {
     dispatch(actiontickets.one_ticket(eventId?.eventId))
     await dispatch(one_event(eventId?.eventId))
-
   }, [])
 
   const runonce = () => {
@@ -44,8 +46,13 @@ const EachEvent = () => {
 
   const registerforthisevent = async (e) => {
     e.preventDefault()
-    let id = event?.events[0]?.id
-    await dispatch(actiontickets.create_ticket( id ))
+    const id = event?.events[0]?.id
+    const message = window.confirm(`Are you sure you want to purchase ${ticketqty} tickets for $${(ticketqty * event?.events[0]?.cost + ticketqty * event?.events[0]?.cost * .15) * multiplier}?`)
+    if (message) {
+      await dispatch(actiontickets.create_ticket(id))
+      window.alert("purchase has been made!")
+      setPanel(!panel)
+    }
     runonce()
   }
 
@@ -55,13 +62,54 @@ const EachEvent = () => {
     runonce()
   }
 
-  let thispaypanel = (
+  window.addEventListener("click", () => {
+    setMultiplier('')
+    setTier('')
+    // toggleOverload(!overload)
+    setTicketQty(0)
+
+  })
+
+
+  let shoppingcart = (
     <>
-    <p>Order summary</p>
-    <p>{ticketqty} X VIP Pass ${event?.events[0]?.cost}</p>
-    <p>Order summary</p>
+    <div className='shopping-cart'>
+      <img className="no-quantity-shopping"/>
+    </div>
     </>
   )
+
+
+  let thispaypanel = (
+    <>
+    <div className='payslip'>
+      <p className='order-summary'>Order summary</p>
+      <p className='order-summary-calc'>{ticketqty} X {tier} tickets ${event?.events[0]?.cost}</p>
+      <div className='subtotal-summary'>
+        <p className='text'>Subtotal</p>
+        <p className='text'>${multiplier* ticketqty * event?.events[0]?.cost} </p>
+      </div>
+      <div className='subtotal-summary fee-bottom'>
+      <p className='text'>Fees  </p>
+      <p className='text'>${multiplier * ticketqty * event?.events[0]?.cost * .15}  </p>
+      </div>
+      <div className='subtotal-summary'>
+          <p>Total </p>
+          <p>${(ticketqty * event?.events[0]?.cost + ticketqty * event?.events[0]?.cost * .15) * multiplier}  </p>
+      </div>
+    </div>
+    </>
+  )
+
+  let paypanel = null
+
+  if (overload) {
+    paypanel = ( (event?.events[0]?.cost && ticketqty) ? thispaypanel : shoppingcart )
+  } else {
+    paypanel = shoppingcart
+  }
+
+
 
   if (panel) {
     ticket_panel = (
@@ -73,7 +121,7 @@ const EachEvent = () => {
             <div className='ticketing-panel-info'>
               VIP Pass
               <p className='ticket-small-print'>Please call to confirm a reservation for your ticket. RSVP does not guarantee a reservation for seating. Admission prices/times are subject to change based on demand, special events, and/or holiday weekends.</p>
-              <select onChange={(e) => setTicketQty(e.target.value)}>
+                <select className='selecter' onChange={(e) => (setTicketQty(e.target.value), setTier('VIP Pass'), setMultiplier(25)) }>
                 <option value='0'> - select quantity - </option>
                 <option value='1'> - 1 - </option>
                 <option value='2'> - 2 - </option>
@@ -96,26 +144,64 @@ const EachEvent = () => {
             <div className='ticketing-panel-info'>
               Advanced Ticketing
               <p className='ticket-small-print'>Advanced ticket purchase highly suggested.  Limited amount of tickets will be available the day of for a higher price due to capacity limitations at the venues.</p>
+                <select onChange={(e) => (setTicketQty(e.target.value), setTier('Advanced Ticketing'), setMultiplier(2))}>
+                <option value='0'> - select quantity - </option>
+                <option value='1'> - 1 - </option>
+                <option value='2'> - 2 - </option>
+                <option value='3'> - 3 - </option>
+                <option value='4'> - 4 - </option>
+                <option value='5'> - 5 - </option>
+                <option value='6'> - 6 - </option>
+                <option value='7'> - 7 - </option>
+                <option value='8'> - 8 - </option>
+                <option value='9'> - 9 - </option>
+                <option value='10'> - 10 - </option>
+                {/* {(n = 1) => {
+                  while (n <= 10) {
+                    <option value={n}> - {n} - </option>
+                    n += 1
+                  }
+                }} */}
+              </select>
             </div>
             <div className='ticketing-panel-info'>
               General Admission (Door)
               <p className='ticket-small-print'>Event Admission; Express Check-In; Non-Refundable; Call For VIP Table Service</p>
+              <select onChange={(e) => (setTicketQty(e.target.value), setTier("General Admission"), setMultiplier(1))}>
+                <option value='0'> - select quantity - </option>
+                <option value='1'> - 1 - </option>
+                <option value='2'> - 2 - </option>
+                <option value='3'> - 3 - </option>
+                <option value='4'> - 4 - </option>
+                <option value='5'> - 5 - </option>
+                <option value='6'> - 6 - </option>
+                <option value='7'> - 7 - </option>
+                <option value='8'> - 8 - </option>
+                <option value='9'> - 9 - </option>
+                <option value='10'> - 10 - </option>
+                {/* {(n = 1) => {
+                  while (n <= 10) {
+                    <option value={n}> - {n} - </option>
+                    n += 1
+                  }
+                }} */}
+              </select>
 
             </div>
             <div className='register-button-contaienr'>
           <div className='registering-buttons'>
-            {ticket?.length ? <button onClick={(e) => unregisterforthisevent(e)} className="unregister-button">unregister</button> : <button onClick={(e) => registerforthisevent(e)} className="register-button">register</button> }
+            {ticket?.length ? <button onClick={(e) => unregisterforthisevent(e)} className="unregister-button">unregister</button> : ticketqty ? <button onClick={(e) => registerforthisevent(e)} className="register-button">register</button> : null }
           </div>
             </div>
           </div>
           <div>
               <div className='ticket-image-container'>
-                  <img className='ticketing-image' src={event?.events[0]?.image}/>
                   <button onClick={() => setPanel(!panel) } className="ticket-cancel-button">X</button>
+                  <img className='ticketing-image' src={event?.events[0]?.image}/>
               </div>
             <div className='ticketing-calculate-panel'>
                 <div className='cost-panel'>
-                    {(event?.events[0]?.cost && ticketqty) ? thispaypanel : <img className="no-quantity-shopping"/>}
+                    {paypanel}
 
                   </div>
             </div>
@@ -126,9 +212,6 @@ const EachEvent = () => {
       </>
     )
   }
-
-
-
 
 
 
