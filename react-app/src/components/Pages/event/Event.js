@@ -121,6 +121,7 @@ const EachEvent = () => {
             <div className='ticketing-panel-info'>
               VIP Pass
               <p className='ticket-small-print'>Please call to confirm a reservation for your ticket. RSVP does not guarantee a reservation for seating. Admission prices/times are subject to change based on demand, special events, and/or holiday weekends.</p>
+                {!ticket?.length ? (
                 <select className='selecter' onChange={(e) => (setTicketQty(e.target.value), setTier('VIP Pass'), setMultiplier(25)) }>
                 <option value='0'> - select quantity - </option>
                 <option value='1'> - 1 - </option>
@@ -139,11 +140,12 @@ const EachEvent = () => {
                     n += 1
                   }
                 }} */}
-              </select>
+              </select>)  : null}
             </div>
             <div className='ticketing-panel-info'>
               Advanced Ticketing
               <p className='ticket-small-print'>Advanced ticket purchase highly suggested.  Limited amount of tickets will be available the day of for a higher price due to capacity limitations at the venues.</p>
+                {!ticket?.length ? (
                 <select onChange={(e) => (setTicketQty(e.target.value), setTier('Advanced Ticketing'), setMultiplier(2))}>
                 <option value='0'> - select quantity - </option>
                 <option value='1'> - 1 - </option>
@@ -162,11 +164,12 @@ const EachEvent = () => {
                     n += 1
                   }
                 }} */}
-              </select>
+              </select>)  : null}
             </div>
             <div className='ticketing-panel-info'>
               General Admission (Door)
               <p className='ticket-small-print'>Event Admission; Express Check-In; Non-Refundable; Call For VIP Table Service</p>
+              {!ticket?.length ? (
               <select onChange={(e) => (setTicketQty(e.target.value), setTier("General Admission"), setMultiplier(1))}>
                 <option value='0'> - select quantity - </option>
                 <option value='1'> - 1 - </option>
@@ -185,7 +188,7 @@ const EachEvent = () => {
                     n += 1
                   }
                 }} */}
-              </select>
+              </select>)  : null}
 
             </div>
             <div className='register-button-contaienr'>
