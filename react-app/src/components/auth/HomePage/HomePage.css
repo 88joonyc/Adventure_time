@@ -1,5 +1,4 @@
 @import url(./EditForm.css);
-
 .event-cards {
     width: 285px;
     height: 250px;
@@ -10,15 +9,6 @@
     padding-bottom: 100px;
     background-color: white;
     margin-top: 30px;
-}
-
-.event-cards:hover {
-    cursor: pointer;
-    /* color: #ffffff !important; */
-    /* background-color: #3f0d12; */
-    /* content: linear-gradient(315deg, #3f0d12 0%, #a71d31 74%); */
-    box-shadow: 0px 5px 10px rgb(175, 184, 223);
-    transition: all 0.4s ease 0s;
 }
 
 .card-container {
@@ -55,10 +45,20 @@ img {
     border-left: 4px solid rgb(186, 68, 237);
 }
 
-
 .card-per {
     text-decoration: none;
 }
+
+.card-per:hover {
+    text-decoration: none;
+    cursor: pointer;
+    /* color: #ffffff !important; */
+    /* background-color: #3f0d12; */
+    /* content: linear-gradient(315deg, #3f0d12 0%, #a71d31 74%); */
+    box-shadow: 0px 5px 10px rgb(175, 184, 223);
+    transition: all 0.4s ease 0s;
+}
+
 
 .spalsh-image-2 {
     background-image: url('./large-group-activity2.jpeg');
