@@ -192,10 +192,10 @@ const need = (
                 <div className='card-container'>
                     {events?.map(event => (
                         <>
-                            <Link className='card-per' to={`/event/${event.id}`}>
                                 <div className="event-cards">
                                     {/* <h4>{event.host_id}</h4> */}
                                     <img src={event.image}/>
+                            <Link className='card-per' to={`/event/${event.id}`}>
                                     <div className='card-info-container'>
                                         <h2 className='card-print card-name-home'>{event?.name}</h2>
                                         {/* <p className='card-print'>{event.category.type}</p> */}
@@ -207,6 +207,7 @@ const need = (
                                         <p className='card-print card-user-home'>{event.user?.email}</p>
                                         <p className='card-print card-cap-home'>Limited to: {event?.capacity} seats!</p>
                                     </div>
+                                    </Link>
                                         {(event?.host_id === sessionUser?.id ) ? (
                                             <>
                                                 <button type='button' onClick={() => (toggleEdit(!editForm), setVenue(event.venue_id), setCategory(event.category_id), setName(event.name), setStart(event.start_time), setEnd(event.end_time), setCap(event.capacity), setImg(event.image), setCost(event.cost), setDescript(event.description), setId(event.id))}>edit</button>
@@ -214,7 +215,6 @@ const need = (
                                             </>
                                         ) : null}
                                 </div>
-                            </Link>
                         </>
                     ))}
                 </div>
