@@ -5,7 +5,7 @@ import { all_tickets } from '../../../store/ticket';
 import CovBar from '../../NavBar/CovBar/CovBar';
 import FooterBar from '../../NavBar/Footer/Footer';
 import { one_event } from '../../../store/event';
-import { one_ticket } from '../../../store/ticket';
+import * as actiontickets from '../../../store/ticket';
 
 import moment from 'moment';
 
@@ -24,36 +24,22 @@ const EachEvent = () => {
   const history = useHistory()
 
   useEffect( async () => {
-    dispatch(one_ticket(eventId?.eventId))
+    dispatch(actiontickets.one_ticket(eventId?.eventId))
     dispatch(one_event(eventId?.eventId))
 
   }, [dispatch])
 
-  let content = null
-
-  ticket?.map(tx=> {
-    if (tx?.event) {
-      content = (
-        <>
-          <button className="unregister-button">unregister</button>
-          <p>{ticket?.[0]?.event?.name} </p>
-          <p>{ticket?.[0]?.event?.capacity} </p>
-          <p>{ticket?.[0]?.event?.name} </p>
-          <p>{ticket?.[0]?.event?.name} </p>
-          </>
-      )
-    } else {
-      content = (
-        <>
-          <button className="register-button">register</button>
-        </>
-      )
-    }
-  })
-
 // This is my ticket modal which pops up when green 'ticket' is pressed
 
   let ticket_panel = null
+
+  const registerforthisevent = () => {
+
+  }
+
+  const unregisterforthisevent = () => {
+
+  }
 
   if (panel) {
     ticket_panel = (
@@ -71,23 +57,26 @@ const EachEvent = () => {
               <p className='ticket-small-print'>Advanced ticket purchase highly suggested.  Limited amount of tickets will be available the day of for a higher price due to capacity limitations at the venues.</p>
             </div>
             <div className='ticketing-panel-info'>
-              General Admission
-              <p className='ticket-small-print'>ss</p>
+              General Admission (Door)
+              <p className='ticket-small-print'>Event Admission; Express Check-In; Non-Refundable; Call For VIP Table Service</p>
 
             </div>
-          <div>
-            {ticket?.length ? content : <button className="register-button">register</button> }
+            <div className='register-button-contaienr'>
+          <div className='registering-buttons'>
+            {ticket?.length ? <button onClick={() => unregisterforthisevent()} className="unregister-button">unregister</button> : <button onClick={() => registerforthisevent()} className="register-button">register</button> }
           </div>
-          </div>
-          <div>
-            <div className='ticket-image-container'>
-                <img className='ticketing-image' src={event?.events[0]?.image}/>
-                <button onClick={() => setPanel(!panel) } className="ticket-cancel-button">X</button>
             </div>
+          </div>
+          <div>
+              <div className='ticket-image-container'>
+                  <img className='ticketing-image' src={event?.events[0]?.image}/>
+                  <button onClick={() => setPanel(!panel) } className="ticket-cancel-button">X</button>
+              </div>
             <div className='ticketing-calculate-panel'>
-                <div>hi</div>
-                <div>hi</div>
-                <div>hi</div>
+                <div className='cost-panel'>
+                    {event?.events[0]?.cost ? <p>This isdasssssssdhabsdkjbksbnaksads</p> : <h2>this event is free you cheap shit</h2>}
+
+                  </div>
             </div>
 
           </div>

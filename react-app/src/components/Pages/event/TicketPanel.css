@@ -11,10 +11,10 @@
 
 .ticketing-panel {
     margin: 0 auto;
-    margin-top: 15%;
+    margin-top: 7%;
     margin-bottom: 15%;
-    width: 80%;
-    height: 60%;
+    width: 90%;
+    height: 80%;
     background-color: rgb(251, 251, 245);
     display: grid;
     grid-template-columns: 2fr 1fr;
@@ -57,6 +57,7 @@
     padding: 20px 10px;
     font-family: 'Martel', serif;
     font-size: large;
+    color: rgb(11, 13, 23);
 }
 
 .ticketing-image {
@@ -64,7 +65,10 @@
 }
 
 .ticketing-calculate-panel {
-    height: 100%;
+    border: 1px solid black;
+    /* height: 400px; */
+    /* width: 50%; */
+
 }
 
 .title-datetimestamp {
@@ -73,5 +77,38 @@
 }
 
 .ticket-small-print {
-    font-size: xx-small;
+    font-size: x-small;
+    color: rgb(56, 60, 82);
+}
+
+.unregister-button {
+    background-color: red;
+    padding: 5px;
+    float: right;
+    height: 100%;
+    width: 40%;
+    color: rgb(197, 242, 228);
+}
+
+.register-button {
+    background-color: green;
+    padding: 5px;
+    float: right;
+    height: 100%;
+    width: 40%;
+    color: rgb(197, 242, 228);
+}
+
+.registering-buttons {}
+
+.register-button-contaienr {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-right: 10px;
+}
+
+.cost-panel {
+    background-color: orange;
+    /* width: 80%; */
 }
