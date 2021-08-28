@@ -70,6 +70,7 @@ const EachEvent = () => {
 
   })
 
+  // ===========================================register===========================================================================
 
   let shoppingcart = (
     <>
@@ -78,6 +79,8 @@ const EachEvent = () => {
     </div>
     </>
   )
+
+
 
 
   let thispaypanel = (
@@ -109,7 +112,7 @@ const EachEvent = () => {
     paypanel = shoppingcart
   }
 
-
+// ===========================================shopping===========================================================================
 
   if (panel) {
     ticket_panel = (
@@ -216,8 +219,43 @@ const EachEvent = () => {
     )
   }
 
+  // ===========================================map===========================================================================
+
+  let map_panel = (
+    <>
+    <div className='map-info-container'>
 
 
+        <div>
+          <div className='map-info-marker'>
+            <div>
+              <div className='map-info-marker'>hi</div>
+            </div>
+            <div>
+              <div className='map-info-marker'>hi</div>
+            </div>
+            <div>
+              <div className='map-info-marker'>hi</div>
+            </div>
+          </div>
+        </div>
+        <div>
+          <div className='map-info-map'>map</div>
+        </div>
+        <div>
+          <div className='map-info-map'>hi</div>
+        </div>
+        <div>
+          <div className='map-info-map'>hi</div>
+        </div>
+    </div>
+    </>
+  )
+
+
+
+
+// ===========================================return===========================================================================
   return (
         <>
           <div className='event-page'>
@@ -290,6 +328,8 @@ const EachEvent = () => {
               </div>
             </div>
           </div>
+          {/* {// ===========================================insert===========================================================================} */}
+            {map_panel}
 
             {ticket_panel}
 
