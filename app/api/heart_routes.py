@@ -9,7 +9,7 @@ heart_routes = Blueprint('hearts', __name__)
 @heart_routes.route('/')
 def hearts():
     # heart_query = Heart.query.filter(Heart.user_id == current_user.id)
-    hearts = Event.query.all()
+    hearts = Heart.query.all()
     # hearts = [ heart.to_dict() for heart in heart_query ]
     # for heart in hearts:
         # heart['event'] = Event.query.get(heart["event_id"]).to_dict()
