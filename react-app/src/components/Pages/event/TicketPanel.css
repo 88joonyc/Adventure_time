@@ -2,7 +2,57 @@
     position: fixed;
     display: flex;
     align-content: center;
-    bottom: 40%;
-    right: 20%;
-    width: 50%;
+    bottom: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(3, 4, 16, 0.85);
+}
+
+.ticketing-panel {
+    margin: 0 auto;
+    margin-top: 15%;
+    margin-bottom: 15%;
+    width: 80%;
+    height: 60%;
+    background-color: rgb(251, 251, 245);
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+}
+
+.ticket-cancel-button {
+    background-color: rgba(217, 226, 242, 0.455);
+    height: 45px;
+    width: 45px;
+    border-radius: 45px;
+    font-size: 20px;
+    border: none;
+    float: right;
+    margin: 10px;
+}
+
+.ticket-cancel-button:hover {
+    box-shadow: 10px 10px 80px rgb(230, 30, 30);
+    cursor: pointer;
+}
+
+.general-ticketing-panel {
+    border: 1px solid black;
+}
+
+.ticketing-panel-title {
+    border-bottom: 1px solid rgb(205, 209, 228);
+    height: 11%;
+    text-align: center;
+}
+
+.ticketing-panel-info {}
+
+.ticketing-image {
+    width: 100%;
+}
+
+.ticketing-calculate-panel{
+    background-color: black;
+    height: 100%;
 }

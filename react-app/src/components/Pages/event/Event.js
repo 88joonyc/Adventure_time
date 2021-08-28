@@ -29,7 +29,6 @@ const EachEvent = () => {
 
   }, [dispatch])
 
-  let venue_content = null
   let content = null
 
   ticket?.map(tx=> {
@@ -46,8 +45,7 @@ const EachEvent = () => {
     } else {
       content = (
         <>
-        <button className="register-button">register</button>
-
+          <button className="register-button">register</button>
         </>
       )
     }
@@ -61,8 +59,29 @@ const EachEvent = () => {
     ticket_panel = (
       <>
       <div className='ticket-panel-container'>
-        {ticket?.length ? content : <button className="register-button">register</button> }
-        <h1>hi</h1>
+        <div className='ticketing-panel'>
+          <div className='general-ticketing-panel'>
+            <div className='ticketing-panel-title'>{event?.events[0]?.name}</div>
+            <div className='ticketing-panel-info'></div>
+            <div className='ticketing-panel-info'></div>
+            <div className='ticketing-panel-info'></div>
+          <div>
+            {ticket?.length ? content : <button className="register-button">register</button> }
+          </div>
+          </div>
+          <div>
+            <div className='ticket-image-container'>
+                <img className='ticketing-image' src={event?.events[0]?.image}/>
+                <button onClick={() => setPanel(!panel) } className="ticket-cancel-button">X</button>
+            </div>
+            <div className='ticketing-calculate-panel'>
+                <div>hi</div>
+                <div>hi</div>
+                <div>hi</div>
+            </div>
+
+          </div>
+        </div>
       </div>
       </>
     )
