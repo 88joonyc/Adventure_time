@@ -235,7 +235,7 @@ const EachEvent = () => {
               </div>
             </div>
             <div className="purchase-tix-bar">
-              <button type='button' onClick={() => (setPanel(!panel))} className='ticket-button'>Tickets</button>
+                <button type='button' onClick={() => (setPanel(!panel))} className='ticket-button'>Tickets</button>
             </div>
             <div className='event-page-bot-grid'>
               <div className='events-main-cont-container'>
