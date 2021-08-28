@@ -135,7 +135,7 @@ const EachEvent = () => {
                   {event?.events[0]?.name} in {event?.events[0]?.venue?.city},
                   {event?.events[0]?.venue?.state}.
                   </p>
-                  <h2 className="events-description-innertext">About this event</h2>
+                  <h2 className="events-description-label">About this event</h2>
                   <p className="events-description-innertext">{event?.events[0]?.description}</p>
                   <div className="tags">Tags</div>
                 </div>

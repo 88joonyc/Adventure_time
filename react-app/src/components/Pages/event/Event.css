@@ -49,7 +49,9 @@
     cursor: pointer;
 }
 
-.side-panel-container {}
+.side-panel-container {
+    margin-top: 40px;
+}
 
 .register-button-container {
     display: flex;
@@ -91,6 +93,13 @@
 
 .events-description-innertext {
     padding-top: 12px;
+    color: rgb(111, 109, 137);
+}
+
+
+.events-description-label {
+    padding-top: 12px;
+    color: rgb(17, 13, 72);
 }
 
 .events-main-cont {
