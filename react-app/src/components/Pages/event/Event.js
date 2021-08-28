@@ -104,7 +104,7 @@ const EachEvent = () => {
   let paypanel = null
 
   if (overload) {
-    paypanel = ( (event?.events[0]?.cost && ticketqty) ? thispaypanel : shoppingcart )
+    paypanel = ( (/*!event?.events[0]?.cost &&*/ ticketqty) ? thispaypanel : shoppingcart )
   } else {
     paypanel = shoppingcart
   }

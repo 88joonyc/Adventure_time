@@ -46,21 +46,21 @@ const FooterBar = () => {
               </div>
               <div className="footer-three">
                 <ul>
-                  <p className="footer-title">Bio</p>
+                  <p className="footer-title">Linked</p>
                   <li className="footer-lists">My email address:</li>
                   <li className="footer-lists">joonyc88@gmail.com</li>
+                  <li> <a className="footer-linked" href='https:///linkedin.com/in/pchang1216'>My Linkedin Profile</a> </li>
                 </ul>
               </div>
               <div className="footer-four">
                 <ul>
-                  <p className="footer-title">Linked</p>
+                  <p className="footer-title">Others</p>
                   <li className="footer-lists">Like the Site?</li>
-                  <li className="footer-lists">like me</li>
-                  <li className="footer-lists">wanna visit?</li>
-                  <li className="footer-lists">wanna snoop?</li>
-                  <li className="footer-lists">Like snoop?</li>
-                  <li className="footer-lists">Visit my Likedin below:</li>
-                  <li> <a className="footer-linked" href='https:///linkedin.com/in/pchang1216'>here</a> </li>
+                  <li className="footer-lists">like the project?</li>
+                  <li className="footer-lists">Check out past projects below</li>
+                  <li> <a className="footer-linked" href='https://sneaxs.herokuapp.com/'> - Sneax - </a> </li>
+                  <li> <a className="footer-linked" href='https://air-land-n-sea.herokuapp.com/login'> - Air land n Sea - </a> </li>
+                  <li> <a className="footer-linked" href='https://thefastandthecurious.herokuapp.com/'> - theFastandtheCurious - </a> </li>
                 </ul>
               </div>
             </div>
