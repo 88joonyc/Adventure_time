@@ -4,8 +4,10 @@
     /* background-color: grey; */
     /* height: 100%; */
     background-color: darkblue;
-    width: 400px;
+    width: 80%;
+    height: 85%;
     margin: 0 auto;
+    margin-top: 5%;
 }
 
 .edit-panel-container {
