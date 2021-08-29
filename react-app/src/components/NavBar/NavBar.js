@@ -63,7 +63,7 @@ const NavBar = () => {
             {showMenu && (
                 <div className='menu-dropdown'>
                     <div className='dropdown-items-out-bot'>Manage my events</div>
-                    <div className='dropdown-items-mid'>Tickets {}</div>
+                    <Link className='linke-not-deco' to='/tickets'><div className='dropdown-items-mid'>Tickets ( current : {sessionUser.tickets.length})</div></Link>
                     <div className='dropdown-items-mid'>{sessionUser?.email}</div>
                     <div className='dropdown-items-mid'>{sessionUser?.email}</div>
                     <div className='dropdown-items-mid'>{sessionUser?.email}</div>

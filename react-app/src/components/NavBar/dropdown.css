@@ -7,6 +7,10 @@
     border-bottom: 1px solid purple
 }
 
+.linke-not-deco {
+    text-decoration: none;
+}
+
 .menu-dropdown {
     background-color: white;
     border: 1px solid rgb(209, 210, 211);
@@ -26,6 +30,21 @@
     padding: 20px;
     font-size: small;
 }
+
+.dropdown-items-out-top:hover {
+    background-color: rgb(217, 225, 232);
+    color: white;
+    cursor: pointer;
+    transition: all ease 0.3s;
+}
+
+.dropdown-items-out-bot:hover {
+    background-color: rgb(217, 225, 232);
+    color: white;
+    cursor: pointer;
+    transition: all ease 0.3s;
+}
+
 .dropdown-items-out-top {
     border-top: 1px solid rgb(208, 210, 213);
     text-align: left;
@@ -33,12 +52,20 @@
     padding: 20px;
     font-size: small;
 }
+
 .dropdown-items-mid {
     /* border: 1px solid rgb(208, 210, 213); */
     text-align: left;
     /* height: 30px; */
     padding: 20px;
     font-size: small;
+}
+
+.dropdown-items-mid:hover {
+    background-color: rgb(217, 225, 232);
+    color: white;
+    cursor: pointer;
+    transition: all ease 0.3s;
 }
 
 .drop-nav-email {
