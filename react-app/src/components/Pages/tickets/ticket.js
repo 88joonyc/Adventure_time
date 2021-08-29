@@ -80,8 +80,8 @@ const some_content = (
                   <img className="profile-img" src={user?.image}/>
                   <div className="user-card-text" >
                     <div className="card-name">
-                      <p className='name'>{user.first_name}</p>
-                      <p className='name'>{user.last_name}</p>
+                      <p className='name'>{user?.first_name}</p>
+                      <p className='name'>{user?.last_name}</p>
                     </div>
                     <div className="user-marks">
                         <p className="user-stats">{user.tickets?.length} orders</p>
