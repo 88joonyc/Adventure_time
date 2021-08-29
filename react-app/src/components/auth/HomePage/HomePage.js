@@ -42,18 +42,30 @@ const updateVenue = (e) => {
 
 const handleSubmit =  async (e) => {
     e.preventDefault()
-    let data = await dispatch(eventActions.edit_event(sessionUser.id, venue_id, category_id, name, description, moment(start_time).format('YYYY-MM-DD hh:mm:ss'), moment(end_time).format('YYYY-MM-DD hh:mm:ss'), capacity, image, cost, eventId))
+    let data = await dispatch(eventActions.edit_event(
+        sessionUser.id,
+        venue_id,
+        category_id,
+        name,
+        description,
+        moment(start_time).format('YYYY-MM-DD hh:mm:ss'),
+        moment(end_time).format('YYYY-MM-DD hh:mm:ss'),
+        capacity,
+        image,
+        cost,
+        eventId))
     await dispatch(eventActions.all_events())
     return data
 }
 
 let content = null
 
-useEffect(() => {
+useEffect( () =>  {
     dispatch(eventActions.all_events())
     dispatch(all_categories())
     dispatch(all_venues())
-}, [dispatch])
+    dispatch(authenticate())
+}, [dispatch, heartActions])
 
 const handleDelete = async (e) => {
     const ask = window.confirm("are you sure")
@@ -235,14 +247,12 @@ const opening = (
 const heartyou = async (e) => {
     // e.preventDefault()
     await dispatch(heartActions.heart(Number(e)))
-    dispatch(authenticate())
-
-
+    dispatch(eventActions.all_events())
 }
 const hateyou = async (e) => {
-    e.preventDefault()
-    await dispatch(heartActions.hate(Number(e.target.id)))
-    dispatch(authenticate())
+    // e.preventDefault()
+    await dispatch(heartActions.hate(Number(e)))
+    dispatch(eventActions.all_events())
 }
 
 
@@ -258,7 +268,7 @@ const need = (
                                 <div className="event-cards">
                                     {/* <h4>{event.host_id}</h4> */}
                                     <img src={event?.image}/>
-                                    { !sessionUser?.hearts_list?.includes(event?.id) ?
+                                    { !event?.heart[0]?.id ?
                                     <button
                                     id={event?.id}
                                     type='button'
@@ -267,8 +277,8 @@ const need = (
                                     </button>
                                     :
                                     <button
-                                    value={event?.id}
-                                    onClick={(e) => {hateyou(event?.id)}}
+                                    id={event?.heart?.id}
+                                    onClick={(e) => {hateyou(event?.heart[0]?.id)}}
                                     type='button'
                                     className='heart-button'>{<img className="black-heart" />}
                                     </button>}
