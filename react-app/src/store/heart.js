@@ -30,7 +30,7 @@ export const one_heart = (id) => async dispatch => {
 }
 
 export const heart = (payload) => async dispatch => {
-
+    console.log('=====================================+±', payload)
     const res = await fetch('/api/hearts/', {
         method: 'POST',
         headers: {"Content-Type": 'application/json'},
