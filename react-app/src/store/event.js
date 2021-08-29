@@ -83,7 +83,7 @@ export const delete_event = (id) => async dispatch => {
     return res
 }
 
-const initialState = {}
+const initialState = { events: null}
 
 const events_reducer = (state = initialState, action ) => {
     switch (action.type) {

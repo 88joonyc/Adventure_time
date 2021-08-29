@@ -2,12 +2,15 @@
 import React, { useState } from 'react';
 import { NavLink, Link } from 'react-router-dom';
 import LogoutButton from '../auth/LogoutButton';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import { useEffect } from 'react';
 
+
 import './NavBar.css'
+import { authenticate } from '../../store/session';
 
 const NavBar = () => {
+  const dispatch = useDispatch()
 
   const sessionUser = useSelector(state => state.session?.user)
 
@@ -22,6 +25,7 @@ const NavBar = () => {
             setShowMenu(false);
         };
         document.addEventListener('click', closeMenu);
+        dispatch(authenticate())
 
         return () => document.removeEventListener('click', closeMenu);
     }, [showMenu]);

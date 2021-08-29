@@ -12,7 +12,7 @@ export const all_venues = () => async dispatch => {
 }
 
 
-const initialState = {}
+const initialState = { venues: null}
 
 const venues_reducer = (state = initialState, action ) => {
     switch (action.type) {

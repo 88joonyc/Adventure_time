@@ -5,6 +5,7 @@ import * as actiontickets from '../../../store/ticket';
 import CovBar from '../../NavBar/CovBar/CovBar';
 import FooterBar from '../../NavBar/Footer/Footer';
 import { all_user_follows } from '../../../store/follower';
+import { authenticate } from '../../../store/session';
 
 import moment from 'moment';
 
@@ -25,10 +26,11 @@ const TicketPage = () => {
   useEffect( async () => {
     dispatch(actiontickets.all_tickets())
     dispatch(all_user_follows(Number(user.id)))
-  }, [])
+  }, [dispatch])
 
   const runonce = () => {
     dispatch(actiontickets.all_tickets())
+    dispatch(authenticate())
   }
 
 const none_content = (
@@ -47,6 +49,7 @@ const none_content = (
 const unregisterforthisevent = async (e) => {
   e.preventDefault()
   await dispatch(actiontickets.delete_ticket(e.target.value))
+  runonce()
 }
 
 const some_content = (
@@ -81,7 +84,7 @@ const some_content = (
                       <p className='name'>{user.last_name}</p>
                     </div>
                     <div className="user-marks">
-                        <p className="user-stats">{tickets?.length} orders</p>
+                        <p className="user-stats">{user.tickets?.length} orders</p>
                         <p> * </p>
                         <p className="user-stats">{user.hearts?.length} likes</p>
                         <p> * </p>
@@ -92,7 +95,7 @@ const some_content = (
                 <div className='ticket-info-card' >
                   <div className="users-boxes">
                     <h3>Orders {`>`}</h3>
-                  {tickets?.length ?  some_content : (none_content, runonce())}
+                  {tickets ?  some_content : none_content }
                   </div>
                   <div className="users-boxes">
                     <h3>Interests {`>`}</h3>

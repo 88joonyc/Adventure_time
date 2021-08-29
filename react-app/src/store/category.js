@@ -12,7 +12,7 @@ export const all_categories = () => async dispatch => {
 
 }
 
-const initialState = {}
+const initialState = { categories : null}
 
 const categories_reducer = (state = initialState, action ) => {
     switch (action.type) {

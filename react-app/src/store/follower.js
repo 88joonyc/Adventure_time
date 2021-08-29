@@ -53,7 +53,7 @@ export const leave_loser = (id) => async dispatch => {
     return res
 }
 
-const initialState = null
+const initialState = {followers:null}
 
 const followers_reducer = (state = initialState, action ) => {
     switch (action.type) {

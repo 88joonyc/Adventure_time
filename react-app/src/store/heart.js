@@ -30,7 +30,6 @@ export const one_heart = (id) => async dispatch => {
 }
 
 export const heart = (payload) => async dispatch => {
-    console.log('=====================================+±', payload)
     const res = await fetch('/api/hearts/', {
         method: 'POST',
         headers: {"Content-Type": 'application/json'},
@@ -53,7 +52,7 @@ export const hate = (id) => async dispatch => {
     return res
 }
 
-const initialState = null
+const initialState = {heart:null}
 
 const hearts_reducer = (state = initialState, action ) => {
     switch (action.type) {
