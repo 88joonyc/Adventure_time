@@ -235,14 +235,14 @@ const opening = (
 const heartyou = async (e) => {
     // e.preventDefault()
     console.log('-------------------------- hearts------------ --------------------------'. e)
-    await dispatch(heartActions.heart())
+    await dispatch(heartActions.heart(Number(e)))
     dispatch(authenticate())
 
 
 }
 const hateyou = async (e) => {
     e.preventDefault()
-    await dispatch(heartActions.hate(Number()))
+    await dispatch(heartActions.hate(Number(e.target.id)))
     dispatch(authenticate())
 }
 
@@ -259,7 +259,20 @@ const need = (
                                 <div className="event-cards">
                                     {/* <h4>{event.host_id}</h4> */}
                                     <img src={event?.image}/>
-                                    { !sessionUser?.hearts_list?.includes(event?.id) ? <button value={event} type='button' onClick={(e) => {console.log(event.image)}} className='heart-button'>{<img className="red-heart" />}</button> : <button value={event?.id} onClick={(e) => {hateyou(event?.id)}} type='button' className='heart-button'>{<img className="black-heart" />}</button>}
+                                    { !sessionUser?.hearts_list?.includes(event?.id) ?
+                                    <button
+                                    id={event?.id}
+                                    type='button'
+                                    onClick={(e) => {heartyou(event?.id)}}
+                                    className='heart-button'>{<img className="red-heart" />}
+                                    </button>
+                                    :
+                                    <button
+                                    value={event?.id}
+                                    onClick={(e) => {hateyou(event?.id)}}
+                                    type='button'
+                                    className='heart-button'>{<img className="black-heart" />}
+                                    </button>}
                                     <Link className='card-per' to={`/event/${event.id}`}>
                                     <div className='card-info-container'>
                                         <h2 className='card-print card-name-home'>{event?.name}</h2>
@@ -275,7 +288,18 @@ const need = (
                                     </Link>
                                         {(event?.host_id === sessionUser?.id ) ? (
                                             <>
-                                                <button type='button' onClick={() => (toggleEdit(!editForm), setVenue(event.venue_id), setCategory(event.category_id), setName(event.name), setStart(event.start_time), setEnd(event.end_time), setCap(event.capacity), setImg(event.image), setCost(event.cost), setDescript(event.description), setId(event.id))}>edit</button>
+                                                <button type='button' onClick={() => (
+                                                    toggleEdit(!editForm),
+                                                    setVenue(event.venue_id),
+                                                    setCategory(event.category_id),
+                                                    setName(event.name),
+                                                    setStart(event.start_time),
+                                                    setEnd(event.end_time),
+                                                    setCap(event.capacity),
+                                                    setImg(event.image),
+                                                    setCost(event.cost),
+                                                    setDescript(event.description),
+                                                    setId(event.id))}>edit</button>
                                                 <button type='button' onClick={(e) => (handleDelete(e))} value={event.id}>delete</button>
                                             </>
                                         ) : null}
