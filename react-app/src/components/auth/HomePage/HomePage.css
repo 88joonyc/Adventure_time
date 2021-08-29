@@ -40,8 +40,14 @@ img {
     margin-top: 40px;
     /* border: 1px solid black; */
     box-shadow: 2px 2px 5px rgb(211, 214, 227);
-    padding: 20px;
+    padding: 10px 20px;
     border-left: 4px solid rgb(186, 68, 237);
+    border-radius: 5px;
+}
+
+.opening-message:hover {
+    box-shadow: 4px 4px 10px rgb(25, 28, 118);
+    transition: ease-in-out 5.5s;
 }
 
 .spalsh-image-2 {

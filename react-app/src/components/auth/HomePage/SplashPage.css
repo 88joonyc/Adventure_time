@@ -53,6 +53,16 @@ p {
     margin-top: 40px;
     /* border: 1px solid black; */
     box-shadow: 2px 2px 5px rgb(227, 211, 211);
-    padding: 20px;
+    padding: 10px 20px;
     border-left: 4px solid rgb(237, 68, 68);
+    border-radius: 5px;
+}
+
+.covid-under-msg {
+    font-size: small;
+    color: rgb(48, 59, 70);
+}
+
+.covid-header-title {
+    color: rgb(39, 35, 50);
 }
