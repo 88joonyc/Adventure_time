@@ -4,8 +4,10 @@ import { useHistory, Link } from 'react-router-dom';
 
 import moment from 'moment'
 
-import * as eventActions from '../../../store/event'
 import SplashPage from './SplashPage'
+import * as eventActions from '../../../store/event'
+import { authenticate } from '../../../store/session'
+import hearts_reducer, * as heartActions from '../../../store/heart'
 import { all_categories } from '../../../store/category';
 import { all_venues } from '../../../store/venue';
 
@@ -227,6 +229,24 @@ const opening = (
     </>
 )
 
+/* -------------------------- hearts------------ ------------------------------------------- */
+
+
+const heartyou = async (e) => {
+
+    await dispatch(heartActions.heart())
+    dispatch(authenticate())
+
+
+}
+const hateyou = async (value) => {
+    // e.preventDefault()
+    console.log('ds------------ ---------------------------------', value)
+    await dispatch(heartActions.hate(Number()))
+    dispatch(authenticate())
+}
+
+
 /* -------------------------- cards------------ ------------------------------------------- */
 
 const need = (
@@ -239,7 +259,7 @@ const need = (
                                 <div className="event-cards">
                                     {/* <h4>{event.host_id}</h4> */}
                                     <img src={event.image}/>
-                                    { sessionUser?.hearts_list?.includes(event?.id) ? <button type='button' className='heart-button'>{<img className="red-heart" />}</button> : <button type='button' className='heart-button'>{<img className="black-heart" />}</button>}
+                                    { !sessionUser?.hearts_list?.includes(event.id) ? <button value={event?.id} type='button' onClick={(e) => {heartyou(event?.id)}} className='heart-button'>{<img className="red-heart" />}</button> : <button value={event?.id} onClick={(e) => {hateyou(event?.id)}} type='button' className='heart-button'>{<img className="black-heart" />}</button>}
                                     <Link className='card-per' to={`/event/${event.id}`}>
                                     <div className='card-info-container'>
                                         <h2 className='card-print card-name-home'>{event?.name}</h2>

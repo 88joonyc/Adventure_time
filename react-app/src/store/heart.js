@@ -45,7 +45,7 @@ export const heart = (payload) => async dispatch => {
     return data
 }
 
-export const heart_break = (id) => async dispatch => {
+export const hate = (id) => async dispatch => {
     const res = await fetch(`/api/hearts/remove/${id}`, {
         method: 'DELETE',
     })

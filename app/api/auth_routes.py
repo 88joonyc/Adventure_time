@@ -36,7 +36,7 @@ def authenticate():
         heart_query = Heart.query.filter(Heart.user_id == current_user.id)
         hearts = [ heart.to_dict() for heart in heart_query ]
         hearts_query = Heart.query.filter(Heart.user_id == current_user.id)
-        hearts_list = [ heat.id for heat in hearts_query ]
+        hearts_list = [ heat.event_id for heat in hearts_query ]
         for user in users:
             user['tickets'] = tickets
             user['hearts'] = hearts

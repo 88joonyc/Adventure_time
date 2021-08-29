@@ -40,7 +40,7 @@ def hearted():
             user_id = current_user.id,
             event_id = form.data['event_id'],
         )
-        db.session.add(ticket)
+        db.session.add(heart)
         db.session.commit()
         return heart.to_dict()
 
