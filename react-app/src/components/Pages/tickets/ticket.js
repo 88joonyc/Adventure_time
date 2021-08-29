@@ -45,7 +45,7 @@ const none_content = (
 const unregisterforthisevent = async (e) => {
   e.preventDefault()
   await dispatch(actiontickets.delete_ticket(e.target.value))
-  runonce()
+  // runonce()
 }
 
 const some_content = (

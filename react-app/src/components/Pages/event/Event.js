@@ -31,19 +31,16 @@ const EachEvent = () => {
 
   useEffect( async () => {
     dispatch(actiontickets.one_ticket(eventId?.eventId))
-    await dispatch(one_event(eventId?.eventId))
-    await dispatch(actionfollowers.get_follower_with_promo(eventId?.eventId))
+    dispatch(one_event(eventId?.eventId))
+    dispatch(actionfollowers.get_follower_with_promo(eventId?.eventId))
+    dispatch(actiontickets.one_ticket(eventId?.eventId))
 
-  }, [eventId])
+  }, [dispatch])
 
   const runonce = () => {
     dispatch(actiontickets.one_ticket(eventId?.eventId))
     dispatch(actionfollowers.get_follower_with_promo(eventId?.eventId))
 
-  }
-
-  if (!ticket) {
-    runonce()
   }
 
 // This is my ticket modal which pops up when green 'ticket' is pressed
@@ -199,7 +196,7 @@ const EachEvent = () => {
             </div>
             <div className='register-button-contaienr'>
           <div className='registering-buttons'>
-            {ticket?.length ? <button onClick={(e) => unregisterforthisevent(e)} className="unregister-button">unregister</button> : ticketqty ? <button onClick={(e) => registerforthisevent(e)} className="register-button">register</button> : null }
+            {ticket ? <button onClick={(e) => unregisterforthisevent(e)} className="unregister-button">unregister</button> : ticketqty ? <button onClick={(e) => registerforthisevent(e)} className="register-button">register</button> : null }
           </div>
             </div>
           </div>
@@ -287,19 +284,14 @@ const EachEvent = () => {
 
 const follow = async () => {
   const  following = await dispatch(actionfollowers.follow(event?.events[0]?.id))
-  if (following) {
-    runonce()
-  }
+  runonce()
 }
 
 
 const unfollow = async () => {
   const unfollowing = await dispatch(actionfollowers.leave_loser(event?.events[0]?.id))
-  if (unfollowing) {
-    runonce()
-  }
+  runonce()
 }
-
 
 
 // ===========================================return===========================================================================

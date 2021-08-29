@@ -63,12 +63,9 @@ const tickets_reducer = (state = initialState, action ) => {
                 const all = {
                     ...state
                 }
-                if (action.tickets.tickets) {
-                    action.tickets.tickets.forEach((ticket => {
-                        tickets.push(all[ticket.id] = ticket)
-                    }))
+                if (action.tickets.tickets[0]) {
+                    return {"tickets": action.tickets.tickets }
                 }
-                return {"tickets": tickets }
             }
         case ADD_TICKET:
             return { events: action.events }
