@@ -1,6 +1,6 @@
 from flask import Blueprint, jsonify, request
 from flask_login import login_required, current_user
-from app.models import db, Event, Venue, Category, User, Ticket
+from app.models import db, Event, Venue, Category, User, Ticket, Follower
 from app.forms import EventForm
 
 
@@ -24,10 +24,13 @@ def event(id):
     events_query = Event.query.filter(Event.id == id)
     # venues = Venue.query.all()
     events = [ event.to_dict() for event in events_query ]
+    followers_query = Follower.query.filter(Follower.promoter_id == id)
+    followers = [ follower.to_dict() for follower in followers_query  ]
     for event in events:
         event['venue'] = Venue.query.get(event["venue_id"]).to_dict()
         event['category'] = Category.query.get(event["category_id"]).to_dict()
         event['host'] = User.query.get(event["host_id"]).to_dict()
+        event['followers'] = followers
         # event['categories'] = Category.query.all()
     return {'events': events}
     # return {'events': [event.to_dict() for event in events]}

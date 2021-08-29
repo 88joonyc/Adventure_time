@@ -24,7 +24,7 @@ const EachEvent = () => {
   const user = useSelector(state => state.session.user)
   const ticket = useSelector(state => (state?.tickets_reducer?.tickets));
   const event = useSelector(state => (state?.events_reducer?.events));
-  const followers = useSelector(state => (state?.followers_reducer?.followers));
+  const follower = useSelector(state => (state?.followers_reducer?.followers));
 
   const dispatch = useDispatch();
   const history = useHistory()
@@ -32,12 +32,13 @@ const EachEvent = () => {
   useEffect( async () => {
     dispatch(actiontickets.one_ticket(eventId?.eventId))
     await dispatch(one_event(eventId?.eventId))
+    await dispatch(actionfollowers.get_follower_with_promo(eventId?.eventId))
 
-  }, [])
+  }, [eventId])
 
   const runonce = () => {
     dispatch(actiontickets.one_ticket(eventId?.eventId))
-    dispatch(actionfollowers.enter_promoter_id(eventId?.eventId))
+    dispatch(actionfollowers.get_follower_with_promo(eventId?.eventId))
 
   }
 
@@ -84,9 +85,6 @@ const EachEvent = () => {
     </div>
     </>
   )
-
-
-
 
   let thispaypanel = (
     <>
@@ -319,7 +317,7 @@ const unfollow = async () => {
                   {(event?.events[0]?.name.toString().length > 100) ? <p className='events-page-card-naem-very-long'>{event?.events[0]?.name}</p> : null /*<p className='events-page-card-naem-short'>{event?.events[0]?.name}</p> */ }
                   <p className='event-card-basic-info event-name-info'>By: {event?.events[0]?.host?.first_name} {event?.events[0]?.host?.last_name} </p>
                   <p className='event-card-basic-info'>Contact: {event?.events[0]?.host?.email} </p>
-                  <p className='follower-number'>{followers?.length} followers { followers?.follower_id == user.id ? <button onClick={() => follow() } className='unfollow-me-button'>unfollow</button> : <button onClick={() => unfollow()} className='follow-me-button'>follow</button> }</p>
+                  <p className='follower-number'>{event?.events[0]?.followers?.length} followers { follower ? <button onClick={() => unfollow() } className='unfollow-me-button'>unfollow</button> : <button onClick={() => follow()} className='follow-me-button'>follow</button> }</p>
                   {event?.events[0]?.cost ? <p className='ticket-prices-start'>Tickets start at: ${event?.events[0]?.cost}</p> : <p className='ticket-prices-start'>Free</p>}
                 </div>
               </div>

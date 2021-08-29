@@ -59,16 +59,13 @@ const followers_reducer = (state = initialState, action ) => {
     switch (action.type) {
         case LOAD:
            if (state) {
-                const followers = []
                 const all = {
                     ...state
                 }
-                if (action.followers.followers) {
-                    action.followers.followers.forEach((follower => {
-                        followers.push(all[follower.id] = follower)
-                    }))
+                if (action.followers.followers[0]) {
+                    return {"followers": action.followers.followers }
                 }
-                return {"followers": followers }
+
             }
         case ADD_FOLLOWER:
             return { events: action.events }
