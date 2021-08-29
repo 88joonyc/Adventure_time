@@ -234,7 +234,6 @@ const opening = (
 
 const heartyou = async (e) => {
     // e.preventDefault()
-    console.log('-------------------------- hearts------------ --------------------------'. e)
     await dispatch(heartActions.heart(Number(e)))
     dispatch(authenticate())
 

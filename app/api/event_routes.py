@@ -1,6 +1,6 @@
 from flask import Blueprint, jsonify, request
 from flask_login import login_required, current_user
-from app.models import db, Event, Venue, Category, User, Ticket, Follower
+from app.models import db, Event, Venue, Category, User, Ticket, Follower, Heart
 from app.forms import EventForm
 
 
@@ -9,12 +9,20 @@ event_routes = Blueprint('events', __name__)
 @event_routes.route('/')
 def evented():
     events_query = Event.query.all()
-    venues = Venue.query.all()
+    # ticket_query = Ticket.query.filter(Ticket.event_id == )
+    # venues = Venue.query.all()
     events = [ event.to_dict() for event in events_query ]
+
+    ticket_query = Ticket.query.all()
+    heart_query = Heart.query.all()
+    # ticket =
     for event in events:
         event['venue'] = Venue.query.get(event["venue_id"]).to_dict()
         event['category'] = Category.query.get(event["category_id"]).to_dict()
         event['user'] = User.query.get(event["host_id"]).to_dict()
+        # event['ticket'] = jsonify(Ticket.query.filter(Ticket.event_id == event['id'])).first()
+        event['ticket'] = [ ticket.to_dict() for ticket in ticket_query if ticket.event_id == event['id'] ]
+        event['heart'] = [ heart.to_dict() for heart in heart_query if heart.event_id == event['id'] and heart.user_id == current_user.id ]
         # event['categories'] = Category.query.all()
     return {'events': events}
 
