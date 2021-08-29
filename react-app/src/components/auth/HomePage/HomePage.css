@@ -11,6 +11,11 @@
     margin-top: 30px;
 }
 
+.event-cards:hover {
+    box-shadow: 0px 5px 10px rgb(175, 184, 223);
+    transition: all 0.4s ease 0s;
+}
+
 .card-container {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
@@ -39,20 +44,6 @@ img {
     border-left: 4px solid rgb(186, 68, 237);
 }
 
-.card-per {
-    text-decoration: none;
-}
-
-.card-per:hover {
-    text-decoration: none;
-    cursor: pointer;
-    /* color: #ffffff !important; */
-    /* background-color: #3f0d12; */
-    /* content: linear-gradient(315deg, #3f0d12 0%, #a71d31 74%); */
-    box-shadow: 0px 5px 10px rgb(175, 184, 223);
-    transition: all 0.4s ease 0s;
-}
-
 .spalsh-image-2 {
     background-image: url('./large-group-activity2.jpeg');
     background-repeat: no-repeat;
@@ -77,6 +68,19 @@ img {
     padding-top: 1px;
     margin-top: -2px;
     font-family: 'Roboto', sans-serif;
+}
+
+.card-per {
+    text-decoration: none;
+}
+
+.card-per:hover {
+    cursor: pointer;
+    /* color: #ffffff !important; */
+    /* background-color: #3f0d12; */
+    /* content: linear-gradient(315deg, #3f0d12 0%, #a71d31 74%); */
+    box-shadow: 0px 5px 10px rgb(175, 184, 223);
+    transition: all 0.4s ease 0s;
 }
 
 .card-name-home {
@@ -120,11 +124,6 @@ img {
     height: 75%;
 }
 
-.home-card-delete-button {
-    /* position: absolute; */
-    float: right;
-}
-
 .home-card-followers-img {
     content: url('pngtree-outline-user-icon-png-image_1727916.jpeg');
     width: 20px;
@@ -138,4 +137,49 @@ img {
     align-items: center;
     color: rgb(119, 119, 132);
     font-size: small;
+}
+
+
+/* --------------------------card---butts------------------------------------------------------ */
+
+.home-card-delete-button {
+    float: right;
+    position: relative;
+    bottom: 140px;
+    border-radius: 40px;
+    height: 40px;
+    width: 40px;
+    right: 15px;
+    background-color: inherit;
+    border: .5px solid rgb(209, 211, 232);
+    color: rgb(110, 126, 189);
+}
+
+.home-card-delete-button:hover {
+    background-color: lightslategrey;
+    cursor: pointer;
+    color: white;
+    transition: ease-out .5s
+}
+
+.home-card-edit-button {
+    float: right;
+    position: relative;
+    /* bottom: 80px; */
+    left: 25px;
+    border-radius: 40px;
+    height: 40px;
+    width: 40px;
+    bottom: 80px;
+    font-size: x-large;
+    background-color: inherit;
+    border: .5px solid rgb(209, 211, 232);
+    color: rgb(110, 126, 189);
+}
+
+.home-card-edit-button:hover {
+    cursor: pointer;
+    background-color: lightslategrey;
+    color: white;
+    transition: ease-out .5s;
 }

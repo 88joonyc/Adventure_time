@@ -313,10 +313,12 @@ const need = (
                                                     setCost(event.cost),
                                                     setDescript(event.description),
                                                     setId(event.id))}>edit</button>
-                                                <button type='button'
+                                                <button
+                                                type='button'
+                                                className='home-card-edit-button'
                                                 onClick={(e) => (
                                                     handleDelete(e))}
-                                                    value={event.id}>delete</button>
+                                                    value={event.id}>X</button>
                                             </>
                                         ) : null}
                                 </div>
