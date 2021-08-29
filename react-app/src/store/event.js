@@ -29,6 +29,12 @@ export const all_events = () => async dispatch => {
     dispatch(load(events))
 }
 
+export const unregistered_events = () => async dispatch => {
+    const res = await fetch(`/api/events/splash/`)
+    const events = await res.json()
+    dispatch(load(events))
+}
+
 export const one_event = (id) => async dispatch => {
     const res = await fetch(`/api/events/${id}`)
     const events = await res.json()
