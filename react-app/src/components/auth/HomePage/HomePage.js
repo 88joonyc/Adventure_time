@@ -239,7 +239,7 @@ const need = (
                                 <div className="event-cards">
                                     {/* <h4>{event.host_id}</h4> */}
                                     <img src={event.image}/>
-                                    <button type='button' className='heart-button'>{<img className="red-heart" />}</button>
+                                    { sessionUser?.hearts_list?.includes(event?.id) ? <button type='button' className='heart-button'>{<img className="red-heart" />}</button> : <button type='button' className='heart-button'>{<img className="black-heart" />}</button>}
                                     <Link className='card-per' to={`/event/${event.id}`}>
                                     <div className='card-info-container'>
                                         <h2 className='card-print card-name-home'>{event?.name}</h2>

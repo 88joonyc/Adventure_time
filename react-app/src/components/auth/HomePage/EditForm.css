@@ -63,10 +63,7 @@
 }
 
 
-
-
 /* ============================heart================================== */
-
 
 .heart-button {
     position: relative;
@@ -89,14 +86,20 @@
     background-color: white;
 }
 
-.red-heart:hover {
+.black-heart {
     content: url(./heart-5-64.png);
     width: 27px;
     height: 27px;
     padding-top: 10%;
-    cursor: pointer;
-    transition: all ease-out 1.5s;
+}
 
+.red-heart:hover {
+    content: url(./heart-5-64.png);
+    width: 35px;
+    height: 35px;
+    padding-top: 10%;
+    cursor: pointer;
+    transition: all ease-out 2.5s;
 }
 
 .red-heart {
@@ -104,4 +107,13 @@
     width: 22px;
     height: 22px;
     padding-top: 10%;
+}
+
+.black-heart:hover {
+    content: url(./kiKnnLyoT.jpeg);
+    width: 20px;
+    height: 20px;
+    border-radius: 15px;
+    transition: all ease-out 3.5s;
+    cursor: pointer;
 }
