@@ -4,6 +4,7 @@ import {  useHistory, Link } from 'react-router-dom';
 import * as actiontickets from '../../../store/ticket';
 import CovBar from '../../NavBar/CovBar/CovBar';
 import FooterBar from '../../NavBar/Footer/Footer';
+import { all_user_follows } from '../../../store/follower';
 
 import moment from 'moment';
 
@@ -14,6 +15,7 @@ const TicketPage = () => {
 
   const user = useSelector(state => state.session.user)
   const tickets = useSelector(state => (state?.tickets_reducer?.tickets));
+  const following = useSelector(state => (state?.followers_reducer?.followers));
 
 
   const dispatch = useDispatch();
@@ -22,6 +24,7 @@ const TicketPage = () => {
 
   useEffect( async () => {
     dispatch(actiontickets.all_tickets())
+    dispatch(all_user_follows(Number(user.id)))
 
   }, [])
 
@@ -84,7 +87,7 @@ const some_content = (
                         <p> * </p>
                         <p className="user-stats">0 likes</p>
                         <p> * </p>
-                        <p className="user-stats">0 following</p>
+                        <p className="user-stats">{following?.length} following</p>
                     </div>
                   </div>
                 </div>

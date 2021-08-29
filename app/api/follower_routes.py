@@ -9,6 +9,11 @@ follower_routes = Blueprint('followers', __name__)
 
 @follower_routes.route('/all/<int:id>')
 def follows(id):
+    followers = Follower.query.filter(Follower.follower_id == id)
+    return {'followers': [ follower.to_dict() for follower in followers ]}
+
+@follower_routes.route('/all/<int:id>')
+def promos(id):
     followers = Follower.query.filter(Follower.promoter_id == id)
     return {'followers': [ follower.to_dict() for follower in followers ]}
 

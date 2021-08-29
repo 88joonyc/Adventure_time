@@ -17,11 +17,11 @@ const remove = (followerId) => ({
     followerId
 })
 
-// export const all_followers = () => async dispatch => {
-//     const res = await fetch(`/api/followers/`)
-//     const followers = await res.json()
-//     dispatch(load(followers))
-// }
+export const all_user_follows = (id) => async dispatch => {
+    const res = await fetch(`/api/followers/all/${id}`)
+    const followers = await res.json()
+    dispatch(load(followers))
+}
 
 export const get_follower_with_promo = (id) => async dispatch => {
     const res = await fetch(`/api/followers/${id}`)

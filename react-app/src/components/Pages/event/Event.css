@@ -164,6 +164,18 @@
     color: rgb(61, 74, 97);
 }
 
+
+
+
+
+
+/* -----------------------8585-m3-------------------------- */
+
+
+
+
+
+
 .follow-me-button {
     border-color: rgb(18, 171, 79);
     color: rgb(18, 171, 79);
@@ -183,9 +195,9 @@
 
 .unfollow-me-button {
     border-color: rgb(3, 162, 61);
-    background-color: rgb(0, 255, 102);
+    background-color: rgb(35, 22, 186);
     box-shadow: 3px 3px 14px rgb(26, 113, 71);
-    color: rgb(115, 123, 215);
+    color: rgb(255, 255, 255);
     border-radius: 4px;
     width: 80px;
 }
@@ -208,12 +220,12 @@
 
 .ticket-message {
     font-size: small;
-
 }
 
 .ticket-message-inner {
     font-size: small;
 }
+
 .ticket-message-inner:hover {
     color: red;
 }
