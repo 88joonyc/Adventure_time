@@ -105,13 +105,26 @@ h1 {
     box-shadow: 1px 1px 0 rgb(211, 215, 237);
 }
 
+
+/* ==========================logout================================================== */
+
+
+
+
 .logout-button {
     border: none;
     background-color: inherit;
+    width: 100%;
+    /* height: 50px; */
+    padding: none;
+    font-size: small;
+    text-align: left;
+
 }
 
 .logout-button:hover {
-    background-color: rgb(240, 248, 255);
+    background-color: rgb(180, 201, 220);
+    color: white;
     cursor: pointer;
     transition: all ease 0.3s;
 }

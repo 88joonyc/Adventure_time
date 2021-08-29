@@ -8,14 +8,37 @@
 }
 
 .menu-dropdown {
-    background-color: rgb(62, 74, 86);
+    background-color: white;
+    border: 1px solid rgb(209, 210, 211);
     border-radius: 5px;
-    padding: 10px 20px;
     margin-top: 15px;
     position: absolute;
-    right: 20px;
+    right: 0px;
     overflow-y: auto;
-    width: 12%;
+    width: 23%;
+    height: fit-content
+}
+
+.dropdown-items-out-bot {
+    border-bottom: 1px solid rgb(208, 210, 213);
+    text-align: left;
+    /* height: 30px; */
+    padding: 20px;
+    font-size: small;
+}
+.dropdown-items-out-top {
+    border-top: 1px solid rgb(208, 210, 213);
+    text-align: left;
+    /* height: 30px; */
+    padding: 20px;
+    font-size: small;
+}
+.dropdown-items-mid {
+    /* border: 1px solid rgb(208, 210, 213); */
+    text-align: left;
+    /* height: 30px; */
+    padding: 20px;
+    font-size: small;
 }
 
 .drop-nav-email {
@@ -50,6 +73,7 @@
 .drop-button-items {
     display: flex;
     width: 100%;
+    margin-top: 10px;
 }
 
 .navi-button:hover {
@@ -68,10 +92,12 @@
 }
 
 .profile-pic {
-    width: 40px;
-    height: 40px;
-    border-radius: 40px;
-    padding: 10px 5px;
+    width: 30px;
+    height: 30px;
+    border-radius: 30px;
+    margin-top: 10px;
+    margin-left: 15px;
+    border: 1px solid rgb(165, 177, 215);
 }
 
 .navi-button {
@@ -86,6 +112,7 @@
     width: 45px;
     border-radius: 40px;
 }
+
 
 /* .active {
     box-shadow: 0 3px rgb(181, 181, 181);

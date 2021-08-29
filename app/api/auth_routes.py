@@ -1,5 +1,5 @@
 from flask import Blueprint, jsonify, session, request
-from app.models import User, db
+from app.models import User, db, Ticket
 from app.forms import LoginForm
 from app.forms import SignUpForm
 from flask_login import current_user, login_user, logout_user, login_required
@@ -24,7 +24,13 @@ def authenticate():
     Authenticates a user.
     """
     if current_user.is_authenticated:
-        return current_user.to_dict()
+        user_query = User.query.filter(User.id == current_user.id)
+        users = [ user.to_dict() for user in user_query ]
+        ticket_query = Ticket.query.filter(Ticket.user_id == current_user.id)
+        tickets = [ ticket.to_dict() for ticket in ticket_query ]
+        for user in users:
+            user['tickets'] = tickets
+        return { 'user-info': user }
     return {'errors': ['Unauthorized']}
 
 

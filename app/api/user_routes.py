@@ -1,6 +1,6 @@
 from flask import Blueprint, jsonify
-from flask_login import login_required
-from app.models import User
+from flask_login import login_required, current_user
+from app.models import User, Ticket
 
 user_routes = Blueprint('users', __name__)
 
@@ -24,8 +24,23 @@ def users():
 #     return {'users': users}
 
 
-@user_routes.route('/<int:id>')
-@login_required
-def user(id):
-    user = User.query.get(id)
-    return user.to_dict()
+# @user_routes.route('/<int:id>')
+# @login_required
+# def user(id):
+#     user = User.query.get(id)
+
+#     return user.to_dict()
+
+
+
+# @user_routes.route('/<int:id>')
+# @login_required
+# def user(id):
+#     user_query = User.query.filter(User.id == current_user.id)
+#     users = [ user.to_dict() for user in user_query ]
+#     ticket_query = Ticket.query.filter(Ticket.user_id == current_user.id)
+#     tickets = [ ticket.to_dict() for ticket in ticket_query ]
+#     for user in users:
+#         user['tickets'] = tickets
+#     return { 'user-info': user }
+    # return {'users': [user.to_dict() for user in u]}

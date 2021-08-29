@@ -62,8 +62,13 @@ const NavBar = () => {
             </button>
             {showMenu && (
                 <div className='menu-dropdown'>
-                    <div className='dropdown-items'>{sessionUser?.email}</div>
-                    <div className='dropdown-items'>{<LogoutButton />}</div>
+                    <div className='dropdown-items-out-bot'>Manage my events</div>
+                    <div className='dropdown-items-mid'>Tickets {}</div>
+                    <div className='dropdown-items-mid'>{sessionUser?.email}</div>
+                    <div className='dropdown-items-mid'>{sessionUser?.email}</div>
+                    <div className='dropdown-items-mid'>{sessionUser?.email}</div>
+                    <div className='dropdown-items-out-top'>Account Settings</div>
+                    <div className='dropdown-items-out-bot'>{<LogoutButton />}</div>
                 </div>
             )}
         </div>
