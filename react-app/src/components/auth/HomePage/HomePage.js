@@ -268,7 +268,7 @@ const need = (
                                 <div className="event-cards">
                                     {/* <h4>{event.host_id}</h4> */}
                                     <img src={event?.image}/>
-                                    { !event?.heart[0]?.id ?
+                                    { !event?.heart?.length ?
                                     <button
                                     id={event?.id}
                                     type='button'
@@ -290,14 +290,18 @@ const need = (
                                         <p className='card-print card-date'>{moment(event?.start_time).format('ddd, MMM D, h:mm A')}</p>
                                         {/* <p className='card-print'>{moment(event.end_time).format('ddd, MMM D, h:mm A')}</p> */}
                                         <p className='card-print card-venue-home'>{event?.venue.name} • {event.venue.city}</p>
-                                        <p className='card-print card-cost-home'>starts at ${event?.cost}</p>
+                                        <p className='card-print card-cost-home'>Starts at ${event?.cost}</p>
                                         <p className='card-print card-user-home'>{event.user?.email}</p>
                                         <p className='card-print card-cap-home'>Limited to: {event?.capacity} seats!</p>
+                                        <p className='card-print card-cap-followers'> {<img className='home-card-followers-img'/>} {event?.followers?.length} followers </p>
                                     </div>
                                     </Link>
                                         {(event?.host_id === sessionUser?.id ) ? (
                                             <>
-                                                <button type='button' onClick={() => (
+                                                <button
+                                                type='button'
+                                                className='home-card-delete-button'
+                                                onClick={() => (
                                                     toggleEdit(!editForm),
                                                     setVenue(event.venue_id),
                                                     setCategory(event.category_id),
@@ -309,7 +313,10 @@ const need = (
                                                     setCost(event.cost),
                                                     setDescript(event.description),
                                                     setId(event.id))}>edit</button>
-                                                <button type='button' onClick={(e) => (handleDelete(e))} value={event.id}>delete</button>
+                                                <button type='button'
+                                                onClick={(e) => (
+                                                    handleDelete(e))}
+                                                    value={event.id}>delete</button>
                                             </>
                                         ) : null}
                                 </div>

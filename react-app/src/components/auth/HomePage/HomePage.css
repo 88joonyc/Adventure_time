@@ -29,12 +29,6 @@ img {
     height: 150px;
 }
 
-.card-info-container {
-    background-color: white;
-    /* position:inherit; */
-    /* bottom: 10px; */
-}
-
 .opening-message {
     width: 90%;
     margin: 0 auto;
@@ -59,7 +53,6 @@ img {
     transition: all 0.4s ease 0s;
 }
 
-
 .spalsh-image-2 {
     background-image: url('./large-group-activity2.jpeg');
     background-repeat: no-repeat;
@@ -68,7 +61,7 @@ img {
 }
 
 
-/* --------------------------card---------------------------------- */
+/* --------------------------card--------------------------------------------------------- */
 
 .top-home-sent {
     color: rgb(210, 37, 210);
@@ -89,7 +82,7 @@ img {
 .card-name-home {
     padding-top: 15px;
     font-size: 18px;
-    max-height: 40px;
+    max-height: 33px;
 }
 
 .card-date {
@@ -105,6 +98,7 @@ img {
 .card-venue-home {
     font-size: 13px;
     color: rgb(153, 161, 191);
+    margin-top: -5px;
 }
 
 .card-cost-home {
@@ -117,6 +111,31 @@ img {
 }
 
 .card-cap-home {
-    font-size: x-small;
+    font-size: small;
     color: rgb(142, 95, 95);
+}
+
+.card-info-container {
+    background-color: white;
+    height: 75%;
+}
+
+.home-card-delete-button {
+    /* position: absolute; */
+    float: right;
+}
+
+.home-card-followers-img {
+    content: url('pngtree-outline-user-icon-png-image_1727916.jpeg');
+    width: 20px;
+    height: 20px;
+    border-radius: 20px;
+}
+
+.card-cap-followers {
+    display: flex;
+    margin-top: -10px;
+    align-items: center;
+    color: rgb(119, 119, 132);
+    font-size: small;
 }

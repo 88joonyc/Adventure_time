@@ -12,7 +12,7 @@ def evented():
     # ticket_query = Ticket.query.filter(Ticket.event_id == )
     # venues = Venue.query.all()
     events = [ event.to_dict() for event in events_query ]
-
+    followers_query = Follower.query.all()
     ticket_query = Ticket.query.all()
     heart_query = Heart.query.all()
     # ticket =
@@ -23,6 +23,7 @@ def evented():
         # event['ticket'] = jsonify(Ticket.query.filter(Ticket.event_id == event['id'])).first()
         event['ticket'] = [ ticket.to_dict() for ticket in ticket_query if ticket.event_id == event['id'] ]
         event['heart'] = [ heart.to_dict() for heart in heart_query if heart.event_id == event['id'] and heart.user_id == current_user.id ]
+        event['followers'] = [follower.to_dict() for follower in followers_query if follower.promoter_id == event['host_id']]
         # event['categories'] = Category.query.all()
     return {'events': events}
 
