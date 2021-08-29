@@ -256,11 +256,31 @@ const hateyou = async (e) => {
 }
 
 
+/* -------------------------- popular_bar------------ ------------------------------------------- */
+
+
+let popular_bar = (
+<>
+
+        <div>
+            <h1 className='card-popular-in-title'>Popular in  {'>'} {<input />} </h1>
+            <div className='home-card-categories'>
+
+            </div>
+        </div>
+
+
+</>)
+
+
+
+
 /* -------------------------- cards------------ ------------------------------------------- */
+
 
 const need = (
         <>
-        <h1>Popular in </h1>
+
             <div className='box' >
                 <div className='card-container'>
                     {events?.map(event => (
@@ -346,6 +366,7 @@ if (!sessionUser) {
         <>
         {sessionUser? opening : null}
         {content}
+        {popular_bar}
         {need}
         </>
     )
