@@ -304,7 +304,7 @@ const need = (
                                     </button>}
                                     <Link className='card-per' to={`/event/${event.id}`}>
                                     <div className='card-info-container'>
-                                        <h2 className='card-print card-name-home'>{event?.name}</h2>
+                                        { event?.name?.length < 50 ? <h2 className='card-print card-name-home-short'>{event?.name}</h2> : <h2 className='card-print card-name-home-long'>{event?.name}</h2> }
                                         {/* <p className='card-print'>{event.category.type}</p> */}
                                         <p hidden="true" className='card-print'>{event?.description}</p>
                                         <p className='card-print card-date'>{moment(event?.start_time).format('ddd, MMM D, h:mm A')}</p>

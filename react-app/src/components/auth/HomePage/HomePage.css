@@ -90,10 +90,15 @@ img {
     transition: all 0.4s ease 0s;
 }
 
-.card-name-home {
+.card-name-home-short {
     padding-top: 15px;
-    font-size: 18px;
+    font-size: 16.3px;
     max-height: 33px;
+}
+.card-name-home-long {
+    padding-top: 13px;
+    font-size: 14px;
+    max-height: 30px;
 }
 
 .card-date {
