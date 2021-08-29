@@ -30,7 +30,7 @@ def authenticate():
         tickets = [ ticket.to_dict() for ticket in ticket_query ]
         for user in users:
             user['tickets'] = tickets
-        return { 'user-info': user }
+        return { 'user': user }
     return {'errors': ['Unauthorized']}
 
 

@@ -9,7 +9,7 @@ import './NavBar.css'
 
 const NavBar = () => {
 
-  const sessionUser = useSelector(state => state.session.user)
+  const sessionUser = useSelector(state => state.session.user.user)
 
   const [ searchBar, toggleSearch ] = useState(false)
   const [ eventPage, toggleCreate ] = useState(false)
@@ -68,7 +68,7 @@ const NavBar = () => {
                     <div className='dropdown-items-mid'>{sessionUser?.email}</div>
                     <div className='dropdown-items-mid'>{sessionUser?.email}</div>
                     <div className='dropdown-items-out-top'>Account Settings</div>
-                    <div className='dropdown-items-out-bot'>{<LogoutButton />}</div>
+                    <div className=''>{<LogoutButton />}</div>
                 </div>
             )}
         </div>

@@ -5,7 +5,6 @@ import * as actiontickets from '../../../store/ticket';
 import CovBar from '../../NavBar/CovBar/CovBar';
 import FooterBar from '../../NavBar/Footer/Footer';
 import { all_user_follows } from '../../../store/follower';
-import { one_user_info } from '../../../store/session';
 
 import moment from 'moment';
 
@@ -14,7 +13,7 @@ import './Tickets.css'
 const TicketPage = () => {
   const [errors, setErrors] = useState([]);
 
-  const user = useSelector(state => state.session.user)
+  const user = useSelector(state => state.session.user.user)
   const tickets = useSelector(state => (state?.tickets_reducer?.tickets));
   const following = useSelector(state => (state?.followers_reducer?.followers));
 
@@ -26,8 +25,6 @@ const TicketPage = () => {
   useEffect( async () => {
     dispatch(actiontickets.all_tickets())
     dispatch(all_user_follows(Number(user.id)))
-    dispatch(one_user_info(1))
-
   }, [])
 
   const runonce = () => {

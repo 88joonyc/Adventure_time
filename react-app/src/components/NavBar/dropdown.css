@@ -89,6 +89,7 @@
 
 .logout-button {
     cursor: pointer;
+    font-family: inherit;
 }
 
 .profile-pic {
