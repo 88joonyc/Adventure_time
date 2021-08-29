@@ -202,8 +202,20 @@
 }
 
 .ticket-prices-start {
-    margin-top: 35%;
+    margin-top: 25%;
     margin-bottom: -35%;
+}
+
+.ticket-message {
+    font-size: small;
+
+}
+
+.ticket-message-inner {
+    font-size: small;
+}
+.ticket-message-inner:hover {
+    color: red;
 }
 
 .event-page {

@@ -310,6 +310,7 @@ const unfollow = async () => {
                   <p className='event-card-basic-info event-name-info'>By: {event?.events[0]?.host?.first_name} {event?.events[0]?.host?.last_name} </p>
                   <p className='event-card-basic-info'>Contact: {event?.events[0]?.host?.email} </p>
                   <p className='follower-number'>{event?.events[0]?.followers?.length} followers { follower ? <button onClick={() => unfollow() } className='unfollow-me-button'>unfollow</button> : <button onClick={() => follow()} className='follow-me-button'>follow</button> }</p>
+                  <p className='ticket-message'>{ticket ? <p className='ticket-message-inner'> You are going! </p> : <p className='ticket-message-inner'> You are not going! </p>  }</p>
                   {event?.events[0]?.cost ? <p className='ticket-prices-start'>Tickets start at: ${event?.events[0]?.cost}</p> : <p className='ticket-prices-start'>Free</p>}
                 </div>
               </div>
