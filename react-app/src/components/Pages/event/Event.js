@@ -34,6 +34,7 @@ const EachEvent = () => {
     dispatch(one_event(eventId?.eventId))
     dispatch(actionfollowers.get_follower_with_promo(eventId?.eventId))
     dispatch(actiontickets.one_ticket(eventId?.eventId))
+    window.scrollTo(0, 0)
     runonce()
 
   }, [eventId])

@@ -1,12 +1,65 @@
 .card-popular-in-title {
     font-family: 'Signika Negative', sans-serif;
-    font-size: 40px;
+    font-size: 35px;
     color: rgb(65, 69, 113);
-    margin-left: 2.5%;
+    margin-left: 5%;
+    display: flex;
+    align-items: center;
 }
 
 .home-card-categories {
-    border: 1px solid black;
-    width: 100%;
+    width: 85%;
     height: 50px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+    margin-left: 35px;
+}
+
+.cat-button-container {}
+
+.cat-button {
+    padding: 8px 25px;
+    border: none;
+    background-color: inherit;
+    color: rgb(124, 133, 157);
+}
+
+.cat-button:hover {
+    color: blue;
+    border-bottom: 2px solid blue;
+    cursor: pointer;
+}
+
+.venue-search-box {
+    margin-left: 20px;
+    max-width: 185px;
+    height: 28px;
+    border: none;
+    background-color: inherit;
+    border-bottom: 2px solid rgb(200, 200, 220);
+    outline: none;
+    font-size: 30px;
+    font-family: 'Signika Negative', sans-serif;
+    color: rgb(184, 193, 216);
+}
+
+.venue-search-box:focus::placeholder {
+    border-bottom: 1px solid rgb(200, 200, 220);
+    height: 37px;
+    color: rgb(124, 123, 142);
+}
+
+.venue-search-box:focus {
+    transition: all ease 1.5;
+    border-bottom: 1px solid rgb(200, 200, 220);
+    height: 37px;
+    color: rgb(12, 0, 237);
+}
+
+.venue-search-box::placeholder {
+    border-bottom: 1px solid rgb(200, 200, 220);
+    height: 37px;
+    color: rgb(12, 0, 237);
 }

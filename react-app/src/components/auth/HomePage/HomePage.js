@@ -228,7 +228,7 @@ const opening = (
     <div className='spalsh-image-2'>
         <p className="top-sent top-home-sent">Get down</p>
         <p className="bottom-sent top-home-sent">for the HOOK!</p>
-        <button onClick={console.log('jello')} className="event-button">Find your next event</button>
+        <button onClick={() => window.scrollTo(0,580)} className="event-button">Find your next event</button>
     </div>
     <div className='opening-message'>
         <h3 className='covid-header-title'>
@@ -263,9 +263,37 @@ let popular_bar = (
 <>
 
         <div>
-            <h1 className='card-popular-in-title'>Popular in  {'>'} {<input />} </h1>
+            <h1 className='card-popular-in-title'>Popular in  {'>'} {<input
+            placeholder='Online events'
+            className='venue-search-box' />} </h1>
             <div className='home-card-categories'>
-
+                <div className='cat-button-container'>
+                    <button className='cat-button'>All</button>
+                </div>
+                <div>
+                    <button className='cat-button'>For you</button>
+                </div>
+                <div>
+                    <button className='cat-button'>Online</button>
+                </div>
+                <div>
+                    <button className='cat-button'>Today</button>
+                </div>
+                <div>
+                    <button className='cat-button'>This weekend</button>
+                </div>
+                <div>
+                    <button className='cat-button'>Free</button>
+                </div>
+                <div>
+                    <button className='cat-button'>Holiday</button>
+                </div>
+                <div>
+                    <button className='cat-button'>Music</button>
+                </div>
+                <div>
+                    <button className='cat-button'>Food & Drinks</button>
+                </div>
             </div>
         </div>
 
