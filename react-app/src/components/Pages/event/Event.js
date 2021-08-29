@@ -34,13 +34,14 @@ const EachEvent = () => {
     dispatch(one_event(eventId?.eventId))
     dispatch(actionfollowers.get_follower_with_promo(eventId?.eventId))
     dispatch(actiontickets.one_ticket(eventId?.eventId))
+    runonce()
 
-  }, [dispatch])
+  }, [eventId])
 
-  const runonce = () => {
+  const runonce = async () => {
     dispatch(actiontickets.one_ticket(eventId?.eventId))
     dispatch(actionfollowers.get_follower_with_promo(eventId?.eventId))
-
+    dispatch(one_event(eventId?.eventId))
   }
 
 // This is my ticket modal which pops up when green 'ticket' is pressed
@@ -283,13 +284,15 @@ const EachEvent = () => {
 
 
 const follow = async () => {
-  const  following = await dispatch(actionfollowers.follow(event?.events[0]?.id))
+  await dispatch(actionfollowers.follow(event?.events[0]?.id))
+  dispatch(actionfollowers.get_follower_with_promo(eventId?.eventId))
   runonce()
 }
 
 
-const unfollow = async () => {
-  const unfollowing = await dispatch(actionfollowers.leave_loser(event?.events[0]?.id))
+const unfollow = async (e) => {
+  await dispatch(actionfollowers.leave_loser(e.target.value))
+  dispatch(actionfollowers.get_follower_with_promo(eventId?.eventId))
   runonce()
 }
 
@@ -309,7 +312,7 @@ const unfollow = async () => {
                   {(event?.events[0]?.name.toString().length > 100) ? <p className='events-page-card-naem-very-long'>{event?.events[0]?.name}</p> : null /*<p className='events-page-card-naem-short'>{event?.events[0]?.name}</p> */ }
                   <p className='event-card-basic-info event-name-info'>By: {event?.events[0]?.host?.first_name} {event?.events[0]?.host?.last_name} </p>
                   <p className='event-card-basic-info'>Contact: {event?.events[0]?.host?.email} </p>
-                  <p className='follower-number'>{event?.events[0]?.followers?.length} followers { follower ? <button onClick={() => unfollow() } className='unfollow-me-button'>unfollow</button> : <button onClick={() => follow()} className='follow-me-button'>follow</button> }</p>
+                  <p className='follower-number'>{event?.events[0]?.followers?.length} followers { follower ? <button value={follower[0]?.id} onClick={(e) => unfollow(e) } className='unfollow-me-button'>unfollow</button> : <button onClick={() => follow()} className='follow-me-button'>follow</button> }</p>
                   <p className='ticket-message'>{ticket ? <p className='ticket-message-inner'> You are going! </p> : <p className='ticket-message-inner'> You are not going! </p>  }</p>
                   {event?.events[0]?.cost ? <p className='ticket-prices-start'>Tickets start at: ${event?.events[0]?.cost}</p> : <p className='ticket-prices-start'>Free</p>}
                 </div>

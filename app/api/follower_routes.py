@@ -35,7 +35,7 @@ def follow():
 @follower_routes.route('/remove/<int:id>', methods=['DELETE'])
 @login_required
 def fowl(id):
-    follower = Ticket.query.get(id)
+    follower = Follower.query.get(id)
     db.session.delete(follower)
     db.session.commit()
     return follower.to_dict()
