@@ -9,7 +9,7 @@ import './NavBar.css'
 
 const NavBar = () => {
 
-  const sessionUser = useSelector(state => state.session.user.user)
+  const sessionUser = useSelector(state => state.session?.user)
 
   const [ searchBar, toggleSearch ] = useState(false)
   const [ eventPage, toggleCreate ] = useState(false)
@@ -63,7 +63,7 @@ const NavBar = () => {
             {showMenu && (
                 <div className='menu-dropdown'>
                     <div className='dropdown-items-out-bot'>Manage my events</div>
-                    <Link className='linke-not-deco' to='/tickets'><div className='dropdown-items-mid'>Tickets ( current : {sessionUser.tickets.length})</div></Link>
+                    <Link className='linke-not-deco' to='/tickets'><div className='dropdown-items-mid'>Tickets ( current : {sessionUser.tickets?.length})</div></Link>
                     <div className='dropdown-items-mid'>{sessionUser?.email}</div>
                     <div className='dropdown-items-mid'>{sessionUser?.email}</div>
                     <div className='dropdown-items-mid'>{sessionUser?.email}</div>

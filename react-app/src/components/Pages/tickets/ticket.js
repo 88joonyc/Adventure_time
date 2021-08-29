@@ -13,7 +13,7 @@ import './Tickets.css'
 const TicketPage = () => {
   const [errors, setErrors] = useState([]);
 
-  const user = useSelector(state => state.session.user.user)
+  const user = useSelector(state => state.session.user)
   const tickets = useSelector(state => (state?.tickets_reducer?.tickets));
   const following = useSelector(state => (state?.followers_reducer?.followers));
 
@@ -74,7 +74,7 @@ const some_content = (
           <div className="ticket-container">
             <div className='ticker-grid'>
                 <div className="user-info-card">
-                  <img className="profile-img" src={user.image}/>
+                  <img className="profile-img" src={user?.image}/>
                   <div className="user-card-text" >
                     <div className="card-name">
                       <p className='name'>{user.first_name}</p>
@@ -83,7 +83,7 @@ const some_content = (
                     <div className="user-marks">
                         <p className="user-stats">{tickets?.length} orders</p>
                         <p> * </p>
-                        <p className="user-stats">0 likes</p>
+                        <p className="user-stats">{user.hearts?.length} likes</p>
                         <p> * </p>
                         <p className="user-stats">{following?.length} following</p>
                     </div>
