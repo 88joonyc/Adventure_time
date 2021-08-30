@@ -11,9 +11,9 @@
 
 .ticketing-panel {
     margin: 0 auto;
-    margin-bottom: 5%;
     margin-top: 100%;
-    width: 60%;
+    width: 75%;
+    margin-bottom: 15%;
     background-color: rgb(251, 251, 245);
     display: grid;
     grid-template-columns: 2fr 1fr;

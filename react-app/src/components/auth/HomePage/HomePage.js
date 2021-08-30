@@ -110,7 +110,7 @@ if (editForm) {
                                 value={venue_id}
                                 onChange={(e) => setVenue(e.target.value)}
                                 required="true"
-                                className='edit-input'
+                                className='edit-input longer'
                             >
                                 <option>select</option>
                                 {venue?.map(ven => (
@@ -133,7 +133,7 @@ if (editForm) {
                                     value={category_id}
                                     onChange={(e) => setCategory(e.target.value)}
                                     required="true"
-                                    className='edit-input'
+                                    className='edit-input longer'
                                 >
                                     <option>select</option>
                                     {category?.map(cat => (
