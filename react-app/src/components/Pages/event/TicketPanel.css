@@ -14,10 +14,12 @@
     margin-top: 7%;
     margin-bottom: 15%;
     width: 90%;
-    height: 80%;
+    min-height: 800px;
+    max-height: 1200px;
     background-color: rgb(251, 251, 245);
     display: grid;
     grid-template-columns: 2fr 1fr;
+    border-radius: 5px;
 }
 
 .ticket-cancel-button {
@@ -46,6 +48,7 @@
 
 .general-ticketing-panel {
     border: 1px solid rgb(218, 217, 223);
+    border-radius: 5px;
     display: grid;
     grid-template-rows: .8fr 3.5fr 3.5fr 3.5fr .6fr;
 }
