@@ -59,6 +59,7 @@ h1 {
     border: none;
     background-color: inherit;
     outline: none;
+    font-family: 'Manrope', sans-serif;
 }
 
 .input-label {
@@ -74,7 +75,6 @@ h1 {
     height: 200px;
     background-color: inherit;
 }
-
 
 .user-input-container {
     box-sizing: border-box;
