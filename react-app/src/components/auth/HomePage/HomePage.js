@@ -12,6 +12,8 @@ import { all_categories } from '../../../store/category';
 import { all_venues } from '../../../store/venue';
 
 
+
+
 const HomePage = () => {
 const dispatch = useDispatch()
 const history = useHistory()
@@ -48,8 +50,8 @@ const handleSubmit =  async (e) => {
         category_id,
         name,
         description,
-        moment(start_time).format('YYYY-MM-DD hh:mm:ss'),
-        moment(end_time).format('YYYY-MM-DD hh:mm:ss'),
+        moment(start_time.split(' GMT').join(' EST')).format('YYYY-MM-DD HH:mm:ss'),
+        moment(end_time.split(' GMT').join(' EST')).format('YYYY-MM-DD HH:mm:ss'),
         capacity,
         image,
         cost,
@@ -165,18 +167,19 @@ if (editForm) {
                         <label className='edit-labels'> Start of event
                             <input
                                 type="datetime-local"
-                                value={moment(start_time).format('YYYY-MM-DDTHH:mm')}
+                                value={moment(start_time.split(' GMT').join(' EST')).format('YYYY-MM-DDTHH:mm')}
                                 onChange={(e) => setStart(e.target.value)}
                                 required="true"
                                 className='edit-input'
                             />
+                            <button onClick={() => console.log(moment((start_time).split(' GMT').join(' EST')).format('YYYY-MM-DDTHH:mm'))} >butt</button>
                         </label>
                     </div>
                     <div>
                         <label className='edit-labels'> End of event
                             <input
                                 type='datetime-local'
-                                value={moment(end_time).format('YYYY-MM-DDTHH:mm')}
+                                value={moment(end_time.split(' GMT').join(' EST')).format('YYYY-MM-DDTHH:mm')}
                                 onChange={(e) => setEnd(e.target.value)}
                                 required="true"
                                 className='edit-input'
@@ -373,7 +376,7 @@ const need = (
                                         { event?.name?.length < 50 ? <h2 className='card-print card-name-home-short'>{event?.name}</h2> : <h2 className='card-print card-name-home-long'>{event?.name}</h2> }
                                         {/* <p className='card-print'>{event.category.type}</p> */}
                                         <p hidden="true" className='card-print'>{event?.description}</p>
-                                        <p className='card-print card-date'>{moment(event?.start_time).format('ddd, MMM D, h:mm A')}</p>
+                                        <p className='card-print card-date'>{moment((event?.start_time).split(' GMT').join(' EST')).format('ddd, MMM D, h:mm A')}</p>
                                         {/* <p className='card-print'>{moment(event.end_time).format('ddd, MMM D, h:mm A')}</p> */}
                                         <p className='card-print card-venue-home'>{event?.venue.name} • {event.venue.city}</p>
                                         <p className='card-print card-cost-home'>Starts at ${event?.cost}</p>
