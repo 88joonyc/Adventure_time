@@ -336,9 +336,9 @@ const unfollow = async (e) => {
 
 // ===========================================listen===========================================================================
 
-document.addEventListener("scroll", e => {
-  document.querySelector('.purchase-tix-bar').classList.add('purchase-tix-bar-stick')
-})
+// document.addEventListener("scroll", e => {
+//   document.querySelector('.purchase-tix-bar').classList.add('purchase-tix-bar-stick')
+// })
 
 
 // ===========================================return===========================================================================
