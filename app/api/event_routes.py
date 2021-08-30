@@ -100,24 +100,6 @@ def search_by_cost(id):
         event['followers'] = [follower.to_dict() for follower in followers_query if follower.promoter_id == event['host_id']]
     return {'events': events}
 
-
-@event_routes.route('/promoter/<int:id>')
-def search_by_promoter(id):
-    events_query = Event.query.all()
-    events = [ event.to_dict() for event in events_query if event.host_id == id]  # get me promoter's events with this cost column
-    followers_query = Follower.query.all()
-    ticket_query = Ticket.query.all()
-    heart_query = Heart.query.all()
-    for event in events:
-        event['venue'] = Venue.query.get(event["venue_id"]).to_dict()
-        event['category'] = Category.query.get(event["category_id"]).to_dict()
-        event['user'] = User.query.get(event["host_id"]).to_dict()
-        event['ticket'] = [ ticket.to_dict() for ticket in ticket_query if ticket.event_id == event['id'] ]
-        event['heart'] = [ heart.to_dict() for heart in heart_query if heart.event_id == event['id'] and heart.user_id == current_user.id ]
-        event['followers'] = [follower.to_dict() for follower in followers_query if follower.promoter_id == event['host_id']]
-    return {'promoter_events': events}
-
-
 @event_routes.route('/<int:id>')
 def event(id):
     events_query = Event.query.filter(Event.id == id)
@@ -130,6 +112,7 @@ def event(id):
         event['category'] = Category.query.get(event["category_id"]).to_dict()
         event['host'] = User.query.get(event["host_id"]).to_dict()
         event['followers'] = followers
+        event['promoter'] = [ promoter.to_dict() for promoter in Event.query.filter(Event.host_id == event['host_id']) ]
     return {'events': events}
 
 

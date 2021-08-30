@@ -31,3 +31,60 @@
     height: 90px;
     border-radius: 90px;
 }
+
+
+/* ======================more from this ========================================================== */
+
+.promo-title {
+    font-size: medium;
+    text-align: center;
+}
+
+.promo-events-box {
+    margin: 0 auto;
+    width: 63%;
+    padding-bottom: 5%;
+    padding-top: .5%;
+}
+
+.promoter-events {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    border-bottom: 1px solid rgb(178, 178, 225);
+    width: 100%;
+    padding: 5px 0px;
+}
+
+.promoter-events:hover {
+    position: relative;
+    cursor: pointer;
+    /* right: 20px; */
+    box-shadow: 1px 1px 5px rgb(178, 178, 225);
+    transition: ease 5.5s;
+}
+
+.promoter-event-info {
+    height: 80%;
+}
+
+.promoter-event-info-content {
+    padding: 17px;
+}
+
+.promoter-event-img {
+    height: 100px;
+    width: 100%;
+    object-fit: cover;
+    /* height: cover; */
+}
+
+.promoter-events-img-container {
+    /* display: grid; */
+    background-color: blue;
+    /* grid-template-rows: .9fr .2fr; */
+}
+
+.promoter-event-img-text {
+    background-color: red;
+
+}

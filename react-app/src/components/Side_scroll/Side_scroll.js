@@ -3,7 +3,6 @@ import React, { useState, useEffect } from 'react';
 import { Link  } from 'react-router-dom';
 import { useSelector, useDispatch  } from 'react-redux';
 
-import { promoter_events } from '../../store/event';
 
 import './Side_scroll.css'
 
