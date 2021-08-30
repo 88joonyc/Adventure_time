@@ -28,6 +28,8 @@ const SignUpForm = () => {
       if (data) {
         setErrors(data)
       }
+    } else {
+      setErrors(['Passwords must match! Please try again'])
     }
   };
 
@@ -70,12 +72,12 @@ const SignUpForm = () => {
         <Link to="/">
           <img className="logo-image-container"/>
         </Link>
-      <form onSubmit={onSignUp}>
         <div>
           {errors.map((error, ind) => (
-            <div key={ind}>{error}</div>
+            <div className='error-messages' key={ind}>{error}</div>
           ))}
         </div>
+      <form onSubmit={onSignUp}>
           <div className="user-input-container">
             <label className='input-label'>First Name</label>
             <input
@@ -101,11 +103,12 @@ const SignUpForm = () => {
           <div className="user-input-container">
             <label className='input-label'>Email</label>
             <input
-              type='text'
+              type='email'
               name='email'
               className="user-input"
               onChange={updateEmail}
               value={email}
+              required={true}
             ></input>
           </div>
           <div className="user-input-container">
@@ -127,6 +130,7 @@ const SignUpForm = () => {
               onChange={updatePassword}
               value={password}
               required={true}
+              min="6"
             ></input>
           </div>
           <div className="user-input-container">

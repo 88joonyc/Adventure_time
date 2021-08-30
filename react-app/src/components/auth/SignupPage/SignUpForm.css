@@ -17,3 +17,12 @@
     position: relative;
     top: 100px;
 }
+
+.error-messages {
+    font-size: small;
+}
+
+.error-messages:hover {
+    color: rgb(255, 0, 0);
+    transition: all ease 5.5s;
+}
