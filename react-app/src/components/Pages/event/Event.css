@@ -62,17 +62,19 @@
 }
 
 
-/* -------------------------------------------------- */
+/* -------------------tickets------------------------------- */
 
 .purchase-tix-bar {
     width: 100%;
     height: 75px;
-    background-color: inherit;
+    background-color: rgba(249, 250, 252, 1);
     border-top: 1px solid rgb(235, 235, 240);
     border-bottom: 1px solid rgb(235, 235, 240);
     display: flex;
     justify-content: flex-end;
     align-items: center;
+    position: sticky;
+    top: 0;
 }
 
 .ticket-button {
@@ -166,16 +168,7 @@
 }
 
 
-
-
-
-
 /* -----------------------8585-m3-------------------------- */
-
-
-
-
-
 
 .follow-me-button {
     border-color: rgb(18, 171, 79);

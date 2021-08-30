@@ -234,15 +234,14 @@ const EachEvent = () => {
 
 
         <div>
-          <div className='map-info-marker'>
+          <div className='map-info-marker map-info-marker-top'>
             <div>
-              <div className='map-info-marker'>hi</div>
+              <img className='map-info-marker-pic'src={event?.events[0]?.host?.image} />
+            <div className='map-info-naem'>
+              <div className='map-info-marker'>{event?.events[0]?.host?.first_name}</div>
+              <div className='map-info-marker'>{event?.events[0]?.host?.last_name}</div>
             </div>
-            <div>
-              <div className='map-info-marker'>hi</div>
-            </div>
-            <div>
-              <div className='map-info-marker'>hi</div>
+              <div className='map-info-marker'>{event?.events[0]?.host?.email}</div>
             </div>
           </div>
         </div>

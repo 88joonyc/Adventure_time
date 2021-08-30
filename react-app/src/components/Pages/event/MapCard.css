@@ -3,13 +3,31 @@
     border: 1px solid rgb(241, 241, 245);
 }
 
+.map-info-marker-top {
+    margin-top: 70px;
+}
+
 .map-info-marker {
-    /* background-color: cyan; */
+    display: flex;
+    justify-content: center;
 }
 
 .map-info-map {
     background-color: inherit;
 }
 
-.map-map-info-box {
+.map-map-info-box {}
+
+.map-info-naem {
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+    margin-top: 10%;
+    margin-bottom: 5%;
+}
+
+.map-info-marker-pic {
+    width: 90px;
+    height: 90px;
+    border-radius: 90px;
 }
