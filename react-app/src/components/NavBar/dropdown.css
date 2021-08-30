@@ -20,7 +20,8 @@
     right: 0px;
     overflow-y: auto;
     width: 23%;
-    height: fit-content
+    height: fit-content;
+    z-index: 100;
 }
 
 .dropdown-items-out-bot {

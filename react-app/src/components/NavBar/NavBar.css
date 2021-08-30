@@ -5,6 +5,7 @@
     background-color: white;
     justify-content: space-between;
     margin-top: -10px;
+    z-index: 1;
 }
 
 .searchbar-container {

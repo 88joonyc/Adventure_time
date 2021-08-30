@@ -6,15 +6,15 @@ import SignUpForm from './components/auth/SignupPage/SignUpForm';
 import HomePage from './components/auth//HomePage/HomePage';
 import NavBar from './components/NavBar/NavBar';
 import ProtectedRoute from './components/auth/ProtectedRoute';
-import UsersList from './components/UsersList';
+// import UsersList from './components/UsersList';
 import HostForm from './components/Pages/Host/Host';
 import TicketPage from './components/Pages/tickets/ticket';
 import EachEvent from './components/Pages/event/Event';
-import User from './components/User';
+// import User from './components/User';
 import { authenticate } from './store/session';
 import FourOhFour from './components/auth/404/404';
 import FooterBar from './components/NavBar/Footer/Footer';
-import EditPanel from './components/test/EditMod';
+// import EditPanel from './components/test/EditMod';
 
 function App() {
   const [loaded, setLoaded] = useState(false);

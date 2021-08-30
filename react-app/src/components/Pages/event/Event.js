@@ -201,7 +201,7 @@ const EachEvent = () => {
             </div>
             <div className='register-button-contaienr'>
           <div className='registering-buttons'>
-            {ticket ? <button onClick={(e) => unregisterforthisevent(e)} className="unregister-button">unregister</button> : ticketqty ? <button onClick={(e) => registerforthisevent(e)} className="register-button">register</button> : null }
+            {ticket ? <button onClick={(e) => unregisterforthisevent(e)} className="unregister-button">unregister</button> : (ticketqty ? <button onClick={(e) => registerforthisevent(e)} className="register-button">register</button> : null )}
           </div>
             </div>
           </div>

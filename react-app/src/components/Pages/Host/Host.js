@@ -20,8 +20,6 @@ const HostForm = () => {
   const [cost, setCost] = useState(0);
   const [venue_search, setVenueSearch] = useState('');
 
-//   const user = useSelector(state => state.session.user);
-//   const event = useSelector(state => state.events_reducer);
   const category = useSelector(state => (state?.categories_reducer?.categories));
   const venue = useSelector(state => state?.venues_reducer?.venues);
 
@@ -52,17 +50,14 @@ const HostForm = () => {
   }
 
   useEffect( async () => {
-    // dispatch(all_events())
-    dispatch(all_categories())
-    dispatch(all_venues())
+    await dispatch(all_categories())
+    await dispatch(all_venues())
     textdescripmax()
     textnamemax()
-  }, [description, name])
+  }, [])
 
 
   let venue_content = null
-
-  console.log(venue)
 
   const filter = (memory, query) => {
       return memory?.filter((brain) => {
@@ -94,7 +89,6 @@ const HostForm = () => {
 let maxdescript
 const textdescripmax = () => {
     let amountleft = 5000 - description?.length
-    console.log(amountleft)
     maxdescript = (
         <>
     <p>{amountleft} / 5000 left</p>
@@ -104,7 +98,6 @@ const textdescripmax = () => {
 let maxname
 const textnamemax = () => {
     let amountleft = 255 - name?.length
-    console.log(amountleft)
     maxname = (
         <>
         <p>{amountleft} / 255 left</p>
@@ -113,6 +106,14 @@ const textnamemax = () => {
 }
 textdescripmax()
 textnamemax()
+
+const runonce = () => {
+    dispatch(all_categories())
+}
+
+if (!category) {
+    runonce()
+}
 
   return (
         <>
@@ -145,7 +146,7 @@ textnamemax()
                                 >
                                     <option>select</option>
                                     {category?.map(cat => (
-                                        <option value={cat.id}>{cat.type}</option>
+                                        <option value={cat?.id}>{cat?.type}</option>
                                     ))}
                                 </select>
                                 <b className="required">Category is required*</b>
