@@ -45,7 +45,7 @@ def evented():
         event['user'] = User.query.get(event["host_id"]).to_dict()
         # event['ticket'] = jsonify(Ticket.query.filter(Ticket.event_id == event['id'])).first()
         event['ticket'] = [ ticket.to_dict() for ticket in ticket_query if ticket.event_id == event['id'] ]
-        event['heart'] = [ heart.to_dict() for heart in heart_query if heart.event_id == event['id'] and heart.user_id == current_user.id ]
+        event['heart'] = [ heart.to_dict() for heart in heart_query if (heart.event_id == event['id'] and heart.user_id == current_user.id) ]
         event['followers'] = [follower.to_dict() for follower in followers_query if follower.promoter_id == event['host_id']]
         # event['categories'] = Category.query.all()
     return { 'events': events } #  <  this needs to change... but too much needs to change.... this is causing the nesting..
@@ -158,6 +158,7 @@ def edit(id):
 @event_routes.route('/remove/<int:id>', methods=['DELETE'])
 @login_required
 def rubbish(id):
+    print('===================================why does this not print========================', id)
     event = Event.query.get(id)
     db.session.delete(event)
     db.session.commit()

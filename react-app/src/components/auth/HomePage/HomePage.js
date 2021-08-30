@@ -68,12 +68,15 @@ useEffect( () =>  {
     // window.scroll(0, 0)
 }, [dispatch, heartActions])
 
+/* --------------------------crud delete ----------------------------------------------------- */
+
+
 const handleDelete = async (e) => {
     const ask = window.confirm("are you sure")
-    const eventId = e.target.value
+    const eventId = e?.target?.value
     if (ask){
         await dispatch(eventActions.delete_event(eventId))
-        await dispatch(eventActions.all_events())
+        dispatch(eventActions.all_events())
     }
 }
 
@@ -386,7 +389,7 @@ const need = (
                                                 className='home-card-edit-button'
                                                 onClick={(e) => (
                                                     handleDelete(e))}
-                                                    value={event.id}>X</button>
+                                                    value={event?.id}>X</button>
                                             </>
                                         ) : null}
                                 </div>
