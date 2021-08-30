@@ -64,7 +64,6 @@ def search_by_location(id):
         event['category'] = Category.query.get(event["category_id"]).to_dict()
         event['user'] = User.query.get(event["host_id"]).to_dict()
         event['ticket'] = [ ticket.to_dict() for ticket in ticket_query if ticket.event_id == event['id'] ]
-        event['heart'] = [ heart.to_dict() for heart in heart_query if heart.event_id == event['id'] and heart.user_id == current_user.id ]
         event['followers'] = [follower.to_dict() for follower in followers_query if follower.promoter_id == event['host_id']]
     return {'events': events}
 
@@ -81,7 +80,7 @@ def search_by_category(id):
         event['category'] = Category.query.get(event["category_id"]).to_dict()
         event['user'] = User.query.get(event["host_id"]).to_dict()
         event['ticket'] = [ ticket.to_dict() for ticket in ticket_query if ticket.event_id == event['id'] ]
-        event['heart'] = [ heart.to_dict() for heart in heart_query if heart.event_id == event['id'] and heart.user_id == current_user.id ]
+        event['heart'] = [ heart.to_dict() for heart in heart_query if heart.event_id == event['id'] and heart.user_id == current_user.id and current_user ]
         event['followers'] = [follower.to_dict() for follower in followers_query if follower.promoter_id == event['host_id']]
     return {'events': events}
 
