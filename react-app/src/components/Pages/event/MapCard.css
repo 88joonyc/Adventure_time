@@ -1,13 +1,15 @@
 .map-info-container {
-    background-color: crimson;
-
+    background-color: white;
+    border: 1px solid rgb(241, 241, 245);
 }
 
 .map-info-marker {
-    background-color: cyan;
+    /* background-color: cyan; */
 }
 
 .map-info-map {
-    background-color: darkblue;
+    background-color: inherit;
+}
 
+.map-map-info-box {
 }

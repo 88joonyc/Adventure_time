@@ -250,31 +250,17 @@ const EachEvent = () => {
         <div>
           <div className='map-info-map'>map
 
-           <div style={{ height: '50vh', width: '90%' }}>
+          <div >
             <Map style={{ height: '50vh', width: '10%' }} />
-
-      </div>
+          </div>
 
 
           </div>
         </div>
-        <div>
+
+        <div className='map-map-info-box'>
           <div className='map-info-map'>hi</div>
-        </div>
-        <div>
           <div className='map-info-map'>hi</div>
-        </div>
-
-        <div className='map-info-marker'>
-          <div>
-            <div className='map-info-marker'>hi</div>
-          </div>
-          <div>
-            <div className='map-info-marker'>hi</div>
-          </div>
-          <div>
-            <div className='map-info-marker'>hi</div>
-          </div>
         </div>
     </div>
     </>
@@ -298,6 +284,18 @@ const unfollow = async (e) => {
   runonce()
 }
 
+
+// ===========================================promoter===========================================================================
+
+let promoter_panel = (
+  <>
+
+
+
+
+
+  </>
+)
 
 // ===========================================return===========================================================================
   return (
@@ -375,7 +373,7 @@ const unfollow = async (e) => {
           </div>
           {/* {// ===========================================insert===========================================================================} */}
             {map_panel}
-
+            {promoter_panel}
             {ticket_panel}
 
           <FooterBar/>

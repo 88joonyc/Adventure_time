@@ -301,7 +301,7 @@ let popular_bar = (
                     <button onClick={() => set_paid_events(0)} className='cat-button'>Free</button>
                 </div>
                 <div>
-                    <button className='cat-button'>Holiday</button>
+                    <button onClick={() => set_categorized_events(19)} className='cat-button'>Holiday</button>
                 </div>
                 <div>
                     <button onClick={() => set_categorized_events(13)} className='cat-button'>Music</button>
