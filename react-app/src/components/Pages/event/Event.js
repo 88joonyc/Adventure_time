@@ -37,7 +37,7 @@ const EachEvent = () => {
     dispatch(one_event(eventId?.eventId))
     dispatch(actionfollowers.get_follower_with_promo(eventId?.eventId))
     dispatch(actiontickets.one_ticket(eventId?.eventId))
-    // window.scrollTo(0, 0)   // this take is to the top of the page
+    window.scrollTo(0, 0)   // this take is to the top of the page
     runonce()
 
   }, [eventId])
@@ -232,18 +232,24 @@ let promoter_panel = (
   <div className='promo-events-box'>
     {event?.events[0]?.promoter?.map(event=> (
       <>
+      {/* {event.id != eventId?.eventId ? ( */}
+
+        <Link className='link-add' to={`/event/${event.id}`}>
         <div className='promoter-events'>
           <div className='promoter-events-img-container'>
             <img className='promoter-event-img' src={event?.image}></img>
-            {event?.cost ? <p className='promoter-event-img-text'>{event?.cost}</p> : <p  className='promoter-event-img-text'>FREE</p>}
+            {event?.cost ? <p className='promoter-event-img-text'> $0 - ${event?.cost}</p> : <p  className='promoter-event-img-text'>FREE</p>}
           </div>
           <div className='promoter-event-info'>
             <div className='promoter-event-info-content'>
-              <p>{moment(event?.start_time).format("ddd, MMM do [at] h:mm A")}</p>
-              <p>{event?.name}</p>
+              <p className='promoter-event-date'>{moment(event?.start_time).format("ddd, MMM do [at] h:mm A")}</p>
+              <p className='promoter-event-name'>{event?.name}</p>
             </div>
           </div>
         </div>
+      </Link>
+
+      {/* // ) : null } */}  {/*  <  this allows for only other events to be showns and not current.. seeds are empty so leave for now. */}
       </>
     ))}
   </div>

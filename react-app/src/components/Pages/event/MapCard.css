@@ -52,7 +52,7 @@
     grid-template-columns: 1fr 2fr;
     border-bottom: 1px solid rgb(178, 178, 225);
     width: 100%;
-    padding: 5px 0px;
+    padding-top: 5px;
 }
 
 .promoter-events:hover {
@@ -60,31 +60,62 @@
     cursor: pointer;
     /* right: 20px; */
     box-shadow: 1px 1px 5px rgb(178, 178, 225);
-    transition: ease 5.5s;
+    transition: ease 3.5s;
 }
 
 .promoter-event-info {
-    height: 80%;
+    margin-bottom: -10px;
 }
 
 .promoter-event-info-content {
-    padding: 17px;
+    padding-left: 17px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid rgb(224, 224, 230);
 }
 
 .promoter-event-img {
     height: 100px;
     width: 100%;
     object-fit: cover;
-    /* height: cover; */
 }
 
 .promoter-events-img-container {
-    /* display: grid; */
-    background-color: blue;
-    /* grid-template-rows: .9fr .2fr; */
+    display: grid;
+    grid-template-rows: 3fr 1fr;
+    height: 150px;
 }
 
 .promoter-event-img-text {
-    background-color: red;
+    background-color: rgb(240, 240, 244);
+    height: 100%;
+    margin-top: -15px;
+    margin-bottom: -15px;
+    padding-left: 12px;
+    display: flex;
+    align-items: center;
+    color: rgb(80, 82, 140);
+    font-family: 'Roboto', sans-serif;
+    font-size: small;
+}
+
+.promoter-event-name {
+    font-size: small;
+}
+
+.promoter-event-date {
+    color: rgb(130, 135, 157);
+}
+
+.link-add {
+    text-decoration: none;
+}
+
+.come-back-l8r {
+    content: url(./creative-design-come-back-later-message-come-back-later-message-118578152.jpeg);
+    height: 400px;
+    width: 400px;
+    border-radius: 400px;
+    border: 1px solid rgb(205, 205, 227);
+
 
 }
