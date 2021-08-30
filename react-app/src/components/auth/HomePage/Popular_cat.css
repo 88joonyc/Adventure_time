@@ -8,8 +8,8 @@
 }
 
 .home-card-categories {
-    width: 85%;
-    height: 50px;
+    width: 75%;
+    height: 40px;
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -20,15 +20,21 @@
 .cat-button-container {}
 
 .cat-button {
-    padding: 8px 25px;
+    padding: 12px 0px;
     border: none;
     background-color: inherit;
     color: rgb(124, 133, 157);
 }
 
-.cat-button:hover {
+.cat-button:focus {
     color: blue;
-    border-bottom: 2px solid blue;
+    border-bottom: 2px solid rgb(0, 0, 255);
+    cursor: pointer;
+}
+
+.cat-button:hover {
+    color: rgb(9, 9, 72);
+    border-bottom: 2px solid rgb(52, 52, 145);
     cursor: pointer;
 }
 

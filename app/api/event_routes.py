@@ -71,7 +71,7 @@ def search_by_location(id):
 @event_routes.route('/category/<int:id>')
 def search_by_category(id):
     events_query = Event.query.all()
-    events = [ event.to_dict() for event in events_query if event.category_id == id]  # get me events with this venue_id
+    events = [ event.to_dict() for event in events_query if event.category_id == id]  # get me events with this category_id
     followers_query = Follower.query.all()
     ticket_query = Ticket.query.all()
     heart_query = Heart.query.all()
@@ -89,7 +89,7 @@ def search_by_category(id):
 @event_routes.route('/cost/<int:id>')
 def search_by_cost(id):
     events_query = Event.query.all()
-    events = [ event.to_dict() for event in events_query if event.cost == id]  # get me events with this venue_id
+    events = [ event.to_dict() for event in events_query if event.cost == id]  # get me events with this cost column
     followers_query = Follower.query.all()
     ticket_query = Ticket.query.all()
     heart_query = Heart.query.all()
