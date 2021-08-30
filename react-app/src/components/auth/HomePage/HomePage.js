@@ -287,7 +287,7 @@ let popular_bar = (
             className='venue-search-box' />} </h1>
             <div className='home-card-categories'>
                 <div className='cat-button-container'>
-                    <button onClick={() => dispatch(eventActions.all_events())} className='cat-button'>All</button>
+                    {sessionUser ? <button onClick={() => dispatch(eventActions.all_events())} className='cat-button'>All</button> : <button onClick={() => dispatch(eventActions.unregistered_events())} className='cat-button'>All</button>}
                 </div>
                 <div>
                     <button onClick={() => set_located_events(2)} className='cat-button'>For you</button>

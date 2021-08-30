@@ -14,7 +14,7 @@ def unregistered():
     events = [ event.to_dict() for event in events_query ]
     followers_query = Follower.query.all()
     ticket_query = Ticket.query.all()
-    heart_query = Heart.query.all()
+    # heart_query = Heart.query.all()
     # ticket =
     for event in events:
         event['venue'] = Venue.query.get(event["venue_id"]).to_dict()
@@ -30,6 +30,7 @@ def unregistered():
 
 
 @event_routes.route('/')
+@login_required
 def evented():
     events_query = Event.query.all()
     # ticket_query = Ticket.query.filter(Ticket.event_id == )
