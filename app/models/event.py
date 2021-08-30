@@ -14,7 +14,7 @@ class Event(db.Model):
     start_time = db.Column(db.DateTime(timezone=False), nullable=False)
     end_time = db.Column(db.DateTime(timezone=False), nullable=False)
     capacity = db.Column(db.Integer )
-    image = db.Column(db.String(500))
+    image = db.Column(db.String)
     cost = db.Column(db.Integer )
     created_at = db.Column(db.DateTime(timezone=True), server_default=func.now())
     updated_at = db.Column(db.DateTime(timezone=True), server_default=func.now())

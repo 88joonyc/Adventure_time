@@ -60,7 +60,7 @@ def upgrade():
     sa.Column('start_time', sa.DateTime(), nullable=False),
     sa.Column('end_time', sa.DateTime(), nullable=False),
     sa.Column('capacity', sa.Integer(), nullable=True),
-    sa.Column('image', sa.String(length=500), nullable=True),
+    sa.Column('image', sa.String, nullable=True),
     sa.Column('cost', sa.Integer(), nullable=True),
     sa.Column('created_at', sa.DateTime(timezone=True), server_default=sa.text('now()'), nullable=True),
     sa.Column('updated_at', sa.DateTime(timezone=True), server_default=sa.text('now()'), nullable=True),
