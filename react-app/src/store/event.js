@@ -53,6 +53,12 @@ export const cashed_events = (id) => async dispatch => {
     dispatch(load(events))
 }
 
+export const promoter_events = (id) => async dispatch => {
+    const res = await fetch(`/api/events/promoter/${id}`)
+    const events = await res.json()
+    dispatch(load(events))
+}
+
 export const one_event = (id) => async dispatch => {
     const res = await fetch(`/api/events/${id}`)
     const events = await res.json()
@@ -112,6 +118,7 @@ const initialState = { events: null}
 const events_reducer = (state = initialState, action ) => {
     switch (action.type) {
         case LOAD:
+            console.log('=============================================================',action)
             if (state) {
                 state = null
                 const all = {

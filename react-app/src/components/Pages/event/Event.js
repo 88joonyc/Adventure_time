@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux'
 import {  useHistory, Link, useParams } from 'react-router-dom';
-import { all_tickets } from '../../../store/ticket';
-import CovBar from '../../NavBar/CovBar/CovBar';
+// import { all_tickets } from '../../../store/ticket';
+// import CovBar from '../../NavBar/CovBar/CovBar';
+import SideScroll from '../../Side_scroll/Side_scroll';
 import FooterBar from '../../NavBar/Footer/Footer';
-import { one_event } from '../../../store/event';
+import { one_event, promoter_events } from '../../../store/event';
 import * as actiontickets from '../../../store/ticket';
 import * as actionfollowers from '../../../store/follower';
 
@@ -16,7 +17,7 @@ import './Event.css'
 
 const EachEvent = () => {
   const eventId = useParams()
-  const [errors, setErrors] = useState([]);
+  // const [errors, setErrors] = useState([]);
   const [panel, setPanel] = useState(false);
   const [ticketqty, setTicketQty] = useState(0)
   const [tier, setTier] = useState('')
@@ -29,11 +30,12 @@ const EachEvent = () => {
   const follower = useSelector(state => (state?.followers_reducer?.followers));
 
   const dispatch = useDispatch();
-  const history = useHistory()
+  // const history = useHistory()
 
   useEffect( async () => {
     dispatch(actiontickets.one_ticket(eventId?.eventId))
     dispatch(one_event(eventId?.eventId))
+    // dispatch(promoter_events(1))
     dispatch(actionfollowers.get_follower_with_promo(eventId?.eventId))
     dispatch(actiontickets.one_ticket(eventId?.eventId))
     window.scrollTo(0, 0)
@@ -45,6 +47,7 @@ const EachEvent = () => {
     dispatch(actiontickets.one_ticket(eventId?.eventId))
     dispatch(actionfollowers.get_follower_with_promo(eventId?.eventId))
     dispatch(one_event(eventId?.eventId))
+    // dispatch(promoter_events(1))
   }
 
 // This is my ticket modal which pops up when green 'ticket' is pressed
@@ -242,12 +245,18 @@ const EachEvent = () => {
               <div className='map-info-marker'>{event?.events[0]?.host?.last_name}</div>
             </div>
               <div className='map-info-marker'>{event?.events[0]?.host?.email}</div>
+
+
+
             </div>
           </div>
+              <div className='map-info-marker'>
+            <p className='follower-number'>{  follower ? <button value={follower[0]?.id} onClick={(e) => unfollow(e) } className='unfollow-me-button'>following</button> : <button onClick={() => follow()} className='follow-me-button'>follow</button> }</p>
+                </div>
         </div>
 
         <div>
-          <div className='map-info-map'>map
+          <div className='map-info-map'>
 
           <div >
             <Map style={{ height: '50vh', width: '10%' }} />
@@ -373,6 +382,7 @@ let promoter_panel = (
           {/* {// ===========================================insert===========================================================================} */}
             {map_panel}
             {promoter_panel}
+            <SideScroll />
             {ticket_panel}
 
           <FooterBar/>
