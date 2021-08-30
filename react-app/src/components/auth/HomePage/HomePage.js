@@ -23,7 +23,7 @@ const events = useSelector(state => state.events_reducer?.events?.events)
 const category = useSelector(state => (state?.categories_reducer?.categories));
 const venue = useSelector(state => state?.venues_reducer?.venues);
 
-const [errors, setErrors] = useState([]);
+// const [errors, setErrors] = useState([]);
 const [editForm, toggleEdit] = useState(false)
 const [eventId, setId] = useState([]);
 const [venue_id, setVenue] = useState('');
@@ -42,8 +42,9 @@ const updateVenue = (e) => {
 }
 
 
-const handleSubmit =  async (e) => {
+const handleEdit =  async (e) => {
     e.preventDefault()
+    handleCancel()
     let data = await dispatch(eventActions.edit_event(
         sessionUser.id,
         venue_id,
@@ -56,7 +57,7 @@ const handleSubmit =  async (e) => {
         image,
         cost,
         eventId))
-    await dispatch(eventActions.all_events())
+        await dispatch(eventActions.all_events())
     return data
 }
 
@@ -94,7 +95,7 @@ if (editForm) {
         <>
             <div className='edit-panel-container'>
                 <div className="edit-container">
-                <form className='edit-form' onSubmit={(e) =>{handleSubmit(e)}}>
+                <form className='edit-form' onSubmit={(e) =>{handleEdit(e)}}>
                     <div>
                         <label className='edit-labels'> Venue selection
                             {/* <input
@@ -155,9 +156,9 @@ if (editForm) {
                     <div>
                         <label className='edit-labels'> Description to event
                             <textarea
-                                type="text"
+                                // type="text"
                                 value={description}
-                                onChange={(e) => setName(e.target.value)}
+                                onChange={(e) => setDescript(e.target.value)}
                                 required="true"
                                 className='edit-textarea'
                             />
@@ -172,7 +173,6 @@ if (editForm) {
                                 required="true"
                                 className='edit-input'
                             />
-                            <button onClick={() => console.log(moment((start_time).split(' GMT').join(' EST')).format('YYYY-MM-DDTHH:mm'))} >butt</button>
                         </label>
                     </div>
                     <div>

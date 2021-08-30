@@ -24,7 +24,7 @@ const EachEvent = () => {
   const [multiplier, setMultiplier] = useState('')
   const [overload, toggleOverload] = useState('false')
 
-  const user = useSelector(state => state.session.user)
+  // const user = useSelector(state => state.session.user)
   const ticket = useSelector(state => (state?.tickets_reducer?.tickets));
   const event = useSelector(state => (state?.events_reducer?.events));
   const follower = useSelector(state => (state?.followers_reducer?.followers));
@@ -49,6 +49,7 @@ const EachEvent = () => {
   }
 
 // This is my ticket modal which pops up when green 'ticket' is pressed
+// ===========================================ticket panel===========================================================================
 
   let ticket_panel = null
 
@@ -69,14 +70,6 @@ const EachEvent = () => {
     await dispatch(actiontickets.delete_ticket(ticket[0]?.id))
     runonce()
   }
-
-  window.addEventListener("click", () => {
-    setMultiplier('')
-    setTier('')
-    // toggleOverload(!overload)
-    setTicketQty(0)
-
-  })
 
   // ===========================================register===========================================================================
 
@@ -201,7 +194,7 @@ const EachEvent = () => {
             </div>
             <div className='register-button-contaienr'>
           <div className='registering-buttons'>
-            {ticket ? <button onClick={(e) => unregisterforthisevent(e)} className="unregister-button">unregister</button> : (ticketqty ? <button onClick={(e) => registerforthisevent(e)} className="register-button">register</button> : null )}
+            {ticket ? <button onClick={(e) => unregisterforthisevent(e)} className="unregister-button">unregister</button> : ( ticketqty ? <button onClick={(e) => registerforthisevent(e)} className="register-button">register</button> : null )}
           </div>
             </div>
           </div>
