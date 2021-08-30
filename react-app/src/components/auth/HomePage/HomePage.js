@@ -275,7 +275,7 @@ const set_paid_events = (id) => {
 }
 
 //unregistered.... this is very inefficient
-const set_unregisterd_located_events = (id) => {
+const set_unregistered_located_events = (id) => {
     dispatch(eventActions.unregisted_located_events(id))
     window.scrollTo(0,580)
 }
@@ -306,10 +306,10 @@ let popular_bar = (
                     {sessionUser ? <button onClick={() => dispatch(eventActions.all_events())} className='cat-button'>All</button> : <button onClick={() => dispatch(eventActions.unregistered_events())} className='cat-button'>All</button>}
                 </div>
                 <div>
-                   {sessionUser?  <button onClick={() => set_located_events(2)} className='cat-button'>For you</button> : <button onClick={() => set_located_events(2)} className='cat-button'>For you</button> }
+                   {sessionUser?  <button onClick={() => set_located_events(2)} className='cat-button'>For you</button> : <button onClick={() => set_unregistered_located_events(2)} className='cat-button'>For you</button> }
                 </div>
                 <div>
-                   {sessionUser?  <button onClick={() => set_located_events(5)} className='cat-button'>Online</button> : <button onClick={() => set_located_events(5)} className='cat-button'>For you</button> }
+                   {sessionUser?  <button onClick={() => set_located_events(5)} className='cat-button'>Online</button> : <button onClick={() => set_unregistered_located_events(5)} className='cat-button'>Online</button> }
                 </div>
                 <div>
                     <button className='cat-button'>Today</button>
