@@ -64,7 +64,7 @@ useEffect( () =>  {
     dispatch(eventActions.all_events())
     dispatch(all_categories())
     dispatch(all_venues())
-    dispatch(authenticate())
+    // dispatch(authenticate())
     // window.scroll(0, 0)
 }, [dispatch, heartActions])
 
@@ -332,6 +332,8 @@ const need = (
                                 <div className="event-cards">
                                     {/* <h4>{event.host_id}</h4> */}
                                     <img src={event?.image}/>
+                                    { sessionUser ? (<>
+
                                     { !event?.heart?.length ?
                                     <button
                                     id={event?.id}
@@ -346,6 +348,8 @@ const need = (
                                     type='button'
                                     className='heart-button'>{<img className="black-heart" />}
                                     </button>}
+
+                                    </>) : null }
                                     <Link className='card-per' to={`/event/${event.id}`}>
                                     <div className='card-info-container'>
                                         { event?.name?.length < 50 ? <h2 className='card-print card-name-home-short'>{event?.name}</h2> : <h2 className='card-print card-name-home-long'>{event?.name}</h2> }
