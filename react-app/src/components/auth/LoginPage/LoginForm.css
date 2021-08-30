@@ -58,6 +58,7 @@ h1 {
     appearance: none;
     border: none;
     background-color: inherit;
+    outline: none;
 }
 
 .input-label {
@@ -65,6 +66,7 @@ h1 {
     font-size: 12px;
     font-weight: 400;
     color: #9196ba;
+    background-color: inherit;
 }
 
 .password-input {
@@ -72,6 +74,7 @@ h1 {
     height: 200px;
     background-color: inherit;
 }
+
 
 .user-input-container {
     box-sizing: border-box;
@@ -83,6 +86,10 @@ h1 {
     border: 2.8px solid transparent;
     box-shadow: 0 0 2px #3d3131;
     width: 350px;
+}
+
+.user-input-container:hover {
+    border: 1px solid rgb(7, 7, 113);
 }
 
 .input-container {

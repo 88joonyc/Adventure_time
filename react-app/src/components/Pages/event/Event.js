@@ -133,7 +133,7 @@ const EachEvent = () => {
                 <option value='2'> - 2 - </option>
                 <option value='3'> - 3 - </option>
                 <option value='4'> - 4 - </option>
-                <option value='5'> - 5 - </option>
+                <option value='5'> - 5 - </option>     {/* this is not DRY!!!! CLEAN IT UP... later */}
                 <option value='6'> - 6 - </option>
                 <option value='7'> - 7 - </option>
                 <option value='8'> - 8 - </option>
@@ -224,6 +224,7 @@ const EachEvent = () => {
 
   // ===========================================map===========================================================================
 
+//====================================== in MapCard.css of events
 
   let map_panel = (
     <>
@@ -288,7 +289,6 @@ const follow = async () => {
   await dispatch(actionfollowers.follow(event?.events[0]?.id))
   runonce()
 }
-
 
 const unfollow = async (e) => {
   await dispatch(actionfollowers.leave_loser(e.target.value))

@@ -255,6 +255,18 @@ const hateyou = async (e) => {
     dispatch(eventActions.all_events())
 }
 
+const set_located_events = (id) => {
+    dispatch(eventActions.located_events(id))
+}
+
+const set_categorized_events = (id) => {
+    dispatch(eventActions.categorized_events(id))
+}
+
+const set_paid_events = (id) => {
+    dispatch(eventActions.cashed_events(id))
+}
+
 
 /* -------------------------- popular_bar------------ ------------------------------------------- */
 
@@ -268,13 +280,13 @@ let popular_bar = (
             className='venue-search-box' />} </h1>
             <div className='home-card-categories'>
                 <div className='cat-button-container'>
-                    <button className='cat-button'>All</button>
+                    <button onClick={() => dispatch(eventActions.all_events())} className='cat-button'>All</button>
                 </div>
                 <div>
-                    <button className='cat-button'>For you</button>
+                    <button onClick={() => set_located_events(2)} className='cat-button'>For you</button>
                 </div>
                 <div>
-                    <button className='cat-button'>Online</button>
+                    <button onClick={() => set_located_events(5)} className='cat-button'>Online</button>
                 </div>
                 <div>
                     <button className='cat-button'>Today</button>
@@ -283,16 +295,16 @@ let popular_bar = (
                     <button className='cat-button'>This weekend</button>
                 </div>
                 <div>
-                    <button className='cat-button'>Free</button>
+                    <button onClick={() => set_paid_events(0)} className='cat-button'>Free</button>
                 </div>
                 <div>
                     <button className='cat-button'>Holiday</button>
                 </div>
                 <div>
-                    <button className='cat-button'>Music</button>
+                    <button onClick={() => set_categorized_events(13)} className='cat-button'>Music</button>
                 </div>
                 <div>
-                    <button className='cat-button'>Food & Drinks</button>
+                    <button onClick={() => set_categorized_events(8)} className='cat-button'>Food & Drinks</button>
                 </div>
             </div>
         </div>

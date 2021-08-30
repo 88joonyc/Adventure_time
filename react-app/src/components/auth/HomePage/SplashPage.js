@@ -16,7 +16,7 @@ useEffect( () =>  {
     <div className='spalsh-image'>
         <p className="opening-sent top-sent">It's TIME</p>
         <p className="opening-sent bottom-sent">to get Wild!</p>
-        <button className="event-button">Find your next event</button>
+        <button  onClick={() => window.scrollTo(0,580)} className="event-button">Find your next event</button>
     </div>
     <div className='covid-message'>
         <h3 className='covid-header-title'>

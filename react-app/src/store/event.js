@@ -35,6 +35,24 @@ export const unregistered_events = () => async dispatch => {
     dispatch(load(events))
 }
 
+export const located_events = (id) => async dispatch => {
+    const res = await fetch(`/api/events/location/${id}`)
+    const events = await res.json()
+    dispatch(load(events))
+}
+
+export const categorized_events = (id) => async dispatch => {
+    const res = await fetch(`/api/events/category/${id}`)
+    const events = await res.json()
+    dispatch(load(events))
+}
+
+export const cashed_events = (id) => async dispatch => {
+    const res = await fetch(`/api/events/cost/${id}`)
+    const events = await res.json()
+    dispatch(load(events))
+}
+
 export const one_event = (id) => async dispatch => {
     const res = await fetch(`/api/events/${id}`)
     const events = await res.json()
