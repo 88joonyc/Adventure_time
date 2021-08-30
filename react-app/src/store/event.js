@@ -35,6 +35,24 @@ export const unregistered_events = () => async dispatch => {
     dispatch(load(events))
 }
 
+export const unregisted_located_events = (id) => async dispatch => {
+    const res = await fetch(`/api/events/location/splash/${id}`)
+    const events = await res.json()
+    dispatch(load(events))
+}
+
+export const unregisted_categorized_events = (id) => async dispatch => {
+    const res = await fetch(`/api/events/category/splash/${id}`)
+    const events = await res.json()
+    dispatch(load(events))
+}
+
+export const unregisted_cashed_events = (id) => async dispatch => {
+    const res = await fetch(`/api/events/cost/splash/${id}`)
+    const events = await res.json()
+    dispatch(load(events))
+}
+
 export const located_events = (id) => async dispatch => {
     const res = await fetch(`/api/events/location/${id}`)
     const events = await res.json()

@@ -13,8 +13,6 @@ def ticketed():
     tickets = [ ticket.to_dict() for ticket in tickets_query ]
     for ticket in tickets:
         ticket['event'] = Event.query.get(ticket["event_id"]).to_dict()
-        # ticket['venue'] = Venue.query.get(ticket["event_id"]).to_dict()
-
     return {'tickets': tickets}
 
 

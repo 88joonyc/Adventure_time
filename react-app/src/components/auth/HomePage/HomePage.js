@@ -274,6 +274,22 @@ const set_paid_events = (id) => {
     window.scrollTo(0,580)
 }
 
+//unregistered.... this is very inefficient
+const set_unregisterd_located_events = (id) => {
+    dispatch(eventActions.unregisted_located_events(id))
+    window.scrollTo(0,580)
+}
+
+const set_unregisterd_categorized_events = (id) => {
+    dispatch(eventActions.unregisted_categorized_events(id))
+    window.scrollTo(0,580)
+}
+
+const set_unregisterd_paid_events = (id) => {
+    dispatch(eventActions.unregisted_cashed_events(id))
+    window.scrollTo(0,580)
+}
+
 
 /* -------------------------- popular_bar------------ ------------------------------------------- */
 
@@ -290,10 +306,10 @@ let popular_bar = (
                     {sessionUser ? <button onClick={() => dispatch(eventActions.all_events())} className='cat-button'>All</button> : <button onClick={() => dispatch(eventActions.unregistered_events())} className='cat-button'>All</button>}
                 </div>
                 <div>
-                    <button onClick={() => set_located_events(2)} className='cat-button'>For you</button>
+                   {sessionUser?  <button onClick={() => set_located_events(2)} className='cat-button'>For you</button> : <button onClick={() => set_located_events(2)} className='cat-button'>For you</button> }
                 </div>
                 <div>
-                    <button onClick={() => set_located_events(5)} className='cat-button'>Online</button>
+                   {sessionUser?  <button onClick={() => set_located_events(5)} className='cat-button'>Online</button> : <button onClick={() => set_located_events(5)} className='cat-button'>For you</button> }
                 </div>
                 <div>
                     <button className='cat-button'>Today</button>
@@ -302,20 +318,19 @@ let popular_bar = (
                     <button className='cat-button'>This weekend</button>
                 </div>
                 <div>
-                    <button onClick={() => set_paid_events(0)} className='cat-button'>Free</button>
+                    {sessionUser?  <button onClick={() => set_paid_events(0)} className='cat-button'>Free</button> : <button onClick={() => set_unregisterd_paid_events(0)} className='cat-button'>Free</button> }
                 </div>
                 <div>
-                    <button onClick={() => set_categorized_events(19)} className='cat-button'>Holiday</button>
+                    {sessionUser?  <button onClick={() => set_categorized_events(19)} className='cat-button'>Holiday</button> : <button onClick={() => set_unregisterd_categorized_events(19)} className='cat-button'>Holiday</button> }
                 </div>
                 <div>
-                    <button onClick={() => set_categorized_events(13)} className='cat-button'>Music</button>
+                    {sessionUser?  <button onClick={() => set_categorized_events(13)} className='cat-button'>Music</button> : <button onClick={() => set_unregisterd_categorized_events(13)} className='cat-button'>Music</button> }
                 </div>
                 <div>
-                    <button onClick={() => set_categorized_events(8)} className='cat-button'>Food & Drinks</button>
+                    {sessionUser?  <button onClick={() => set_categorized_events(8)} className='cat-button'>Food & Drinks</button> : <button onClick={() => set_unregisterd_categorized_events(8)} className='cat-button'>Food & Drinks</button> }
                 </div>
             </div>
         </div>
-
 
 </>)
 
