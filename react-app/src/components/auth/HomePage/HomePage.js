@@ -65,6 +65,7 @@ useEffect( () =>  {
     dispatch(all_categories())
     dispatch(all_venues())
     dispatch(authenticate())
+    // window.scroll(0, 0)
 }, [dispatch, heartActions])
 
 const handleDelete = async (e) => {
