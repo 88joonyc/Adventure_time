@@ -16,7 +16,11 @@
     background-color: inherit;
 }
 
-.map-map-info-box {}
+.map-map-info-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
 
 .map-info-naem {
     display: flex;
@@ -32,7 +36,29 @@
     border-radius: 90px;
 }
 
+.top {
+    margin-top: 40px;
+}
 
+.map-info-map-big {
+    color: rgb(28, 28, 75);
+    font-size: small;
+}
+
+.map-info-map-small {
+    color: rgb(164, 171, 194);
+    padding: 8px 0px;
+    font-size: smaller;
+    font-family: 'Roboto', sans-serif;
+}
+
+.map-info-map-icons {
+    display: flex;
+    justify-content: space-between;
+    width: 170px;
+    margin-bottom: 80px;
+    margin-top: 30px;
+}
 /* ======================more from this ========================================================== */
 
 .promo-title {
@@ -116,6 +142,4 @@
     width: 400px;
     border-radius: 400px;
     border: 1px solid rgb(205, 205, 227);
-
-
 }

@@ -299,8 +299,16 @@ let promoter_panel = (
         </div>
 
         <div className='map-map-info-box'>
-          <div className='map-info-map'>hi</div>
-          <div className='map-info-map'>hi</div>
+          <div className='map-info-map-big top'>{event?.events[0]?.name}</div>
+          <div className='map-info-map-small'>at</div>
+          <div className='map-info-map-big'>{event?.events[0]?.venue?.name}</div>
+          <div className='map-info-map-small'>{event?.events[0]?.venue?.address} {event?.events[0]?.venue?.city}, {event?.events[0]?.venue?.state } {event?.events[0]?.venue?.zip_code}</div>
+          <div className='map-info-map-icons'>
+            <div>1</div>
+            <div>2</div>
+            <div>3</div>
+            <div>4</div>
+          </div>
         </div>
 
     </div>
