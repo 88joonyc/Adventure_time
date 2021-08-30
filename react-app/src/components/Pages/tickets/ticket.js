@@ -88,7 +88,7 @@ const some_content = (
                         <p> * </p>
                         <p className="user-stats">{user.hearts?.length} likes</p>
                         <p> * </p>
-                        <p className="user-stats">{following?.length} following</p>
+                        <p className="user-stats">{user.following?.length} following</p>
                     </div>
                   </div>
                 </div>

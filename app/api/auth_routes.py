@@ -1,5 +1,5 @@
 from flask import Blueprint, jsonify, session, request
-from app.models import User, db, Ticket, Heart
+from app.models import User, db, Ticket, Heart, Follower
 from app.forms import LoginForm
 from app.forms import SignUpForm
 from flask_login import current_user, login_user, logout_user, login_required
@@ -36,11 +36,12 @@ def authenticate():
         heart_query = Heart.query.filter(Heart.user_id == current_user.id)
         hearts = [ heart.to_dict() for heart in heart_query ]
         hearts_query = Heart.query.filter(Heart.user_id == current_user.id)
-        hearts_list = [ heat.event_id for heat in hearts_query ]
+        follower_query = Follower.query.all()
+        following = [ follower.to_dict() for follower in follower_query if follower.follower_id == current_user.id ]
         for user in users:
             user['tickets'] = tickets
             user['hearts'] = hearts
-            user['hearts_list'] = hearts_list
+            user['following'] = following
         return user
     return {'errors': ['Unauthorized']}
 
