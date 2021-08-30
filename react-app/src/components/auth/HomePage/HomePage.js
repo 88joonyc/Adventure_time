@@ -257,14 +257,17 @@ const hateyou = async (e) => {
 
 const set_located_events = (id) => {
     dispatch(eventActions.located_events(id))
+    window.scrollTo(0,580)
 }
 
 const set_categorized_events = (id) => {
     dispatch(eventActions.categorized_events(id))
+    window.scrollTo(0,580)
 }
 
 const set_paid_events = (id) => {
     dispatch(eventActions.cashed_events(id))
+    window.scrollTo(0,580)
 }
 
 

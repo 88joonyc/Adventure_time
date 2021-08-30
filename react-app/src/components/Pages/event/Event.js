@@ -8,6 +8,8 @@ import { one_event } from '../../../store/event';
 import * as actiontickets from '../../../store/ticket';
 import * as actionfollowers from '../../../store/follower';
 
+import Map from '../../Map/Map'
+
 import moment from 'moment';
 
 import './Event.css'
@@ -249,6 +251,7 @@ const EachEvent = () => {
           <div className='map-info-map'>map
 
            <div style={{ height: '50vh', width: '90%' }}>
+            <Map style={{ height: '50vh', width: '10%' }} />
 
       </div>
 
