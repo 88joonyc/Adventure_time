@@ -17,7 +17,7 @@ const HomePage = () => {
 const dispatch = useDispatch()
 
 const sessionUser = useSelector(state => state.session.user)
-const events = useSelector(state => state.events_reducer?.events?.events)
+const events = useSelector(state => state.events_reducer?.events)
 const category = useSelector(state => (state?.categories_reducer?.categories));
 const venue = useSelector(state => state?.venues_reducer?.venues);
 

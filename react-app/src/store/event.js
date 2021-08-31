@@ -129,6 +129,18 @@ const initialState = { events: null}
 
 const events_reducer = (state = initialState, action ) => {
     switch (action.type) {
+        // case LOAD:
+        //     if (state) {
+        //         state = null
+        //         const all = {
+        //             ...state
+        //         }
+        //         if (action.events.events) {
+        //             action.events.events.forEach((event => {
+        //                 all[event.id] = event
+        //             }))
+        //     }
+        // }
         case LOAD:
             if (state) {
                 state = null
@@ -136,9 +148,7 @@ const events_reducer = (state = initialState, action ) => {
                     ...state
                 }
                 if (action.events.events) {
-                    action.events.events.forEach((event => {
-                        all[event.id] = event
-                    }))
+                    return {"events": action.events.events}
             }
         }
         case ADD_EVENT:
