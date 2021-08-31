@@ -22,7 +22,8 @@ const EachEvent = () => {
   const [ticketqty, setTicketQty] = useState(0)
   const [tier, setTier] = useState('')
   const [multiplier, setMultiplier] = useState('')
-  const [overload, /*toggleOverload*/] = useState('false')
+  const [overload, /*toggleOverload*/] = useState(false)
+  const [loaded, toggleLoaded] = useState(false)
 
   const user = useSelector(state => state.session.user)
   const ticket = useSelector(state => (state?.tickets_reducer?.tickets));
@@ -46,6 +47,11 @@ const EachEvent = () => {
     dispatch(one_event(eventId?.eventId))
     dispatch(actionfollowers.get_follower_with_promo(event?.events[0]?.host_id))
     dispatch(one_event(eventId?.eventId))
+  }
+
+  if (!loaded) {
+    runonce()
+    toggleLoaded(!loaded)
   }
 
 

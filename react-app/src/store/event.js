@@ -142,12 +142,11 @@ const events_reducer = (state = initialState, action ) => {
         //     }
         // }
         case LOAD:
-            console.log('====================action========================', action)
             if (state) {
                 const all = {
                     ...state
                 }
-                if (action.events.events) {
+                if (action.events.events[0]) {
                     return {"events": action.events.events}
             }
         }
