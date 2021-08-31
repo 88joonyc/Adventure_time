@@ -125,7 +125,7 @@ export const delete_event = (id) => async dispatch => {
     return res
 }
 
-const initialState = { events: null}
+const initialState = { events: null }
 
 const events_reducer = (state = initialState, action ) => {
     switch (action.type) {
@@ -146,12 +146,13 @@ const events_reducer = (state = initialState, action ) => {
                 const all = {
                     ...state
                 }
-                if (action.events.events.length === 1 ) {
-                    return {"events": action.events.events[0] }
+                if (action.events.events.length ) {
+                    if (action.events.events.length === 1 ) {
+                        return {"events": action.events.events[0] }
+                    } else {
+                        return {"events": action.events.events}
+                    }
                 }
-                if (action.events.events.length > 1 ) {
-                    return {"events": action.events.events}
-            }
         }
         case ADD_EVENT:
             return { events: action.events }

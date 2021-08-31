@@ -69,10 +69,6 @@ useEffect( async() =>  {
     // window.scroll(0, 0)
 }, [dispatch])
 
-const runonce = () => {
-    dispatch(eventActions.all_events())
-}
-
 
 
 /* --------------------------crud delete ----------------------------------------------------- */

@@ -49,11 +49,6 @@ const EachEvent = () => {
     dispatch(one_event(eventId?.eventId))
   }
 
-  if (!loaded) {
-    runonce()
-    toggleLoaded(!loaded)
-  }
-
 
 // This is my ticket modal which pops up when green 'ticket' is pressed
 // ===========================================ticket panel===========================================================================
@@ -222,6 +217,14 @@ const EachEvent = () => {
       </div>
       </>
     )
+  }
+
+
+
+  if (loaded) {
+    runonce()
+    console.log('-----------------------------------------------------------', loaded)
+    toggleLoaded(!loaded)
   }
 
 // ===========================================promoter===========================================================================
