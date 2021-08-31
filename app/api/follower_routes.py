@@ -7,9 +7,9 @@ from app.forms import FollowerForm
 follower_routes = Blueprint('followers', __name__)
 
 
-@follower_routes.route('/all/<int:id>')
-def follows(id):
-    followers = Follower.query.filter(Follower.follower_id == id)
+@follower_routes.route('/all')
+def follows():
+    followers = Follower.query.filter(Follower.follower_id == current_user.id)
     return {'followers': [ follower.to_dict() for follower in followers ]}
 
 @follower_routes.route('/all/<int:id>')

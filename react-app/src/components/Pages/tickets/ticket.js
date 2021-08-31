@@ -16,19 +16,18 @@ const TicketPage = () => {
   // const [errors, setErrors] = useState([]);
   const [orders, toggleOrders] = useState(true);
   const [hearted, toggleHearts] = useState(false);
+  const [follow, toggleFollow] = useState(false);
 
   const user = useSelector(state => state.session.user)
   const tickets = useSelector(state => (state?.tickets_reducer?.tickets));
   const hearts = useSelector(state => (state?.hearts_reducer?.hearts));
-  // const following = useSelector(state => (state?.followers_reducer?.followers));
-
+  const follows = useSelector(state => (state?.followers_reducer?.followers));
 
   const dispatch = useDispatch();
 
-
-  useEffect( async () => {
+  useEffect( () => {
     dispatch(actiontickets.all_tickets())
-    dispatch(all_user_follows(Number(user.id)))
+    dispatch(all_user_follows())
     dispatch(hearted_events())
   }, [dispatch])
 
@@ -112,6 +111,26 @@ const heart_content = (
     ))}
   </>
 )
+// ===========================================hearted===========================================================================
+
+const follow_content = (
+  <>
+    {/* {follow?.map(heart=> ( */}
+      {/* // <Link to={`/event/${heart?.event?.id}`} className='tix-link'> */}
+          <div className="ticket-card">
+            {/* <img className="tix-card-img" src={heart?.event?.image}/> */}
+            <div className='tix-card-info'>
+              {/* <p className='tix-date'>{moment(heart?.event?.start_time).format('ddd, MMM Do, [at] LT')}</p> */}
+              {/* <p className='tix-title'>{heart?.event?.name}</p> */}
+            </div>
+            {/* <div className='register-button-container'>
+              <button type='button' className="unregister-tickets-page" value={tix.id} onClick={(e) => unregisterforthisevent(e)}>Unregister</button>
+            </div> */}
+          </div>
+      {/* // </Link> */}
+    {/* ))} */}
+  </>
+)
 
   return (
         <>
@@ -140,11 +159,12 @@ const heart_content = (
                   {tickets ?  ( orders ? some_content : null ) : none_content }
                   </div>
                   <div className="users-boxes">
-                    <button type='button' onClick={() => toggleHearts(!hearted)} className='orders-toggle'><h3>Interests {`>`}</h3></button>
+                    <button type='button' onClick={() => toggleHearts(!hearted)} className='orders-toggle'><h3>Hearts {`>`}</h3></button>
                   {hearts ?  ( hearted ? heart_content : null ) : cold_hearted }
                   </div>
                   <div className="users-boxes">
-                    <h3>Collection {`>`}</h3>
+                      <button type='button' onClick={() => toggleFollow(!follow)} className='orders-toggle'><h3>Follows {`>`}</h3></button>
+                  {follows ?  ( follow ? follow_content : null ) : cold_hearted }
                   </div>
                 </div>
             </div>

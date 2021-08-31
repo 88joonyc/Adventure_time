@@ -17,8 +17,8 @@ const remove = (followerId) => ({
     followerId
 })
 
-export const all_user_follows = (id) => async dispatch => {
-    const res = await fetch(`/api/followers/all/${id}`)
+export const all_user_follows = () => async dispatch => {
+    const res = await fetch(`/api/followers/all`)
     const followers = await res.json()
     dispatch(load(followers))
 }
