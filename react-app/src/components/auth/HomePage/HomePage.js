@@ -39,7 +39,7 @@ const updateVenue = (e) => {
     setVenue(e.target.value)
 }
 
-useEffect( async() =>  {
+useEffect(() =>  {
     dispatch(eventActions.all_events())
     dispatch(all_categories())
     dispatch(all_venues())
@@ -349,6 +349,7 @@ const need = (
 
             <div className='box' >
                 <div className='card-container'>
+                    {Array.isArray(events)? ( <>
                     {events?.map(event => (
                         <>
                                 <div className="event-cards">
@@ -413,7 +414,7 @@ const need = (
                                         ) : null}
                                 </div>
                         </>
-                    ))}
+                    ))} </>) : null }
                 </div>
             </div>
         {edit}

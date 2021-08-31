@@ -34,7 +34,7 @@ const EachEvent = () => {
   // const history = useHistory()
 
   useEffect( async () => {
-    // dispatch(actiontickets.one_ticket(eventId?.eventId))
+    dispatch(actiontickets.one_ticket(eventId?.eventId))
     dispatch(one_event(eventId?.eventId))
     dispatch(actionfollowers.get_follower_with_promo((event?.host_id)))
     // dispatch(actiontickets.one_ticket(eventId?.eventId))
