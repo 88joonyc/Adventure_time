@@ -35,7 +35,7 @@ const EachEvent = () => {
   useEffect( async () => {
     dispatch(actiontickets.one_ticket(eventId?.eventId))
     dispatch(one_event(eventId?.eventId))
-    dispatch(actionfollowers.get_follower_with_promo(eventId?.eventId))
+    dispatch(actionfollowers.get_follower_with_promo(event?.events[0]?.host_id))
     dispatch(actiontickets.one_ticket(eventId?.eventId))
     window.scrollTo(0, 0)   // this take is to the top of the page
     runonce()
@@ -44,7 +44,7 @@ const EachEvent = () => {
 
   const runonce = async () => {
     dispatch(actiontickets.one_ticket(eventId?.eventId))
-    dispatch(actionfollowers.get_follower_with_promo(eventId?.eventId))
+    dispatch(actionfollowers.get_follower_with_promo(event?.events[0]?.host_id))
     dispatch(one_event(eventId?.eventId))
   }
 
@@ -317,7 +317,7 @@ let promoter_panel = (
 
 
 const follow = async () => {
-  await dispatch(actionfollowers.follow(event?.events[0]?.id))
+  await dispatch(actionfollowers.follow(event?.events[0]?.host_id))
   runonce()
 }
 
