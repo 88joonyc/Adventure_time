@@ -68,9 +68,10 @@ const NavBar = () => {
                 <div className='menu-dropdown'>
                     <div className='dropdown-items-out-bot'>Manage my events</div>
                     <Link className='linke-not-deco' to='/tickets'><div className='dropdown-items-mid'>Tickets ( current : {sessionUser.tickets?.length})</div></Link>
-                    <div className='dropdown-items-mid'>{sessionUser?.email}</div>
-                    <div className='dropdown-items-mid'>{sessionUser?.email}</div>
-                    <div className='dropdown-items-mid'>{sessionUser?.email}</div>
+                    <Link className='linke-not-deco' to='/tickets'><div className='dropdown-items-mid'>Hearted</div></Link>
+                    <Link className='linke-not-deco' to='/tickets'><div className='dropdown-items-mid'>Following</div></Link>
+                    <Link className='linke-not-deco' to='/tickets'><div className='dropdown-items-mid'>Collection</div></Link>
+                    <Link className='linke-not-deco' to='/host'><div className='dropdown-items-mid'>Host</div></Link>
                     <div className='dropdown-items-out-top'>Account Settings</div>
                     <div className=''>{<LogoutButton />}</div>
                 </div>

@@ -8,16 +8,8 @@ heart_routes = Blueprint('hearts', __name__)
 
 @heart_routes.route('/')
 def hearts():
-    # heart_query = Heart.query.filter(Heart.user_id == current_user.id)
     hearts = Heart.query.all()
-    # hearts = [ heart.to_dict() for heart in heart_query ]
-    # for heart in hearts:
-        # heart['event'] = Event.query.get(heart["event_id"]).to_dict()
-        # heart['user'] = Heart.query.get(heart["user_id"]).to_dict()
-
-    # return {'hearts': hearts}
     return {'hearts': [heart.to_dict() for heart in hearts]}
-
 
 @heart_routes.route('/<int:id>')
 def hart(id):
@@ -25,10 +17,15 @@ def hart(id):
     hearts = [ heart.to_dict() for heart in heart_query if heart.user_id == current_user.id ]
     for heart in hearts:
         heart['event'] = Event.query.get(heart["event_id"]).to_dict()
-        # ticket['category'] = Category.query.get(heart["id"]).to_dict()
-        # event['categories'] = Category.query.all()
     return {'hearts': hearts}
-    # return {'events': [event.to_dict() for event in events]}
+
+@heart_routes.route('/events')
+def harts():
+    heart_query = Heart.query.all()
+    hearts = [ heart.to_dict() for heart in heart_query if heart.user_id == current_user.id ]
+    for heart in hearts:
+        heart['event'] = Event.query.get(heart["event_id"]).to_dict()
+    return {'hearts': hearts}
 
 @heart_routes.route('/', methods=['POST'])
 @login_required
