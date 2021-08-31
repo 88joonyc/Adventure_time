@@ -339,7 +339,6 @@ const unfollow = async (e) => {
   return (
         <>
           <div className='event-page'>
-            <button onClick={() => console.log(eventId?.eventId)}>tgus</button>
             <div className='event-page-topcard'>
               <div className='event-page-img-container'>
                 <img alt='' className='event-page-img'src={event?.events[0]?.image}/>
