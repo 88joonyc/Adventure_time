@@ -59,7 +59,6 @@ const tickets_reducer = (state = initialState, action ) => {
     switch (action.type) {
         case LOAD:
            if (state) {
-                const tickets = []
                 const all = {
                     ...state
                 }

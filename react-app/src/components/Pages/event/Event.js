@@ -14,6 +14,7 @@ import Map from '../../Map/Map'
 import moment from 'moment';
 
 import './Event.css'
+import { LoadScript } from '@react-google-maps/api';
 
 const EachEvent = () => {
   const eventId = useParams()
@@ -35,11 +36,16 @@ const EachEvent = () => {
   useEffect( async () => {
     // dispatch(actiontickets.one_ticket(eventId?.eventId))
     dispatch(one_event(eventId?.eventId))
+    dispatch(actiontickets.one_ticket(eventId?.eventId))
     dispatch(actionfollowers.get_follower_with_promo(Number(event?.events[0]?.host_id)))
-    // dispatch(actiontickets.one_ticket(eventId?.eventId))
     window.scrollTo(0, 0)   // this take is to the top of the page
 
   }, [dispatch, eventId])
+
+  window.addEventListener('load' , e => {
+    e.preventDefault()
+    dispatch(actionfollowers.get_follower_with_promo(Number(event?.events[0]?.host_id)))
+  })
 
   const runonce = async () => {
     dispatch(actiontickets.one_ticket(eventId?.eventId))
@@ -327,7 +333,6 @@ const unfollow = async (e) => {
   runonce()
 }
 
-
 // ===========================================listen===========================================================================
 
 // document.addEventListener("scroll", e => {
@@ -338,8 +343,10 @@ const unfollow = async (e) => {
 // ===========================================return===========================================================================
   return (
         <>
+            {window.addEventListener("LOAD", async (e) => {
+              dispatch(actionfollowers.get_follower_with_promo(Number(event?.events[0]?.host_id)))
+            })}
           <div className='event-page'>
-
             <div className='event-page-topcard'>
               <div className='event-page-img-container'>
                 <img alt='' className='event-page-img'src={event?.events[0]?.image}/>
@@ -351,7 +358,7 @@ const unfollow = async (e) => {
                   {(event?.events[0]?.name.toString().length > 100) ? <p className='events-page-card-naem-very-long'>{event?.events[0]?.name}</p> : null /*<p className='events-page-card-naem-short'>{event?.events[0]?.name}</p> */ }
                   <p className='event-card-basic-info event-name-info'>By: {event?.events[0]?.host?.first_name} {event?.events[0]?.host?.last_name} </p>
                   <p className='event-card-basic-info'>Contact: {event?.events[0]?.host?.email} </p>
-                  <p className='follower-number'>{event?.events[0]?.followers?.length} followers { follower ? <button value={follower[0]?.id} onClick={(e) => unfollow(e) } className='unfollow-me-button'>following</button> : <button onClick={() => follow()} className='follow-me-button'>follow</button> }</p>
+                  <p className='follower-number'>{event?.events[0]?.followers?.length} followers { event?.events[0]?.following?.length ? <button value={follower[0]?.id} onClick={(e) => unfollow(e) } className='unfollow-me-button'>following</button> : <button onClick={() => follow()} className='follow-me-button'>follow</button> }</p>
                   <p className='ticket-message'>{ticket ? <p className='ticket-message-inner'> You are going! </p> : <p className='ticket-message-inner'> You are not going! </p>  }</p>
                   {event?.events[0]?.cost ? <p className='ticket-prices-start'>Tickets start at: ${event?.events[0]?.cost}</p> : <p className='ticket-prices-start'>Free</p>}
                 </div>
@@ -419,5 +426,9 @@ const unfollow = async (e) => {
         </>
   );
 };
+
+
+
+
 
 export default EachEvent;
