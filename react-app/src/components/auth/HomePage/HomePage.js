@@ -17,7 +17,7 @@ const HomePage = () => {
 const dispatch = useDispatch()
 
 const sessionUser = useSelector(state => state.session.user)
-const events = useSelector(state => state.events_reducer?.events)
+const events = useSelector(state => state.events_reducer)
 const category = useSelector(state => (state?.categories_reducer?.categories));
 const venue = useSelector(state => state?.venues_reducer?.venues);
 
@@ -61,13 +61,13 @@ const handleEdit =  async (e) => {
 
 let content = null
 
-useEffect( () =>  {
-    dispatch(eventActions.all_events())
+useEffect( async() =>  {
+    await dispatch(eventActions.all_events())
     dispatch(all_categories())
     dispatch(all_venues())
     // dispatch(authenticate())
     // window.scroll(0, 0)
-}, [dispatch])
+}, [])
 
 /* --------------------------crud delete ----------------------------------------------------- */
 

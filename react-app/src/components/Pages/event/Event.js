@@ -26,7 +26,7 @@ const EachEvent = () => {
 
   const user = useSelector(state => state.session.user)
   const ticket = useSelector(state => (state?.tickets_reducer?.tickets));
-  const event = useSelector(state => (state?.events_reducer?.events));
+  const event = useSelector(state => (state?.events_reducer));
   const follower = useSelector(state => (state?.followers_reducer?.followers));
 
   const dispatch = useDispatch();
@@ -35,7 +35,7 @@ const EachEvent = () => {
   useEffect( async () => {
     // dispatch(actiontickets.one_ticket(eventId?.eventId))
     dispatch(one_event(eventId?.eventId))
-    dispatch(actionfollowers.get_follower_with_promo(event?.events[0]?.host_id))
+    dispatch(actionfollowers.get_follower_with_promo(event?.host_id))
     // dispatch(actiontickets.one_ticket(eventId?.eventId))
     window.scrollTo(0, 0)   // this take is to the top of the page
 
