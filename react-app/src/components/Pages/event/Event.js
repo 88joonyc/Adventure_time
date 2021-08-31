@@ -401,9 +401,9 @@ const unfollow = async (e) => {
                     </div>
                     <p>Date and time</p>
                     <p>Starts: </p>
-                    <p>{moment(event?.start_time.split(' GMT').join(' EST')).format('ddd, MMMM do, YYYY [at] h:mm A')}</p>
+                    <p>{moment(event?.start_time?.split(' GMT').join(' EST')).format('ddd, MMMM do, YYYY [at] h:mm A')}</p>
                     <p>Ends:</p>
-                    <p>{moment(event?.end_time.split(' GMT').join(' EST')).format('ddd, MMMM do, YYYY [at] h:mm A')}</p>
+                    <p>{moment(event?.end_time?.split(' GMT').join(' EST')).format('ddd, MMMM do, YYYY [at] h:mm A')}</p>
                     <p className="events-address-label">Location:</p>
                     <div className='events-page-location'>
                       <p className="events-address-para">{event?.venue?.name}</p>

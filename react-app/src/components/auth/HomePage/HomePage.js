@@ -62,7 +62,7 @@ const handleEdit =  async (e) => {
 let content = null
 
 useEffect( async() =>  {
-    await dispatch(eventActions.all_events())
+    dispatch(eventActions.all_events())
     dispatch(all_categories())
     dispatch(all_venues())
     // dispatch(authenticate())
