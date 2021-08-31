@@ -23,7 +23,6 @@ const EachEvent = () => {
   const [tier, setTier] = useState('')
   const [multiplier, setMultiplier] = useState('')
   const [overload, /*toggleOverload*/] = useState(false)
-  const [loaded, toggleLoaded] = useState(false)
 
   const user = useSelector(state => state.session.user)
   const ticket = useSelector(state => (state?.tickets_reducer?.tickets));
@@ -40,7 +39,7 @@ const EachEvent = () => {
     // dispatch(actiontickets.one_ticket(eventId?.eventId))
     window.scrollTo(0, 0)   // this take is to the top of the page
 
-  }, [dispatch, eventId])
+  }, [dispatch])
 
   const runonce = async () => {
     dispatch(actiontickets.one_ticket(eventId?.eventId))

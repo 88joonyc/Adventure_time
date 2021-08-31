@@ -349,7 +349,7 @@ const need = (
 
             <div className='box' >
                 <div className='card-container'>
-                    {Array.isArray(events)? ( <>
+                    {Array.isArray(events) ? ( <>
                     {events?.map(event => (
                         <>
                                 <div className="event-cards">
