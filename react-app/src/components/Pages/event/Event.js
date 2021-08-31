@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux'
-import {  useHistory, Link, useParams } from 'react-router-dom';
+import {  Link, useParams } from 'react-router-dom';
 // import { all_tickets } from '../../../store/ticket';
 // import CovBar from '../../NavBar/CovBar/CovBar';
 import SideScroll from '../../Side_scroll/Side_scroll';
@@ -22,7 +22,7 @@ const EachEvent = () => {
   const [ticketqty, setTicketQty] = useState(0)
   const [tier, setTier] = useState('')
   const [multiplier, setMultiplier] = useState('')
-  const [overload, toggleOverload] = useState('false')
+  const [overload, /*toggleOverload*/] = useState('false')
 
   // const user = useSelector(state => state.session.user)
   const ticket = useSelector(state => (state?.tickets_reducer?.tickets));
@@ -40,7 +40,7 @@ const EachEvent = () => {
     window.scrollTo(0, 0)   // this take is to the top of the page
     runonce()
 
-  }, [eventId])
+  }, [eventId, dispatch])
 
   const runonce = async () => {
     dispatch(actiontickets.one_ticket(eventId?.eventId))
@@ -76,7 +76,7 @@ const EachEvent = () => {
   let shoppingcart = (
     <>
     <div className='shopping-cart'>
-      <img className="no-quantity-shopping"/>
+      <img alt='' className="no-quantity-shopping"/>
     </div>
     </>
   )
@@ -124,17 +124,17 @@ const EachEvent = () => {
               <p className='ticket-small-print'>Please call to confirm a reservation for your ticket. RSVP does not guarantee a reservation for seating. Admission prices/times are subject to change based on demand, special events, and/or holiday weekends.</p>
                 {!ticket?.length ? (
                 <select className='selecter' onChange={(e) => (setTicketQty(e.target.value), setTier('VIP Pass'), setMultiplier(25)) }>
-                <option value='0'> - select quantity - </option>
-                <option value='1'> - 1 - </option>
-                <option value='2'> - 2 - </option>
-                <option value='3'> - 3 - </option>
-                <option value='4'> - 4 - </option>
-                <option value='5'> - 5 - </option>     {/* this is not DRY!!!! CLEAN IT UP... later */}
-                <option value='6'> - 6 - </option>
-                <option value='7'> - 7 - </option>
-                <option value='8'> - 8 - </option>
-                <option value='9'> - 9 - </option>
-                <option value='10'> - 10 - </option>
+                <option key='' value='0'> - select quantity - </option>
+                <option key='' value='1'> - 1 - </option>
+                <option key='' value='2'> - 2 - </option>
+                <option key='' value='3'> - 3 - </option>
+                <option key='' value='4'> - 4 - </option>
+                <option key='' value='5'> - 5 - </option>     {/* this is not DRY!!!! CLEAN IT UP... later */}
+                <option key='' value='6'> - 6 - </option>
+                <option key='' value='7'> - 7 - </option>
+                <option key='' value='8'> - 8 - </option>
+                <option key='' value='9'> - 9 - </option>
+                <option key='' value='10'> - 10 - </option>
                 {/* {(n = 1) => {
                   while (n <= 10) {
                     <option value={n}> - {n} - </option>
@@ -148,17 +148,17 @@ const EachEvent = () => {
               <p className='ticket-small-print'>Advanced ticket purchase highly suggested.  Limited amount of tickets will be available the day of for a higher price due to capacity limitations at the venues.</p>
                 {!ticket?.length ? (
                 <select onChange={(e) => (setTicketQty(e.target.value), setTier('Advanced Ticketing'), setMultiplier(2))}>
-                <option value='0'> - select quantity - </option>
-                <option value='1'> - 1 - </option>
-                <option value='2'> - 2 - </option>
-                <option value='3'> - 3 - </option>
-                <option value='4'> - 4 - </option>
-                <option value='5'> - 5 - </option>
-                <option value='6'> - 6 - </option>
-                <option value='7'> - 7 - </option>
-                <option value='8'> - 8 - </option>
-                <option value='9'> - 9 - </option>
-                <option value='10'> - 10 - </option>
+                <option key='' value='0'> - select quantity - </option>
+                <option key='' value='1'> - 1 - </option>
+                <option key='' value='2'> - 2 - </option>
+                <option key='' value='3'> - 3 - </option>
+                <option key='' value='4'> - 4 - </option>
+                <option key='' value='5'> - 5 - </option>
+                <option key='' value='6'> - 6 - </option>
+                <option key='' value='7'> - 7 - </option>
+                <option key='' value='8'> - 8 - </option>
+                <option key='' value='9'> - 9 - </option>
+                <option key='' value='10'> - 10 - </option>
                 {/* {(n = 1) => {
                   while (n <= 10) {
                     <option value={n}> - {n} - </option>
@@ -172,17 +172,17 @@ const EachEvent = () => {
               <p className='ticket-small-print'>Event Admission; Express Check-In; Non-Refundable; Call For VIP Table Service</p>
               {!ticket?.length ? (
               <select onChange={(e) => (setTicketQty(e.target.value), setTier("General Admission"), setMultiplier(1))}>
-                <option value='0'> - select quantity - </option>
-                <option value='1'> - 1 - </option>
-                <option value='2'> - 2 - </option>
-                <option value='3'> - 3 - </option>
-                <option value='4'> - 4 - </option>
-                <option value='5'> - 5 - </option>
-                <option value='6'> - 6 - </option>
-                <option value='7'> - 7 - </option>
-                <option value='8'> - 8 - </option>
-                <option value='9'> - 9 - </option>
-                <option value='10'> - 10 - </option>
+                <option key='' value='0'> - select quantity - </option>
+                <option key='' value='1'> - 1 - </option>
+                <option key='' value='2'> - 2 - </option>
+                <option key='' value='3'> - 3 - </option>
+                <option key='' value='4'> - 4 - </option>
+                <option key='' value='5'> - 5 - </option>
+                <option key='' value='6'> - 6 - </option>
+                <option key='' value='7'> - 7 - </option>
+                <option key='' value='8'> - 8 - </option>
+                <option key='' value='9'> - 9 - </option>
+                <option key='' value='10'> - 10 - </option>
                 {/* {(n = 1) => {
                   while (n <= 10) {
                     <option value={n}> - {n} - </option>
@@ -201,7 +201,7 @@ const EachEvent = () => {
           <div>
               <div className='ticket-image-container'>
                   <button onClick={() => setPanel(!panel) } className="ticket-cancel-button">X</button>
-                  <img className='ticketing-image' src={event?.events[0]?.image}/>
+                  <img alt='' className='ticketing-image' src={event?.events[0]?.image}/>
               </div>
             <div className='ticketing-calculate-panel'>
                 <div className='cost-panel'>
@@ -227,10 +227,10 @@ let promoter_panel = (
       <>
       {/* {event.id != eventId?.eventId ? ( */}
 
-        <Link className='link-add' to={`/event/${event.id}`}>
+        <Link key='' className='link-add' to={`/event/${event.id}`}>
         <div className='promoter-events'>
           <div className='promoter-events-img-container'>
-            <img className='promoter-event-img' src={event?.image}></img>
+            <img alt='' className='promoter-event-img' src={event?.image}></img>
             {event?.cost ? <p className='promoter-event-img-text'> $0 - ${event?.cost}</p> : <p  className='promoter-event-img-text'>FREE</p>}
           </div>
           <div className='promoter-event-info'>
@@ -263,7 +263,7 @@ let promoter_panel = (
         <div>
           <div className='map-info-marker map-info-marker-top'>
             <div>
-              <img className='map-info-marker-pic'src={event?.events[0]?.host?.image} />
+              <img alt='' className='map-info-marker-pic'src={event?.events[0]?.host?.image} />
             <div className='map-info-naem'>
               <div className='map-info-marker'>{event?.events[0]?.host?.first_name}</div>
               <div className='map-info-marker'>{event?.events[0]?.host?.last_name}</div>
@@ -340,7 +340,7 @@ const unfollow = async (e) => {
           <div className='event-page'>
             <div className='event-page-topcard'>
               <div className='event-page-img-container'>
-                <img className='event-page-img'src={event?.events[0]?.image}/>
+                <img alt='' className='event-page-img'src={event?.events[0]?.image}/>
               </div>
               <div className="event-page-card">
                 <div>

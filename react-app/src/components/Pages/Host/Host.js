@@ -119,7 +119,7 @@ if (!category) {
         <div className="host-container">
             <form onSubmit={(e) =>{handleSubmit(e)}}>
                 <div className="host-card">
-                    <img className="basic-info-img basic-img-settings"/>
+                    <img alt='' className="basic-info-img basic-img-settings"/>
                     <div className="info-input">
                         <h2>Basic Info</h2>
                         <p>Name your event and tell event-goers why they should come. Add details that highlight what makes it unique.</p>
@@ -154,7 +154,7 @@ if (!category) {
                     </div>
                 </div>
                 <div className="host-card">
-                    <img className="location-info-img basic-img-settings"/>
+                    <img alt='' className="location-info-img basic-img-settings"/>
                     <div className="info-input">
                         <h2>Location</h2>
                         <p>Help people in the area discover your event and let attendees know where to show up.</p>
@@ -192,7 +192,7 @@ if (!category) {
                     </div>
                 </div>
                 <div className="host-card">
-                    <img className='basic-img-settings capacity-img'/>
+                    <img alt='' className='basic-img-settings capacity-img'/>
                     <div className="info-input">
                         <h2>Capacity</h2>
                         <b>Tell us how many attendees can register at maximum.</b>
@@ -208,7 +208,7 @@ if (!category) {
                     </div>
                 </div>
                 <div className="host-card">
-                    <img className='basic-img-settings date-img'/>
+                    <img alt='' className='basic-img-settings date-img'/>
                     <div className="info-input">
                         <h2>Date and time</h2>
                         <p>Tell event-goers when your event starts and ends so they can make plans to attend.</p>
@@ -234,7 +234,7 @@ if (!category) {
                     </div>
                 </div>
                 <div className="host-card">
-                    <img className='basic-img-settings mainimg-img'/>
+                    <img alt='' className='basic-img-settings mainimg-img'/>
                     <div className="info-input">
                         <h2>Main Event Image</h2>
                         <p>This is the first image attendees will see at the top of your listing. Use a high quality image: 2160x1080px (2:1 ratio).</p>
@@ -253,7 +253,7 @@ if (!category) {
                     </div>
                 </div>
                 <div className="host-card">
-                    <img className='basic-img-settings cos-img'/>
+                    <img alt='' className='basic-img-settings cos-img'/>
                     <div className="info-input">
                         <h2>Cost</h2>
                         <p>Add details for anys costs associated with attending your event.</p>
@@ -268,7 +268,7 @@ if (!category) {
                     </div>
                 </div>
                 <div className="host-card">
-                    <img className='basic-img-settings description-img'/>
+                    <img alt='' className='basic-img-settings description-img'/>
                     <div className="info-input">
                     <h2>Description</h2>
                     <p>Add more details to your event like your schedule, sponsors, or featured guests.</p>

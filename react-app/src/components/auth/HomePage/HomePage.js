@@ -1,13 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { useHistory, Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 import moment from 'moment'
 
 import SplashPage from './SplashPage'
 import * as eventActions from '../../../store/event'
-import { authenticate } from '../../../store/session'
-import hearts_reducer, * as heartActions from '../../../store/heart'
+import * as heartActions from '../../../store/heart'
 import { all_categories } from '../../../store/category';
 import { all_venues } from '../../../store/venue';
 
@@ -16,7 +15,6 @@ import { all_venues } from '../../../store/venue';
 
 const HomePage = () => {
 const dispatch = useDispatch()
-const history = useHistory()
 
 const sessionUser = useSelector(state => state.session.user)
 const events = useSelector(state => state.events_reducer?.events?.events)
@@ -112,9 +110,9 @@ if (editForm) {
                                 required="true"
                                 className='edit-input longer'
                             >
-                                <option>select</option>
+                                <option key=''>select</option>
                                 {venue?.map(ven => (
-                                    <option value={ven.id}>{ven.name}, address: {ven.address} {ven.city}, {ven.state}</option>
+                                    <option key={ven.id} value={ven.id}>{ven.name}, address: {ven.address} {ven.city}, {ven.state}</option>
                                 ))}
                             </select>
                         </label>
@@ -135,9 +133,9 @@ if (editForm) {
                                     required="true"
                                     className='edit-input longer'
                                 >
-                                    <option>select</option>
+                                    <option key=''>select</option>
                                     {category?.map(cat => (
-                                        <option value={cat.id}>{cat.type}</option>
+                                        <option key={cat.id} value={cat.id}>{cat.type}</option>
                                     ))}
                             </select>
                         </label>
@@ -232,19 +230,19 @@ if (editForm) {
 
 const opening = (
     <>
-    <div className='spalsh-image-2'>
-        <p className="top-sent top-home-sent">Get down</p>
-        <p className="bottom-sent top-home-sent">for the HOOK!</p>
-        <button onClick={() => window.scrollTo(0,580)} className="event-button">Find your next event</button>
-    </div>
-    <div className='opening-message'>
-        <h3 className='covid-header-title'>
-            Re-open confidently with Adventure Time's COVID-19 Safety Playbook
-        </h3>
-        <p className='covid-under-msg'>
-            We partnered with risk management and health experts to empower event creators to thoughtfully consider potential safety and security risks at your event.
-        </p>
-    </div>
+        <div className='spalsh-image-2'>
+            <p className="top-sent top-home-sent">Get down</p>
+            <p className="bottom-sent top-home-sent">for the HOOK!</p>
+            <button onClick={() => window.scrollTo(0,580)} className="event-button">Find your next event</button>
+        </div>
+        <div className='opening-message'>
+            <h3 className='covid-header-title'>
+                Re-open confidently with Adventure Time's COVID-19 Safety Playbook
+            </h3>
+            <p className='covid-under-msg'>
+                We partnered with risk management and health experts to empower event creators to thoughtfully consider potential safety and security risks at your event.
+            </p>
+        </div>
     </>
 )
 
@@ -352,7 +350,7 @@ const need = (
                         <>
                                 <div className="event-cards">
                                     {/* <h4>{event.host_id}</h4> */}
-                                    <img src={event?.image}/>
+                                    <img alt='' src={event?.image}/>
                                     { sessionUser ? (<>
 
                                     { !event?.heart?.length ?
@@ -360,14 +358,14 @@ const need = (
                                     id={event?.id}
                                     type='button'
                                     onClick={(e) => {heartyou(event?.id)}}
-                                    className='heart-button'>{<img className="red-heart" />}
+                                    className='heart-button'>{<img alt='' className="red-heart" />}
                                     </button>
                                     :
                                     <button
                                     id={event?.heart?.id}
                                     onClick={(e) => {hateyou(event?.heart[0]?.id)}}
                                     type='button'
-                                    className='heart-button'>{<img className="black-heart" />}
+                                    className='heart-button'>{<img alt='' className="black-heart" />}
                                     </button>}
 
                                     </>) : null }
@@ -382,7 +380,7 @@ const need = (
                                         <p className='card-print card-cost-home'>Starts at ${event?.cost}</p>
                                         <p className='card-print card-user-home'>{event.user?.email}</p>
                                         <p className='card-print card-cap-home'>Limited to: {event?.capacity} seats!</p>
-                                        <p className='card-print card-cap-followers'> {<img className='home-card-followers-img'/>} {event?.followers?.length} followers </p>
+                                        <p className='card-print card-cap-followers'> {<img alt='' className='home-card-followers-img'/>} {event?.followers?.length} followers </p>
                                     </div>
                                     </Link>
                                         {(event?.host_id === sessionUser?.id ) ? (
