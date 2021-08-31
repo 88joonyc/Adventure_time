@@ -146,7 +146,10 @@ const events_reducer = (state = initialState, action ) => {
                 const all = {
                     ...state
                 }
-                if (action.events.events[0]) {
+                if (action.events.events.length === 1 ) {
+                    return {"events": action.events.events[0] }
+                }
+                if (action.events.events.length > 1 ) {
                     return {"events": action.events.events}
             }
         }
