@@ -1,13 +1,9 @@
 
-import React, { useState } from 'react';
-import { Link  } from 'react-router-dom';
-import { useSelector } from 'react-redux';
+import React from 'react';
 
 import './Footer.css'
 
 const FooterBar = () => {
-  const sessionUser = useSelector(state => state.session.user)
-
 
   let content = null
 

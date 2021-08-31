@@ -8,7 +8,7 @@ import { all_venues } from '../../../store/venue';
 import './Host.css'
 
 const HostForm = () => {
-  const [errors, setErrors] = useState([]);
+//   const [errors, setErrors] = useState([]);
   const [venue_id, setVenue] = useState('');
   const [category_id, setCategory] = useState('');
   const [name, setName] = useState('');
@@ -18,7 +18,7 @@ const HostForm = () => {
   const [capacity, setCap] = useState('');
   const [image, setImg] = useState('');
   const [cost, setCost] = useState(0);
-  const [venue_search, setVenueSearch] = useState('');
+//   const [venue_search, setVenueSearch] = useState('');
 
   const category = useSelector(state => (state?.categories_reducer?.categories));
   const venue = useSelector(state => state?.venues_reducer?.venues);
@@ -27,7 +27,6 @@ const HostForm = () => {
   const history = useHistory()
 
   const handleSubmit =  async (e) => {
-    //   console.log(start_time.split("T").join(" ").concat(":00"))
       e.preventDefault()
       const payload = {
         venue_id,
@@ -69,22 +68,22 @@ const HostForm = () => {
 
   }
 
-  const place = filter(venue, venue_search)
+//   const place = filter(venue, venue_search)
 
-  if (venue_search) {
-      venue_content = (
-          <>
-          {place?.map(ven => (
-                <ul>
-                    <li>
-                        <button onClick={() => setVenue(ven?.id)}>{ven?.address}</button>
-                    </li>
-                </ul>
-            ))}
-            </>
-        )
-    // if (venue_search.toLowerCase().includes()
-  }
+//   if (venue_search) {
+//       venue_content = (
+//           <>
+//           {place?.map(ven => (
+//                 <ul>
+//                     <li>
+//                         <button onClick={() => setVenue(ven?.id)}>{ven?.address}</button>
+//                     </li>
+//                 </ul>
+//             ))}
+//             </>
+//         )
+//     // if (venue_search.toLowerCase().includes()
+//   }
 
 let maxdescript
 const textdescripmax = () => {

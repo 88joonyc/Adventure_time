@@ -1,15 +1,12 @@
 
 import React, { useState } from 'react';
 import { Link  } from 'react-router-dom';
-import { useSelector } from 'react-redux';
 
 import './CovBar.css'
 
 const CovBar = () => {
-  const sessionUser = useSelector(state => state.session.user)
 
   const [ searchBar, toggleSearch ] = useState(false)
-  const [ eventPage, toggleCreate ] = useState(false)
 
   let content = null
 

@@ -1,31 +1,35 @@
 import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux'
-import {  useHistory, Link } from 'react-router-dom';
+import {  Link } from 'react-router-dom';
 import * as actiontickets from '../../../store/ticket';
 import CovBar from '../../NavBar/CovBar/CovBar';
 import FooterBar from '../../NavBar/Footer/Footer';
 import { all_user_follows } from '../../../store/follower';
 import { authenticate } from '../../../store/session';
+import { hearted_events } from '../../../store/heart';
 
 import moment from 'moment';
 
 import './Tickets.css'
 
 const TicketPage = () => {
-  const [errors, setErrors] = useState([]);
+  // const [errors, setErrors] = useState([]);
+  const [orders, toggleOrders] = useState(true);
+  const [hearted, toggleHearts] = useState(false);
 
   const user = useSelector(state => state.session.user)
   const tickets = useSelector(state => (state?.tickets_reducer?.tickets));
-  const following = useSelector(state => (state?.followers_reducer?.followers));
+  const hearts = useSelector(state => (state?.hearts_reducer?.hearts));
+  // const following = useSelector(state => (state?.followers_reducer?.followers));
 
 
   const dispatch = useDispatch();
-  const history = useHistory()
 
 
   useEffect( async () => {
     dispatch(actiontickets.all_tickets())
     dispatch(all_user_follows(Number(user.id)))
+    dispatch(hearted_events())
   }, [dispatch])
 
   const runonce = () => {
@@ -45,6 +49,18 @@ const none_content = (
     </>
   )
 
+const cold_hearted = (
+    <>
+      <div className="no-tix-cont">
+        <div className="no-tix">
+          <img className='no-hearts-img'/>
+          <h2>No events hearted</h2>
+
+        </div>
+      </div>
+    </>
+  )
+
 
 const unregisterforthisevent = async (e) => {
   e.preventDefault()
@@ -52,24 +68,50 @@ const unregisterforthisevent = async (e) => {
   runonce()
 }
 
+// ===========================================ordered_content===========================================================================
+
+
+
 const some_content = (
-    <>
-      {tickets?.map(tix=> (
-    <Link to={`/event/${tix.event_id}`} className='tix-link'>
-        <div className="ticket-card">
-          <img className="tix-card-img" src={tix.event.image}/>
-          <div className='tix-card-info'>
-            <p className='tix-date'>{moment(tix.event.start_time).format('ddd, MMM Do, [at] LT')}</p>
-            <p className='tix-title'>{tix.event.name}</p>
+  <>
+    {tickets?.map(tix=> (
+      <Link to={`/event/${tix.event_id}`} className='tix-link'>
+          <div className="ticket-card">
+            <img className="tix-card-img" src={tix.event.image}/>
+            <div className='tix-card-info'>
+              <p className='tix-date'>{moment(tix.event.start_time).format('ddd, MMM Do, [at] LT')}</p>
+              <p className='tix-title'>{tix.event.name}</p>
+            </div>
+            <div className='register-button-container'>
+              <button type='button' className="unregister-tickets-page" value={tix.id} onClick={(e) => unregisterforthisevent(e)}>Unregister</button>
+            </div>
           </div>
-          <div className='register-button-container'>
-            <button type='button' className="unregister-tickets-page" value={tix.id} onClick={(e) => unregisterforthisevent(e)}>Unregister</button>
-          </div>
-        </div>
-    </Link>
+      </Link>
       ))}
+  </>)
+
+
+// ===========================================hearted===========================================================================
+
+
+const heart_content = (
+  <>
+    {hearts?.map(heart=> (
+      <Link to={`/event/${heart?.event?.id}`} className='tix-link'>
+          <div className="ticket-card">
+            <img className="tix-card-img" src={heart?.event?.image}/>
+            <div className='tix-card-info'>
+              <p className='tix-date'>{moment(heart?.event?.start_time).format('ddd, MMM Do, [at] LT')}</p>
+              <p className='tix-title'>{heart?.event?.name}</p>
+            </div>
+            {/* <div className='register-button-container'>
+              <button type='button' className="unregister-tickets-page" value={tix.id} onClick={(e) => unregisterforthisevent(e)}>Unregister</button>
+            </div> */}
+          </div>
+      </Link>
+    ))}
   </>
-  )
+)
 
   return (
         <>
@@ -94,11 +136,12 @@ const some_content = (
                 </div>
                 <div className='ticket-info-card' >
                   <div className="users-boxes">
-                    <h3>Orders {`>`}</h3>
-                  {tickets ?  some_content : none_content }
+                    <button type='button' onClick={() => toggleOrders(!orders)} className='orders-toggle'><h3>Orders {`>`}</h3></button>
+                  {tickets ?  ( orders ? some_content : null ) : none_content }
                   </div>
                   <div className="users-boxes">
-                    <h3>Interests {`>`}</h3>
+                    <button type='button' onClick={() => toggleHearts(!hearted)} className='orders-toggle'><h3>Interests {`>`}</h3></button>
+                  {hearts ?  ( hearted ? heart_content : null ) : cold_hearted }
                   </div>
                   <div className="users-boxes">
                     <h3>Collection {`>`}</h3>

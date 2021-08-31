@@ -22,9 +22,11 @@ def hart(id):
 @heart_routes.route('/events')
 def harts():
     heart_query = Heart.query.all()
+    venue_query = Venue.query.all()
     hearts = [ heart.to_dict() for heart in heart_query if heart.user_id == current_user.id ]
     for heart in hearts:
-        heart['event'] = Event.query.get(heart["event_id"]).to_dict()
+        heart['event'] = (Event.query.get(heart["event_id"]).to_dict())
+        # heart['venue'] = [ venue.to_dict() for venue in venue_query if venue.id == Event.query.get(heart["event_id"]. ]
     return {'hearts': hearts}
 
 @heart_routes.route('/', methods=['POST'])

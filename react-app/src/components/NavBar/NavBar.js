@@ -15,7 +15,6 @@ const NavBar = () => {
   const sessionUser = useSelector(state => state.session?.user)
 
   const [ searchBar, toggleSearch ] = useState(false)
-  const [ eventPage, toggleCreate ] = useState(false)
   const [ showMenu, setShowMenu ] = useState(false);
 
   useEffect(() => {
@@ -28,7 +27,7 @@ const NavBar = () => {
         dispatch(authenticate())
 
         return () => document.removeEventListener('click', closeMenu);
-    }, [showMenu]);
+    }, [showMenu, dispatch]);
 
   const openMenu = () => {
       if (showMenu) return;
@@ -55,13 +54,13 @@ const NavBar = () => {
   let usertab = (
     <>
     {/* <button onClick={() =>toggleCreate(!eventPage)}>+</button> */}
-    <NavLink className="create-event" to='/host'>{<img className='ticket-icon'/>} Create </NavLink>
-    <NavLink className="create-event" to='/tickets'>{<img className='ticketing-icon'/>} Tickets </NavLink>
+    <NavLink className="create-event" to='/host'>{<img alt='' className='ticket-icon'/>} Create </NavLink>
+    <NavLink className="create-event" to='/tickets'>{<img alt='' className='ticketing-icon'/>} Tickets </NavLink>
     <div className='dropddown-tab'>
             <button className='toggle-drop-button' onClick={openMenu}>
               <div className="drop-button-items">
                   <div className='drop-nav-email'>{sessionUser?.email}</div>
-                  <img className='profile-pic' src={sessionUser?.image}/>
+                  <img alt='' className='profile-pic' src={sessionUser?.image}/>
               </div>
             </button>
             {showMenu && (
@@ -82,9 +81,6 @@ const NavBar = () => {
   )
 
   // this is a search bar
-
-
-  let venue_content = null
 
   //   const filter = (memory, query) => {
     //       return memory?.filter((brain) => {
@@ -137,12 +133,12 @@ const NavBar = () => {
           <div className="navbar-container">
             <div>
               <NavLink to='/' exact={true} activeClassName='active'>
-                <img className="navbar-image logo-image-container"/>
+                <img alt='' className="navbar-image logo-image-container"/>
               </NavLink>
             </div>
                 <div className="right-side-control">
               <button className="searchbar-toggle" onClick={() => toggleSearch(!searchBar)}>
-                {<img className='search-icon'/>}
+                {<img alt='' className='search-icon'/>}
                 search
               </button>
               {sessionUser ? usertab : verificationtabs}

@@ -23,6 +23,12 @@ export const all_hearts = () => async dispatch => {
     dispatch(load(hearts))
 }
 
+export const hearted_events = () => async dispatch => {
+    const res = await fetch(`/api/hearts/events`)
+    const hearts = await res.json()
+    dispatch(load(hearts))
+}
+
 export const one_heart = (id) => async dispatch => {
     const res = await fetch(`/api/hearts/${id}`)
     const hearts = await res.json()
