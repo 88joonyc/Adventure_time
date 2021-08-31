@@ -156,13 +156,11 @@ def event(id):
     events_query = Event.query.filter(Event.id == id)
     event_query = Event.query.all()
     events = [ event.to_dict() for event in events_query ]
-    followers_query = Follower.query.filter(Follower.promoter_id == id)
-    followers = [ follower.to_dict() for follower in followers_query  ]
     for event in events:
         event['venue'] = Venue.query.get(event["venue_id"]).to_dict()
         event['category'] = Category.query.get(event["category_id"]).to_dict()
         event['host'] = User.query.get(event["host_id"]).to_dict()
-        event['followers'] = followers
+        event['followers'] = [ follower.to_dict() for follower in (Follower.query.filter( Follower.promoter_id == event["host_id"])) ]
         event['promoter'] = [ promoter.to_dict() for promoter in Event.query.filter(Event.host_id == event['host_id']) ]
     return {'events': events}
 

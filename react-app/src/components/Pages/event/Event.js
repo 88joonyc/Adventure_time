@@ -33,22 +33,20 @@ const EachEvent = () => {
   // const history = useHistory()
 
   useEffect( async () => {
-    dispatch(actiontickets.one_ticket(eventId?.eventId))
+    // dispatch(actiontickets.one_ticket(eventId?.eventId))
     dispatch(one_event(eventId?.eventId))
     dispatch(actionfollowers.get_follower_with_promo(event?.events[0]?.host_id))
-    dispatch(actiontickets.one_ticket(eventId?.eventId))
+    // dispatch(actiontickets.one_ticket(eventId?.eventId))
     window.scrollTo(0, 0)   // this take is to the top of the page
-    runonce()
 
-  }, [actionfollowers])
+  }, [dispatch, eventId])
 
   const runonce = async () => {
     dispatch(actiontickets.one_ticket(eventId?.eventId))
+    dispatch(one_event(eventId?.eventId))
     dispatch(actionfollowers.get_follower_with_promo(event?.events[0]?.host_id))
     dispatch(one_event(eventId?.eventId))
   }
-
-  runonce()
 
 
 // This is my ticket modal which pops up when green 'ticket' is pressed
@@ -341,6 +339,7 @@ const unfollow = async (e) => {
   return (
         <>
           <div className='event-page'>
+            <button onClick={() => console.log(eventId?.eventId)}>tgus</button>
             <div className='event-page-topcard'>
               <div className='event-page-img-container'>
                 <img alt='' className='event-page-img'src={event?.events[0]?.image}/>
