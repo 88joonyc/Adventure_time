@@ -141,6 +141,15 @@ const events_reducer = (state = initialState, action ) => {
                     }))
             }
         }
+        // case LOAD:
+        //     if (state) {
+        //         const all = {
+        //             ...state
+        //         }
+        //         if (action.events.events) {
+        //             return {'events' : action.events.events}
+        //     }
+        // }
         case ADD_EVENT:
             return { events: action.events }
 

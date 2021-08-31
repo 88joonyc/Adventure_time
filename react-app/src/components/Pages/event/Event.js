@@ -35,7 +35,7 @@ const EachEvent = () => {
   useEffect( async () => {
     // dispatch(actiontickets.one_ticket(eventId?.eventId))
     dispatch(one_event(eventId?.eventId))
-    dispatch(actionfollowers.get_follower_with_promo(event?.events[0]?.host_id))
+    dispatch(actionfollowers.get_follower_with_promo(Number(event?.events[0]?.host_id)))
     // dispatch(actiontickets.one_ticket(eventId?.eventId))
     window.scrollTo(0, 0)   // this take is to the top of the page
 
@@ -44,7 +44,7 @@ const EachEvent = () => {
   const runonce = async () => {
     dispatch(actiontickets.one_ticket(eventId?.eventId))
     dispatch(one_event(eventId?.eventId))
-    dispatch(actionfollowers.get_follower_with_promo(event?.events[0]?.host_id))
+    dispatch(actionfollowers.get_follower_with_promo(Number(event?.events[0]?.host_id)))
     dispatch(one_event(eventId?.eventId))
   }
 
@@ -339,6 +339,7 @@ const unfollow = async (e) => {
   return (
         <>
           <div className='event-page'>
+
             <div className='event-page-topcard'>
               <div className='event-page-img-container'>
                 <img alt='' className='event-page-img'src={event?.events[0]?.image}/>
