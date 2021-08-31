@@ -161,6 +161,7 @@ def event(id):
         event['category'] = Category.query.get(event["category_id"]).to_dict()
         event['host'] = User.query.get(event["host_id"]).to_dict()
         event['followers'] = [ follower.to_dict() for follower in (Follower.query.filter( Follower.promoter_id == event["host_id"])) ]
+        # event['following'] = [ follower.to_dict() for follower in (Follower.query.filter( Follower.follower_id == current_user.id )) if  event['host_id'] == Follower.host_id ]
         event['promoter'] = [ promoter.to_dict() for promoter in Event.query.filter(Event.host_id == event['host_id']) ]
     return {'events': events}
 
