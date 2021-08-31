@@ -1,5 +1,5 @@
 from flask import Blueprint, jsonify, request
-# from flask_login import login_required,
+from flask_login import login_required
 from app.models import db, Venue
 
 
@@ -10,6 +10,26 @@ venue_routes = Blueprint('venues', __name__)
 def venue():
     venues = Venue.query.all()
     return {"venues":  [venue.to_dict() for venue in venues] }
+
+
+@venue_routes.route('/', methods=['POST'])
+@login_required
+def create():
+    form = VenueForm()
+    form['csrf_token'].data = request.cookies['csrf_token']
+    if form.validate_on_submit:
+        venue = Venue(
+            name = form.data['name'],
+            address = form.data['address'],
+            city = form.data['city'],
+            state = form.data['state'],
+            zip_code = form.data['zip_code'],
+            latitude = form.data['latitude'],
+            longitude = form.data['longitude'],
+        )
+        db.session.add(venue)
+        db.session.commit()
+        return event.to_dict()
 
 
 # @event_routes.route('/')

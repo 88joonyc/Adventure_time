@@ -5,6 +5,7 @@ import { useSelector, useDispatch  } from 'react-redux';
 
 
 import './Side_scroll.css'
+import all_slide_events from '../../store/side_event';
 
 const SideScroll = ({event_number}) => {
 
@@ -15,7 +16,7 @@ const SideScroll = ({event_number}) => {
 
 
     useEffect(() => {
-        // dispatch(promoter_events(1))
+        // dispatch(all_slide_events())
     }, [])
 
   let content = null

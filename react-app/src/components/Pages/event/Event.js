@@ -419,7 +419,7 @@ const unfollow = async (e) => {
           </div>
           {/* {// ===========================================insert===========================================================================} */}
             {map_panel}
-            <SideScroll />
+            {/* <SideScroll /> */}
             {ticket_panel}
 
           <FooterBar/>

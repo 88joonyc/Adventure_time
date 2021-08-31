@@ -7,6 +7,7 @@ import venues_reducer from './venue';
 import tickets_reducer from './ticket';
 import hearts_reducer from './heart';
 import followers_reducer from './follower';
+import side_events_reducer from './side_event';
 
 const rootReducer = combineReducers({
   session,
@@ -16,6 +17,7 @@ const rootReducer = combineReducers({
   tickets_reducer,
   hearts_reducer,
   followers_reducer,
+  side_events_reducer,
 });
 
 

@@ -21,7 +21,7 @@ const TicketPage = () => {
   const user = useSelector(state => state.session.user)
   const tickets = useSelector(state => (state?.tickets_reducer?.tickets));
   const hearts = useSelector(state => (state?.hearts_reducer?.hearts));
-  const follows = useSelector(state => (state?.followers_reducer?.followers));
+  const follows = useSelector(state => (state?.followers_reducer.followers));
 
   const dispatch = useDispatch();
 
@@ -115,20 +115,20 @@ const heart_content = (
 
 const follow_content = (
   <>
-    {/* {follow?.map(heart=> ( */}
+    {/* {follow?.map(heart=> */}
       {/* // <Link to={`/event/${heart?.event?.id}`} className='tix-link'> */}
           <div className="ticket-card">
-            {/* <img className="tix-card-img" src={heart?.event?.image}/> */}
+            <img className="tix-card-img" src={follow?.image}/>
             <div className='tix-card-info'>
               {/* <p className='tix-date'>{moment(heart?.event?.start_time).format('ddd, MMM Do, [at] LT')}</p> */}
               {/* <p className='tix-title'>{heart?.event?.name}</p> */}
             </div>
-            {/* <div className='register-button-container'>
-              <button type='button' className="unregister-tickets-page" value={tix.id} onClick={(e) => unregisterforthisevent(e)}>Unregister</button>
-            </div> */}
+            <div className='register-button-container'>
+              <button type='button' className="unregister-tickets-page" value={''} onClick={(e) => unregisterforthisevent(e)}>Unregister</button>
+            </div>
           </div>
       {/* // </Link> */}
-    {/* ))} */}
+    {/* )} */}
   </>
 )
 
@@ -147,7 +147,7 @@ const follow_content = (
                     <div className="user-marks">
                         <p className="user-stats">{user.tickets?.length} orders</p>
                         <p> * </p>
-                        <p className="user-stats">{user.hearts?.length} likes</p>
+                        <p className="user-stats">{user.hearts?.length} hearts</p>
                         <p> * </p>
                         <p className="user-stats">{user.following?.length} following</p>
                     </div>
