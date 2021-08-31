@@ -17,7 +17,7 @@ const HomePage = () => {
 const dispatch = useDispatch()
 
 const sessionUser = useSelector(state => state.session.user)
-const events = useSelector(state => state.events_reducer)
+const events = useSelector(state => state.events_reducer?.events)
 const category = useSelector(state => (state?.categories_reducer?.categories));
 const venue = useSelector(state => state?.venues_reducer?.venues);
 
@@ -67,7 +67,13 @@ useEffect( async() =>  {
     dispatch(all_venues())
     // dispatch(authenticate())
     // window.scroll(0, 0)
-}, [])
+}, [dispatch])
+
+const runonce = () => {
+    dispatch(eventActions.all_events())
+}
+
+
 
 /* --------------------------crud delete ----------------------------------------------------- */
 
@@ -340,7 +346,7 @@ let popular_bar = (
 
 /* -------------------------- cards------------ ------------------------------------------- */
 
-
+// const need = null
 const need = (
         <>
 

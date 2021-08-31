@@ -26,7 +26,7 @@ def unregistered():
         # event['heart'] = [ heart.to_dict() for heart in heart_query if heart.event_id == event['id'] and heart.user_id == current_user.id ]
         event['followers'] = [follower.to_dict() for follower in followers_query if follower.promoter_id == event['host_id']]
         # event['categories'] = Category.query.all()
-    return {'events': events}
+    return  events
 
 
 @event_routes.route('/')
@@ -163,7 +163,7 @@ def event(id):
         event['followers'] = [ follower.to_dict() for follower in (Follower.query.filter( Follower.promoter_id == event["host_id"])) ]
         event['following'] = [ my_follower.to_dict() for my_follower in Follower.query.filter( Follower.follower_id == current_user.id ) if event['host_id'] == my_follower.promoter_id ]
         event['promoter'] = [ promoter.to_dict() for promoter in Event.query.filter(Event.host_id == event['host_id']) ]
-    return {'events': events}
+    return event
 
 
 @event_routes.route('/', methods=['POST'])
