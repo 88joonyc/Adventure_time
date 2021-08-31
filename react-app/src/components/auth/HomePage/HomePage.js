@@ -39,6 +39,15 @@ const updateVenue = (e) => {
     setVenue(e.target.value)
 }
 
+useEffect( async() =>  {
+    dispatch(eventActions.all_events())
+    dispatch(all_categories())
+    dispatch(all_venues())
+    // dispatch(authenticate())
+    // window.scroll(0, 0)
+}, [dispatch])
+
+
 
 const handleEdit =  async (e) => {
     e.preventDefault()
@@ -60,14 +69,6 @@ const handleEdit =  async (e) => {
 }
 
 let content = null
-
-useEffect( async() =>  {
-    dispatch(eventActions.all_events())
-    dispatch(all_categories())
-    dispatch(all_venues())
-    // dispatch(authenticate())
-    // window.scroll(0, 0)
-}, [dispatch])
 
 
 
