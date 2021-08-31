@@ -83,6 +83,7 @@ def unregistered_search_by_category(id):
         event['followers'] = [follower.to_dict() for follower in followers_query if follower.promoter_id == event['host_id']]
     return {'events': events}
 
+
 @event_routes.route('/cost/splash/<int:id>')
 def unregistered_search_by_cost(id):
     events_query = Event.query.all()

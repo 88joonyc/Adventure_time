@@ -24,7 +24,7 @@ const EachEvent = () => {
   const [multiplier, setMultiplier] = useState('')
   const [overload, /*toggleOverload*/] = useState('false')
 
-  // const user = useSelector(state => state.session.user)
+  const user = useSelector(state => state.session.user)
   const ticket = useSelector(state => (state?.tickets_reducer?.tickets));
   const event = useSelector(state => (state?.events_reducer?.events));
   const follower = useSelector(state => (state?.followers_reducer?.followers));
@@ -40,13 +40,16 @@ const EachEvent = () => {
     window.scrollTo(0, 0)   // this take is to the top of the page
     runonce()
 
-  }, [eventId, dispatch])
+  }, [actionfollowers])
 
   const runonce = async () => {
     dispatch(actiontickets.one_ticket(eventId?.eventId))
     dispatch(actionfollowers.get_follower_with_promo(event?.events[0]?.host_id))
     dispatch(one_event(eventId?.eventId))
   }
+
+  runonce()
+
 
 // This is my ticket modal which pops up when green 'ticket' is pressed
 // ===========================================ticket panel===========================================================================
