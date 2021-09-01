@@ -59,9 +59,6 @@ const tickets_reducer = (state = initialState, action ) => {
     switch (action.type) {
         case LOAD:
            if (state) {
-                const all = {
-                    ...state
-                }
                 if (action.tickets.tickets[0]) {
                     return {"tickets": action.tickets.tickets }
                 }
@@ -71,7 +68,6 @@ const tickets_reducer = (state = initialState, action ) => {
 
         case REMOVE_TICKET:
             const data = {...state};
-            let tix = delete data[action.ticketId]
             return data
 
         default:

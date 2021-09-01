@@ -74,7 +74,7 @@ const unregisterforthisevent = async (e) => {
 const some_content = (
   <>
     {tickets?.map(tix=> (
-      <Link key={tix.id} to={`/event/${tix.event_id}`} className='tix-link'>
+      <Link key={tix?.id} to={`/event/${tix?.event_id}`} className='tix-link'>
           <div className="ticket-card">
             <img className="tix-card-img" src={tix.event.image}/>
             <div className='tix-card-info'>
@@ -96,7 +96,7 @@ const some_content = (
 const heart_content = (
   <>
     {hearts?.map(heart=> (
-      <Link key={heart.id} to={`/event/${heart?.event?.id}`} className='tix-link'>
+      <Link key={heart?.id} to={`/event/${heart?.event?.id}`} className='tix-link'>
           <div className="ticket-card">
             <img className="tix-card-img" src={heart?.event?.image}/>
             <div className='tix-card-info'>

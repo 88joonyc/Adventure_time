@@ -27,7 +27,7 @@ const NavBar = () => {
         dispatch(authenticate())
 
         return () => document.removeEventListener('click', closeMenu);
-    }, [showMenu, authenticate]);
+    }, [showMenu, authenticate, dispatch]);
 
   const openMenu = () => {
       if (showMenu) return;

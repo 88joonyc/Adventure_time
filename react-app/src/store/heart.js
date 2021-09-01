@@ -80,7 +80,6 @@ const hearts_reducer = (state = initialState, action ) => {
 
         case REMOVE_HEART:
             const data = {...state};
-            let heart = delete data[action.heardId]
             return data
 
         default:

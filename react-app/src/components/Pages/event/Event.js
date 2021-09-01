@@ -45,9 +45,9 @@ const EachEvent = () => {
 
   const runonce = async () => {
     dispatch(actiontickets.one_ticket(eventId?.eventId))
-    dispatch(one_event(eventId?.eventId))
-    dispatch(actionfollowers.get_follower_with_promo(Number(event?.events[0]?.host_id)))
-    dispatch(one_event(eventId?.eventId))
+    // dispatch(one_event(eventId?.eventId))
+    // dispatch(actionfollowers.get_follower_with_promo(Number(event?.events[0]?.host_id)))
+    // dispatch(one_event(eventId?.eventId))
   }
 
 
@@ -230,7 +230,7 @@ let promoter_panel = (
       <>
       {/* {event.id != eventId?.eventId ? ( */}
 
-        <Link key='' className='link-add' to={`/event/${event.id}`}>
+        <Link key='1' className='link-add' to={`/event/${event?.id}`}>
         <div className='promoter-events'>
           <div className='promoter-events-img-container'>
             <img alt='' className='promoter-event-img' src={event?.image}></img>

@@ -172,7 +172,7 @@ const need = (
                                 <div className="event-cards">
                                     {/* <h4>{event.host_id}</h4> */}
                                     <img src={event.image}/>
-                            <Link className='card-per' to={`/event/${event.id}`}>
+                            <Link className='card-per' to={`/event/${event?.id}`}>
                                     <div className='card-info-container'>
                                         <h2 className='card-print card-name-home'>{event?.name}</h2>
                                         {/* <p className='card-print'>{event.category.type}</p> */}

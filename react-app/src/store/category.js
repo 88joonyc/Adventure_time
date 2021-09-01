@@ -18,14 +18,6 @@ const categories_reducer = (state = initialState, action ) => {
     switch (action.type) {
         case LOAD:
             if (state) {
-                const all = {
-                    ...state
-                }
-                // if (action.categories.categories) {
-                //     action.categories.categories.forEach((category => {
-                //         cats.push(all[category.id] = category)
-                //     }))
-                // }
                 if (action.categories.categories) {
                     return {"categories": action.categories.categories }
                 }
