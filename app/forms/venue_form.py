@@ -9,5 +9,5 @@ class VenueForm(FlaskForm):
     city = StringField('city', validators=[DataRequired()])
     state = StringField('state', validators=[DataRequired()])
     zip_code = IntegerField('zip_code', validators=[DataRequired()])
-    latitude = IntegerField('latitude', validators=[DataRequired()])
-    longitude = IntegerField('longitude', validators=[DataRequired()])
+    latitude = StringField('latitude', validators=[DataRequired()])
+    longitude = StringField('longitude', validators=[DataRequired()])

@@ -1,6 +1,7 @@
 from flask import Blueprint, jsonify, request
 from flask_login import login_required
 from app.models import db, Venue
+from app.forms import VenueForm
 
 
 venue_routes = Blueprint('venues', __name__)

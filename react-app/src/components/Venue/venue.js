@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux'
 import { Redirect, Link, useHistory } from 'react-router-dom';
+import { create_venue } from '../../store/venue';
 
 import './venue.css'
 
@@ -22,16 +23,17 @@ const VenueForm = () => {
   }, [])
 
   const onSignUp = async (e) => {
-//     e.preventDefault();
-//     if (latitude === longitude) {
+    e.preventDefault();
+    if (latitude && longitude) {
 
-//       const data = await dispatch(signUp(name, city, state, (!zip_code ? 'https://zip_code.flaticon.com/icons/png/512/149/149071.png' : zip_code), latitude));
-//       if (data) {
-//         setErrors(data)
-//       }
-//     } else {
-//       setErrors(['latitudes must match! Please try again'])
-//     }
+      const data = await dispatch(create_venue(name, address, city, state, zip_code, Number(latitude), Number(longitude)));
+      if (data) {
+        setErrors(data)
+        history.push('/')
+      }
+    } else {
+      setErrors(['latitudes must match! Please try again'])
+    }
   };
 
   const updateName = (e) => {
@@ -62,9 +64,6 @@ const VenueForm = () => {
     setLongitude(e.target.value);
   };
 
-//   if (user) {
-//     return <Redirect to='/' />;
-//   }
 
   return (
     <div className='venue-form'>
