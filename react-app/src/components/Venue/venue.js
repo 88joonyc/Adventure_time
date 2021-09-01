@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux'
-import { Redirect, Link, useHistory } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 import { create_venue } from '../../store/venue';
 
 import './venue.css'
@@ -26,10 +26,11 @@ const VenueForm = () => {
     e.preventDefault();
     if (latitude && longitude) {
 
-      const data = await dispatch(create_venue(name, address, city, state, zip_code, Number(latitude), Number(longitude)));
-      history.push('/host')
+      const data = await dispatch(create_venue(name, address, city, state, Number(zip_code), Number(latitude), Number(longitude)));
       if (data) {
         setErrors(data)
+        window.alert('Venue created!')
+        history.go(0)
       }
     } else {
       setErrors(['latitudes must match! Please try again'])
@@ -152,6 +153,7 @@ const VenueForm = () => {
               required={true}
             ></input>
           </div>
+            <a>dont know how to add lat & long cooordingates?</a>
           <button className="verify-button" type='submit'>Create venue</button>
           {/* <button type='button' onClick={() => history.push('/')}>go back home</button> */}
         </form>
