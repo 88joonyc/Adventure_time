@@ -30,7 +30,7 @@ def create():
         )
         db.session.add(venue)
         db.session.commit()
-        return event.to_dict()
+        return venue.to_dict()
 
 
 # @event_routes.route('/')

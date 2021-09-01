@@ -27,9 +27,9 @@ const VenueForm = () => {
     if (latitude && longitude) {
 
       const data = await dispatch(create_venue(name, address, city, state, zip_code, Number(latitude), Number(longitude)));
+      history.push('/host')
       if (data) {
         setErrors(data)
-        history.push('/')
       }
     } else {
       setErrors(['latitudes must match! Please try again'])
@@ -70,9 +70,9 @@ const VenueForm = () => {
 
     <div className='singup-form'>
         <div>
-          {errors.map((error, ind) => (
+          {/* {errors.map((error, ind) => (
             <div className='error-messages' key={ind}>{error}</div>
-          ))}
+          ))} */}
         </div>
       <form onSubmit={onSignUp}>
           <div className="user-input-container">
