@@ -3,7 +3,6 @@ import { useSelector, useDispatch } from 'react-redux'
 import {  Link, useParams } from 'react-router-dom';
 // import { all_tickets } from '../../../store/ticket';
 // import CovBar from '../../NavBar/CovBar/CovBar';
-import SideScroll from '../../Side_scroll/Side_scroll';
 import FooterBar from '../../NavBar/Footer/Footer';
 import { one_event } from '../../../store/event';
 import * as actiontickets from '../../../store/ticket';
@@ -18,7 +17,6 @@ import { LoadScript } from '@react-google-maps/api';
 
 const EachEvent = () => {
   const eventId = useParams()
-  // const [errors, setErrors] = useState([]);
   const [panel, setPanel] = useState(false);
   const [ticketqty, setTicketQty] = useState(0)
   const [tier, setTier] = useState('')
@@ -31,10 +29,8 @@ const EachEvent = () => {
   const follower = useSelector(state => (state?.followers_reducer?.followers));
 
   const dispatch = useDispatch();
-  // const history = useHistory()
 
   useEffect( async () => {
-    // dispatch(actiontickets.one_ticket(eventId?.eventId))
     dispatch(one_event(eventId?.eventId))
     dispatch(actiontickets.one_ticket(eventId?.eventId))
     dispatch(actionfollowers.get_follower_with_promo(Number(event?.events[0]?.host_id)))
@@ -291,7 +287,7 @@ let promoter_panel = (
           <div className='map-info-map'>
 
           <div >
-            <Map style={{ height: '50vh', width: '10%' }} />
+            <Map props={{latitude: Number(event?.events[0]?.venue?.latitude), longitude:(event?.events[0]?.venue?.longitude), zoom:18}} style={{ height: '50vh', width: '10%' }} />
           </div>
 
 
@@ -409,7 +405,7 @@ const unfollow = async (e) => {
                       <p className="events-address-para">{event?.events[0]?.venue?.city}, {event?.events[0]?.venue?.state}</p>
                       <p className="events-address-para">{event?.events[0]?.venue?.zip_code}</p>
                       <p className="events-address-para">Lat: {event?.events[0]?.venue?.latitude} Lon: {event?.events[0]?.venue?.longitude} </p>
-                      <button>view map</button>
+                      <button className='view-map-button' onClick={() => window.scroll(0,1800)}>view map</button>
                     </div>
                     <p className="events-address-label">Refund Policy: </p>
                     <p  className="events-address-para">Contact the organizer to request a refund. Adventure Time's fee is nonrefundable. </p>
