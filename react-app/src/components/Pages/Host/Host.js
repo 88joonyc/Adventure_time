@@ -4,9 +4,9 @@ import {  useHistory } from 'react-router-dom';
 import { create_event  } from '../../../store/event';
 import { all_categories } from '../../../store/category';
 import { all_venues } from '../../../store/venue';
+import VenueForm from '../../Venue/venue';
 
 import './Host.css'
-import VenueForm from '../../Venue/venue';
 
 const HostForm = () => {
 //   const [errors, setErrors] = useState([]);
@@ -63,6 +63,7 @@ const HostForm = () => {
       venue_content = (
           <>
             <VenueForm />
+            <button className='venue-cancel-button' onClick={() => toggleVenue(!venue)}>X</button>
           </>
       )
   }

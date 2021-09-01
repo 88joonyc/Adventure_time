@@ -153,7 +153,7 @@ const VenueForm = () => {
             ></input>
           </div>
           <button className="verify-button" type='submit'>Create venue</button>
-          <button type='button' onClick={() => history.push('/')}>Cancel</button>
+          {/* <button type='button' onClick={() => history.push('/')}>go back home</button> */}
         </form>
       </div>
         <div className="venue-image-container">

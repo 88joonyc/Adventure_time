@@ -2,3 +2,23 @@
     content: url('./Screenshot-2019-09-24-at-16.21.06.png');
     height: 100%;
 }
+
+.venue-cancel-button {
+    position: fixed;
+    top: 50px;
+    right: 50px;
+    width: 70px;
+    height: 70px;
+    border-radius: 70px;
+    background-color: inherit;
+    border: 3px solid rgb(213, 213, 234);
+    color: white;
+    font-size: 40px;
+}
+
+.venue-cancel-button:hover {
+    background-color: rgba(220, 212, 212, 0.646);
+    color: rgb(237, 241, 247);
+    cursor: pointer;
+
+}
