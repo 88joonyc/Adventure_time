@@ -127,17 +127,17 @@ const EachEvent = () => {
               <p className='ticket-small-print'>Please call to confirm a reservation for your ticket. RSVP does not guarantee a reservation for seating. Admission prices/times are subject to change based on demand, special events, and/or holiday weekends.</p>
                 {!ticket?.length ? (
                 <select className='selecter' onChange={(e) => (setTicketQty(e.target.value), setTier('VIP Pass'), setMultiplier(25)) }>
-                <option key='' value='0'> - select quantity - </option>
-                <option key='' value='1'> - 1 - </option>
-                <option key='' value='2'> - 2 - </option>
-                <option key='' value='3'> - 3 - </option>
-                <option key='' value='4'> - 4 - </option>
-                <option key='' value='5'> - 5 - </option>     {/* this is not DRY!!!! CLEAN IT UP... later */}
-                <option key='' value='6'> - 6 - </option>
-                <option key='' value='7'> - 7 - </option>
-                <option key='' value='8'> - 8 - </option>
-                <option key='' value='9'> - 9 - </option>
-                <option key='' value='10'> - 10 - </option>
+                <option key='00' value='0'> - select quantity - </option>
+                <option key='1' value='1'> - 1 - </option>
+                <option key='2' value='2'> - 2 - </option>
+                <option key='3' value='3'> - 3 - </option>
+                <option key='4' value='4'> - 4 - </option>
+                <option key='5' value='5'> - 5 - </option>     {/* this is not DRY!!!! CLEAN IT UP... later */}
+                <option key='6' value='6'> - 6 - </option>
+                <option key='7' value='7'> - 7 - </option>
+                <option key='8' value='8'> - 8 - </option>
+                <option key='9' value='9'> - 9 - </option>
+                <option key='0' value='10'> - 10 - </option>
                 {/* {(n = 1) => {
                   while (n <= 10) {
                     <option value={n}> - {n} - </option>
@@ -151,17 +151,17 @@ const EachEvent = () => {
               <p className='ticket-small-print'>Advanced ticket purchase highly suggested.  Limited amount of tickets will be available the day of for a higher price due to capacity limitations at the venues.</p>
                 {!ticket?.length ? (
                 <select onChange={(e) => (setTicketQty(e.target.value), setTier('Advanced Ticketing'), setMultiplier(2))}>
-                <option key='' value='0'> - select quantity - </option>
-                <option key='' value='1'> - 1 - </option>
-                <option key='' value='2'> - 2 - </option>
-                <option key='' value='3'> - 3 - </option>
-                <option key='' value='4'> - 4 - </option>
-                <option key='' value='5'> - 5 - </option>
-                <option key='' value='6'> - 6 - </option>
-                <option key='' value='7'> - 7 - </option>
-                <option key='' value='8'> - 8 - </option>
-                <option key='' value='9'> - 9 - </option>
-                <option key='' value='10'> - 10 - </option>
+                <option key='00' value='0'> - select quantity - </option>
+                <option key='1' value='1'> - 1 - </option>
+                <option key='2' value='2'> - 2 - </option>
+                <option key='3' value='3'> - 3 - </option>
+                <option key='4' value='4'> - 4 - </option>
+                <option key='5' value='5'> - 5 - </option>
+                <option key='6' value='6'> - 6 - </option>
+                <option key='7' value='7'> - 7 - </option>
+                <option key='8' value='8'> - 8 - </option>
+                <option key='9' value='9'> - 9 - </option>
+                <option key='0' value='10'> - 10 - </option>
                 {/* {(n = 1) => {
                   while (n <= 10) {
                     <option value={n}> - {n} - </option>
@@ -175,17 +175,17 @@ const EachEvent = () => {
               <p className='ticket-small-print'>Event Admission; Express Check-In; Non-Refundable; Call For VIP Table Service</p>
               {!ticket?.length ? (
               <select onChange={(e) => (setTicketQty(e.target.value), setTier("General Admission"), setMultiplier(1))}>
-                <option key='' value='0'> - select quantity - </option>
-                <option key='' value='1'> - 1 - </option>
-                <option key='' value='2'> - 2 - </option>
-                <option key='' value='3'> - 3 - </option>
-                <option key='' value='4'> - 4 - </option>
-                <option key='' value='5'> - 5 - </option>
-                <option key='' value='6'> - 6 - </option>
-                <option key='' value='7'> - 7 - </option>
-                <option key='' value='8'> - 8 - </option>
-                <option key='' value='9'> - 9 - </option>
-                <option key='' value='10'> - 10 - </option>
+                <option key='00' value='0'> - select quantity - </option>
+                <option key='1' value='1'> - 1 - </option>
+                <option key='2' value='2'> - 2 - </option>
+                <option key='3' value='3'> - 3 - </option>
+                <option key='4' value='4'> - 4 - </option>
+                <option key='5' value='5'> - 5 - </option>
+                <option key='6' value='6'> - 6 - </option>
+                <option key='7' value='7'> - 7 - </option>
+                <option key='8' value='8'> - 8 - </option>
+                <option key='9' value='9'> - 9 - </option>
+                <option key='0' value='10'> - 10 - </option>
                 {/* {(n = 1) => {
                   while (n <= 10) {
                     <option value={n}> - {n} - </option>
@@ -278,7 +278,7 @@ let promoter_panel = (
             </div>
           </div>
               <div className='map-info-marker'>
-            <p className='follower-number'>{  follower ? <button value={follower[0]?.id} onClick={(e) => unfollow(e) } className='unfollow-me-button'>following</button> : <button onClick={() => follow()} className='follow-me-button'>follow</button> }</p>
+            { event?.events[0]?.host_id !== user.id ? <p className='follower-number'>{  ( follower ) ? <button value={follower[0]?.id} onClick={(e) => unfollow(e) } className='unfollow-me-button'>following</button> : <button onClick={() => follow()} className='follow-me-button'>follow</button> }</p> : null}
                 </div>
         </div>
         {promoter_panel}
@@ -354,14 +354,14 @@ const unfollow = async (e) => {
                   {(event?.events[0]?.name.toString().length > 100) ? <p className='events-page-card-naem-very-long'>{event?.events[0]?.name}</p> : null /*<p className='events-page-card-naem-short'>{event?.events[0]?.name}</p> */ }
                   <p className='event-card-basic-info event-name-info'>By: {event?.events[0]?.host?.first_name} {event?.events[0]?.host?.last_name} </p>
                   <p className='event-card-basic-info'>Contact: {event?.events[0]?.host?.email} </p>
-                  <p className='follower-number'>{event?.events[0]?.followers?.length} followers { follower ? <button value={follower[0]?.id} onClick={(e) => unfollow(e) } className='unfollow-me-button'>following</button> : <button onClick={() => follow()} className='follow-me-button'>follow</button> }</p>
-                  <p className='ticket-message'>{ticket ? <p className='ticket-message-inner'> You are going! </p> : <p className='ticket-message-inner'> You are not going! </p>  }</p>
+                  { event?.events[0]?.host_id !== user.id ?  <p className='follower-number'>{event?.events[0]?.followers?.length} followers { follower ? <button value={follower[0]?.id} onClick={(e) => unfollow(e) } className='unfollow-me-button'>following</button> : <button onClick={() => follow()} className='follow-me-button'>follow</button> }</p>: null}
+                  { event?.events[0]?.host_id !== user.id ?  <p className='ticket-message'>{ticket ? <p className='ticket-message-inner'> You are going! </p> : <p className='ticket-message-inner'> You are not going! </p>  }</p>: <p className='ticket-message-inner'> This is your event! </p>  }
                   {event?.events[0]?.cost ? <p className='ticket-prices-start'>Tickets start at: ${event?.events[0]?.cost}</p> : <p className='ticket-prices-start'>Free</p>}
                 </div>
               </div>
             </div>
             <div className="purchase-tix-bar">
-                <button type='button' onClick={() => (setPanel(!panel))} className='ticket-button'>Tickets</button>
+                { event?.events[0]?.host_id !== user.id ?   <button type='button' onClick={() => (setPanel(!panel))} className='ticket-button'>Tickets</button> : null}
             </div>
             <div className='event-page-bot-grid'>
               <div className='events-main-cont-container'>

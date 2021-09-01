@@ -16,7 +16,7 @@ const TicketPage = () => {
   // const [errors, setErrors] = useState([]);
   const [orders, toggleOrders] = useState(true);
   const [hearted, toggleHearts] = useState(false);
-  const [follow, toggleFollow] = useState(false);
+  // const [follow, toggleFollow] = useState(false);
 
   const user = useSelector(state => state.session.user)
   const tickets = useSelector(state => (state?.tickets_reducer?.tickets));
@@ -74,7 +74,7 @@ const unregisterforthisevent = async (e) => {
 const some_content = (
   <>
     {tickets?.map(tix=> (
-      <Link to={`/event/${tix.event_id}`} className='tix-link'>
+      <Link key={tix.id} to={`/event/${tix.event_id}`} className='tix-link'>
           <div className="ticket-card">
             <img className="tix-card-img" src={tix.event.image}/>
             <div className='tix-card-info'>
@@ -96,7 +96,7 @@ const some_content = (
 const heart_content = (
   <>
     {hearts?.map(heart=> (
-      <Link to={`/event/${heart?.event?.id}`} className='tix-link'>
+      <Link key={heart.id} to={`/event/${heart?.event?.id}`} className='tix-link'>
           <div className="ticket-card">
             <img className="tix-card-img" src={heart?.event?.image}/>
             <div className='tix-card-info'>
@@ -118,7 +118,7 @@ const follow_content = (
     {/* {follow?.map(heart=> */}
       {/* // <Link to={`/event/${heart?.event?.id}`} className='tix-link'> */}
           <div className="ticket-card">
-            <img className="tix-card-img" src={follow?.image}/>
+            {/* <img className="tix-card-img" src={follow?.image}/> */}
             <div className='tix-card-info'>
               {/* <p className='tix-date'>{moment(heart?.event?.start_time).format('ddd, MMM Do, [at] LT')}</p> */}
               {/* <p className='tix-title'>{heart?.event?.name}</p> */}

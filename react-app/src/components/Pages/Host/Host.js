@@ -139,9 +139,9 @@ if (!category) {
                                         required="true"
                                         className='host-input'
                                     >
-                                        <option>select</option>
+                                        <option key='00'>select</option>
                                         {category?.map(cat => (
-                                            <option value={cat?.id}>{cat?.type}</option>
+                                            <option key={cat.id} value={cat?.id}>{cat?.type}</option>
                                         ))}
                                     </select>
                                     <b className="required">Category is required*</b>
@@ -178,9 +178,9 @@ if (!category) {
                                     required="true"
                                     className='host-input'
                                 >
-                                    <option>select</option>
+                                    <option key='00'>select</option>
                                     {venue?.map(ven => (
-                                        <option value={ven.id}>{ven.name}, address: {ven.address} {ven.city}, {ven.state}</option>
+                                        <option key={ven.id} value={ven.id}>{ven.name}, address: {ven.address} {ven.city}, {ven.state}</option>
                                     ))}
                                 </select>
                             </label>

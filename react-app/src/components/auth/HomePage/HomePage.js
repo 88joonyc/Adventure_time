@@ -112,7 +112,7 @@ if (editForm) {
                                 required="true"
                                 className='edit-input longer'
                             >
-                                <option key=''>select</option>
+                                <option key='00'>select</option>
                                 {venue?.map(ven => (
                                     <option key={ven.id} value={ven.id}>{ven.name}, address: {ven.address} {ven.city}, {ven.state}</option>
                                 ))}
@@ -135,7 +135,7 @@ if (editForm) {
                                     required="true"
                                     className='edit-input longer'
                                 >
-                                    <option key=''>select</option>
+                                    <option key='00'>select</option>
                                     {category?.map(cat => (
                                         <option key={cat.id} value={cat.id}>{cat.type}</option>
                                     ))}
