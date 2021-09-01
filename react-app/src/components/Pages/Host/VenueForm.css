@@ -1,0 +1,27 @@
+.create_venue_button {
+    border: none;
+    background-color: inherit;
+    color: blue;
+    margin-left: 20px;
+}
+
+.create_venue_button:hover {
+    cursor: pointer;
+    box-shadow: 3px 3px 10px cadetblue;
+    transition: ease-in-out 2s;
+    border-radius: 4px;
+}
+
+.venue-form {
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: rgb(242, 242, 242);
+    width: 100%;
+    height: 100%;
+    display: grid;
+    grid-template-columns: repeat(2, 50%);
+    /* background-color: rgb(249, 250, 252); */
+}
+
+.venue-form {}

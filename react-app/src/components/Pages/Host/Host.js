@@ -67,6 +67,9 @@ const HostForm = () => {
       )
   }
 
+
+
+
   const filter = (memory, query) => {
       return memory?.filter((brain) => {
           const venue_name = brain.name.toLowerCase()
@@ -180,8 +183,8 @@ if (!category) {
                                     ))}
                                 </select>
                             </label>
-                            <b className="required">Venue is required*</b>
-                            <b className="required">Dont see a Venue you like? create one here <button type='button' onClick={() => toggleVenue(!venumenu)}>create</button></b>
+                            <b className="required">Venue is required*</b> <br/>
+                            <b className="required">Dont see a Venue you like? create one here <button className='create_venue_button' type='button' onClick={() => toggleVenue(!venumenu)}>create</button></b>
                         </div>
                     </div>
                     <div className="host-card">

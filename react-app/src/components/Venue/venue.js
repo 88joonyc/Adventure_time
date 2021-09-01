@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux'
-import { Redirect, Link } from 'react-router-dom';
+import { Redirect, Link, useHistory } from 'react-router-dom';
 
-// import './SignUpForm.css'r
+import './venue.css'
 
 const VenueForm = () => {
   const [errors, setErrors] = useState([]);
@@ -15,6 +15,7 @@ const VenueForm = () => {
   const [longitude, setLongitude] = useState('');
 
   const dispatch = useDispatch();
+  const history = useHistory()
 
   useEffect(() => {
     window.scroll(0, 0)
@@ -66,16 +67,9 @@ const VenueForm = () => {
 //   }
 
   return (
-    <div className='signup-form-container'>
-      <div className="signup-zip_code-container">
-        <div className="signup-zip_code-space">
-          <div className='signup-imaage'></div>
-        </div>
-      </div>
+    <div className='venue-form'>
+
     <div className='singup-form'>
-        <Link to="/">
-          <img className="logo-zip_code-container"/>
-        </Link>
         <div>
           {errors.map((error, ind) => (
             <div className='error-messages' key={ind}>{error}</div>
@@ -83,7 +77,7 @@ const VenueForm = () => {
         </div>
       <form onSubmit={onSignUp}>
           <div className="user-input-container">
-            <label className='input-label'>First Name</label>
+            <label className='input-label'>Venue name</label>
             <input
               type='text'
               name='name'
@@ -94,7 +88,18 @@ const VenueForm = () => {
             ></input>
           </div>
           <div className="user-input-container">
-            <label className='input-label'>Last Name</label>
+            <label className='input-label'>Address</label>
+            <input
+              type='text'
+              name='city'
+              className="user-input"
+              onChange={updateAddress}
+              value={address}
+              required={true}
+            ></input>
+          </div>
+          <div className="user-input-container">
+            <label className='input-label'>City</label>
             <input
               type='text'
               name='city'
@@ -105,7 +110,7 @@ const VenueForm = () => {
             ></input>
           </div>
           <div className="user-input-container">
-            <label className='input-label'>state</label>
+            <label className='input-label'>State</label>
             <input
               type='state'
               name='state'
@@ -116,7 +121,7 @@ const VenueForm = () => {
             ></input>
           </div>
           <div className="user-input-container">
-            <label className='input-label'>zip_code url</label>
+            <label className='input-label'>Zip code</label>
             <input
               type='text'
               name='zip_code'
@@ -126,7 +131,7 @@ const VenueForm = () => {
             ></input>
           </div>
           <div className="user-input-container">
-            <label className='input-label'>latitude</label>
+            <label className='input-label'>latitude coordintate</label>
             <input
               type='latitude'
               name='latitude'
@@ -138,7 +143,7 @@ const VenueForm = () => {
             ></input>
           </div>
           <div className="user-input-container">
-            <label className='input-label'>Repeat latitude</label>
+            <label className='input-label'>Longitude coordintate</label>
             <input
               type='latitude'
               name='repeat_latitude'
@@ -148,10 +153,15 @@ const VenueForm = () => {
               required={true}
             ></input>
           </div>
-          <button className="verify-button" type='submit'>Sign Up</button>
-          <Link to='/login'>Log In</Link>
+          <button className="verify-button" type='submit'>Create venue</button>
+          <button type='button' onClick={() => history.push('/')}>Cancel</button>
         </form>
       </div>
+        <div className="venue-image-container">
+          {/* <div className="signup-image-space"> */}
+            {/* <div className='venue-imaage'></div> */}
+          {/* </div> */}
+        </div>
     </div>
   );
 };

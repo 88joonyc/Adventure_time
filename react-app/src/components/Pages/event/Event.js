@@ -36,7 +36,7 @@ const EachEvent = () => {
     dispatch(actionfollowers.get_follower_with_promo(Number(event?.events[0]?.host_id)))
     window.scrollTo(0, 0)   // this take is to the top of the page
 
-  }, [dispatch, eventId])
+  }, [dispatch, eventId, event?.events[0]?.host_id])
 
   window.addEventListener('load' , e => {
     e.preventDefault()

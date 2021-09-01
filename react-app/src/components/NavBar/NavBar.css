@@ -6,7 +6,7 @@
     justify-content: space-between;
     margin-top: -10px;
     z-index: 1;
-    border-bottom: 1px solid rgb(243, 243, 251);
+    border-bottom: 1px solid rgba(203, 203, 230, 0.42);
 }
 
 .searchbar-container {
