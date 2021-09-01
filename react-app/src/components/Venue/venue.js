@@ -6,7 +6,7 @@ import { create_venue } from '../../store/venue';
 import './venue.css'
 
 const VenueForm = () => {
-  const [errors, setErrors] = useState([]);
+  // const [errors, setErrors] = useState([]);
   const [name, setName] = useState('');
   const [address, setAddress] = useState('');
   const [city, setCity] = useState('');
@@ -28,12 +28,9 @@ const VenueForm = () => {
 
       const data = await dispatch(create_venue(name, address, city, state, Number(zip_code), Number(latitude), Number(longitude)));
       if (data) {
-        setErrors(data)
         window.alert('Venue created!')
         history.go(0)
       }
-    } else {
-      setErrors(['latitudes must match! Please try again'])
     }
   };
 
@@ -85,6 +82,7 @@ const VenueForm = () => {
               onChange={updateName}
               value={name}
               required={true}
+              maxLength={255}
             ></input>
           </div>
           <div className="user-input-container">
@@ -96,6 +94,7 @@ const VenueForm = () => {
               onChange={updateAddress}
               value={address}
               required={true}
+              maxLength={150}
             ></input>
           </div>
           <div className="user-input-container">
@@ -107,6 +106,7 @@ const VenueForm = () => {
               onChange={updateCity}
               value={city}
               required={true}
+              maxLength={50}
             ></input>
           </div>
           <div className="user-input-container">
@@ -118,34 +118,35 @@ const VenueForm = () => {
               onChange={updateState}
               value={state}
               required={true}
+              maxLength={50}
             ></input>
           </div>
           <div className="user-input-container">
             <label className='input-label'>Zip code</label>
             <input
-              type='text'
+              type='number'
               name='zip_code'
               className="user-input"
               onChange={updateZip}
               value={zip_code}
+              required={true}
             ></input>
           </div>
           <div className="user-input-container">
             <label className='input-label'>latitude coordintate</label>
             <input
-              type='latitude'
+              type='number'
               name='latitude'
               className="user-input"
               onChange={updateLatitude}
               value={latitude}
               required={true}
-              min="6"
             ></input>
           </div>
           <div className="user-input-container">
             <label className='input-label'>Longitude coordintate</label>
             <input
-              type='latitude'
+              type='number'
               name='repeat_latitude'
               className="user-input"
               onChange={updateLongitude}
@@ -153,15 +154,11 @@ const VenueForm = () => {
               required={true}
             ></input>
           </div>
-            <a>dont know how to add lat & long cooordingates?</a>
+            <a className='hover-latlng-msg'>dont know how to add lat & long cooordingates?</a>
           <button className="verify-button" type='submit'>Create venue</button>
-          {/* <button type='button' onClick={() => history.push('/')}>go back home</button> */}
         </form>
       </div>
         <div className="venue-image-container">
-          {/* <div className="signup-image-space"> */}
-            {/* <div className='venue-imaage'></div> */}
-          {/* </div> */}
         </div>
     </div>
   );

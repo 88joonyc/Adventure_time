@@ -3,6 +3,15 @@ from wtforms import StringField, DateField, IntegerField, DateTimeField, TextAre
 from wtforms.validators import DataRequired, Email, ValidationError
 
 
+def user_exists(form, field):
+    # Checking if user exists
+    venue = field.data
+    user = Venue.query.filter(name.email == email).first()
+    if not user:
+        raise ValidationError('Email provided not found.')
+
+
+
 class VenueForm(FlaskForm):
     name = StringField('name', validators=[DataRequired()])
     address = StringField('address', validators=[DataRequired()])

@@ -188,22 +188,7 @@ def create():
         db.session.commit()
         return event.to_dict()
 
-@event_routes.route('/edit/<int:id>', methods=['PUT'])
-@login_required
-def edit(id):
-    event = Event.query.get(id)
-    form = EventForm()
-    event.venue_id = form.data['venue_id']
-    event.category_id = form.data['category_id']
-    event.name = form.data['name']
-    event.description = form.data['description']
-    event.start_time = form.data['start_time']
-    event.end_time = form.data['end_time']
-    event.capacity = form.data['capacity']
-    event.image = form.data['image']
-    event.cost = form.data['cost']
-    db.session.commit()
-    return event.to_dict()
+
 
 @event_routes.route('/remove/<int:id>', methods=['DELETE'])
 @login_required

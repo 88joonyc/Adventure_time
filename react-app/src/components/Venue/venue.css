@@ -25,6 +25,9 @@
 .verify-button:hover {
     box-shadow: 3px 3px 10px black;
     transition: all ease .6s;
-
     cursor: pointer;
+}
+
+.hover-latlng-msg {
+
 }

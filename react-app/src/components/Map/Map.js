@@ -13,8 +13,16 @@ function Map({props}) {
 
   const [map, setMap] = React.useState(null)
 
+  // const Marker = (('42', '-37') => (
+  //   <>
+  //     <div>
+  //       <img src='23kbr2' />
+  //     </div>
+  //   </>
+  // ))
+
   const onLoad = React.useCallback(function callback(map) {
-    const res = new window.google.maps.LatLngBounds( );
+    const res = new window.google.maps.LatLngBounds();
     map.fitBounds(res);
     setMap(map)
   }, [])
@@ -23,12 +31,22 @@ function Map({props}) {
     setMap(null)
   }, [])
 
+  // const dismap = new window.google.maps.Map({
+  //   zoom: 18
+  // })
+
+
+
+  const here = new window.google.maps.Marker({
+    position: {lat:props.latitude, lng:props.longitude},
+    map: map,
+
+  })
+
   return true ? (
       <GoogleMap
         mapContainerStyle={dimensions}
-        center={{lat: props.latitude, lng:props.longitude} }
-        defaultZoom={18}
-        zoom={18}
+        center={{lat: props.latitude, lng:props.longitude}}
         onLoad={onLoad}
         onUnmount={onUnmount}
       >

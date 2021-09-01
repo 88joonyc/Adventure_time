@@ -9,6 +9,7 @@ import * as eventActions from '../../../store/event'
 import * as heartActions from '../../../store/heart'
 import { all_categories } from '../../../store/category';
 import { all_venues } from '../../../store/venue';
+import { authenticate } from '../../../store/session';
 
 
 
@@ -65,6 +66,7 @@ useEffect( () =>  {
     dispatch(eventActions.all_events())
     dispatch(all_categories())
     dispatch(all_venues())
+    dispatch(authenticate())
     // dispatch(authenticate())
     // window.scroll(0, 0)
 }, [dispatch])

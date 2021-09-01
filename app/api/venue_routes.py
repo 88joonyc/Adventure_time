@@ -6,6 +6,12 @@ from app.forms import VenueForm
 
 venue_routes = Blueprint('venues', __name__)
 
+def validation_errors_to_error_messages(validation_errors):
+    errorMessages = []
+    for field in validation_errors:
+        for error in validation_errors[field]:
+            errorMessages.append(f'{field} : {error}')
+    return errorMessages
 
 @venue_routes.route('/')
 def venue():
@@ -31,6 +37,7 @@ def create():
         db.session.add(venue)
         db.session.commit()
         return venue.to_dict()
+    return {'errors': validation_errors_to_error_messages(form.errors)}, 401
 
 
 # @event_routes.route('/')
