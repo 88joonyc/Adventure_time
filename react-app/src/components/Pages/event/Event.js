@@ -45,9 +45,9 @@ const EachEvent = () => {
 
   const runonce = async () => {
     dispatch(actiontickets.one_ticket(eventId?.eventId))
-    // dispatch(one_event(eventId?.eventId))
-    // dispatch(actionfollowers.get_follower_with_promo(Number(event?.events[0]?.host_id)))
-    // dispatch(one_event(eventId?.eventId))
+    dispatch(one_event(eventId?.eventId))
+    dispatch(actionfollowers.get_follower_with_promo(Number(event?.events[0]?.host_id)))
+    dispatch(one_event(eventId?.eventId))
   }
 
 
