@@ -29,5 +29,29 @@
 }
 
 .hover-latlng-msg {
+    width: 50px;
+    height: 50px;
+    font-size: medium;
+    position: fixed;
+    left: 40%;
+    color: rgb(130, 121, 121);
 
+    /* padding-left: 370px; */
+}
+
+.hover-latlng-msg:hover {
+    cursor: pointer;
+    content: url(./Screen\ Shot\ 2021-09-01\ at\ 3.38.34\ PM.png);
+    width: 400px;
+    height: 330px;
+    position: fixed;
+    top: 300px;
+    right: 300px;
+    border: 1px solid black;
+    box-shadow: 3px 3px 10px blue;
+}
+
+.lat-coord {
+    display: flex;
+    flex-direction: column;
 }

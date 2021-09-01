@@ -142,6 +142,7 @@ const VenueForm = () => {
               value={latitude}
               required={true}
             ></input>
+            <div className=''><div className='hover-latlng-msg'>?</div></div>
           </div>
           <div className="user-input-container">
             <label className='input-label'>Longitude coordintate</label>
@@ -154,7 +155,6 @@ const VenueForm = () => {
               required={true}
             ></input>
           </div>
-            <a className='hover-latlng-msg'>dont know how to add lat & long cooordingates?</a>
           <button className="verify-button" type='submit'>Create venue</button>
         </form>
       </div>
