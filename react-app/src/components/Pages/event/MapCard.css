@@ -59,12 +59,14 @@
     margin-bottom: 80px;
     margin-top: 30px;
 }
+
 .view-map-button {
     border: 1px solid rgb(23, 75, 26);
     background-color: rgb(167, 220, 167);
     color: rgb(17, 30, 42);
     border-radius: 3px;
 }
+
 .view-map-button:hover {
     border: 1px solid red;
     cursor: pointer;
@@ -73,6 +75,7 @@
     color: wheat;
     transition: all ease 5.5s;
 }
+
 
 /* ======================more from this ========================================================== */
 
@@ -157,4 +160,25 @@
     width: 400px;
     border-radius: 400px;
     border: 1px solid rgb(205, 205, 227);
+}
+
+
+/* ======================icons ========================================================== */
+
+.icon-set {
+    height: 15px;
+    width: 15px;
+    border: none;
+}
+.icon-plane {
+    content: url(./48.png);
+}
+.icon-person {
+    content: url(./18.png);
+}
+.icon-bike {
+    content: url(./22-skull-n-crossbones.png);
+}
+.icon-car {
+    content: url(./23-bird.png);
 }

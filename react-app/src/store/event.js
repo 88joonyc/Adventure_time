@@ -151,7 +151,7 @@ const events_reducer = (state = initialState, action ) => {
         //     }
         // }
         case ADD_EVENT:
-            return { ...state, events: action.events }
+            return {events: action.events }
 
         case REMOVE_EVENT:
             const data = {...state};

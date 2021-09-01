@@ -300,10 +300,10 @@ let promoter_panel = (
           <div className='map-info-map-big'>{event?.events[0]?.venue?.name}</div>
           <div className='map-info-map-small'>{event?.events[0]?.venue?.address} {event?.events[0]?.venue?.city}, {event?.events[0]?.venue?.state } {event?.events[0]?.venue?.zip_code}</div>
           <div className='map-info-map-icons'>
-            <div>1</div>
-            <div>2</div>
-            <div>3</div>
-            <div>4</div>
+            <div><img className='icon-set icon-plane'/></div>
+            <div><img className='icon-set icon-person'/></div>
+            <div><img className='icon-set icon-bike'/></div>
+            <div><img className='icon-set icon-car'/></div>
           </div>
         </div>
 
@@ -422,9 +422,5 @@ const unfollow = async (e) => {
         </>
   );
 };
-
-
-
-
 
 export default EachEvent;

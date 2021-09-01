@@ -65,7 +65,7 @@ const followers_reducer = (state = initialState, action ) => {
 
             }
         case ADD_FOLLOWER:
-            return {...state, events: action.events }
+            return { events: action.events }
 
         case REMOVE_FOLLOWER:
             const data = {...state};

@@ -20,7 +20,7 @@ def seed_users():
     jo = User(
         first_name='Em', last_name='N-em', email='mnm@aa.io', image='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQuCe1SMBI0RPkDKP0E_We4fqaHAsCP2QPQXA&usqp=CAU', password='password')
     ho = User(
-        first_name='john', last_name='Taylor', email='fat@ss.io', image='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRI4nSX6toZdVgbLo8qsUD1GMRQk4kdH3Hshw&usqp=CAU', password='password')
+        first_name='johnny', last_name='Tay', email='fas@ss.io', image='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRI4nSX6toZdVgbLo8qsUD1GMRQk4kdH3Hshw&usqp=CAU', password='password')
     fo = User(
         first_name='Beanie', last_name='John', email='dork@aa.io', image='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR4vHIamzJkFYpq7ZoNdPajkoufkFI5OFHPBw&usqp=CAU', password='password')
     show = User(
