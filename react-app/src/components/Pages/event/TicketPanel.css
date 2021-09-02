@@ -99,6 +99,7 @@
     height: 100%;
     width: 40%;
     color: rgb(235, 242, 240);
+    border-radius: 2px;
 }
 
 .unregister-button:hover {
@@ -124,6 +125,21 @@
 }
 
 .registering-buttons {}
+
+.cancel-ticket-qty {
+    margin-left: 20px;
+    height: 100%;
+    width: 20%;
+    background-color: rgb(177, 74, 74);
+    border-radius: 2px;
+    color: rgb(235, 242, 240);
+}
+
+.cancel-ticket-qty:hover {
+    box-shadow: 3px 3px 13px rgb(184, 150, 150);
+    cursor: pointer;
+    transition: ease 2.2s;
+}
 
 .register-button-contaienr {
     display: flex;

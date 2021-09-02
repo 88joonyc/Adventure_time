@@ -60,9 +60,13 @@ const EachEvent = () => {
     const id = event?.events[0]?.id
     const message = window.confirm(`Are you sure you want to purchase ${ticketqty} tickets for $${(ticketqty * event?.events[0]?.cost + ticketqty * event?.events[0]?.cost * .15) * multiplier}?`)
     if (message) {
-      await dispatch(actiontickets.create_ticket(id))
-      window.alert("purchase has been made!")
-      setPanel(!panel)
+      if (ticketqty < event?.events[0]?.capacity) {
+        await dispatch(actiontickets.create_ticket(id))
+        window.alert("purchase has been made!")
+        setPanel(!panel)
+      } else {
+        window.alert('you cannot purchase that many tickets!')
+      }
     }
     runonce()
   }
@@ -78,7 +82,7 @@ const EachEvent = () => {
   let shoppingcart = (
     <>
     <div className='shopping-cart'>
-      <img alt='' className="no-quantity-shopping"/>
+      <img alt='shop' className="no-quantity-shopping"/>
     </div>
     </>
   )
@@ -114,6 +118,10 @@ const EachEvent = () => {
 
 // ===========================================shopping===========================================================================
 
+const cancelticketq = () => {
+  setTicketQty('')
+}
+
   if (panel) {
     ticket_panel = (
       <>
@@ -124,9 +132,9 @@ const EachEvent = () => {
             <div className='ticketing-panel-info'>
               VIP Pass
               <p className='ticket-small-print'>Please call to confirm a reservation for your ticket. RSVP does not guarantee a reservation for seating. Admission prices/times are subject to change based on demand, special events, and/or holiday weekends.</p>
-                {!ticket?.length ? (
+                {!ticket?.length && !ticketqty? (
                 <select className='selecter' onChange={(e) => (setTicketQty(e.target.value), setTier('VIP Pass'), setMultiplier(25)) }>
-                <option key='00' value='0'> - select quantity - </option>
+                <option key='00' value=''> - select quantity - </option>
                 <option key='1' value='1'> - 1 - </option>
                 <option key='2' value='2'> - 2 - </option>
                 <option key='3' value='3'> - 3 - </option>
@@ -148,9 +156,9 @@ const EachEvent = () => {
             <div className='ticketing-panel-info'>
               Advanced Ticketing
               <p className='ticket-small-print'>Advanced ticket purchase highly suggested.  Limited amount of tickets will be available the day of for a higher price due to capacity limitations at the venues.</p>
-                {!ticket?.length ? (
+                {!ticket?.length && !ticketqty ?  (
                 <select onChange={(e) => (setTicketQty(e.target.value), setTier('Advanced Ticketing'), setMultiplier(2))}>
-                <option key='00' value='0'> - select quantity - </option>
+                <option key='00' value=''> - select quantity - </option>
                 <option key='1' value='1'> - 1 - </option>
                 <option key='2' value='2'> - 2 - </option>
                 <option key='3' value='3'> - 3 - </option>
@@ -172,9 +180,9 @@ const EachEvent = () => {
             <div className='ticketing-panel-info'>
               General Admission (Door)
               <p className='ticket-small-print'>Event Admission; Express Check-In; Non-Refundable; Call For VIP Table Service</p>
-              {!ticket?.length ? (
+              {!ticket?.length && !ticketqty ? (
               <select onChange={(e) => (setTicketQty(e.target.value), setTier("General Admission"), setMultiplier(1))}>
-                <option key='00' value='0'> - select quantity - </option>
+                <option key='00' value=''> - select quantity - </option>
                 <option key='1' value='1'> - 1 - </option>
                 <option key='2' value='2'> - 2 - </option>
                 <option key='3' value='3'> - 3 - </option>
@@ -197,13 +205,14 @@ const EachEvent = () => {
             <div className='register-button-contaienr'>
           <div className='registering-buttons'>
             {ticket ? <button onClick={(e) => unregisterforthisevent(e)} className="unregister-button">unregister</button> : ( Number(ticketqty) !== 0 ? <button onClick={(e) => registerforthisevent(e)} className="register-button">register</button> : null )}
+            {ticketqty ? <button type='button' className='cancel-ticket-qty' onClick={() => cancelticketq()}>cancel</button> : null}
           </div>
             </div>
           </div>
           <div>
               <div className='ticket-image-container'>
                   <button onClick={() => setPanel(!panel) } className="ticket-cancel-button">X</button>
-                  <img alt='' className='ticketing-image' src={event?.events[0]?.image}/>
+                  <img alt='tix' className='ticketing-image' src={event?.events[0]?.image}/>
               </div>
             <div className='ticketing-calculate-panel'>
                 <div className='cost-panel'>
