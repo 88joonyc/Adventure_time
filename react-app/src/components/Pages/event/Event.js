@@ -264,7 +264,7 @@ let promoter_panel = (
 
         <div>
           <div className='map-info-marker map-info-marker-top'>
-            <div>
+            <div className='map-info-holder'>
               <img alt='' className='map-info-marker-pic'src={event?.events[0]?.host?.image} />
             <div className='map-info-naem'>
               <div className='map-info-marker'>{event?.events[0]?.host?.first_name}</div>

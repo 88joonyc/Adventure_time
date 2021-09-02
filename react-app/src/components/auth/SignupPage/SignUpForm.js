@@ -72,6 +72,7 @@ const SignUpForm = () => {
         <Link to="/">
           <img className="logo-image-container"/>
         </Link>
+          <h1 className="formuser-top-message">Sign up</h1>
         <div>
           {errors.map((error, ind) => (
             <div className='error-messages' key={ind}>{error}</div>

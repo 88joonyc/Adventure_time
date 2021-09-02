@@ -11,7 +11,6 @@
     height: 1100px;
     /* height: 100%; */
     background-size: cover;
-
 }
 
 .singup-form {
@@ -28,4 +27,10 @@
 .error-messages:hover {
     color: rgb(255, 0, 0);
     transition: all ease 5.5s;
+}
+
+.formuser-top-message {
+    /* font-size: 38px; */
+    font-family: 'Fredoka One', cursive;
+    color: rgb(53, 19, 87);
 }

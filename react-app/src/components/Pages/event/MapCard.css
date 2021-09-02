@@ -60,6 +60,13 @@
     margin-top: 30px;
 }
 
+.map-info-holder  {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+
 .view-map-button {
     border: 1px solid rgb(23, 75, 26);
     background-color: rgb(167, 220, 167);
@@ -170,15 +177,19 @@
     width: 15px;
     border: none;
 }
+
 .icon-plane {
     content: url(./48.png);
 }
+
 .icon-person {
     content: url(./18.png);
 }
+
 .icon-bike {
     content: url(./22-skull-n-crossbones.png);
 }
+
 .icon-car {
     content: url(./23-bird.png);
 }

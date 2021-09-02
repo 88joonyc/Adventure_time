@@ -46,7 +46,7 @@ const LoginForm = () => {
         <Link to="/">
           <img className="logo-image-container"/>
         </Link>
-      <h1 className="">Log In</h1>
+      <h1 className="formuser-top-message">Log in</h1>
         <form onSubmit={onLogin}>
           <div>
             {errors.map((error, ind) => (

@@ -65,7 +65,6 @@ const VenueForm = () => {
 
   return (
     <div className='venue-form'>
-
     <div className='singup-form'>
         <div>
           {/* {errors.map((error, ind) => (
@@ -130,29 +129,34 @@ const VenueForm = () => {
               onChange={updateZip}
               value={zip_code}
               required={true}
+              max={2147483647}
             ></input>
           </div>
           <div className="user-input-container">
             <label className='input-label'>latitude coordintate</label>
             <input
-              type='number'
+              type='real'
               name='latitude'
               className="user-input"
               onChange={updateLatitude}
               value={latitude}
               required={true}
+              max={2147483647}
+              min={-2147483647}
             ></input>
             <div className=''><div className='hover-latlng-msg'>?</div></div>
           </div>
           <div className="user-input-container">
             <label className='input-label'>Longitude coordintate</label>
             <input
-              type='number'
+              type='real'
               name='repeat_latitude'
               className="user-input"
               onChange={updateLongitude}
               value={longitude}
               required={true}
+              max={2147483647}
+              min={-2147483647}
             ></input>
           </div>
           <button className="verify-button" type='submit'>Create venue</button>

@@ -114,6 +114,7 @@ if (!category) {
                                     required="true"
                                     className='host-input'
                                     placeholder='Be clear and descriptive.'
+                                    maxLength={255}
                                 />
                             <b className="required">Title is required* {maxname}</b>
 
@@ -213,6 +214,7 @@ if (!category) {
                                         type='text'
                                         onChange={(e) => setImg(e.target.value)} // img is limited to 500 char
                                         className='host-input'
+                                        maxLength={500}
                                     />
                                 </label>
                             <h3>image preview</h3>
@@ -249,6 +251,7 @@ if (!category) {
                                 onChange={(e) => setDescript(e.target.value)} // limited to 5000 char
                                 required="true"
                                 className='host-input text-area'
+                                maxLength={5000}
                                 />
                         </label>
                             <b className="required">A short (or long) description is required* {maxdescript}</b>
