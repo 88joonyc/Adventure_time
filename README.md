@@ -1,137 +1,62 @@
-# Flask React Project
+# Adventure Time
 
-This is the starter for the Flask React project.
+*By: Paul Chang. --  [Adventrure_Time](https://adventure--time.herokuapp.com/ "Named link title")*
 
-## Getting started
+[Adventrure_Time](https://adventure--time.herokuapp.com/ "Named link title") is an [Eventbrite](https://eventbrite.com/ "Named link title") clone with a theme of the cartoon *[Adventure Time](https://en.wikipedia.org/wiki/Adventure_Time "Named link title")*. It is a platform where users can search and purchase tickets to exciting events across the nation or create their own event within their own community. [Adventrure_Time](https://adventure--time.herokuapp.com/ "Named link title") is a fullstack React Redux application with a Python backend incorporating FLask & SQL-Alchemy with a PostgresSQL database system and Heroku to host. 
 
-1. Clone this repository (only this branch)
+### Table of Contents:
+ - Application Features
+ - Installation Steps
+ - Technologies Used
+ - Wiki Documentation
+ - Frontend Overview
+ - Backend Overview
+ - Future Plans
+ - Conclusion
 
-   ```bash
-   git clone https://github.com/88joonyc/Adventure_time.git
-   ```
 
-2. Install dependencies
+# Application Features
 
-      ```bash
-      pipenv install --dev -r dev-requirements.txt && pipenv install -r requirements.txt
-      ```
+## Sign up
+![Screen Shot 2021-09-02 at 1 05 13 PM](https://user-images.githubusercontent.com/79543569/131886888-89bb6ade-f977-4711-9630-e251033c3731.png)
 
-3. Create a **.env** file based on the example with proper settings for your
-   development environment
-4. Setup your PostgreSQL user, password and database and make sure it matches your **.env** file
+## Log in
+![Screen Shot 2021-09-02 at 1 06 19 PM](https://user-images.githubusercontent.com/79543569/131887167-fe08f25b-32d0-43f4-a314-49801e05974f.png)
 
-5. Get into your pipenv, migrate your database, seed your database, and run your flask app
+## Home page
+![Screen Shot 2021-09-02 at 11 29 00 AM](https://user-images.githubusercontent.com/79543569/131872600-ee2197f6-9dcf-4a39-8762-6343ab5b69e6.png)
 
-   ```bash
-   pipenv shell
-   ```
+## Search panel
+![Screen Shot 2021-09-02 at 11 30 30 AM](https://user-images.githubusercontent.com/79543569/131872883-89b3ce92-67e2-4a40-a15d-f9224551c521.png)
 
-   ```bash
-   flask db upgrade
-   ```
+## Event page
+![Screen Shot 2021-09-02 at 11 31 41 AM](https://user-images.githubusercontent.com/79543569/131873111-08565672-38ca-4bef-bb95-41ddb0fbb0bd.png)
+![Screen Shot 2021-09-02 at 1 22 02 PM](https://user-images.githubusercontent.com/79543569/131888946-cf3c8d31-5c8a-4588-8cd8-555112b54e77.png)
 
-   ```bash
-   flask seed all
-   ```
 
-   ```bash
-   flask run
-   ```
+### Ticket registration 
+![Screen Shot 2021-09-02 at 11 33 10 AM](https://user-images.githubusercontent.com/79543569/131873319-52eba421-e06b-4235-b8f5-8ad38e364052.png)
 
-6. To run the React App in development, checkout the [README](./react-app/README.md) inside the `react-app` directory.
+### Ticket / User page
+![Screen Shot 2021-09-02 at 1 10 06 PM](https://user-images.githubusercontent.com/79543569/131887573-f705e247-4ea4-4c67-bcd8-0c196030b677.png)
+![Screen Shot 2021-09-02 at 1 10 23 PM](https://user-images.githubusercontent.com/79543569/131887581-3c4e3f56-aaed-4a03-bacb-c2d18544bb52.png)
 
-***
-*IMPORTANT!*
-   If you add any python dependencies to your pipfiles, you'll need to regenerate your requirements.txt before deployment.
-   You can do this by running:
+### Create event page
+![Screen Shot 2021-09-02 at 1 08 18 PM](https://user-images.githubusercontent.com/79543569/131887359-e30a864f-b4f6-4adf-9aa4-0a4b012ba1ff.png)
+![Screen Shot 2021-09-02 at 1 08 47 PM](https://user-images.githubusercontent.com/79543569/131887363-9fe30ae9-72b2-4c4a-a1fe-4563d05a0af7.png)
 
-   ```bash
-   pipenv lock -r > requirements.txt
-   ```
 
-*ALSO IMPORTANT!*
-   psycopg2-binary MUST remain a dev dependency because you can't install it on apline-linux.
-   There is a layer in the Dockerfile that will install psycopg2 (not binary) for us.
-***
 
-## Deploy to Heroku
 
-1. Before you deploy, don't forget to run the following command in order to
-ensure that your production environment has all of your up-to-date
-dependencies. You only have to run this command when you have installed new
-Python packages since your last deployment, but if you aren't sure, it won't
-hurt to run it again.
 
-   ```bash
-   pipenv lock -r > requirements.txt
-   ```
 
-2. Create a new project on Heroku
-3. Under Resources click "Find more add-ons" and add the add on called "Heroku Postgres"
-4. Install the [Heroku CLI](https://devcenter.heroku.com/articles/heroku-command-line)
-5. Run
 
-   ```bash
-   heroku login
-   ```
 
-6. Login to the heroku container registry
 
-   ```bash
-   heroku container:login
-   ```
 
-7. Update the `REACT_APP_BASE_URL` variable in the Dockerfile.
-   This should be the full URL of your Heroku app: i.e. "https://flask-react-aa.herokuapp.com"
-8. Push your docker container to heroku from the root directory of your project.
-   (If you are using an M1 mac, follow [these steps below](#for-m1-mac-users) instead, then continue on to step 9.)
-   This will build the Dockerfile and push the image to your heroku container registry.
 
-   ```bash
-   heroku container:push web -a {NAME_OF_HEROKU_APP}
-   ```
 
-9. Release your docker container to heroku
 
-      ```bash
-      heroku container:release web -a {NAME_OF_HEROKU_APP}
-      ```
-
-10. set up your database
-
-      ```bash
-      heroku run -a {NAME_OF_HEROKU_APP} flask db upgrade
-      heroku run -a {NAME_OF_HEROKU_APP} flask seed all
-      ```
-
-11. Under Settings find "Config Vars" and add any additional/secret .env
-variables.
-
-12. profit
-
-### For M1 Mac users
-
-(Replaces **Step 8**)
-
-1. Build image with linux platform for heroku servers. Replace
-{NAME_OF_HEROKU_APP} with your own tag:
-
-   ```bash=
-   docker buildx build --platform linux/amd64 -t {NAME_OF_HEROKU_APP} .
-   ```
-
-2. Tag your app with the url for your apps registry. Make sure to use the name
-of your Heroku app in the url and tag name:
-
-   ```bash=2
-   docker tag {NAME_OF_HEROKU_APP} registry.heroku.com/{NAME_OF_HEROKU_APP}/web
-   ```
-
-3. Use docker to push the image to the Heroku container registry:
-
-   ```bash=3
-   docker push registry.heroku.com/{NAME_OF_HEROKU_APP}/web
-   ```
 
 
 Visit the live app powered by Heroku [here](https://adventure--time.herokuapp.com/ "Named link title")
