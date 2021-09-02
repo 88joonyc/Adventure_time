@@ -6,7 +6,7 @@
 
 ### Table of Contents:
  - Application Features
- - Installation Steps
+ - Installation
  - Technologies Used
  - Wiki Documentation
  - Frontend Overview
@@ -65,16 +65,51 @@
 ![Screen Shot 2021-09-02 at 1 48 10 PM](https://user-images.githubusercontent.com/79543569/131892421-64970fd7-913e-4fd2-8e1b-5e742c987ebf.png)
 
 
+# Installation
 
+## Getting started
 
+1. Clone this repository (only this branch)
 
+   ```bash
+   git clone https://github.com/88joonyc/Adventure_time.git
+   ```
 
+2. Install dependencies
 
+      ```bash
+      pipenv install --dev -r dev-requirements.txt && pipenv install -r requirements.txt
+      ```
 
+3. Create a **.env** file based on the example with proper settings for your
+   development environment
+4. Setup your PostgreSQL user, password and database and make sure it matches your **.env** file
 
+5. Get into your pipenv, migrate your database, seed your database, and run your flask app
 
+   ```bash
+   pipenv shell
+   ```
 
+   ```bash
+   flask db upgrade
+   ```
 
+   ```bash
+   flask seed all
+   ```
+
+   ```bash
+   flask run
+   ```
+6. Start your flask backend in the root ```/``` directory
+   ```bash
+   flask run
+   ```
+8. start your frontend in your ```/react-app``` direcrtory
+   ```bash
+   npm start
+   ```
 
 
 
