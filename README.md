@@ -11,8 +11,8 @@
  - [Wiki Documentation](#wiki-documentation)
  - Frontend Overview
  - Backend Overview
- - Future Plans
- - Conclusion
+ - [Future Plans](#future-plans)
+ - [Conclusion](#conclusions)
 
 
 # Application Features 
@@ -129,7 +129,9 @@
 - ### [Database Schema](https://github.com/88joonyc/Adventure_time/wiki/Database-Schema "Named link title")
 - ### [User stories](https://github.com/88joonyc/Adventure_time/wiki/User-Stories "Named link title")
 # Frontend Overview
+
 # Backend Overview
+
 # Future Plans
  - [ ] Implement an AWS photo bucket to allow users to add additional photos to end of descriptions on the event page 
  - [ ] Chatroom messaging feature to allow users to connect with promoters for potential business opportunities
