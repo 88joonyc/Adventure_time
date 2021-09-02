@@ -1,5 +1,6 @@
 
 import React from 'react';
+import { Link } from 'react-router-dom'
 
 import './Footer.css'
 
@@ -22,7 +23,7 @@ const FooterBar = () => {
             <div className="footer-tabs">
               <div className="footer-one">
                 <ul>
-                  <p className="footer-title">GitHub</p>
+                  <p className="footer-title">About</p>
                   <li className="footer-lists">See how it works:</li>
                   <li> <a className="footer-linked" href="https://github.com/88joonyc/Adventure_time">Download</a> </li>
                   <li className="footer-lists">this GibHub Repo</li>
@@ -62,10 +63,10 @@ const FooterBar = () => {
             </div>
               <div className='footer-message'>© 2021 Adventure Time. All Rights Reserved by Paul Chang. Terms. Privacy Policy. New Jersy Privacy Notice. Cookies. </div>
             <div className='footer-footer'>
-              <div className="my-links">1</div>
-              <div className="my-links">2</div>
-              <div className="my-links">3</div>
-              <div className="my-links">4</div>
+              <a href='https://www.github.com/88joonyc' className="my-links"><img className='git-icon'/></a>
+              <a href='https://angel.co/u/paul-chang-27/' className="my-links"><img className='angel-icon personal-set'/></a>
+              <a href='mailto:joonyc88@gmail.com' className="my-links"><img className='email-icon personal-set'/></a>
+              <a href='https://linkedin.com/in/pchang1216' className="my-links"><img className='linked-icon personal-set'/></a>
             </div>
             </div>
 

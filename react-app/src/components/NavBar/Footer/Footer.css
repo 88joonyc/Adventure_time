@@ -15,10 +15,9 @@
     font-family: 'Kaisei Opti', serif;
     font-size: .7em;
     color: rgb(212, 212, 239);
-    background-color: rgb(26, 6, 77);
+    background-color: rgb(38, 16, 94);
     width: 100%;
-    height: 400px;
-    /* overflow: ; */
+    height: 420px;
     padding: 23px
 }
 
@@ -38,7 +37,7 @@
 }
 
 .my-links {
-    padding: 20px 40px;
+    padding: 50px 40px;
 }
 
 .footer-lists {
@@ -52,4 +51,43 @@
 .footer-linked:hover {
     color: rgb(0, 255, 132);
     box-shadow: 10px 10px 40px rgb(0, 255, 132);
+}
+
+
+/* ===============================icons========================================= */
+
+.git-icon {
+    content: url(./git.png);
+    width: 55px;
+    height: 55px;
+    margin-top: -5px;
+}
+
+.git-icon:hover {
+    box-shadow: 3px 3px 20px hotpink;
+    border-radius: 30px;
+    transition: ease-in-out 1.3s;
+}
+
+.email-icon {
+    content: url(./mail.png);
+}
+
+.angel-icon {
+    content: url(./angelist.png);
+}
+
+.linked-icon {
+    content: url(./linked.png);
+}
+
+.personal-set {
+    width: 40px;
+    height: 40px;
+}
+
+.personal-set:hover {
+    box-shadow: 3px 3px 20px hotpink;
+    border-radius: 40px;
+    transition: ease-in-out 1.3s;
 }

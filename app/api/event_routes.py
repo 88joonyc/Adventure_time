@@ -1,4 +1,5 @@
 from flask import Blueprint, jsonify, request
+from sqlalchemy import desc
 from flask_login import login_required, current_user
 from app.models import db, Event, Venue, Category, User, Ticket, Follower, Heart
 from app.forms import EventForm
@@ -8,7 +9,7 @@ event_routes = Blueprint('events', __name__)
 
 @event_routes.route('/splash/')
 def unregistered():
-    events_query = Event.query.all()
+    events_query = Event.query.order_by(Event.start_time.asc()).all()
     events = [ event.to_dict() for event in events_query ]
     followers_query = Follower.query.all()
     ticket_query = Ticket.query.all()
@@ -23,7 +24,7 @@ def unregistered():
 @event_routes.route('/')
 @login_required
 def evented():
-    events_query = Event.query.all()
+    events_query = Event.query.order_by(Event.start_time.asc()).all()
     events = [ event.to_dict() for event in events_query ]
     followers_query = Follower.query.all()
     ticket_query = Ticket.query.all()
