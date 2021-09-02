@@ -62,7 +62,8 @@
 
 ### Create a venue
 *Users can create a venue if they do not see theirs on the list.*
-![Screen Shot 2021-09-02 at 1 46 43 PM](https://user-images.githubusercontent.com/79543569/131892202-dff54f51-cfa8-4cea-b696-9f7f04b1dae6.png)
+![Screen Shot 2021-09-02 at 1 48 10 PM](https://user-images.githubusercontent.com/79543569/131892421-64970fd7-913e-4fd2-8e1b-5e742c987ebf.png)
+
 
 
 
