@@ -49,6 +49,7 @@
     font-size: 30px;
     font-family: 'Signika Negative', sans-serif;
     color: rgb(184, 193, 216);
+    padding-left: 10px;
 }
 
 .venue-search-box:focus::placeholder {

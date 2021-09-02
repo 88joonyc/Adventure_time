@@ -69,18 +69,6 @@ const HostForm = () => {
   }
 
 
-
-
-  const filter = (memory, query) => {
-      return memory?.filter((brain) => {
-          const venue_name = brain.name.toLowerCase()
-          const venue_address = brain.address.toLowerCase()
-          if (venue_name.includes(query)) return venue_name.includes(query)
-          if (venue_address.includes(query)) return venue_address.includes(query)
-      })
-
-  }
-
 let maxdescript
 const textdescripmax = () => {
     let amountleft = 5000 - description?.length
@@ -139,7 +127,7 @@ if (!category) {
                                         required="true"
                                         className='host-input'
                                     >
-                                        <option key='00'>select</option>
+                                        <option value='' key='00'>select</option>
                                         {category?.map(cat => (
                                             <option key={cat.id} value={cat?.id}>{cat?.type}</option>
                                         ))}
@@ -155,22 +143,6 @@ if (!category) {
                             <h2>Location</h2>
                             <p>Help people in the area discover your event and let attendees know where to show up.</p>
                             <label> Venue location
-                                {/* <input
-                                    type="number"
-                                    value={venue_id}
-                                    onChange={(e) => setVenue(e.target.value)}
-                                    required="true"
-                                    // placeholder="search for a venue address"
-                                    hidden='true'
-                                /> */}
-                                {/* <input
-                                    type="text"
-                                    value={venue_search}
-                                    onChange={(e) => setVenueSearch(e.target.value)}
-                                    // required="true"
-                                    placeholder="search for a venue address"
-                                />
-                                {venue_content} */}
                                 <select
                                     type="number"
                                     value={venue_id}
@@ -178,7 +150,7 @@ if (!category) {
                                     required="true"
                                     className='host-input'
                                 >
-                                    <option key='00'>select</option>
+                                    <option value='' key='00'>select</option>
                                     {venue?.map(ven => (
                                         <option key={ven.id} value={ven.id}>{ven.name}, address: {ven.address} {ven.city}, {ven.state}</option>
                                     ))}
@@ -199,6 +171,7 @@ if (!category) {
                                     onChange={(e) => setCap(e.target.value)}
                                     required="true"
                                     className='host-input'
+                                    max={2147483647}
                                 />
                                 <b className="required">Capacity is required*</b>
                             </label>
@@ -260,6 +233,7 @@ if (!category) {
                                     onChange={(e) => setCost(e.target.value)}
                                     required="true"
                                     className='host-input'
+                                    max={2147483647}
                                 />
                             </label>
                         </div>

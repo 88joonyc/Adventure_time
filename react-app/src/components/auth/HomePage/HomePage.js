@@ -12,8 +12,6 @@ import { all_venues } from '../../../store/venue';
 import { authenticate } from '../../../store/session';
 
 
-
-
 const HomePage = () => {
 const dispatch = useDispatch()
 
@@ -34,12 +32,7 @@ const [end_time, setEnd] = useState('');
 const [capacity, setCap] = useState('');
 const [image, setImg] = useState('');
 const [cost, setCost] = useState('');
-
-const updateVenue = (e) => {
-    e.preventDefault()
-    setVenue(e.target.value)
-}
-
+const [search, setSearch] = useState('');
 
 const handleEdit =  async (e) => {
     e.preventDefault()
@@ -98,13 +91,6 @@ if (editForm) {
                 <form className='edit-form' onSubmit={(e) =>{handleEdit(e)}}>
                     <div>
                         <label className='edit-labels'> Venue selection
-                            {/* <input
-                                type="number"
-                                value={venue_id}
-                                onChange={(e) => setVenue(e.target.value)}
-                                required="true"
-                                className='edit-input'
-                            /> */}
                             <select
                                 type="number"
                                 value={venue_id}
@@ -121,13 +107,6 @@ if (editForm) {
                     </div>
                     <div>
                         <label className='edit-labels'> Category
-                            {/* <input
-                                type="number"
-                                value={category_id}
-                                onChange={(e) => setCategory(e.target.value)}
-                                required="true"
-                                className='edit-input'
-                            /> */}
                             <select
                                     type="number"
                                     value={category_id}
@@ -294,6 +273,51 @@ const set_unregisterd_paid_events = (id) => {
 }
 
 
+
+/* -------------------------- filter/search------------ ------------------------------------------- */
+
+const filter = (memory, query) => {
+    return memory?.filter((brain) => {
+        const event_name = brain.name.toLowerCase()
+        const event_state = brain.venue.state.toLowerCase()
+        if (event_name.includes(query)) return event_name.includes(query)
+        // if (event_state.includes(query)) return event_state.includes(query)
+    })
+}
+
+const filteredEvents = filter (events, search)
+
+  let searchField = null
+  if (search) (
+      searchField = (
+        <>
+            <div className="search-popup">
+                <div className='searchfield'>
+                    {filteredEvents?.map(event => (
+                        <div className='search-container'>
+                        <Link className='search-link' to={`/event/${event.id}`}>
+                            <p  className='search-link'>{event.name}</p>
+                        </Link>
+                        </div>
+                    ))}
+                </div>
+            </div>
+        </>
+      )
+  )
+
+  window.addEventListener(("click"), e => {
+      setSearch("")
+    //   if (search) {
+        //   document.querySelector('.venue-search-box').value = ''
+
+    //   }
+    //   if (document.querySelector('.venue-search-box').value) {
+    //   }
+
+  })
+
+
 /* -------------------------- popular_bar------------ ------------------------------------------- */
 
 
@@ -301,8 +325,10 @@ let popular_bar = (
 <>
 
         <div>
-            <h1 className='card-popular-in-title'>Popular in  {'>'} {<input
-            placeholder='Online events'
+            <h1 className='card-popular-in-title'>Search by  {'>'} {<input
+            placeholder='event name'
+            // onClick={(e) => e.input.value = ''}
+            onChange={(e)=> setSearch((e.target.value).toLowerCase())}
             className='venue-search-box' />} </h1>
             <div className='home-card-categories'>
                 <div className='cat-button-container'>
@@ -315,16 +341,16 @@ let popular_bar = (
                    {sessionUser?  <button onClick={() => set_located_events(5)} className='cat-button'>Online</button> : <button onClick={() => set_unregistered_located_events(5)} className='cat-button'>Online</button> }
                 </div>
                 <div>
-                    <button className='cat-button'>Today</button>
-                </div>
-                <div>
-                    <button className='cat-button'>This weekend</button>
+                    {sessionUser?  <button onClick={() => set_categorized_events(2)} className='cat-button'>Business & Professional</button> : <button onClick={() => set_unregisterd_categorized_events(19)} className='cat-button'>Holiday</button> }
                 </div>
                 <div>
                     {sessionUser?  <button onClick={() => set_paid_events(0)} className='cat-button'>Free</button> : <button onClick={() => set_unregisterd_paid_events(0)} className='cat-button'>Free</button> }
                 </div>
                 <div>
                     {sessionUser?  <button onClick={() => set_categorized_events(19)} className='cat-button'>Holiday</button> : <button onClick={() => set_unregisterd_categorized_events(19)} className='cat-button'>Holiday</button> }
+                </div>
+                <div>
+                    {sessionUser?  <button onClick={() => set_categorized_events(4)} className='cat-button'>Communication & Culture</button> : <button onClick={() => set_unregisterd_categorized_events(19)} className='cat-button'>Holiday</button> }
                 </div>
                 <div>
                     {sessionUser?  <button onClick={() => set_categorized_events(13)} className='cat-button'>Music</button> : <button onClick={() => set_unregisterd_categorized_events(13)} className='cat-button'>Music</button> }
@@ -434,6 +460,7 @@ if (!sessionUser) {
     return (
         <>
         {sessionUser? opening : null}
+        {searchField}
         {content}
         {popular_bar}
         {need}

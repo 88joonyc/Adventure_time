@@ -137,10 +137,10 @@ const NavBar = () => {
               </NavLink>
             </div>
                 <div className="right-side-control">
-              <button className="searchbar-toggle" onClick={() => toggleSearch(!searchBar)}>
+              {/* <button className="searchbar-toggle" onClick={() => toggleSearch(!searchBar)}>
                 {<img alt='' className='search-icon'/>}
                 search
-              </button>
+              </button> */}
               {sessionUser ? usertab : verificationtabs}
             </div>
           </div>

@@ -1,0 +1,28 @@
+.search-popup {
+    position: absolute;
+    border: 1px solid rgb(205, 207, 222);
+    top: 655px;
+    left: 280px;
+    z-index: 1000;
+    background-color: white;
+}
+
+.searchfield {
+    height: 400px;
+    overflow-y: scroll;
+    width: 550px;
+    /* scroll-snap-stop:initial; */
+}
+
+.search-container:hover {
+    background-color: rgb(218, 234, 225);
+}
+
+.search-link {
+    text-decoration: none;
+    padding: 1px 20px;
+    margin-top: 0;
+    margin-bottom: 0;
+    color: rgb(75, 60, 152);
+    font-family: 'Roboto', sans-serif;
+}

@@ -29,7 +29,7 @@ const CovBar = () => {
             <div>
 
             </div>
-              <div className='cov-message'>Communities around the world are feeling the effects of the coronavirus (COVID-19) on their live experiences. We’re here to help in any way we can. <Link>Learn more</Link> </div>
+              <div className='cov-message'>Communities around the world are feeling the effects of the coronavirus (COVID-19) on their live experiences. We’re here to help in any way we can.</div>
             </div>
 
       </nav>

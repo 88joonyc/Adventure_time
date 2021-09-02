@@ -13,7 +13,6 @@ import Map from '../../Map/Map'
 import moment from 'moment';
 
 import './Event.css'
-import { LoadScript } from '@react-google-maps/api';
 
 const EachEvent = () => {
   const eventId = useParams()
@@ -277,9 +276,9 @@ let promoter_panel = (
 
             </div>
           </div>
-              <div className='map-info-marker'>
-            { event?.events[0]?.host_id !== user.id ? <p className='follower-number'>{  ( follower ) ? <button value={follower[0]?.id} onClick={(e) => unfollow(e) } className='unfollow-me-button'>following</button> : <button onClick={() => follow()} className='follow-me-button'>follow</button> }</p> : null}
-                </div>
+            <div className='map-info-marker'>
+              { event?.events[0]?.host_id !== user.id ? <p className='follower-number'>{  ( follower ) ? <button value={follower[0]?.id} onClick={(e) => unfollow(e) } className='unfollow-me-button'>following</button> : <button onClick={() => follow()} className='follow-me-button'>follow</button> }</p> : null}
+            </div>
         </div>
         {promoter_panel}
 
