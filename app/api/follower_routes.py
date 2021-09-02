@@ -1,6 +1,6 @@
 from flask import Blueprint, jsonify, request
 from flask_login import login_required, current_user
-from app.models import db, Ticket, Event, Venue, Follower
+from app.models import db, Ticket, Event, Venue, Follower, User
 from app.forms import FollowerForm
 
 
@@ -9,8 +9,14 @@ follower_routes = Blueprint('followers', __name__)
 
 @follower_routes.route('/all')
 def follows():
-    followers = Follower.query.filter(Follower.follower_id == current_user.id)
-    return {'followers': [ follower.to_dict() for follower in followers ]}
+    followers_query = Follower.query.filter(Follower.follower_id == current_user.id)
+    followers = [follower.to_dict() for follower in followers_query]
+    for follower in followers:
+        follower['user'] = User.query.get(follower['promoter_id']).to_dict()
+    return {"followers": followers }
+
+    # return {'followers': [ follower.to_dict() for follower in followers_query if  ] }
+    # return {'followers': [ follower.to_dict() for follower in followers_query if  ] }
 
 @follower_routes.route('/all/<int:id>')
 def promos(id):

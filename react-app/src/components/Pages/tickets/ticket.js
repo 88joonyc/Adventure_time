@@ -16,7 +16,7 @@ const TicketPage = () => {
   // const [errors, setErrors] = useState([]);
   const [orders, toggleOrders] = useState(true);
   const [hearted, toggleHearts] = useState(false);
-  // const [follow, toggleFollow] = useState(false);
+  const [follow, toggleFollow] = useState(false);
 
   const user = useSelector(state => state.session.user)
   const tickets = useSelector(state => (state?.tickets_reducer?.tickets));
@@ -115,20 +115,20 @@ const heart_content = (
 
 const follow_content = (
   <>
-    {/* {follow?.map(heart=> */}
-      {/* // <Link to={`/event/${heart?.event?.id}`} className='tix-link'> */}
+    {follows?.map( heart =>
+      // {/* // <Link to={`/event/${heart?.event?.id}`} className='tix-link'> */}
           <div className="ticket-card">
-            {/* <img className="tix-card-img" src={follow?.image}/> */}
+            <img className="tix-card-img" src={follow?.user?.image}/>
             <div className='tix-card-info'>
               {/* <p className='tix-date'>{moment(heart?.event?.start_time).format('ddd, MMM Do, [at] LT')}</p> */}
               {/* <p className='tix-title'>{heart?.event?.name}</p> */}
             </div>
             <div className='register-button-container'>
-              <button type='button' className="unregister-tickets-page" value={''} onClick={(e) => unregisterforthisevent(e)}>Unregister</button>
+              {/* <button type='button' className="unregister-tickets-page" value={''} onClick={(e) => unregisterforthisevent(e)}>Unregister</button> */}
             </div>
           </div>
-      {/* // </Link> */}
-    {/* )} */}
+      // {/* // </Link> */}
+    )}
   </>
 )
 
@@ -163,8 +163,8 @@ const follow_content = (
                   {hearts ?  ( hearted ? heart_content : null ) : cold_hearted }
                   </div>
                   <div className="users-boxes">
-                      {/* <button type='button' onClick={() => toggleFollow(!follow)} className='orders-toggle'><h3>Follows {`>`}</h3></button>
-                  {follows ?  ( follow ? follow_content : null ) : cold_hearted } */}
+                      <button type='button' onClick={() => toggleFollow(!follow)} className='orders-toggle'><h3>Follows {`>`}</h3></button>
+                  {follows ?  ( follow ? follow_content : null ) : cold_hearted }
                   </div>
                 </div>
             </div>
