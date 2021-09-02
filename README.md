@@ -106,7 +106,7 @@
    ```bash
    flask run
    ```
-8. start your frontend in your ```/react-app``` direcrtory
+8. start your frontend in your ```/react-app``` directory
    ```bash
    npm start
    ```
