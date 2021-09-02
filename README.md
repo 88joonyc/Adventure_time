@@ -5,19 +5,19 @@
 [Adventrure_Time](https://adventure--time.herokuapp.com/ "Named link title") is an [Eventbrite](https://eventbrite.com/ "Named link title") clone with a theme of the cartoon *[Adventure Time](https://en.wikipedia.org/wiki/Adventure_Time "Named link title")*. It is a platform where users can search and purchase tickets to exciting events across the nation or create their own event within their own community. [Adventrure_Time](https://adventure--time.herokuapp.com/ "Named link title") is a fullstack React Redux application with a Python backend incorporating FLask & SQL-Alchemy with a PostgresSQL database system and Heroku to host. 
 
 ### Table of Contents:
- - Application Features
- - Installation
- - Technologies Used
- - Wiki Documentation
+ - [Application Features](#application-features)
+ - [Installation](#installation)
+ - [Technologies Used](#technologies-used)
+ - [Wiki Documentation](#wiki-documentation)
  - Frontend Overview
  - Backend Overview
  - Future Plans
  - Conclusion
 
 
-# Application Features
+# Application Features 
 
-## Sign up
+## Sign up 
 ![Screen Shot 2021-09-02 at 1 05 13 PM](https://user-images.githubusercontent.com/79543569/131886888-89bb6ade-f977-4711-9630-e251033c3731.png)
 
 ## Log in
@@ -119,7 +119,13 @@ Visit the live app powered by Heroku [here](https://adventure--time.herokuapp.co
 # Technologies used
 
 # Wiki Documentation
+- ### [Home](https://github.com/88joonyc/Adventure_time/wiki "Named link title")
+- ### [Feature List](https://github.com/88joonyc/Adventure_time/wiki/MVP-Feature-List "Named link title")
+- ### [API Docs](https://github.com/88joonyc/Adventure_time/wiki/API-Documentation "Named link title")
+- ### [Database Schema](https://github.com/88joonyc/Adventure_time/wiki/Database-Schema "Named link title")
+- ### [User stories](https://github.com/88joonyc/Adventure_time/wiki/User-Stories "Named link title")
 # Frontend Overview
+
 # Backend Overview
 # Future Plans
 # Conclusion
