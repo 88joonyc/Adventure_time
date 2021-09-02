@@ -12,7 +12,7 @@
  - Frontend Overview
  - Backend Overview
  - [Future Plans](#future-plans)
- - [Conclusion](#conclusions)
+ - [Conclusion](#conclusion)
 
 
 # Application Features 
@@ -136,5 +136,9 @@
  - [ ] Implement an AWS photo bucket to allow users to add additional photos to end of descriptions on the event page 
  - [ ] Chatroom messaging feature to allow users to connect with promoters for potential business opportunities
 # Conclusion
+
+# Contact
+
+
 
 Visit the live app powered by Heroku [here](https://adventure--time.herokuapp.com/ "Named link title")
