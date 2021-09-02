@@ -368,9 +368,9 @@ const unfollow = async (e) => {
                   <div class='events-description-text'>
                     <p>
                       {moment(event?.events[0]?.start_time).format('MMM do')}
-                      - SINGLE DAY PASS - One (1) general admission RSVP to attend
-                    {event?.events[0]?.name} in {event?.events[0]?.venue?.city},
-                    {event?.events[0]?.venue?.state}.
+                      - SINGLE DAY PASS - One (1) general admission RSVP to attend&nbsp;
+                    {event?.events[0]?.name} in {event?.events[0]?.venue?.city},&nbsp;
+                    {event?.events[0]?.venue?.state}
                     </p>
                     <h2 className="events-description-label">About this event</h2>
                     <p className="events-description-innertext">{event?.events[0]?.description}</p>
