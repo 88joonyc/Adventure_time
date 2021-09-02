@@ -88,120 +88,120 @@ if (editForm) {
         <>
             <div className='edit-panel-container'>
                 <div className="edit-container">
-                <form className='edit-form' onSubmit={(e) =>{handleEdit(e)}}>
-                    <div>
-                        <label className='edit-labels'> Venue selection
-                            <select
-                                type="number"
-                                value={venue_id}
-                                onChange={(e) => setVenue(e.target.value)}
-                                required="true"
-                                className='edit-input longer'
-                            >
-                                <option key='00'>select</option>
-                                {venue?.map(ven => (
-                                    <option key={ven.id} value={ven.id}>{ven.name}, address: {ven.address} {ven.city}, {ven.state}</option>
-                                ))}
-                            </select>
-                        </label>
-                    </div>
-                    <div>
-                        <label className='edit-labels'> Category
-                            <select
+                    <form className='edit-form' onSubmit={(e) =>{handleEdit(e)}}>
+                        <div>
+                            <label className='edit-labels'> Venue selection
+                                <select
                                     type="number"
-                                    value={category_id}
-                                    onChange={(e) => setCategory(e.target.value)}
+                                    value={venue_id}
+                                    onChange={(e) => setVenue(e.target.value)}
                                     required="true"
                                     className='edit-input longer'
                                 >
                                     <option key='00'>select</option>
-                                    {category?.map(cat => (
-                                        <option key={cat.id} value={cat.id}>{cat.type}</option>
+                                    {venue?.map(ven => (
+                                        <option key={ven.id} value={ven.id}>{ven.name}, address: {ven.address} {ven.city}, {ven.state}</option>
                                     ))}
-                            </select>
-                        </label>
-                    </div>
-                    <div>
-                        <label className='edit-labels'> Name of event
-                            <input
-                                type="text"
-                                value={name}
-                                onChange={(e) => setName(e.target.value)}
-                                required="true"
-                                className='edit-input'
-                            />
-                        </label>
-                    </div>
-                    <div>
-                        <label className='edit-labels'> Description to event
-                            <textarea
-                                // type="text"
-                                value={description}
-                                onChange={(e) => setDescript(e.target.value)}
-                                required="true"
-                                className='edit-textarea'
-                            />
-                        </label>
-                    </div>
-                    <div>
-                        <label className='edit-labels'> Start of event
-                            <input
-                                type="datetime-local"
-                                value={moment(start_time.split(' GMT').join(' EST')).format('YYYY-MM-DDTHH:mm')}
-                                onChange={(e) => setStart(e.target.value)}
-                                required="true"
-                                className='edit-input'
-                            />
-                        </label>
-                    </div>
-                    <div>
-                        <label className='edit-labels'> End of event
-                            <input
-                                type='datetime-local'
-                                value={moment(end_time.split(' GMT').join(' EST')).format('YYYY-MM-DDTHH:mm')}
-                                onChange={(e) => setEnd(e.target.value)}
-                                required="true"
-                                className='edit-input'
-                            />
-                        </label>
-                    </div>
-                    <div>
-                        <label className='edit-labels'> Capacity limit
-                            <input
-                                type='number'
-                                value={capacity}
-                                onChange={(e) => setCap(e.target.value)}
-                                required="true"
-                                className='edit-input'
-                            />
-                        </label>
-                    </div>
-                    <div>
-                        <label className='edit-labels'> Main event image
-                            <input
-                                type='text'
-                                value={image}
-                                onChange={(e) => setImg(e.target.value)}
-                                className='edit-input'
-                            />
-                        </label>
-                    </div>
-                    <div>
-                        <label className='edit-labels'> ticket costs
-                            <input
-                                type='number'
-                                value={cost}
-                                onChange={(e) => setCost(e.target.value)}
-                                required="true"
-                                className='edit-input'
-                            />
-                        </label>
-                    </div>
-                    <button className='edit-form-buttons' type='submit'>Update</button>
-                    <button className='edit-form-buttons' onClick={() => {handleCancel()}} type='button'>Cancel</button>
-                </form>
+                                </select>
+                            </label>
+                        </div>
+                        <div>
+                            <label className='edit-labels'> Category
+                                <select
+                                        type="number"
+                                        value={category_id}
+                                        onChange={(e) => setCategory(e.target.value)}
+                                        required="true"
+                                        className='edit-input longer'
+                                    >
+                                        <option key='00'>select</option>
+                                        {category?.map(cat => (
+                                            <option key={cat.id} value={cat.id}>{cat.type}</option>
+                                        ))}
+                                </select>
+                            </label>
+                        </div>
+                        <div>
+                            <label className='edit-labels'> Name of event
+                                <input
+                                    type="text"
+                                    value={name}
+                                    onChange={(e) => setName(e.target.value)}
+                                    required="true"
+                                    className='edit-input'
+                                />
+                            </label>
+                        </div>
+                        <div>
+                            <label className='edit-labels'> Description to event
+                                <textarea
+                                    // type="text"
+                                    value={description}
+                                    onChange={(e) => setDescript(e.target.value)}
+                                    required="true"
+                                    className='edit-textarea'
+                                />
+                            </label>
+                        </div>
+                        <div>
+                            <label className='edit-labels'> Start of event
+                                <input
+                                    type="datetime-local"
+                                    value={moment(start_time.split(' GMT').join(' EST')).format('YYYY-MM-DDTHH:mm')}
+                                    onChange={(e) => setStart(e.target.value)}
+                                    required="true"
+                                    className='edit-input'
+                                />
+                            </label>
+                        </div>
+                        <div>
+                            <label className='edit-labels'> End of event
+                                <input
+                                    type='datetime-local'
+                                    value={moment(end_time.split(' GMT').join(' EST')).format('YYYY-MM-DDTHH:mm')}
+                                    onChange={(e) => setEnd(e.target.value)}
+                                    required="true"
+                                    className='edit-input'
+                                />
+                            </label>
+                        </div>
+                        <div>
+                            <label className='edit-labels'> Capacity limit
+                                <input
+                                    type='number'
+                                    value={capacity}
+                                    onChange={(e) => setCap(e.target.value)}
+                                    required="true"
+                                    className='edit-input'
+                                />
+                            </label>
+                        </div>
+                        <div>
+                            <label className='edit-labels'> Main event image
+                                <input
+                                    type='text'
+                                    value={image}
+                                    onChange={(e) => setImg(e.target.value)}
+                                    className='edit-input'
+                                />
+                            </label>
+                        </div>
+                        <div>
+                            <label className='edit-labels'> ticket costs
+                                <input
+                                    type='number'
+                                    value={cost}
+                                    onChange={(e) => setCost(e.target.value)}
+                                    required="true"
+                                    className='edit-input'
+                                />
+                            </label>
+                        </div>
+                        <button className='edit-form-buttons' type='submit'>Update</button>
+                        <button className='edit-form-buttons' onClick={() => {handleCancel()}} type='button'>Cancel</button>
+                    </form>
+                </div>
             </div>
-        </div>
         </>
     )
 }
@@ -279,7 +279,7 @@ const set_unregisterd_paid_events = (id) => {
 const filter = (memory, query) => {
     return memory?.filter((brain) => {
         const event_name = brain.name.toLowerCase()
-        const event_state = brain.venue.state.toLowerCase()
+        // const event_state = brain.venue.state.toLowerCase()
         if (event_name.includes(query)) return event_name.includes(query)
         // if (event_state.includes(query)) return event_state.includes(query)
     })

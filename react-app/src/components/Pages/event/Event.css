@@ -7,6 +7,7 @@
 
 .event-page {
     margin: 0 auto;
+    margin-top: 20px;
     max-width: 1100px;
     border: 1px solid rgb(239, 239, 255);
     background-color: white;
@@ -67,6 +68,33 @@
     display: flex;
     align-content: center;
     justify-content: center;
+}
+
+.editable-event {
+    background-color: rgb(91, 91, 218);
+    border: 1px solid rgb(20, 40, 189);
+    color: white;
+    margin-bottom: 5px;
+    border-radius: 3.5px;
+}
+
+.deletable-event {
+    background-color: rgb(198, 64, 64);
+    border: 1px solid rgb(50, 5, 5);
+    color: rgb(232, 235, 215);
+    border-radius: 3.5px;
+}
+
+.editable-event:hover {
+    cursor: pointer;
+    box-shadow: 3px 3px 10px rgb(55, 30, 215);
+    transition: ease-in .15s;
+}
+
+.deletable-event:hover {
+    cursor: pointer;
+    box-shadow: 3px 3px 10px rgb(86, 13, 13);
+    transition: ease-in .15s;
 }
 
 

@@ -4,9 +4,11 @@ import {  Link, useParams, useHistory } from 'react-router-dom';
 // import { all_tickets } from '../../../store/ticket';
 // import CovBar from '../../NavBar/CovBar/CovBar';
 import FooterBar from '../../NavBar/Footer/Footer';
-import { one_event, delete_event } from '../../../store/event';
+import { one_event, delete_event, edit_event } from '../../../store/event';
 import * as actiontickets from '../../../store/ticket';
 import * as actionfollowers from '../../../store/follower';
+import { all_categories } from '../../../store/category';
+import { all_venues } from '../../../store/venue';
 
 import Map from '../../Map/Map'
 
@@ -28,6 +30,22 @@ const EachEvent = () => {
   const ticket = useSelector(state => (state?.tickets_reducer?.tickets));
   const event = useSelector(state => (state?.events_reducer?.events));
   const follower = useSelector(state => (state?.followers_reducer?.followers));
+  const venue = useSelector(state => (state?.venues_reducer?.venues));
+  const category = useSelector(state => (state?.categories_reducer?.categories));
+
+
+  const [editForm, toggleEdit] = useState(false)
+  // const [eventId, setId] = useState([]);
+  const [venue_id, setVenue] = useState('');
+  const [category_id, setCategory] = useState('');
+  const [name, setName] = useState('');
+  const [description, setDescript] = useState('');
+  const [start_time, setStart] = useState('');
+  const [end_time, setEnd] = useState('');
+  const [capacity, setCap] = useState('');
+  const [image, setImg] = useState('');
+  const [cost, setCost] = useState('');
+
 
   const dispatch = useDispatch();
 
@@ -36,8 +54,10 @@ const EachEvent = () => {
     dispatch(actiontickets.one_ticket(eventId?.eventId))
     dispatch(actionfollowers.get_follower_with_promo(Number(event?.events[0]?.host_id)))
     window.scrollTo(0, 0)   // this take is to the top of the page
+    dispatch(all_categories())
+    dispatch(all_venues())
 
-  }, [dispatch, eventId, event?.events[0]?.host_id])
+  }, [dispatch, eventId, event?.events[0]?.host_id], event)
 
   window.addEventListener('load' , e => {
     e.preventDefault()
@@ -207,7 +227,7 @@ const cancelticketq = () => {
             <div className='register-button-contaienr'>
           <div className='registering-buttons'>
             {ticket ? <button onClick={(e) => unregisterforthisevent(e)} className="unregister-button">unregister</button> : ( Number(ticketqty) !== 0 ? <button onClick={(e) => registerforthisevent(e)} className="register-button">register</button> : null )}
-            {ticketqty ? <button type='button' className='cancel-ticket-qty' onClick={() => cancelticketq()}>cancel</button> : null}
+            {ticketqty ? <button type='button' className='cancel-ticket-qty' onClick={(e) => cancelticketq()}>cancel</button> : null}
           </div>
             </div>
           </div>
@@ -357,6 +377,198 @@ const deletethisevent = async () => {
   }
 }
 
+const findedit = () => {
+  setVenue(event?.events[0]?.venue_id)
+  setCategory(event?.events[0]?.category_id)
+  setName(event?.events[0]?.name)
+  setDescript(event?.events[0]?.description)
+  setStart(event?.events[0]?.start_time)
+  setEnd(event?.events[0]?.end_time)
+  setCap(event?.events[0]?.capacity)
+  setImg(event?.events[0]?.image)
+  setCost(event?.events[0]?.cost)
+}
+
+
+const editthisevent =  async (e) => {
+    e.preventDefault()
+    let data
+    if (start_time < end_time) {
+      handleCancel()
+      data = await dispatch(edit_event(
+          user.id,
+          venue_id,
+          category_id,
+          name,
+          description,
+          moment(start_time.split(' GMT').join(' EST')).format('YYYY-MM-DD HH:mm:ss'),
+          moment(end_time.split(' GMT').join(' EST')).format('YYYY-MM-DD HH:mm:ss'),
+          capacity,
+          image,
+          cost,
+          eventId.eventId))
+          runonce()
+    } else {
+      window.alert("Your end date cannot come before your start. Please make the proper selection.")
+    }
+    return data
+}
+
+
+let edit = null
+
+if (editForm) {
+    edit = (
+        <>
+            <div className='edit-panel-container'>
+                <div className="edit-container">
+                    <form className='edit-form' onSubmit={(e) =>{editthisevent(e)}}>
+                        <div>
+                            <label className='edit-labels'> Venue selection
+                                <select
+                                    type="number"
+                                    value={venue_id}
+                                    onChange={(e) => setVenue(e.target.value)}
+                                    required="true"
+                                    className='edit-input longer'
+                                >
+                                    <option value='' key='00'>select</option>
+                                    {venue?.map(ven => (
+                                        <option key={ven.id} value={ven.id}>{ven.name}, address: {ven.address} {ven.city}, {ven.state}</option>
+                                    ))}
+                                </select>
+                            </label>
+                        </div>
+                        <div>
+                            <label className='edit-labels'> Category
+                                <select
+                                        type="number"
+                                        value={category_id}
+                                        onChange={(e) => setCategory(e.target.value)}
+                                        required="true"
+                                        className='edit-input longer'
+                                    >
+                                        <option value='' key='00'>select</option>
+                                        {category?.map(cat => (
+                                            <option key={cat.id} value={cat.id}>{cat.type}</option>
+                                        ))}
+                                </select>
+                            </label>
+                        </div>
+                        <div>
+                            <label className='edit-labels'> Name of event
+                                <input
+                                    type="text"
+                                    value={name}
+                                    onChange={(e) => setName(e.target.value)}
+                                    required="true"
+                                    className='edit-input'
+                                    maxLength={255}
+                                />
+                            </label>
+                        </div>
+                        <div>
+                            <label className='edit-labels'> Description to event
+                                <textarea
+                                    // type="text"
+                                    value={description}
+                                    onChange={(e) => setDescript(e.target.value)}
+                                    required="true"
+                                    className='edit-textarea'
+                                    maxLength={5000}
+                                />
+                            </label>
+                        </div>
+                        <div>
+                            <label className='edit-labels'> Start of event
+                                <input
+                                    type="datetime-local"
+                                    value={moment(start_time.split(' GMT').join(' EST')).format('YYYY-MM-DDTHH:mm')}
+                                    onChange={(e) => setStart(e.target.value)}
+                                    required="true"
+                                    className='edit-input'
+                                />
+                            </label>
+                        </div>
+                        <div>
+                            <label className='edit-labels'> End of event
+                                <input
+                                    type='datetime-local'
+                                    value={moment(end_time.split(' GMT').join(' EST')).format('YYYY-MM-DDTHH:mm')}
+                                    onChange={(e) => setEnd(e.target.value)}
+                                    required="true"
+                                    className='edit-input'
+                                />
+                            </label>
+                        </div>
+                        <div>
+                            <label className='edit-labels'> Capacity limit
+                                <input
+                                    type='number'
+                                    value={capacity}
+                                    onChange={(e) => setCap(e.target.value)}
+                                    required="true"
+                                    className='edit-input'
+                                    max={2000000000}
+                                />
+                            </label>
+                        </div>
+                        <div>
+                            <label className='edit-labels'> Main event image
+                                <input
+                                    type='text'
+                                    value={image}
+                                    onChange={(e) => setImg(e.target.value)}
+                                    className='edit-input'
+                                />
+                            </label>
+                        </div>
+                        <div>
+                            <label className='edit-labels'> ticket costs
+                                <input
+                                    type='number'
+                                    value={cost}
+                                    onChange={(e) => setCost(e.target.value)}
+                                    required="true"
+                                    className='edit-input'
+                                    max={2000000000}
+                                />
+                            </label>
+                        </div>
+                        <button className='edit-form-buttons' type='submit'>Update</button>
+                        <button className='edit-form-buttons' onClick={() => {handleCancel()}} type='button'>Cancel</button>
+                    </form>
+                </div>
+            </div>
+        </>
+    )
+}
+
+const handleCancel = () => {
+    toggleEdit(!editForm)
+}
+
+/* --------------------------opening message------------ ------------------------------------------- */
+
+
+const opening = (
+    <>
+        <div className='spalsh-image-2'>
+            <p className="top-sent top-home-sent">Get down</p>
+            <p className="bottom-sent top-home-sent">for the HOOK!</p>
+            <button onClick={() => window.scrollTo(0,580)} className="event-button">Find your next event</button>
+        </div>
+        <div className='opening-message'>
+            <h3 className='covid-header-title'>
+                Re-open confidently with Adventure Time's COVID-19 Safety Playbook
+            </h3>
+            <p className='covid-under-msg'>
+                We partnered with risk management and health experts to empower event creators to thoughtfully consider potential safety and security risks at your event.
+            </p>
+        </div>
+    </>
+)
+
 
 // ===========================================return===========================================================================
   return (
@@ -377,13 +589,13 @@ const deletethisevent = async () => {
                   <p className='event-card-basic-info event-name-info'>By: {event?.events[0]?.host?.first_name} {event?.events[0]?.host?.last_name} </p>
                   <p className='event-card-basic-info'>Contact: {event?.events[0]?.host?.email} </p>
                   { event?.events[0]?.host_id !== user.id ?  <p className='follower-number'>{event?.events[0]?.followers?.length} followers { follower ? <button value={follower[0]?.id} onClick={(e) => unfollow(e) } className='unfollow-me-button'>following</button> : <button onClick={() => follow()} className='follow-me-button'>follow</button> }</p>: null}
-                  { event?.events[0]?.host_id !== user.id ?  <p className='ticket-message'>{ticket ? <p className='ticket-message-inner'> You are going! </p> : <p className='ticket-message-inner'> You are not going! </p>  }</p> : <> <p className='ticket-message-inner'> This is your event! </p> <button className='deletable-event' onClick={() => deletethisevent()} type='button'>delete this event</button> </> }
+                  { event?.events[0]?.host_id !== user.id ?  <p className='ticket-message'>{ticket ? <p className='ticket-message-inner'> You are going! </p> : <p className='ticket-message-inner'> You are not going! </p>  }</p> : <> <p className='ticket-message-inner'> This is your event! </p> <button className='editable-event' onClick={() => (toggleEdit(!editForm), findedit())} type='button'>edit this event</button> <br/> <button className='deletable-event' onClick={() => deletethisevent()} type='button'>delete this event</button> </> }
                   { event?.events[0]?.host_id !== user.id ? event?.events[0]?.cost ? <p className='ticket-prices-start'>Tickets start at: ${event?.events[0]?.cost}</p> : <p className='ticket-prices-start'>Free</p> : null }
                 </div>
               </div>
             </div>
             <div className="purchase-tix-bar">
-                { event?.events[0]?.host_id !== user.id ?   <button type='button' onClick={() => (setPanel(!panel))} className='ticket-button'>Tickets</button> : null}
+                { event?.events[0]?.host_id !== user.id ?   <button type='button' onClick={() => (setPanel(!panel))} className='ticket-button'>Tickets</button> : null }
             </div>
             <div className='event-page-bot-grid'>
               <div className='events-main-cont-container'>
@@ -439,6 +651,7 @@ const deletethisevent = async () => {
             {map_panel}
             {/* <SideScroll /> */}
             {ticket_panel}
+            {edit}
 
           <FooterBar/>
 
