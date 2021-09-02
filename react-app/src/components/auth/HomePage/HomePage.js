@@ -399,7 +399,9 @@ const need = (
                                     </>) : null }
                                     <Link className='card-per' to={`/event/${event?.id}`}>
                                     <div className='card-info-container'>
-                                        { event?.name?.length < 50 ? <h2 className='card-print card-name-home-short'>{event?.name}</h2> : <h2 className='card-print card-name-home-long'>{event?.name}</h2> }
+                                        <div className='event-name-conatianer'>
+                                            { event?.name?.length < 50 ? <h2 className='card-print card-name-home-short'>{event?.name}</h2> : <h2 className='card-print card-name-home-long'>{event?.name}</h2> }
+                                        </div>
                                         {/* <p className='card-print'>{event.category.type}</p> */}
                                         <p hidden="true" className='card-print'>{event?.description}</p>
                                         <p className='card-print card-date'>{moment((event?.start_time).split(' GMT').join(' EST')).format('ddd, MMM D, h:mm A')}</p>

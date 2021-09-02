@@ -97,10 +97,11 @@ img {
     font-size: 16.3px;
     max-height: 33px;
 }
+
 .card-name-home-long {
     padding-top: 13px;
-    font-size: 14px;
-    max-height: 30px;
+    font-size: 12px;
+    max-height: 42px;
 }
 
 .card-date {
@@ -152,6 +153,10 @@ img {
     color: rgb(119, 119, 132);
     font-size: small;
 }
+/*
+.event-name-conatianer {
+    max-height: 430px;
+} */
 
 
 /* --------------------------card---butts------------------------------------------------------ */

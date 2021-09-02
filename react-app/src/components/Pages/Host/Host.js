@@ -40,11 +40,17 @@ const HostForm = () => {
         image,
         cost,
       }
+      let data
 
-      let data = await dispatch(create_event(payload))
-      if (data) {
-        history.push('/')
-      }
+      if (payload.start_time < payload.end_time) {
+          data = await dispatch(create_event(payload))
+          if (data) {
+            history.push('/')
+            window.alert('Your event has been created!')
+          }
+        } else {
+            window.alert('Your end date must come after the start date!')
+          }
 
       return data
   }

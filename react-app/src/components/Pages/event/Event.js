@@ -418,6 +418,7 @@ const unfollow = async (e) => {
             {ticket_panel}
 
           <FooterBar/>
+
         </>
   );
 };
