@@ -50,7 +50,7 @@
 ![Screen Shot 2021-09-02 at 11 33 10 AM](https://user-images.githubusercontent.com/79543569/131873319-52eba421-e06b-4235-b8f5-8ad38e364052.png)
 
 ### Ticket / User page
-*Users may view favorited events registered tickets. Users may also unregister for tickets on this page.*
+*Users may view favorited events & registered tickets. Users may also unregister for tickets on this page.*
 ![Screen Shot 2021-09-02 at 1 45 27 PM](https://user-images.githubusercontent.com/79543569/131892047-e54129c8-b36c-49b5-8405-dc65f43817f3.png)
 ![Screen Shot 2021-09-02 at 1 10 23 PM](https://user-images.githubusercontent.com/79543569/131892098-2d99cf83-4f3a-43ea-bbf2-f184b7d02885.png)
 
@@ -110,14 +110,18 @@
    ```bash
    npm start
    ```
-
-
-
-Visit the live app powered by Heroku [here](https://adventure--time.herokuapp.com/ "Named link title")
-
-
 # Technologies used
-
+- Python
+- Javascript
+- React
+- Redux
+- Flask
+- SQL Alchemy
+- PosgreSQL
+- GoogleMaps JavaScript API
+- Heroku
+- Git
+- Docker
 # Wiki Documentation
 - ### [Home](https://github.com/88joonyc/Adventure_time/wiki "Named link title")
 - ### [Feature List](https://github.com/88joonyc/Adventure_time/wiki/MVP-Feature-List "Named link title")
@@ -125,7 +129,10 @@ Visit the live app powered by Heroku [here](https://adventure--time.herokuapp.co
 - ### [Database Schema](https://github.com/88joonyc/Adventure_time/wiki/Database-Schema "Named link title")
 - ### [User stories](https://github.com/88joonyc/Adventure_time/wiki/User-Stories "Named link title")
 # Frontend Overview
-
 # Backend Overview
 # Future Plans
+ - [ ] Implement an AWS photo bucket to allow users to add additional photos to end of descriptions on the event page 
+ - [ ] Chatroom messaging feature to allow users to connect with promoters for potential business opportunities
 # Conclusion
+
+Visit the live app powered by Heroku [here](https://adventure--time.herokuapp.com/ "Named link title")
