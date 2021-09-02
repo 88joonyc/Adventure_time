@@ -33,7 +33,7 @@
 
 .ticket-info-card {
     margin: 0 auto;
-    width: 97%
+    width: 90%
 }
 
 .ticket-container {
@@ -150,5 +150,24 @@
 
 .orders-toggle:hover {
     cursor: pointer;
-    color: rgb(0, 0, 160);
+    color: rgb(49, 49, 255);
+}
+
+
+/* -------------------------------------------------------follows */
+
+.follow-card-img {
+    width: 175px;
+    height: 175px;
+    border-radius: 175px;
+    margin-left: 80px;
+}
+
+.user-card {
+    width: 650px;
+}
+
+.user-info {
+    font-size: larger;
+    color: rgb(54, 73, 89)
 }

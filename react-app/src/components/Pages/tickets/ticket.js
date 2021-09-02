@@ -21,7 +21,7 @@ const TicketPage = () => {
   const user = useSelector(state => state.session.user)
   const tickets = useSelector(state => (state?.tickets_reducer?.tickets));
   const hearts = useSelector(state => (state?.hearts_reducer?.hearts));
-  const follows = useSelector(state => (state?.followers_reducer.followers));
+  const follows = useSelector(state => (state?.followers_reducer?.followers));
 
   const dispatch = useDispatch();
 
@@ -115,16 +115,13 @@ const heart_content = (
 
 const follow_content = (
   <>
-    {follows?.map( heart =>
+    {follows?.map( follow =>
       // {/* // <Link to={`/event/${heart?.event?.id}`} className='tix-link'> */}
-          <div className="ticket-card">
-            <img className="tix-card-img" src={follow?.user?.image}/>
+          <div className="ticket-card user-card">
+            <img className="follow-card-img" src={follow?.user?.image}/>
             <div className='tix-card-info'>
-              {/* <p className='tix-date'>{moment(heart?.event?.start_time).format('ddd, MMM Do, [at] LT')}</p> */}
-              {/* <p className='tix-title'>{heart?.event?.name}</p> */}
-            </div>
-            <div className='register-button-container'>
-              {/* <button type='button' className="unregister-tickets-page" value={''} onClick={(e) => unregisterforthisevent(e)}>Unregister</button> */}
+              <p className='user-info'>Name: {follow?.user?.first_name} {follow?.user?.last_name}</p>
+              <p className='user-info'>Contact me: {follow?.user?.email}</p>
             </div>
           </div>
       // {/* // </Link> */}
@@ -155,7 +152,7 @@ const follow_content = (
                 </div>
                 <div className='ticket-info-card' >
                   <div className="users-boxes">
-                    <button type='button' onClick={() => toggleOrders(!orders)} className='orders-toggle'><h3>Orders {`>`}</h3></button>
+                    <button type='button' onClick={() => toggleOrders(!orders)} className='orders-toggle'><h3 className='highlight'>Orders {`>`}</h3></button>
                   {tickets ?  ( orders ? some_content : null ) : none_content }
                   </div>
                   <div className="users-boxes">
