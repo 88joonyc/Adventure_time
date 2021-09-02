@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux'
-import {  Link, useParams } from 'react-router-dom';
+import {  Link, useParams, useHistory } from 'react-router-dom';
 // import { all_tickets } from '../../../store/ticket';
 // import CovBar from '../../NavBar/CovBar/CovBar';
 import FooterBar from '../../NavBar/Footer/Footer';
-import { one_event } from '../../../store/event';
+import { one_event, delete_event } from '../../../store/event';
 import * as actiontickets from '../../../store/ticket';
 import * as actionfollowers from '../../../store/follower';
 
@@ -21,6 +21,8 @@ const EachEvent = () => {
   const [tier, setTier] = useState('')
   const [multiplier, setMultiplier] = useState('')
   const [overload, /*toggleOverload*/] = useState('false')
+
+  const history = useHistory()
 
   const user = useSelector(state => state.session.user)
   const ticket = useSelector(state => (state?.tickets_reducer?.tickets));
@@ -344,6 +346,18 @@ const unfollow = async (e) => {
 // })
 
 
+// ===========================================delete===========================================================================
+
+
+const deletethisevent = async () => {
+  const ask = window.confirm("are you sure you want to delete your event?")
+  if (ask) {
+      await dispatch(delete_event(eventId.eventId))
+      history.push('/')
+  }
+}
+
+
 // ===========================================return===========================================================================
   return (
         <>
@@ -363,8 +377,8 @@ const unfollow = async (e) => {
                   <p className='event-card-basic-info event-name-info'>By: {event?.events[0]?.host?.first_name} {event?.events[0]?.host?.last_name} </p>
                   <p className='event-card-basic-info'>Contact: {event?.events[0]?.host?.email} </p>
                   { event?.events[0]?.host_id !== user.id ?  <p className='follower-number'>{event?.events[0]?.followers?.length} followers { follower ? <button value={follower[0]?.id} onClick={(e) => unfollow(e) } className='unfollow-me-button'>following</button> : <button onClick={() => follow()} className='follow-me-button'>follow</button> }</p>: null}
-                  { event?.events[0]?.host_id !== user.id ?  <p className='ticket-message'>{ticket ? <p className='ticket-message-inner'> You are going! </p> : <p className='ticket-message-inner'> You are not going! </p>  }</p>: <p className='ticket-message-inner'> This is your event! </p>  }
-                  {event?.events[0]?.cost ? <p className='ticket-prices-start'>Tickets start at: ${event?.events[0]?.cost}</p> : <p className='ticket-prices-start'>Free</p>}
+                  { event?.events[0]?.host_id !== user.id ?  <p className='ticket-message'>{ticket ? <p className='ticket-message-inner'> You are going! </p> : <p className='ticket-message-inner'> You are not going! </p>  }</p> : <> <p className='ticket-message-inner'> This is your event! </p> <button className='deletable-event' onClick={() => deletethisevent()} type='button'>delete this event</button> </> }
+                  { event?.events[0]?.host_id !== user.id ? event?.events[0]?.cost ? <p className='ticket-prices-start'>Tickets start at: ${event?.events[0]?.cost}</p> : <p className='ticket-prices-start'>Free</p> : null }
                 </div>
               </div>
             </div>
