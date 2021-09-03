@@ -324,6 +324,7 @@ const filteredEvents = filter (events, search)
   })
 
 
+
 /* -------------------------- popular_bar------------ ------------------------------------------- */
 
 
@@ -347,7 +348,7 @@ let popular_bar = (
                    {sessionUser?  <button onClick={() => set_located_events(5)} className='cat-button'>Online</button> : <button onClick={() => set_unregistered_located_events(5)} className='cat-button'>Online</button> }
                 </div>
                 <div>
-                    {sessionUser?  <button onClick={() => set_categorized_events(2)} className='cat-button'>Business & Professional</button> : <button onClick={() => set_unregisterd_categorized_events(19)} className='cat-button'>Holiday</button> }
+                    {sessionUser?  <button onClick={() => set_categorized_events(2)} className='cat-button'>Business & Professional</button> : <button onClick={() => set_unregisterd_categorized_events(2)} className='cat-button'>Business & Professional</button> }
                 </div>
                 <div>
                     {sessionUser?  <button onClick={() => set_paid_events(0)} className='cat-button'>Free</button> : <button onClick={() => set_unregisterd_paid_events(0)} className='cat-button'>Free</button> }
@@ -356,7 +357,7 @@ let popular_bar = (
                     {sessionUser?  <button onClick={() => set_categorized_events(19)} className='cat-button'>Holiday</button> : <button onClick={() => set_unregisterd_categorized_events(19)} className='cat-button'>Holiday</button> }
                 </div>
                 <div>
-                    {sessionUser?  <button onClick={() => set_categorized_events(4)} className='cat-button'>Communication & Culture</button> : <button onClick={() => set_unregisterd_categorized_events(19)} className='cat-button'>Holiday</button> }
+                    {sessionUser?  <button onClick={() => set_categorized_events(4)} className='cat-button'>Communication & Culture</button> : <button onClick={() => set_unregisterd_categorized_events(4)} className='cat-button'>Communication & Culture</button> }
                 </div>
                 <div>
                     {sessionUser?  <button onClick={() => set_categorized_events(13)} className='cat-button'>Music</button> : <button onClick={() => set_unregisterd_categorized_events(13)} className='cat-button'>Music</button> }

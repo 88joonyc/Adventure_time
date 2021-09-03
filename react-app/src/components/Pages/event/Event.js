@@ -85,6 +85,7 @@ const EachEvent = () => {
       if (ticketqty < event?.events[0]?.capacity) {
         await dispatch(actiontickets.create_ticket(id))
         window.alert("purchase has been made!")
+        setTicketQty('')
         setPanel(!panel)
       } else {
         window.alert('you cannot purchase that many tickets!')
@@ -95,8 +96,13 @@ const EachEvent = () => {
 
   const unregisterforthisevent = async (e) => {
     e.preventDefault()
-    await dispatch(actiontickets.delete_ticket(ticket[0]?.id))
-    runonce()
+    const  ask = window.confirm('Are you sure you want to miss out on this event?')
+    if (ask) {
+      await dispatch(actiontickets.delete_ticket(ticket[0]?.id))
+      runonce()
+      window.alert('see ya')
+      setPanel(!panel)
+    }
   }
 
   // ===========================================register===========================================================================
