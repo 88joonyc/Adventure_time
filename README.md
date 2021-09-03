@@ -32,7 +32,7 @@
 ![Screen Shot 2021-09-02 at 11 30 30 AM](https://user-images.githubusercontent.com/79543569/131872883-89b3ce92-67e2-4a40-a15d-f9224551c521.png)
 
 ## Edit events
-*Users may edit the event they previously created.*
+*Users may edit the event they previously created on either the home page or in the event page itself.*
 ![Screen Shot 2021-09-02 at 1 39 11 PM](https://user-images.githubusercontent.com/79543569/131891369-a4dc9c2a-867b-42a6-b640-62286b18c38d.png)
 
 ## Delete created event
@@ -45,22 +45,22 @@
 ![Screen Shot 2021-09-02 at 1 22 02 PM](https://user-images.githubusercontent.com/79543569/131888946-cf3c8d31-5c8a-4588-8cd8-555112b54e77.png)
 
 
-### Ticket registration 
+## Ticket registration 
 *Ticket registeration is only valid for users not already registered or if the user owns that specific event.*
 ![Screen Shot 2021-09-02 at 11 33 10 AM](https://user-images.githubusercontent.com/79543569/131873319-52eba421-e06b-4235-b8f5-8ad38e364052.png)
 
-### Ticket / User page
+## Ticket / User page
 *Users may view favorited events & registered tickets. Users may also unregister for tickets on this page.*
 ![Screen Shot 2021-09-02 at 1 45 27 PM](https://user-images.githubusercontent.com/79543569/131892047-e54129c8-b36c-49b5-8405-dc65f43817f3.png)
 ![Screen Shot 2021-09-02 at 1 10 23 PM](https://user-images.githubusercontent.com/79543569/131892098-2d99cf83-4f3a-43ea-bbf2-f184b7d02885.png)
 
 
-### Create event page
+## Create event page
 *Users can create an event to share with their community.*
 ![Screen Shot 2021-09-02 at 1 08 18 PM](https://user-images.githubusercontent.com/79543569/131887359-e30a864f-b4f6-4adf-9aa4-0a4b012ba1ff.png)
 ![Screen Shot 2021-09-02 at 1 08 47 PM](https://user-images.githubusercontent.com/79543569/131887363-9fe30ae9-72b2-4c4a-a1fe-4563d05a0af7.png)
 
-### Create a venue
+## Create a venue
 *Users can create a venue if they do not see theirs on the list.*
 ![Screen Shot 2021-09-02 at 1 48 10 PM](https://user-images.githubusercontent.com/79543569/131892421-64970fd7-913e-4fd2-8e1b-5e742c987ebf.png)
 
@@ -135,6 +135,8 @@
 # Future Plans
  - [ ] Implement an AWS photo bucket to allow users to add additional photos to end of descriptions on the event page 
  - [ ] Chatroom messaging feature to allow users to connect with promoters for potential business opportunities
+ - [ ] horizontal scroll bar of followers or other events categorized in a specified order
+
 # Conclusion
 
 # Contact
