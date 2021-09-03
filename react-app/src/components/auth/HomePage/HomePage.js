@@ -36,21 +36,26 @@ const [search, setSearch] = useState('');
 
 const handleEdit =  async (e) => {
     e.preventDefault()
-    // handleCancel()
-    let data = await dispatch(eventActions.edit_event(
-        sessionUser.id,
-        venue_id,
-        category_id,
-        name,
-        description,
-        moment(start_time).format('YYYY-MM-DD HH:mm:ss'),
-        moment(end_time).format('YYYY-MM-DD HH:mm:ss'),
-        capacity,
-        image,
-        cost,
-        eventId))
+    let data
+    if (moment(start_time).format('YYYY-MM-DD HH:mm:ss') < moment(end_time).format('YYYY-MM-DD HH:mm:ss')) {
+        data = await dispatch(eventActions.edit_event(
+            sessionUser.id,
+            venue_id,
+            category_id,
+            name,
+            description,
+            moment(start_time).format('YYYY-MM-DD HH:mm:ss'),
+            moment(end_time).format('YYYY-MM-DD HH:mm:ss'),
+            capacity,
+            image,
+            cost,
+            eventId))
         await dispatch(eventActions.all_events())
-    return data
+        handleCancel()
+        return data
+    } else {
+        window.alert('Your end dates cannot comne before your start dates. Please check the fields and try again.')
+    }
 }
 
 let content = null
@@ -405,7 +410,7 @@ const need = (
                                         </div>
                                         {/* <p className='card-print'>{event.category.type}</p> */}
                                         <p hidden="true" className='card-print'>{event?.description}</p>
-                                        <p className='card-print card-date'>{moment((event?.start_time)).add(-20, 'hours').format('ddd, MMM D, h:mm A')}</p>
+                                        <p className='card-print card-date'>{moment((event?.start_time)).add(5, 'hours').format('ddd, MMM D, h:mm A')}</p>
                                         {/* <p className='card-print'>{moment(event.end_time).format('ddd, MMM D, h:mm A')}</p> */}
                                         <p className='card-print card-venue-home'>{event?.venue.name} • {event.venue.city}</p>
                                         <p className='card-print card-cost-home'>Starts at ${event?.cost}</p>
@@ -424,8 +429,8 @@ const need = (
                                                     setVenue(event.venue_id),
                                                     setCategory(event.category_id),
                                                     setName(event.name),
-                                                    setStart(event.start_time),
-                                                    setEnd(event.end_time),
+                                                    setStart(moment(event.start_time).add(5, 'hours')),
+                                                    setEnd(moment(event.end_time).add(5, 'hours')),
                                                     setCap(event.capacity),
                                                     setImg(event.image),
                                                     setCost(event.cost),

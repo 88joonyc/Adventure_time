@@ -382,8 +382,8 @@ const findedit = () => {
   setCategory(event?.events[0]?.category_id)
   setName(event?.events[0]?.name)
   setDescript(event?.events[0]?.description)
-  setStart(moment(event?.events[0]?.start_time).add(4, 'hours').format('MMM D YYYY HH:mm:ss'))
-  setEnd(moment(event?.events[0]?.end_time).add(4, 'hours').format('MMM D YYYY HH:mm:ss'))
+  setStart(moment(event?.events[0]?.start_time).add(5, 'hours').format('MMM D YYYY HH:mm:ss'))
+  setEnd(moment(event?.events[0]?.end_time).add(5, 'hours').format('MMM D YYYY HH:mm:ss'))
   setCap(event?.events[0]?.capacity)
   setImg(event?.events[0]?.image)
   setCost(event?.events[0]?.cost)
@@ -611,9 +611,9 @@ const handleCancel = () => {
                     </div>
                     <p>Date and time</p>
                     <p>Starts: </p>
-                    <p className='startend-times'>{moment(event?.events[0]?.start_time).add(4, 'hours').format('ddd[,] MMMM Do [,] YYYY [at] h:mm A')}</p>
+                    <p className='startend-times'>{moment(event?.events[0]?.start_time).add(5, 'hours').format('ddd[,] MMMM Do [,] YYYY [at] h:mm A')}</p>
                     <p>Ends:</p>
-                    <p className='startend-times'>{moment(event?.events[0]?.end_time).add(4, 'hours').format('dddd[,] MMMM Do[,] YYYY [at] h:mm A')}</p>
+                    <p className='startend-times'>{moment(event?.events[0]?.end_time).add(5, 'hours').format('dddd[,] MMMM Do[,] YYYY [at] h:mm A')}</p>
 
                     <p className="events-address-label">Location:</p>
                     <div className='events-page-location'>
