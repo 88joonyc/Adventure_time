@@ -36,15 +36,15 @@ const [search, setSearch] = useState('');
 
 const handleEdit =  async (e) => {
     e.preventDefault()
-    handleCancel()
+    // handleCancel()
     let data = await dispatch(eventActions.edit_event(
         sessionUser.id,
         venue_id,
         category_id,
         name,
         description,
-        moment(start_time.split(' GMT').join(' EST')).format('YYYY-MM-DD HH:mm:ss'),
-        moment(end_time.split(' GMT').join(' EST')).format('YYYY-MM-DD HH:mm:ss'),
+        moment(start_time).format('YYYY-MM-DD HH:mm:ss'),
+        moment(end_time).format('YYYY-MM-DD HH:mm:ss'),
         capacity,
         image,
         cost,
@@ -147,7 +147,8 @@ if (editForm) {
                             <label className='edit-labels'> Start of event
                                 <input
                                     type="datetime-local"
-                                    value={moment(start_time.split(' GMT').join(' EST')).format('YYYY-MM-DDTHH:mm')}
+                                    // value={moment(start_time.split(' GMT').join(' EST')).format('YYYY-MM-DDTHH:mm')}
+                                    value={moment(start_time).format('YYYY-MM-DDTHH:mm')}
                                     onChange={(e) => setStart(e.target.value)}
                                     required="true"
                                     className='edit-input'
@@ -158,7 +159,7 @@ if (editForm) {
                             <label className='edit-labels'> End of event
                                 <input
                                     type='datetime-local'
-                                    value={moment(end_time.split(' GMT').join(' EST')).format('YYYY-MM-DDTHH:mm')}
+                                    value={moment(end_time).format('YYYY-MM-DDTHH:mm')}
                                     onChange={(e) => setEnd(e.target.value)}
                                     required="true"
                                     className='edit-input'
@@ -404,7 +405,7 @@ const need = (
                                         </div>
                                         {/* <p className='card-print'>{event.category.type}</p> */}
                                         <p hidden="true" className='card-print'>{event?.description}</p>
-                                        <p className='card-print card-date'>{moment((event?.start_time).split(' GMT').join(' EST')).format('ddd, MMM D, h:mm A')}</p>
+                                        <p className='card-print card-date'>{moment((event?.start_time)).add(-20, 'hours').format('ddd, MMM D, h:mm A')}</p>
                                         {/* <p className='card-print'>{moment(event.end_time).format('ddd, MMM D, h:mm A')}</p> */}
                                         <p className='card-print card-venue-home'>{event?.venue.name} • {event.venue.city}</p>
                                         <p className='card-print card-cost-home'>Starts at ${event?.cost}</p>

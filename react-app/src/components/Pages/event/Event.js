@@ -392,22 +392,25 @@ const findedit = () => {
 
 const editthisevent =  async (e) => {
     e.preventDefault()
+    console.log(start_time.split(' GMT').join(' EST'))
+    console.log(moment(event?.events[0]?.start_time.split(' GMT').join(' EST')).add(17, 'hours').format('ddd, MMMM do, YYYY [at] h:mm A'))
+    console.log(moment(event?.events[0]?.start_time.split(' GMT').join(' EST')).format('ddd, MMMM do, YYYY'))
     let data
-    if (start_time < end_time) {
-      handleCancel()
-      data = await dispatch(edit_event(
-          user.id,
-          venue_id,
-          category_id,
-          name,
-          description,
-          moment(start_time.split(' GMT').join(' EST')).format('YYYY-MM-DD HH:mm:ss'),
-          moment(end_time.split(' GMT').join(' EST')).format('YYYY-MM-DD HH:mm:ss'),
-          capacity,
-          image,
-          cost,
-          eventId.eventId))
-          runonce()
+    if (start_time.split(' GMT').join < end_time.split(' GMT').join(' EST')) {
+      // handleCancel()
+      // data = await dispatch(edit_event(
+      //     user.id,
+      //     venue_id,
+      //     category_id,
+      //     name,
+      //     description,
+      //     moment(start_time.split(' GMT').join(' EST')).format('YYYY-MM-DD HH:mm:ss'),
+      //     moment(end_time.split(' GMT').join(' EST')).format('YYYY-MM-DD HH:mm:ss'),
+      //     capacity,
+      //     image,
+      //     cost,
+      //     eventId.eventId))
+      //     runonce()
     } else {
       window.alert("Your end date cannot come before your start. Please make the proper selection.")
     }
@@ -549,26 +552,6 @@ const handleCancel = () => {
 }
 
 /* --------------------------opening message------------ ------------------------------------------- */
-
-
-const opening = (
-    <>
-        <div className='spalsh-image-2'>
-            <p className="top-sent top-home-sent">Get down</p>
-            <p className="bottom-sent top-home-sent">for the HOOK!</p>
-            <button onClick={() => window.scrollTo(0,580)} className="event-button">Find your next event</button>
-        </div>
-        <div className='opening-message'>
-            <h3 className='covid-header-title'>
-                Re-open confidently with Adventure Time's COVID-19 Safety Playbook
-            </h3>
-            <p className='covid-under-msg'>
-                We partnered with risk management and health experts to empower event creators to thoughtfully consider potential safety and security risks at your event.
-            </p>
-        </div>
-    </>
-)
-
 
 // ===========================================return===========================================================================
   return (
