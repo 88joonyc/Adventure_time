@@ -192,6 +192,16 @@ def edit(id):
     db.session.commit()
     return event.to_dict()
 
+
+@event_routes.route('/edit/capacity/<int:id>', methods=['PUT'])
+@login_required
+def edit_seats(id):
+    event = Event.query.get(id)
+    form = EventForm()
+    event.capacity = form.data['capacity']
+    db.session.commit()
+    return event.to_dict()
+
 @event_routes.route('/remove/<int:id>', methods=['DELETE'])
 @login_required
 def rubbish(id):

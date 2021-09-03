@@ -117,6 +117,22 @@ export const edit_event = (host_id, venue_id, category_id, name, description, st
     return data
 }
 
+export const edit_event_capacity = (capacity, id) => async dispatch => {
+    const res = await fetch(`/api/events/edit/capacity/${id}`, {
+        method: 'PUT',
+        headers: {"Content-Type": 'application/json'},
+        body: JSON.stringify({
+            capacity,
+        })
+    })
+    const data = res.json()
+    if (res.ok) {
+        dispatch(update(data))
+        if (data.errors) return data.errors
+    }
+    return data
+}
+
 export const delete_event = (id) => async dispatch => {
     const res = await fetch(`/api/events/remove/${id}`, {
         method: 'DELETE',
