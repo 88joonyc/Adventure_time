@@ -21,6 +21,11 @@
     border: 1px solid rgb(239, 239, 255);
 }
 
+.startend-times {
+    color: rgb(134, 134, 160);
+    font-size: small;
+}
+
 .event-page-topcard {
     height: 400px;
     display: grid;

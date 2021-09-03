@@ -382,35 +382,34 @@ const findedit = () => {
   setCategory(event?.events[0]?.category_id)
   setName(event?.events[0]?.name)
   setDescript(event?.events[0]?.description)
-  setStart(event?.events[0]?.start_time)
-  setEnd(event?.events[0]?.end_time)
+  setStart(moment(event?.events[0]?.start_time).add(4, 'hours').format('MMM D YYYY HH:mm:ss'))
+  setEnd(moment(event?.events[0]?.end_time).add(4, 'hours').format('MMM D YYYY HH:mm:ss'))
   setCap(event?.events[0]?.capacity)
   setImg(event?.events[0]?.image)
   setCost(event?.events[0]?.cost)
 }
 
-
 const editthisevent =  async (e) => {
     e.preventDefault()
-    console.log(start_time.split(' GMT').join(' EST'))
-    console.log(moment(event?.events[0]?.start_time.split(' GMT').join(' EST')).add(17, 'hours').format('ddd, MMMM do, YYYY [at] h:mm A'))
-    console.log(moment(event?.events[0]?.start_time.split(' GMT').join(' EST')).format('ddd, MMMM do, YYYY'))
+
     let data
-    if (start_time.split(' GMT').join < end_time.split(' GMT').join(' EST')) {
-      // handleCancel()
-      // data = await dispatch(edit_event(
-      //     user.id,
-      //     venue_id,
-      //     category_id,
-      //     name,
-      //     description,
-      //     moment(start_time.split(' GMT').join(' EST')).format('YYYY-MM-DD HH:mm:ss'),
-      //     moment(end_time.split(' GMT').join(' EST')).format('YYYY-MM-DD HH:mm:ss'),
-      //     capacity,
-      //     image,
-      //     cost,
-      //     eventId.eventId))
-      //     runonce()
+
+
+    if (moment(start_time).format('YYYY-MM-DD HH:mm:ss') < moment(end_time).format('YYYY-MM-DD HH:mm:ss')) {
+      handleCancel()
+      data = await dispatch(edit_event(
+          user.id,
+          venue_id,
+          category_id,
+          name,
+          description,
+          moment(start_time).format('YYYY-MM-DD HH:mm:ss'),
+          moment(end_time).format('YYYY-MM-DD HH:mm:ss'),
+          capacity,
+          image,
+          cost,
+          eventId.eventId))
+          runonce()
     } else {
       window.alert("Your end date cannot come before your start. Please make the proper selection.")
     }
@@ -475,7 +474,7 @@ if (editForm) {
                                 <textarea
                                     // type="text"
                                     value={description}
-                                    onChange={(e) => setDescript(e.target.value)}
+                                    onChange={(e) => (setDescript(e.target.value))}
                                     required="true"
                                     className='edit-textarea'
                                     maxLength={5000}
@@ -486,8 +485,8 @@ if (editForm) {
                             <label className='edit-labels'> Start of event
                                 <input
                                     type="datetime-local"
-                                    value={moment(start_time.split(' GMT').join(' EST')).format('YYYY-MM-DDTHH:mm')}
-                                    onChange={(e) => setStart(e.target.value)}
+                                    value={moment(start_time).format('YYYY-MM-DDTHH:mm')}
+                                    onChange={(e) => (setStart(moment(e.target.value).format('MMM D YYYY HH:mm:ss')))}
                                     required="true"
                                     className='edit-input'
                                 />
@@ -497,8 +496,8 @@ if (editForm) {
                             <label className='edit-labels'> End of event
                                 <input
                                     type='datetime-local'
-                                    value={moment(end_time.split(' GMT').join(' EST')).format('YYYY-MM-DDTHH:mm')}
-                                    onChange={(e) => setEnd(e.target.value)}
+                                    value={moment(end_time).format('YYYY-MM-DDTHH:mm')}
+                                    onChange={(e) => (setEnd(moment(e.target.value).format('MMM D YYYY HH:mm:ss')))}
                                     required="true"
                                     className='edit-input'
                                 />
@@ -612,9 +611,10 @@ const handleCancel = () => {
                     </div>
                     <p>Date and time</p>
                     <p>Starts: </p>
-                    <p>{moment(event?.events[0]?.start_time.split(' GMT').join(' EST')).format('ddd, MMMM do, YYYY [at] h:mm A')}</p>
+                    <p className='startend-times'>{moment(event?.events[0]?.start_time).add(4, 'hours').format('ddd[,] MMMM Do [,] YYYY [at] h:mm A')}</p>
                     <p>Ends:</p>
-                    <p>{moment(event?.events[0]?.end_time.split(' GMT').join(' EST')).format('ddd, MMMM do, YYYY [at] h:mm A')}</p>
+                    <p className='startend-times'>{moment(event?.events[0]?.end_time).add(4, 'hours').format('dddd[,] MMMM Do[,] YYYY [at] h:mm A')}</p>
+
                     <p className="events-address-label">Location:</p>
                     <div className='events-page-location'>
                       <p className="events-address-para">{event?.events[0]?.venue?.name}</p>
