@@ -64,6 +64,7 @@
 *Users can create a venue if they do not see theirs on the list.*
 ![Screen Shot 2021-09-02 at 1 48 10 PM](https://user-images.githubusercontent.com/79543569/131892421-64970fd7-913e-4fd2-8e1b-5e742c987ebf.png)
 
+![adventure_time](https://user-images.githubusercontent.com/79543569/132072949-d47bf6da-96b0-4ae8-8931-6a442e452da5.gif)
 
 # Installation
 
