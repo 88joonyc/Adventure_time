@@ -8,6 +8,7 @@ import { useEffect } from 'react';
 
 import './NavBar.css'
 import { authenticate } from '../../store/session';
+import { all_events } from '../../store/event';
 
 const NavBar = () => {
   const dispatch = useDispatch()
@@ -54,13 +55,13 @@ const NavBar = () => {
   let usertab = (
     <>
     {/* <button onClick={() =>toggleCreate(!eventPage)}>+</button> */}
-    <NavLink className="create-event" to='/host'>{<img alt='' className='ticket-icon'/>} Create </NavLink>
-    <NavLink className="create-event" to='/tickets'>{<img alt='' className='ticketing-icon'/>} Tickets </NavLink>
+    <NavLink className="create-event" to='/host'>{<img alt='class' className='ticket-icon'/>} Create </NavLink>
+    <NavLink className="create-event" to='/tickets'>{<img alt='act' className='ticketing-icon'/>} Tickets </NavLink>
     <div className='dropddown-tab'>
             <button className='toggle-drop-button' onClick={openMenu}>
               <div className="drop-button-items">
                   <div className='drop-nav-email'>{sessionUser?.email}</div>
-                  <img alt='' className='profile-pic' src={sessionUser?.image}/>
+                  <img alt='sas' className='profile-pic' src={sessionUser?.image}/>
               </div>
             </button>
             {showMenu && (
@@ -132,7 +133,7 @@ const NavBar = () => {
         <nav>
           <div className="navbar-container">
             <div>
-              <NavLink to='/' exact={true} activeClassName='active'>
+              <NavLink to='/' onClick={() => dispatch(all_events())} exact={true} activeClassName='active'>
                 <img alt='' className="navbar-image logo-image-container"/>
               </NavLink>
             </div>

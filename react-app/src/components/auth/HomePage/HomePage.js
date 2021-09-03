@@ -220,7 +220,7 @@ const opening = (
         <div className='spalsh-image-2'>
             <p className="top-sent top-home-sent">Get down</p>
             <p className="bottom-sent top-home-sent">for the HOOK!</p>
-            <button onClick={() => window.scrollTo(0,580)} className="event-button">Find your next event</button>
+            <button onClick={() => window.scrollTo({left: 0, top: 580, behavior: 'smooth'})} className="event-button">Find your next event</button>
         </div>
         <div className='opening-message'>
             <h3 className='covid-header-title'>
@@ -249,33 +249,33 @@ const hateyou = async (e) => {
 
 const set_located_events = (id) => {
     dispatch(eventActions.located_events(id))
-    window.scrollTo(0,580)
+    window.scrollTo({left: 0, top: 580, behavior:'smooth'})
 }
 
 const set_categorized_events = (id) => {
     dispatch(eventActions.categorized_events(id))
-    window.scrollTo(0,580)
+    window.scrollTo({left: 0, top: 580, behavior:'smooth'})
 }
 
 const set_paid_events = (id) => {
     dispatch(eventActions.cashed_events(id))
-    window.scrollTo(0,580)
+    window.scrollTo({left: 0, top: 580, behavior:'smooth'})
 }
 
 //unregistered.... this is very inefficient
 const set_unregistered_located_events = (id) => {
     dispatch(eventActions.unregisted_located_events(id))
-    window.scrollTo(0,580)
+    window.scrollTo({left: 0, top: 580, behavior:'smooth'})
 }
 
 const set_unregisterd_categorized_events = (id) => {
     dispatch(eventActions.unregisted_categorized_events(id))
-    window.scrollTo(0,580)
+    window.scrollTo({left: 0, top: 580, behavior:'smooth'})
 }
 
 const set_unregisterd_paid_events = (id) => {
     dispatch(eventActions.unregisted_cashed_events(id))
-    window.scrollTo(0,580)
+    window.scrollTo({left: 0, top: 580, behavior:'smooth'})
 }
 
 
@@ -300,11 +300,11 @@ const filteredEvents = filter (events, search)
             <div className="search-popup">
                 <div className='searchfield'>
                     {filteredEvents?.map(event => (
-                        <div className='search-container'>
                         <Link className='search-link' to={`/event/${event.id}`}>
-                            <p  className='search-link'>{event.name}</p>
+                            <div className='search-container'>
+                                <p  className='search-link'>{event.name}</p>
+                            </div>
                         </Link>
-                        </div>
                     ))}
                 </div>
             </div>

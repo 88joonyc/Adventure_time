@@ -53,7 +53,7 @@ const EachEvent = () => {
     dispatch(one_event(eventId?.eventId))
     dispatch(actiontickets.one_ticket(eventId?.eventId))
     dispatch(actionfollowers.get_follower_with_promo(Number(event?.events[0]?.host_id)))
-    window.scrollTo(0, 0)   // this take is to the top of the page
+    window.scrollTo({top: 0, left: 0, behavior: 'auto'})   // this take is to the top of the page
     dispatch(all_categories())
     dispatch(all_venues())
 
@@ -278,6 +278,7 @@ let promoter_panel = (
       {/* // ) : null } */}  {/*  <  this allows for only other events to be showns and not current.. seeds are empty so leave for now. */}
       </>
     ))}
+    <div className='the-real-map'/>
   </div>
 
 
@@ -313,10 +314,10 @@ let promoter_panel = (
         </div>
         {promoter_panel}
 
-        <div>
+        <div className=''>
           <div className='map-info-map'>
 
-          <div >
+          <div>
             <Map props={{latitude: Number(event?.events[0]?.venue?.latitude), longitude:(event?.events[0]?.venue?.longitude), zoom:18}} style={{ height: '50vh', width: '10%' }} />
           </div>
 
@@ -622,7 +623,7 @@ const handleCancel = () => {
                       <p className="events-address-para">{event?.events[0]?.venue?.city}, {event?.events[0]?.venue?.state}</p>
                       <p className="events-address-para">{event?.events[0]?.venue?.zip_code}</p>
                       <p className="events-address-para">Lat: {event?.events[0]?.venue?.latitude} Lon: {event?.events[0]?.venue?.longitude} </p>
-                      <button className='view-map-button' onClick={() => window.scroll(0,1800)}>view map</button>
+                      <button className='view-map-button' onClick={() => document.querySelector('.the-real-map').scrollIntoView({behavior: 'smooth'})}>view map</button>
                     </div>
                     <p className="events-address-label">Refund Policy: </p>
                     <p  className="events-address-para">Contact the organizer to request a refund. Adventure Time's fee is nonrefundable. </p>

@@ -16,13 +16,19 @@
 
 .search-container:hover {
     background-color: rgb(218, 234, 225);
+    transition: ease-in-out .25s;
 }
 
-.search-link {
+.search-container {
     text-decoration: none;
     padding: 1px 20px;
     margin-top: 0;
     margin-bottom: 0;
-    color: rgb(75, 60, 152);
     font-family: 'Roboto', sans-serif;
+
+}
+
+.search-link {
+    text-decoration: none;
+    color: rgb(75, 60, 152);
 }
