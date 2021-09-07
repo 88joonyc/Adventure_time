@@ -1,3 +1,4 @@
+![adventure_time-logo](https://user-images.githubusercontent.com/79543569/132349789-6060506a-813b-4b2a-a8de-0b26e804b13c.png)
 # Adventure Time
 
 *By: Paul Chang. --  [Adventrure_Time](https://adventure--time.herokuapp.com/ "Named link title")*
@@ -10,7 +11,7 @@
  - [Technologies Used](#technologies-used)
  - [Wiki Documentation](#wiki-documentation)
  - [Future Plans](#future-plans)
- - [Conclusion](#conclusion)
+<!--  - [Conclusion](#conclusion) -->
  <!--  - Frontend Overview
  - Backend Overview -->
 
@@ -138,10 +139,19 @@
  - [ ] Chatroom messaging feature to allow users to connect with promoters for potential business opportunities
  - [ ] horizontal scroll bar of followers or other events categorized in a specified order
 
-# Conclusion
+<!-- # Conclusion -->
+
 
 # Contact
+[![github](https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white)][1]
+[![angellist](https://github.com/hull/hullstrap/blob/master/source/images/icons/angellist.svg)][2]
+[![linkedin](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)][3]
 
+[joonyc88@gmail.com](mailto:joonyc88@gmail.com)
+
+[1]: https://github.com/88joonyc
+[2]: https://www.linkedin.com/in/your_contact_info
+[3]: https://www.facebook.com/your_contact_info
 
 
 Visit the live app powered by Heroku [here](https://adventure--time.herokuapp.com/ "Named link title")
