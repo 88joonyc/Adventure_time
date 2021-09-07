@@ -150,8 +150,8 @@
 [joonyc88@gmail.com](mailto:joonyc88@gmail.com)
 
 [1]: https://github.com/88joonyc
-[2]: https://www.linkedin.com/in/your_contact_info
-[3]: https://www.facebook.com/your_contact_info
+[2]: https://angel.co/u/paul-chang-27
+[3]: https://www.linkedin.com/in/pchang1216/
 
 
 Visit the live app powered by Heroku [here](https://adventure--time.herokuapp.com/ "Named link title")
