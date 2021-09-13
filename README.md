@@ -138,6 +138,7 @@
  - [ ] Implement an AWS photo bucket to allow users to add additional photos to end of descriptions on the event page 
  - [ ] Chatroom messaging feature to allow users to connect with promoters for potential business opportunities
  - [ ] horizontal scroll bar of followers or other events categorized in a specified order
+ - [ ] mobile friendly version
 
 <!-- # Conclusion -->
 
