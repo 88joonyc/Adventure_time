@@ -88,7 +88,7 @@ const SignUpForm = () => {
               onChange={updateFirst}
               value={firstName}
               required={true}
-            ></input>
+            />
           </div>
           <div className="user-input-container">
             <label className='input-label'>Last Name</label>
@@ -99,7 +99,7 @@ const SignUpForm = () => {
               onChange={updateLast}
               value={lastName}
               required={true}
-            ></input>
+            />
           </div>
           <div className="user-input-container">
             <label className='input-label'>Email</label>
@@ -110,7 +110,7 @@ const SignUpForm = () => {
               onChange={updateEmail}
               value={email}
               required={true}
-            ></input>
+            />
           </div>
           <div className="user-input-container">
             <label className='input-label'>Image url</label>
@@ -120,7 +120,7 @@ const SignUpForm = () => {
               className="user-input"
               onChange={updateImage}
               value={image}
-            ></input>
+            />
           </div>
           <div className="user-input-container">
             <label className='input-label'>Password</label>
@@ -132,7 +132,7 @@ const SignUpForm = () => {
               value={password}
               required={true}
               min="6"
-            ></input>
+            />
           </div>
           <div className="user-input-container">
             <label className='input-label'>Repeat Password</label>
@@ -143,7 +143,7 @@ const SignUpForm = () => {
               onChange={updateRepeatPassword}
               value={repeatPassword}
               required={true}
-            ></input>
+            />
           </div>
           <button className="verify-button" type='submit'>Sign Up</button>
           <Link to='/login'>Log In</Link>

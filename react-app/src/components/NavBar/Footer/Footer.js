@@ -64,7 +64,7 @@ const FooterBar = () => {
               <div className='footer-message'>© 2021 Adventure Time. All Rights Reserved by Paul Chang. Terms. Privacy Policy. New Jersy Privacy Notice. Cookies. </div>
             <div className='footer-footer'>
               <a href='https://www.github.com/88joonyc' className="my-links"><img className='git-icon'/></a>
-              <a href='https://angel.co/u/paul-chang-27/' className="my-links"><img className='angel-icon personal-set'/></a>
+              <a href='https://angel.co/u/_paulchang_' className="my-links"><img className='angel-icon personal-set'/></a>
               <a href='mailto:joonyc88@gmail.com' className="my-links"><img className='email-icon personal-set'/></a>
               <a href='https://linkedin.com/in/pchang1216' className="my-links"><img className='linked-icon personal-set'/></a>
             </div>

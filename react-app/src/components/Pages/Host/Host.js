@@ -179,6 +179,7 @@ if (!category) {
                                     required="true"
                                     className='host-input'
                                     max={2147483647}
+                                    min={1}
                                 />
                                 <b className="required">Capacity is required*</b>
                             </label>
@@ -242,6 +243,7 @@ if (!category) {
                                     required="true"
                                     className='host-input'
                                     max={2147483647}
+                                    min={0}
                                 />
                             </label>
                         </div>
