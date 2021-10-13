@@ -151,7 +151,7 @@
 [joonyc88@gmail.com](mailto:joonyc88@gmail.com)
 
 [1]: https://github.com/88joonyc
-[2]: https://angel.co/u/paul-chang-27
+[2]: https://angel.co/u/_paulchang_
 [3]: https://www.linkedin.com/in/pchang1216/
 
 
