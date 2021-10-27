@@ -121,9 +121,12 @@
 - SQL Alchemy
 - PosgreSQL
 - GoogleMaps JavaScript API
+- Moment
 - Heroku
 - Git
 - Docker
+
+
 # Wiki Documentation
 - ### [Home](https://github.com/88joonyc/Adventure_time/wiki "Named link title")
 - ### [Feature List](https://github.com/88joonyc/Adventure_time/wiki/MVP-Feature-List "Named link title")
