@@ -117,7 +117,7 @@ if (!category) {
                                 <input
                                     type="text"
                                     onChange={(e) => (setName(e.target.value))} // limited to 255 char
-                                    required="true"
+                                    required={true}
                                     className='host-input'
                                     placeholder='Be clear and descriptive.'
                                     maxLength={255}
@@ -131,7 +131,7 @@ if (!category) {
                                         type="number"
                                         value={category_id}
                                         onChange={(e) => setCategory(e.target.value)}
-                                        required="true"
+                                        required={true}
                                         className='host-input'
                                     >
                                         <option value='' key='00'>select</option>
@@ -154,7 +154,7 @@ if (!category) {
                                     type="number"
                                     value={venue_id}
                                     onChange={(e) => setVenue(e.target.value)}
-                                    required="true"
+                                    required={true}
                                     className='host-input'
                                 >
                                     <option value='' key='00'>select</option>
@@ -176,7 +176,7 @@ if (!category) {
                                 <input
                                     type='number'
                                     onChange={(e) => setCap(e.target.value)}
-                                    required="true"
+                                    required={true}
                                     className='host-input'
                                     max={2147483647}
                                     min={1}
@@ -194,7 +194,7 @@ if (!category) {
                                     <input
                                         type="datetime-local"
                                         onChange={(e) => setStart(e.target.value)}
-                                        required="true"
+                                        required={true}
                                         className='host-input'
                                     />
                                 </label>
@@ -203,7 +203,7 @@ if (!category) {
                                     <input
                                         type='datetime-local'
                                         onChange={(e) => setEnd(e.target.value)}
-                                        required="true"
+                                        required={true}
                                         className='host-input'
                                         />
                                         <b className="required">Start and end times are required*</b>
@@ -240,7 +240,7 @@ if (!category) {
                                 <input
                                     type='number'
                                     onChange={(e) => setCost(e.target.value)}
-                                    required="true"
+                                    required={true}
                                     className='host-input'
                                     max={2147483647}
                                     min={0}
@@ -257,7 +257,7 @@ if (!category) {
                             <textarea
                                 type='text'
                                 onChange={(e) => setDescript(e.target.value)} // limited to 5000 char
-                                required="true"
+                                required={true}
                                 className='host-input text-area'
                                 maxLength={5000}
                                 />

@@ -1,5 +1,5 @@
 import React from 'react'
-import { GoogleMap, useJsApiLoader } from '@react-google-maps/api';
+import { GoogleMap } from '@react-google-maps/api';
 
 const dimensions = {
   width: '100%',
@@ -35,13 +35,11 @@ function Map({props}) {
   //   zoom: 18
   // })
 
+  // const here = new window.google.maps.Marker({
+  //   position: {lat:props.latitude, lng:props.longitude},
+  //   map: map,
 
-
-  const here = new window.google.maps.Marker({
-    position: {lat:props.latitude, lng:props.longitude},
-    map: map,
-
-  })
+  // })
 
   return true ? (
       <GoogleMap
