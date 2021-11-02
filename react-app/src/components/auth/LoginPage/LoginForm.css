@@ -55,6 +55,10 @@ h1 {
     font-size: 15px;
 }
 
+.demo-but {
+    background-color: rgb(33, 33, 137);
+}
+
 .user-input {
     height: 2em;
     appearance: none;
