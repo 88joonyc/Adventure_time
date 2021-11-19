@@ -34,17 +34,17 @@ b:hover {
 
 input {
     /* font-family: 'Poiret One', cursive; */
-    font-family: 'Julius Sans One', sans-serif;
+    font-family: 'Work Sans', sans-serif;
 }
 
 select {
-    font-family: 'Julius Sans One', sans-serif;
+    font-family: 'Work Sans', sans-serif;
 }
 
 .text-area {
     height: 160px;
     padding: 20px;
-    font-family: 'Julius Sans One', sans-serif;
+    font-family: 'Work Sans', sans-serif;
 }
 
 .basic-info-img {
