@@ -135,7 +135,7 @@ const VenueForm = () => {
           <div className="user-input-container">
             <label className='input-label'>latitude coordintate</label>
             <input
-              type='real'
+              type='number'
               name='latitude'
               className="user-input"
               onChange={updateLatitude}
@@ -149,7 +149,7 @@ const VenueForm = () => {
           <div className="user-input-container">
             <label className='input-label'>Longitude coordintate</label>
             <input
-              type='real'
+              type='number'
               name='repeat_latitude'
               className="user-input"
               onChange={updateLongitude}
