@@ -39,16 +39,16 @@ const NavBar = () => {
 
   let verificationtabs = (
     <>
-      <div className='login-signup'>
         <NavLink className="signup-link" to='/login' exact={true} activeClassName='active'>
-          Log In
-        </NavLink>
-      </div>
       <div className='login-signup'>
-        <NavLink className="signup-link" to='/sign-up' exact={true} activeClassName='active'>
-          Sign Up
-        </NavLink>
+          Log In
       </div>
+        </NavLink>
+        <NavLink className="signup-link" to='/sign-up' exact={true} activeClassName='active'>
+      <div className='login-signup'>
+          Sign Up
+      </div>
+        </NavLink>
     </>
   )
 

@@ -100,7 +100,7 @@ if (editForm) {
                                     type="number"
                                     value={venue_id}
                                     onChange={(e) => setVenue(e.target.value)}
-                                    required="true"
+                                    required={true}
                                     className='edit-input longer'
                                 >
                                     <option key='00'>select</option>
@@ -116,7 +116,7 @@ if (editForm) {
                                         type="number"
                                         value={category_id}
                                         onChange={(e) => setCategory(e.target.value)}
-                                        required="true"
+                                        required={true}
                                         className='edit-input longer'
                                     >
                                         <option key='00'>select</option>
@@ -132,7 +132,7 @@ if (editForm) {
                                     type="text"
                                     value={name}
                                     onChange={(e) => setName(e.target.value)}
-                                    required="true"
+                                    required={true}
                                     className='edit-input'
                                 />
                             </label>
@@ -143,7 +143,7 @@ if (editForm) {
                                     // type="text"
                                     value={description}
                                     onChange={(e) => setDescript(e.target.value)}
-                                    required="true"
+                                    required={true}
                                     className='edit-textarea'
                                 />
                             </label>
@@ -155,7 +155,7 @@ if (editForm) {
                                     // value={moment(start_time.split(' GMT').join(' EST')).format('YYYY-MM-DDTHH:mm')}
                                     value={moment(start_time).format('YYYY-MM-DDTHH:mm')}
                                     onChange={(e) => setStart(e.target.value)}
-                                    required="true"
+                                    required={true}
                                     className='edit-input'
                                 />
                             </label>
@@ -166,7 +166,7 @@ if (editForm) {
                                     type='datetime-local'
                                     value={moment(end_time).format('YYYY-MM-DDTHH:mm')}
                                     onChange={(e) => setEnd(e.target.value)}
-                                    required="true"
+                                    required={true}
                                     className='edit-input'
                                 />
                             </label>
@@ -177,7 +177,7 @@ if (editForm) {
                                     type='number'
                                     value={capacity}
                                     onChange={(e) => setCap(e.target.value)}
-                                    required="true"
+                                    required={true}
                                     className='edit-input'
                                 />
                             </label>
@@ -198,7 +198,7 @@ if (editForm) {
                                     type='number'
                                     value={cost}
                                     onChange={(e) => setCost(e.target.value)}
-                                    required="true"
+                                    required={true}
                                     className='edit-input'
                                 />
                             </label>
@@ -410,7 +410,7 @@ const need = (
                                             { event?.name?.length < 50 ? <h2 className='card-print card-name-home-short'>{event?.name}</h2> : <h2 className='card-print card-name-home-long'>{event?.name}</h2> }
                                         </div>
                                         {/* <p className='card-print'>{event.category.type}</p> */}
-                                        <p hidden="true" className='card-print'>{event?.description}</p>
+                                        <p hidden={true} className='card-print'>{event?.description}</p>
                                         <p className='card-print card-date'>{moment((event?.start_time)).add(5, 'hours').format('ddd, MMM D, h:mm A')}</p>
                                         {/* <p className='card-print'>{moment(event.end_time).format('ddd, MMM D, h:mm A')}</p> */}
                                         <p className='card-print card-venue-home'>{event?.venue.name} • {event.venue.city}</p>

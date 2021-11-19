@@ -1,6 +1,5 @@
 
 import React, { useState } from 'react';
-import { Link  } from 'react-router-dom';
 
 import './CovBar.css'
 
@@ -39,7 +38,6 @@ const CovBar = () => {
   return (
     <>
       {content}
-      {/* {eventsPage} */}
     </>
   );
 }

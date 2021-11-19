@@ -75,10 +75,11 @@ const LoginForm = () => {
               />
           </div>
               <button className='verify-button' type='submit'>Login</button>
+              <button className="verify-button demo-but" onClick={() => demoUser()} >Demo Login</button>
               <Link className="sign-up-link" to='/sign-up'>Sign up for Adventure Time!</Link>
           </div>
+              {/* <button className="demo-button" onClick={() => demoUser()} >Demo Login</button> */}
         </form>
-              <button className="demo-button" onClick={() => demoUser()} >Demo Login</button>
       </div>
       <div className="login-image-container">
         <div className="login-image-space">

@@ -440,7 +440,7 @@ if (editForm) {
                                     type="number"
                                     value={venue_id}
                                     onChange={(e) => setVenue(e.target.value)}
-                                    required="true"
+                                    required={true}
                                     className='edit-input longer'
                                 >
                                     <option value='' key='00'>select</option>
@@ -456,7 +456,7 @@ if (editForm) {
                                         type="number"
                                         value={category_id}
                                         onChange={(e) => setCategory(e.target.value)}
-                                        required="true"
+                                        required={true}
                                         className='edit-input longer'
                                     >
                                         <option value='' key='00'>select</option>
@@ -472,7 +472,7 @@ if (editForm) {
                                     type="text"
                                     value={name}
                                     onChange={(e) => setName(e.target.value)}
-                                    required="true"
+                                    required={true}
                                     className='edit-input'
                                     maxLength={255}
                                 />
@@ -484,7 +484,7 @@ if (editForm) {
                                     // type="text"
                                     value={description}
                                     onChange={(e) => (setDescript(e.target.value))}
-                                    required="true"
+                                    required={true}
                                     className='edit-textarea'
                                     maxLength={5000}
                                 />
@@ -496,7 +496,7 @@ if (editForm) {
                                     type="datetime-local"
                                     value={moment(start_time).format('YYYY-MM-DDTHH:mm')}
                                     onChange={(e) => (setStart(moment(e.target.value).format('MMM D YYYY HH:mm:ss')))}
-                                    required="true"
+                                    required={true}
                                     className='edit-input'
                                 />
                             </label>
@@ -507,7 +507,7 @@ if (editForm) {
                                     type='datetime-local'
                                     value={moment(end_time).format('YYYY-MM-DDTHH:mm')}
                                     onChange={(e) => (setEnd(moment(e.target.value).format('MMM D YYYY HH:mm:ss')))}
-                                    required="true"
+                                    required={true}
                                     className='edit-input'
                                 />
                             </label>
@@ -518,7 +518,7 @@ if (editForm) {
                                     type='number'
                                     value={capacity}
                                     onChange={(e) => setCap(e.target.value)}
-                                    required="true"
+                                    required={true}
                                     className='edit-input'
                                     max={2000000000}
                                 />
@@ -540,7 +540,7 @@ if (editForm) {
                                     type='number'
                                     value={cost}
                                     onChange={(e) => setCost(e.target.value)}
-                                    required="true"
+                                    required={true}
                                     className='edit-input'
                                     max={2000000000}
                                 />
