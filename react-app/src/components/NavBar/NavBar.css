@@ -117,3 +117,10 @@ body {
     /* padding-bottom: 5px; */
     width: auto;
 }
+
+@media screen and (max-device-width: 600px) {
+    .navbar-container {
+        height: 120px;
+    }
+
+}

@@ -202,3 +202,25 @@ img {
     color: white;
     transition: ease-out .5s;
 }
+
+
+@media screen and (max-device-width: 600px) {
+    .card-container {
+        display: block;
+    }
+    .event-cards {
+        width: 100%;
+    }
+    .card-cap-home {
+        font-size: x-large;
+    }
+    .card-cap-followers {
+        font-size: x-large;
+    }
+    .card-cost-home {
+        font-size: large;
+    }
+    .card-info-container {
+        height: auto;
+    }
+}
