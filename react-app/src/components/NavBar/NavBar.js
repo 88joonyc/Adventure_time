@@ -134,7 +134,7 @@ const NavBar = () => {
           <div className="navbar-container">
             <div>
               <NavLink to='/' onClick={() => dispatch(all_events())} exact={true} activeClassName='active'>
-                <img alt='navbar-img' className="navbar-image logo-image-container"/>
+                <img alt='' className="navbar-image logo-image-container"/>
               </NavLink>
             </div>
                 <div className="right-side-control">

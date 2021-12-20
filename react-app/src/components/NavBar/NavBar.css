@@ -122,5 +122,10 @@ body {
     .navbar-container {
         height: 120px;
     }
+    .login-signup {
+        font-size: xx-large;
+        padding-top: 30px;
+    }
+
 
 }
