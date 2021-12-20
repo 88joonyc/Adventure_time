@@ -179,4 +179,7 @@ h1 {
         padding-top: 20px;
         font-size: 40px;
     }
+    .user-input {
+        font-size: xx-large;
+    }
 }

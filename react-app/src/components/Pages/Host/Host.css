@@ -109,3 +109,27 @@ select {
 .required {
     font-size: x-small;
 }
+
+
+@media screen and (max-device-width: 600px) {
+    .host-card {
+        padding: -20px -40px
+    }
+    .info-input {
+        width: 100%;
+        font-size: xx-large;
+    }
+    p {
+        font-size: xx-large;
+    }
+    .host-input {
+        height: 60px;
+        font-size: xx-large;
+    }
+    .basic-img-settings {
+        padding-top: 100px;
+    }
+    .required {
+        font-size: x-large;
+    }
+}
