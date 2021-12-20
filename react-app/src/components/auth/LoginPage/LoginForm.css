@@ -138,3 +138,45 @@ h1 {
     cursor: pointer;
     transition: all ease 0.3s;
 }
+
+
+/* ==========================mobile================================================== */
+
+@media screen and (max-device-width: 600px) {
+    .login-image-container {
+        display: none;
+    }
+    .login-form-container {
+        display: block;
+    }
+
+    .logo-image-container {
+        max-height: 200px;
+    }
+    .user-input-container {
+        width: 100%;
+        height: 100px;
+        margin-top: 20px;
+        margin-bottom: 20px;
+    }
+    .verify-button {
+        font-size: xx-large;
+        height: 100px;
+        margin-bottom: 20px;
+    }
+    .input-label {
+        font-size: xx-large;
+    }
+    .login-form {
+        width: 90%;
+        padding-top: 20px;
+        padding: 10px
+    }
+    .input-container {
+        padding: 30px 0px;
+    }
+    .sign-up-link {
+        padding-top: 20px;
+        font-size: 40px;
+    }
+}

@@ -34,3 +34,20 @@
     font-family: 'Fredoka One', cursive;
     color: rgb(53, 19, 87);
 }
+
+@media screen and (max-device-width: 600px) {
+    .singup-form {
+        padding: 50px;
+    }
+
+    .signup-image-container {
+        display: none;
+    }
+    .signup-form-container {
+        display: inline;
+    }
+    .formuser-top-message {
+        font-size: 80px;
+    }
+
+}
