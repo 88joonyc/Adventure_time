@@ -155,3 +155,13 @@
 }
 
 .home-container {}
+
+@media screen and (max-device-width: 600px) {
+    .profile-pic {
+        height: 70px;
+        width: 70px;
+    }
+    .drop-nav-email {
+        font-size: xx-large;
+    }
+}

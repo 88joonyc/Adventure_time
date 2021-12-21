@@ -24,4 +24,8 @@
     /* background-color: rgb(249, 250, 252); */
 }
 
-.venue-form {}
+@media screen and (max-device-width: 600px) {
+    .venue-form {
+        display: block;
+    }
+}

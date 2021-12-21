@@ -1,5 +1,4 @@
 @import url(./VenueForm.css);
-
 .host-container {
     background-color: inherit;
     height: 100%;
@@ -110,7 +109,6 @@ select {
     font-size: x-small;
 }
 
-
 @media screen and (max-device-width: 600px) {
     .host-card {
         padding: -20px -40px
@@ -131,5 +129,12 @@ select {
     }
     .required {
         font-size: x-large;
+    }
+    .text-area {
+        height: 250px;
+        width: 95%;
+    }
+    select {
+        font-size: medium;
     }
 }

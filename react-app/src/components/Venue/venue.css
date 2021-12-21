@@ -35,7 +35,6 @@
     position: fixed;
     left: 40%;
     color: rgb(130, 121, 121);
-
     /* padding-left: 370px; */
 }
 
@@ -54,4 +53,17 @@
 .lat-coord {
     display: flex;
     flex-direction: column;
+}
+
+@media screen and (max-device-width: 600px) {
+    .venue-image-container {
+        display: none;
+    }
+    .venue-form {
+        display: block;
+    }
+    .venue-cancel-button {
+        width: 120px;
+        height: 120px;
+    }
 }

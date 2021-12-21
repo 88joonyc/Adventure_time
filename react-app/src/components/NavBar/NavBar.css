@@ -126,6 +126,16 @@ body {
         font-size: xx-large;
         padding-top: 30px;
     }
-
-
+    .ticket-icon {
+        height: 70%;
+    }
+    .ticketing-icon {
+        height: 70%;
+    }
+    .navbar-image {
+        height: 70%;
+    }
+    .profile-pic {
+        height: 70%;
+    }
 }
