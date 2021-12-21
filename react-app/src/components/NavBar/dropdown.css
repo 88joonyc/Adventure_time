@@ -162,6 +162,7 @@
         width: 70px;
     }
     .drop-nav-email {
-        font-size: xx-large;
+        padding-top: 10px;
+        font-size: x-large;
     }
 }
