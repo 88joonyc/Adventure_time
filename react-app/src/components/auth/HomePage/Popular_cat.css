@@ -70,3 +70,9 @@
     height: 37px;
     color: rgb(12, 0, 237);
 }
+
+@media screen and (max-device-width: 600px) {
+    .home-card-categories {
+        width: auto;
+    }
+}

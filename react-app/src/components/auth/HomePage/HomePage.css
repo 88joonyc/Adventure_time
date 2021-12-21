@@ -210,6 +210,11 @@ img {
     }
     .event-cards {
         width: 100%;
+        padding-bottom: 10px;
+        height: auto;
+    }
+    img {
+        height: 600px;
     }
     .card-cap-home {
         font-size: x-large;
@@ -222,5 +227,23 @@ img {
     }
     .card-info-container {
         height: auto;
+    }
+    .card-print {}
+    .card-name-home-short {
+        font-size: xx-large;
+        padding-bottom: 20px;
+    }
+    .card-name-home-long {
+        font-size: xx-large;
+        padding-bottom: 20px;
+    }
+    .card-date {
+        font-size: x-large;
+    }
+    .card-cap-followers {
+        font-size: x-large;
+    }
+    .card-user-home {
+        font-size: large;
     }
 }

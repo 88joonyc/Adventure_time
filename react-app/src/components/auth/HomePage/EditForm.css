@@ -129,3 +129,19 @@
     transition: all ease-out 3.5s;
     cursor: pointer;
 }
+
+@media screen and (max-device-width: 600px) {
+    .heart-button {
+        width: 150px;
+        height: 150px;
+        border-radius: 150px;
+    }
+    .black-heart {
+        height: 100px;
+        width: 100px;
+    }
+    .red-heart {
+        height: 100px;
+        width: 100px;
+    }
+}
