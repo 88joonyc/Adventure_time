@@ -339,7 +339,7 @@ let popular_bar = (
             className='venue-search-box' />} </h1>
             <div className='home-card-categories'>
                 <div className='cat-button-container'>
-                    {sessionUser ? <button onClick={() => dispatch(eventActions.all_events())} className='cat-button'>All</button> : <button onClick={() => dispatch(eventActions.unregistered_events())} className='cat-button'>All</button>}
+                    {sessionUser ? <button onClick={() => dispatch(eventActions.all_events())} className='cat-all cat-button'>All</button> : <button onClick={() => dispatch(eventActions.unregistered_events())} className='cat-button'>All</button>}
                 </div>
                 <div>
                    {sessionUser?  <button onClick={() => set_located_events(2)} className='cat-button'>For you</button> : <button onClick={() => set_unregistered_located_events(2)} className='cat-button'>For you</button> }
@@ -363,7 +363,7 @@ let popular_bar = (
                     {sessionUser?  <button onClick={() => set_categorized_events(13)} className='cat-button'>Music</button> : <button onClick={() => set_unregisterd_categorized_events(13)} className='cat-button'>Music</button> }
                 </div>
                 <div>
-                    {sessionUser?  <button onClick={() => set_categorized_events(8)} className='cat-button'>Food & Drinks</button> : <button onClick={() => set_unregisterd_categorized_events(8)} className='cat-button'>Food & Drinks</button> }
+                    {sessionUser?  <button onClick={() => set_categorized_events(8)} className='cat-food cat-button'>Food & Drinks</button> : <button onClick={() => set_unregisterd_categorized_events(8)} className='cat-button'>Food & Drinks</button> }
                 </div>
             </div>
         </div>

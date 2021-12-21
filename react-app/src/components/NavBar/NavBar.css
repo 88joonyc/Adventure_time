@@ -127,15 +127,18 @@ body {
         padding-top: 30px;
     }
     .ticket-icon {
-        height: 70%;
+        height: 40%;
     }
     .ticketing-icon {
-        height: 70%;
+        height: 40%;
     }
     .navbar-image {
         height: 70%;
     }
     .profile-pic {
-        height: 70%;
+        height: 40%;
+    }
+    .create-event {
+        font-size: large;
     }
 }
