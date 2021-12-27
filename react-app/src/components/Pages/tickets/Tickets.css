@@ -177,5 +177,19 @@
     .ticker-grid {
         display: block;
     }
-
+    .user-info-card {
+        padding-top: 150px;
+        padding-bottom: 50px;
+        position: static;
+    }
+    .user-stats {
+        font-size: x-large;
+        width: 150px;
+    }
+    .user-marks {
+        width: 100%;
+    }
+    .name {
+        font-size: xx-large;
+    }
 }

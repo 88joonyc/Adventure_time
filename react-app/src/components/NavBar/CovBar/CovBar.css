@@ -5,3 +5,9 @@
     /* margin-left: none; */
     padding: 17px;
 }
+
+@media screen and (max-device-width: 600px) {
+    .cov-message {
+        display: none;
+    }
+}
