@@ -1,5 +1,5 @@
 .venue-image-container {
-    content: url('./Screenshot-2019-09-24-at-16.21.06.png');
+    content: url('../../images/Screenshot-2019-09-24-at-16.21.06.png');
     height: 100%;
 }
 
@@ -40,7 +40,7 @@
 
 .hover-latlng-msg:hover {
     cursor: pointer;
-    content: url(./Screen\ Shot\ 2021-09-01\ at\ 3.38.34\ PM.png);
+    content: url(../../images/Screen\ Shot\ 2021-09-01\ at\ 3.38.34\ PM.png);
     width: 400px;
     height: 330px;
     position: fixed;

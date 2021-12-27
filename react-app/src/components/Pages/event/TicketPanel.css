@@ -154,7 +154,7 @@
 }
 
 .no-quantity-shopping {
-    content: url(./baseline_shopping_cart_black_24dp.png);
+    content: url(../../../images/baseline_shopping_cart_black_24dp.png);
     /* width: 50px; */
     height: 100%;
     padding: 60% 0;

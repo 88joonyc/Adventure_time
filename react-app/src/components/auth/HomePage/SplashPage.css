@@ -1,6 +1,6 @@
 @import url('./HomePage.css');
 .spalsh-image {
-    background-image: url('./edm2.jpeg');
+    background-image: url('../../../images/edm2.jpeg');
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center center;

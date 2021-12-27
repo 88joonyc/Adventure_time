@@ -54,7 +54,7 @@ img {
 }
 
 .spalsh-image-2 {
-    background-image: url('./large-group-activity2.jpeg');
+    background-image: url('../../../images/large-group-activity2.jpeg');
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center center;
@@ -140,7 +140,7 @@ img {
 }
 
 .home-card-followers-img {
-    content: url('pngtree-outline-user-icon-png-image_1727916.jpeg');
+    content: url('../../../images/pngtree-outline-user-icon-png-image_1727916.jpeg');
     width: 20px;
     height: 20px;
     border-radius: 20px;

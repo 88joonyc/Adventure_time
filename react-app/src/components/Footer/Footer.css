@@ -57,7 +57,7 @@
 /* ===============================icons========================================= */
 
 .git-icon {
-    content: url(./git.png);
+    content: url(../../images/git.png);
     width: 55px;
     height: 55px;
     margin-top: -5px;
@@ -70,15 +70,15 @@
 }
 
 .email-icon {
-    content: url(./mail.png);
+    content: url(../../images/mail.png);
 }
 
 .angel-icon {
-    content: url(./angelist.png);
+    content: url(../../images/angelist.png);
 }
 
 .linked-icon {
-    content: url(./linked.png);
+    content: url(../../images/linked.png);
 }
 
 .personal-set {

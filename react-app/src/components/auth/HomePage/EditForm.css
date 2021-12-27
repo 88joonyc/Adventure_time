@@ -99,14 +99,14 @@
 }
 
 .black-heart {
-    content: url(./heart-5-64.png);
+    content: url(../../../images/heart-5-64.png);
     width: 27px;
     height: 27px;
     padding-top: 10%;
 }
 
 .red-heart:hover {
-    content: url(./heart-5-64.png);
+    content: url(../../../images/heart-5-64.png);
     width: 35px;
     height: 35px;
     padding-top: 10%;
@@ -115,14 +115,14 @@
 }
 
 .red-heart {
-    content: url(./kiKnnLyoT.jpeg);
+    content: url(../../../images/kiKnnLyoT.jpeg);
     width: 22px;
     height: 22px;
     padding-top: 10%;
 }
 
 .black-heart:hover {
-    content: url(./kiKnnLyoT.jpeg);
+    content: url(../../../images/kiKnnLyoT.jpeg);
     width: 20px;
     height: 20px;
     border-radius: 15px;

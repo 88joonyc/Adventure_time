@@ -163,7 +163,7 @@
 }
 
 .come-back-l8r {
-    content: url(./creative-design-come-back-later-message-come-back-later-message-118578152.jpeg);
+    content: url(../../../images/creative-design-come-back-later-message-come-back-later-message-118578152.jpeg);
     height: 400px;
     width: 400px;
     border-radius: 400px;
@@ -180,17 +180,17 @@
 }
 
 .icon-plane {
-    content: url(./48.png);
+    content: url(../../../images/48.png);
 }
 
 .icon-person {
-    content: url(./18.png);
+    content: url(../../../images/18.png);
 }
 
 .icon-bike {
-    content: url(./22-skull-n-crossbones.png);
+    content: url(../../../images/22-skull-n-crossbones.png);
 }
 
 .icon-car {
-    content: url(./23-bird.png);
+    content: url(../../../images/23-bird.png);
 }

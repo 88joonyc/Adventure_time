@@ -47,31 +47,31 @@ select {
 }
 
 .basic-info-img {
-    content: url('./icons8-finn-480.png');
+    content: url('../../../images/icons8-finn-480.png');
 }
 
 .location-info-img {
-    content: url('./icons8-quest-100.png');
+    content: url('../../../images/icons8-quest-100.png');
 }
 
 .description-img {
-    content: url('./icons8-bmo-500.png');
+    content: url('../../../images/icons8-bmo-500.png');
 }
 
 .capacity-img {
-    content: url('./icons8-lumpy-space-princess-500.png');
+    content: url('../../../images/icons8-lumpy-space-princess-500.png');
 }
 
 .cos-img {
-    content: url('./icons8-coins-64.png');
+    content: url('../../../images/icons8-coins-64.png');
 }
 
 .mainimg-img {
-    content: url('./icons8-jake-500.png');
+    content: url('../../../images/icons8-jake-500.png');
 }
 
 .date-img {
-    content: url('./icons8-schedule-480.png');
+    content: url('../../../images/icons8-schedule-480.png');
 }
 
 .info-input {

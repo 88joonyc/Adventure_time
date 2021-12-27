@@ -20,11 +20,11 @@ h1 {
 .login-image-container {
     /* height: 1000px; */
     background-size: cover;
-    background-image: url('event3.jpeg');
+    background-image: url('../../../images/event3.jpeg');
 }
 
 .logo-image-container {
-    content: url('../../NavBar/adventure_time-logo2.jpeg');
+    content: url('../../../images/adventure_time-logo2.jpeg');
     max-height: 70px;
 }
 

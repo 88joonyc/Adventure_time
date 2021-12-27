@@ -115,7 +115,7 @@
 /* -------------------------------------------------------not tix */
 
 .no-tickets-img {
-    content: url('./ticket-logo.gif');
+    content: url('../../../images/ticket-logo.gif');
     width: 100%;
     height: 40%;
     margin-top: 40px;
@@ -132,7 +132,7 @@
 }
 
 .no-hearts-img {
-    content: url('./1432115547.jpeg');
+    content: url('../../../images/1432115547.jpeg');
     width: 100%;
     height: 40%;
     border-radius: 10px;
