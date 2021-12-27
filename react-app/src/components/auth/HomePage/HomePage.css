@@ -214,21 +214,22 @@ img {
         height: auto;
     }
     img {
-        height: 600px;
+        height: 300px;
     }
     .card-cap-home {
-        font-size: x-large;
+        font-size: small;
     }
     .card-cap-followers {
         font-size: x-large;
     }
     .card-cost-home {
-        font-size: large;
+        font-size: medium;
     }
     .card-info-container {
         height: auto;
     }
     .card-print {}
+
     .card-name-home-short {
         font-size: xx-large;
         padding-bottom: 20px;
@@ -238,12 +239,12 @@ img {
         padding-bottom: 20px;
     }
     .card-date {
-        font-size: x-large;
+        font-size: large;
     }
     .card-cap-followers {
         font-size: x-large;
     }
     .card-user-home {
-        font-size: large;
+        font-size: small;
     }
 }
