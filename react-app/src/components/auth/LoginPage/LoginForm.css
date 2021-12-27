@@ -157,6 +157,7 @@ h1 {
         height: 100px;
         margin-top: 20px;
         margin-bottom: 20px;
+        background-color: white;
     }
     .verify-button {
         font-size: xx-large;

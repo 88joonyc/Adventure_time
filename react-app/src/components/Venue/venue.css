@@ -61,6 +61,7 @@
     }
     .venue-form {
         display: block;
+        padding-top: 50px;
     }
     .venue-cancel-button {
         width: 120px;

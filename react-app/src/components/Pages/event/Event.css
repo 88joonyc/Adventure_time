@@ -273,3 +273,10 @@
 .ticket-message-inner:hover {
     color: red;
 }
+
+@media screen and (max-device-width: 600px) {
+    .unregister-tickets-page {
+        height: 100%;
+        font-size: x-large;
+    }
+}

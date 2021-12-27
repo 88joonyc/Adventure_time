@@ -27,5 +27,7 @@
 @media screen and (max-device-width: 600px) {
     .venue-form {
         display: block;
+        background-color: rgb(244, 242, 242);
     }
+
 }

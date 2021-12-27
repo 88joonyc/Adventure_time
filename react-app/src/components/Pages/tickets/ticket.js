@@ -166,7 +166,6 @@ const follow_content = (
                 </div>
             </div>
           </div>
-
           <FooterBar/>
         </>
   );
