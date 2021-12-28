@@ -253,4 +253,10 @@ img {
     .home-card-edit-button {
         display: none;
     }
+    .spalsh-image-2 {
+        height: 500px;
+    }
+    .top-home-sent {
+        font-size: 100px;
+    }
 }

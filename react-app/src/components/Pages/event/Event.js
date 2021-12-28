@@ -645,7 +645,7 @@ const handleCancel = () => {
             {ticket_panel}
             {edit}
 
-          <FooterBar/>
+          {/* <FooterBar/> */}
 
         </>
   );

@@ -18,7 +18,7 @@
     background-color: rgb(38, 16, 94);
     width: 100%;
     height: 420px;
-    padding: 23px
+    padding: 23px;
 }
 
 .footer-tabs {
@@ -57,7 +57,7 @@
 /* ===============================icons========================================= */
 
 .git-icon {
-    content: url(../../images/git.png);
+    content: url(../../../images/git.png);
     width: 55px;
     height: 55px;
     margin-top: -5px;
@@ -70,15 +70,15 @@
 }
 
 .email-icon {
-    content: url(../../images/mail.png);
+    content: url(../../../images/mail.png);
 }
 
 .angel-icon {
-    content: url(../../images/angelist.png);
+    content: url(../../../images/angelist.png);
 }
 
 .linked-icon {
-    content: url(../../images/linked.png);
+    content: url(../../../images/linked.png);
 }
 
 .personal-set {
@@ -90,4 +90,10 @@
     box-shadow: 3px 3px 20px hotpink;
     border-radius: 40px;
     transition: ease-in-out 1.3s;
+}
+
+@media screen and (max-device-width: 600px) {
+    .footer-container {
+        height: 720px;
+    }
 }

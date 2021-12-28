@@ -90,4 +90,21 @@
     .cat-food {
         margin-right: 100px;
     }
+    .card-popular-in-title {
+        font-size: 50px;
+    }
+    .venue-search-box {
+        font-size: 50px;
+        max-width: 300px;
+        height: 70px;
+    }
+    .venue-search-box::placeholder {
+        height: 70px;
+    }
+    .venue-search-box:focus::placeholder {
+        height: 70px;
+    }
+    .venue-search-box:focus {
+        height: 70px;
+    }
 }

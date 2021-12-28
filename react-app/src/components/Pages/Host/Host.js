@@ -206,6 +206,7 @@ if (!category) {
                                         required={true}
                                         className='host-input'
                                         />
+                                        <br />
                                         <b className="required">Start and end times are required*</b>
                                 </label>
                             </div>
