@@ -285,9 +285,7 @@ const set_unregisterd_paid_events = (id) => {
 const filter = (memory, query) => {
     return memory?.filter((brain) => {
         const event_name = brain.name.toLowerCase()
-        // const event_state = brain.venue.state.toLowerCase()
         if (event_name.includes(query)) return event_name.includes(query)
-        // if (event_state.includes(query)) return event_state.includes(query)
     })
 }
 

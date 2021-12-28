@@ -247,4 +247,10 @@ img {
     .card-user-home {
         font-size: small;
     }
+    .home-card-delete-button {
+        display: none;
+    }
+    .home-card-edit-button {
+        display: none;
+    }
 }
