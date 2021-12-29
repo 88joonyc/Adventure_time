@@ -29,5 +29,8 @@
         display: block;
         background-color: rgb(244, 242, 242);
     }
+    .create_venue_button {
+        font-size: xx-large;
+    }
 
 }
