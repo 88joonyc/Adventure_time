@@ -94,6 +94,14 @@
 
 @media screen and (max-device-width: 600px) {
     .footer-container {
-        height: 720px;
+        height: auto;
+        background-color: rgb(93, 86, 163);
+        margin-left: -8px;
+    }
+    .footer-tabs {
+        display: none
+    }
+    .footer-message {
+        display: none;
     }
 }

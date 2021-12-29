@@ -170,8 +170,10 @@
     }
     .dropdown-items-mid {
         font-size: 50px;
+        height: 120px;
     }
     .dropdown-items-out-top {
         font-size: 50px;
+        height: 150px;
     }
 }
