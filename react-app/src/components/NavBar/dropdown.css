@@ -165,4 +165,13 @@
         padding-top: 10px;
         font-size: x-large;
     }
+    .menu-dropdown {
+        width: auto;
+    }
+    .dropdown-items-mid {
+        font-size: 50px;
+    }
+    .dropdown-items-out-top {
+        font-size: 50px;
+    }
 }
