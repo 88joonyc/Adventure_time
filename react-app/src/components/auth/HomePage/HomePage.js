@@ -330,11 +330,14 @@ let popular_bar = (
 <>
 
         <div>
-            <h1 className='card-popular-in-title'>Search by  {'>'} {<input
-            placeholder='event name'
-            // onClick={(e) => e.input.value = ''}
-            onChange={(e)=> setSearch((e.target.value).toLowerCase())}
-            className='venue-search-box' />} </h1>
+            <h1 className='card-popular-in-title'>Search by  {'>'}
+            {<input
+                    placeholder='event name'
+                    onChange={(e)=> setSearch((e.target.value).toLowerCase())}
+                    className='venue-search-box'
+                />
+            }
+            </h1>
             <div className='home-card-categories'>
                 <div className='cat-button-container'>
                     {sessionUser ? <button onClick={() => dispatch(eventActions.all_events())} className='cat-all cat-button'>All</button> : <button onClick={() => dispatch(eventActions.unregistered_events())} className='cat-button'>All</button>}
