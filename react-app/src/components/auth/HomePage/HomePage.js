@@ -52,7 +52,7 @@ const editthisevent =  async (e) => {
             cost,
             eventId))
         await dispatch(eventActions.all_events())
-        handleCancel()
+        toggleEdit(!editForm)
         return data
     } else {
         window.alert('Your end dates cannot comne before your start dates. Please check the fields and try again.')
@@ -81,137 +81,6 @@ const handleDelete = async (e) => {
         dispatch(eventActions.all_events())
     }
 }
-
-const handleCancel = () => {
-    toggleEdit(!editForm)
-}
-/* --------------------------edit form ----------------------------------------------------- */
-
-let edit = null
-
-// if (editForm) {
-//     edit = (
-//         <>
-//             <div className='edit-panel-container'>
-//                 <div className="edit-container">
-//                     <form className='edit-form' onSubmit={(e) =>{editthisevent(e)}}>
-//                         <div>
-//                             <label className='edit-labels'> Venue selection
-//                                 <select
-//                                     type="number"
-//                                     value={venue_id}
-//                                     onChange={(e) => setVenue(e.target.value)}
-//                                     required={true}
-//                                     className='edit-input longer'
-//                                 >
-//                                     <option key='00'>select</option>
-//                                     {venue?.map(ven => (
-//                                         <option key={ven.id} value={ven.id}>{ven.name}, address: {ven.address} {ven.city}, {ven.state}</option>
-//                                     ))}
-//                                 </select>
-//                             </label>
-//                         </div>
-//                         <div>
-//                             <label className='edit-labels'> Category
-//                                 <select
-//                                         type="number"
-//                                         value={category_id}
-//                                         onChange={(e) => setCategory(e.target.value)}
-//                                         required={true}
-//                                         className='edit-input longer'
-//                                     >
-//                                         <option key='00'>select</option>
-//                                         {category?.map(cat => (
-//                                             <option key={cat.id} value={cat.id}>{cat.type}</option>
-//                                         ))}
-//                                 </select>
-//                             </label>
-//                         </div>
-//                         <div>
-//                             <label className='edit-labels'> Name of event
-//                                 <input
-//                                     type="text"
-//                                     value={name}
-//                                     onChange={(e) => setName(e.target.value)}
-//                                     required={true}
-//                                     className='edit-input'
-//                                 />
-//                             </label>
-//                         </div>
-//                         <div>
-//                             <label className='edit-labels'> Description to event
-//                                 <textarea
-//                                     // type="text"
-//                                     value={description}
-//                                     onChange={(e) => setDescript(e.target.value)}
-//                                     required={true}
-//                                     className='edit-textarea'
-//                                 />
-//                             </label>
-//                         </div>
-//                         <div>
-//                             <label className='edit-labels'> Start of event
-//                                 <input
-//                                     type="datetime-local"
-//                                     // value={moment(start_time.split(' GMT').join(' EST')).format('YYYY-MM-DDTHH:mm')}
-//                                     value={moment(start_time).format('YYYY-MM-DDTHH:mm')}
-//                                     onChange={(e) => setStart(e.target.value)}
-//                                     required={true}
-//                                     className='edit-input'
-//                                 />
-//                             </label>
-//                         </div>
-//                         <div>
-//                             <label className='edit-labels'> End of event
-//                                 <input
-//                                     type='datetime-local'
-//                                     value={moment(end_time).format('YYYY-MM-DDTHH:mm')}
-//                                     onChange={(e) => setEnd(e.target.value)}
-//                                     required={true}
-//                                     className='edit-input'
-//                                 />
-//                             </label>
-//                         </div>
-//                         <div>
-//                             <label className='edit-labels'> Capacity limit
-//                                 <input
-//                                     type='number'
-//                                     value={capacity}
-//                                     onChange={(e) => setCap(e.target.value)}
-//                                     required={true}
-//                                     className='edit-input'
-//                                 />
-//                             </label>
-//                         </div>
-//                         <div>
-//                             <label className='edit-labels'> Main event image
-//                                 <input
-//                                     type='text'
-//                                     value={image}
-//                                     onChange={(e) => setImg(e.target.value)}
-//                                     className='edit-input'
-//                                 />
-//                             </label>
-//                         </div>
-//                         <div>
-//                             <label className='edit-labels'> ticket costs
-//                                 <input
-//                                     type='number'
-//                                     value={cost}
-//                                     onChange={(e) => setCost(e.target.value)}
-//                                     required={true}
-//                                     className='edit-input'
-//                                 />
-//                             </label>
-//                         </div>
-//                         <button className='edit-form-buttons' type='submit'>Update</button>
-//                         <button className='edit-form-buttons' onClick={() => {handleCancel()}} type='button'>Cancel</button>
-//                     </form>
-//                 </div>
-//             </div>
-//         </>
-//     )
-// }
 
 /* --------------------------opening message------------ ------------------------------------------- */
 
@@ -451,7 +320,7 @@ const need = (
                     ))}
                 </div>
             </div>
-        {/* {EditForm ? <EditForm toggleEdit={toggleEdit}/> : null} */}
+        {editForm ? <EditForm editthisevent={editthisevent} venue_id={venue_id} setVenue={setVenue} venue={venue} category_id={category_id} setCategory={setCategory} category={category} name={name} setName={setName} description={description} setDescript={setDescript} start_time={start_time} setStart={setStart} end_time={end_time} setEnd={setEnd} capacity={capacity} setCap={setCap} image={image} setImg={setImg} cost={cost} setCost={setCost} editForm={editForm} toggleEdit={toggleEdit}/> : null}
         </>)
 
 /* --------------------------splash--------------------------------------------------------------- */
