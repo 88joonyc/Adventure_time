@@ -34,7 +34,7 @@ const MapPanel = ({event, user, follower, unfollow, follow}) => {
                 null}
               </div>
           </div>
-          <PromoterPanel />
+          <PromoterPanel event={event}/>
 
           <div className=''>
             <div className='map-info-map'>

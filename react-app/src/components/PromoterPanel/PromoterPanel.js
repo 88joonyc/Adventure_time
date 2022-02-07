@@ -4,9 +4,7 @@ import { Link } from "react-router-dom";
 
 import moment from "moment";
 
-const PromoterPanel = ({}) => {
-
-    const event = useSelector(state => (state?.events_reducer?.events));
+const PromoterPanel = ({event}) => {
 
     return (
     <>
