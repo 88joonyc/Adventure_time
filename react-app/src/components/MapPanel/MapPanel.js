@@ -6,9 +6,7 @@ import PromoterPanel from "../PromoterPanel/PromoterPanel";
 
 
 
-const MapPanel = (user, follower, unfollow, follow) => {
-
-  const event = useSelector(state => (state?.events_reducer?.events));
+const MapPanel = ({event, user, follower, unfollow, follow}) => {
 
     return (
     <>
