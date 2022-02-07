@@ -2,6 +2,7 @@ import React from "react";
 import { useSelector } from "react-redux";
 
 import Map from '../Map/Map'
+import PromoterPanel from "../PromoterPanel/PromoterPanel";
 
 
 
@@ -35,7 +36,7 @@ const MapPanel = (user, follower, unfollow, follow) => {
                 null}
               </div>
           </div>
-          {/* {promoter_panel} */}
+          <PromoterPanel />
 
           <div className=''>
             <div className='map-info-map'>
