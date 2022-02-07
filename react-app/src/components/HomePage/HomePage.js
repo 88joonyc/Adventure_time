@@ -11,6 +11,7 @@ import { all_categories } from '../../store/category';
 import { all_venues } from '../../store/venue';
 import { authenticate } from '../../store/session';
 import EditForm from '../EditForm/EditForm';
+import PopularBar from '../PopularBar/PopularBar';
 
 
 const HomePage = () => {
@@ -117,36 +118,7 @@ const hateyou = async (e) => {
     dispatch(eventActions.all_events())
 }
 
-const set_located_events = (id) => {
-    dispatch(eventActions.located_events(id))
-    window.scrollTo({left: 0, top: 580, behavior:'smooth'})
-}
 
-const set_categorized_events = (id) => {
-    dispatch(eventActions.categorized_events(id))
-    window.scrollTo({left: 0, top: 580, behavior:'smooth'})
-}
-
-const set_paid_events = (id) => {
-    dispatch(eventActions.cashed_events(id))
-    window.scrollTo({left: 0, top: 580, behavior:'smooth'})
-}
-
-//unregistered.... this is very inefficient
-const set_unregistered_located_events = (id) => {
-    dispatch(eventActions.unregisted_located_events(id))
-    window.scrollTo({left: 0, top: 580, behavior:'smooth'})
-}
-
-const set_unregisterd_categorized_events = (id) => {
-    dispatch(eventActions.unregisted_categorized_events(id))
-    window.scrollTo({left: 0, top: 580, behavior:'smooth'})
-}
-
-const set_unregisterd_paid_events = (id) => {
-    dispatch(eventActions.unregisted_cashed_events(id))
-    window.scrollTo({left: 0, top: 580, behavior:'smooth'})
-}
 
 
 
@@ -194,52 +166,6 @@ const filteredEvents = filter (events, search)
 
 
 /* -------------------------- popular_bar------------ ------------------------------------------- */
-
-
-let popular_bar = (
-<>
-
-        <div>
-            <h1 className='card-popular-in-title'>Search by  {'>'}
-            {<input
-                    placeholder='event name'
-                    onChange={(e)=> setSearch((e.target.value).toLowerCase())}
-                    className='venue-search-box'
-                />
-            }
-            </h1>
-            <div className='home-card-categories'>
-                <div className='cat-button-container'>
-                    {sessionUser ? <button onClick={() => dispatch(eventActions.all_events())} className='cat-all cat-button'>All</button> : <button onClick={() => dispatch(eventActions.unregistered_events())} className='cat-button'>All</button>}
-                </div>
-                <div>
-                   {sessionUser?  <button onClick={() => set_located_events(2)} className='cat-button'>For you</button> : <button onClick={() => set_unregistered_located_events(2)} className='cat-button'>For you</button> }
-                </div>
-                <div>
-                   {sessionUser?  <button onClick={() => set_located_events(5)} className='cat-button'>Online</button> : <button onClick={() => set_unregistered_located_events(5)} className='cat-button'>Online</button> }
-                </div>
-                <div>
-                    {sessionUser?  <button onClick={() => set_categorized_events(2)} className='cat-button'>Business & Professional</button> : <button onClick={() => set_unregisterd_categorized_events(2)} className='cat-button'>Business & Professional</button> }
-                </div>
-                <div>
-                    {sessionUser?  <button onClick={() => set_paid_events(0)} className='cat-button'>Free</button> : <button onClick={() => set_unregisterd_paid_events(0)} className='cat-button'>Free</button> }
-                </div>
-                <div>
-                    {sessionUser?  <button onClick={() => set_categorized_events(19)} className='cat-button'>Holiday</button> : <button onClick={() => set_unregisterd_categorized_events(19)} className='cat-button'>Holiday</button> }
-                </div>
-                <div>
-                    {sessionUser?  <button onClick={() => set_categorized_events(4)} className='cat-button'>Communication & Culture</button> : <button onClick={() => set_unregisterd_categorized_events(4)} className='cat-button'>Communication & Culture</button> }
-                </div>
-                <div>
-                    {sessionUser?  <button onClick={() => set_categorized_events(13)} className='cat-button'>Music</button> : <button onClick={() => set_unregisterd_categorized_events(13)} className='cat-button'>Music</button> }
-                </div>
-                <div>
-                    {sessionUser?  <button onClick={() => set_categorized_events(8)} className='cat-food cat-button'>Food & Drinks</button> : <button onClick={() => set_unregisterd_categorized_events(8)} className='cat-button'>Food & Drinks</button> }
-                </div>
-            </div>
-        </div>
-
-</>)
 
 
 
@@ -329,7 +255,7 @@ const need = (
 if (!sessionUser) {
     content = (
         <>
-        <SplashPage/>
+            <SplashPage/>
         </>
     )
 }
@@ -341,7 +267,7 @@ if (!sessionUser) {
         {sessionUser? opening : null}
         {searchField}
         {content}
-        {popular_bar}
+        <PopularBar setSearch={setSearch} sessionUser={sessionUser}/>
         {need}
         {editForm ? <EditForm editthisevent={editthisevent} venue_id={venue_id} setVenue={setVenue} venue={venue} category_id={category_id} setCategory={setCategory} category={category} name={name} setName={setName} description={description} setDescript={setDescript} start_time={start_time} setStart={setStart} end_time={end_time} setEnd={setEnd} capacity={capacity} setCap={setCap} image={image} setImg={setImg} cost={cost} setCost={setCost} editForm={editForm} toggleEdit={toggleEdit}/> : null}
         </>
