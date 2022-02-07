@@ -18,6 +18,7 @@ import moment from 'moment';
 
 import './Event.css'
 import TicketPanel from '../../TicketPanel/TicketPanel';
+import EditForm from '../../EditForm/EditForm';
 
 const EachEvent = () => {
   const eventId = useParams()
@@ -155,115 +156,6 @@ const cancelticketq = () => {
   setTicketQty('')
 }
 
-  // if (panel) {
-  //   (
-
-  //   )
-    // ticket_panel = (
-      // <>
-      // <div className='ticket-panel-container'>
-      //   <div className='ticketing-panel'>
-      //     <div className='general-ticketing-panel'>
-      //       <div className='ticketing-panel-title'>{event?.events[0]?.name} <div className='title-datetimestamp'>{moment(event?.events[0]?.start_time).format('ddd, MMMM do, YYYY [at] h:mm A')}</div></div>
-      //       <div className='ticketing-panel-info'>
-      //         VIP Pass
-      //         <p className='ticket-small-print'>Please call to confirm a reservation for your ticket. RSVP does not guarantee a reservation for seating. Admission prices/times are subject to change based on demand, special events, and/or holiday weekends.</p>
-      //           {!ticket?.length && !ticketqty? (
-      //           <select className='selecter' onChange={(e) => (setTicketQty(e.target.value), setTier('VIP Pass'), setMultiplier(25)) }>
-      //           <option key='00' value=''> - select quantity - </option>
-      //           <option key='1' value='1'> - 1 - </option>
-      //           <option key='2' value='2'> - 2 - </option>
-      //           <option key='3' value='3'> - 3 - </option>
-      //           <option key='4' value='4'> - 4 - </option>
-      //           <option key='5' value='5'> - 5 - </option>     {/* this is not DRY!!!! CLEAN IT UP... later */}
-      //           <option key='6' value='6'> - 6 - </option>
-      //           <option key='7' value='7'> - 7 - </option>
-      //           <option key='8' value='8'> - 8 - </option>
-      //           <option key='9' value='9'> - 9 - </option>
-      //           <option key='0' value='10'> - 10 - </option>
-      //           {/* {(n = 1) => {
-      //             while (n <= 10) {
-      //               <option value={n}> - {n} - </option>
-      //               n += 1
-      //             }
-      //           }} */}
-      //         </select>)  : null}
-      //       </div>
-      //       <div className='ticketing-panel-info'>
-      //         Advanced Ticketing
-      //         <p className='ticket-small-print'>Advanced ticket purchase highly suggested.  Limited amount of tickets will be available the day of for a higher price due to capacity limitations at the venues.</p>
-      //           {!ticket?.length && !ticketqty ?  (
-      //           <select onChange={(e) => (setTicketQty(e.target.value), setTier('Advanced Ticketing'), setMultiplier(2))}>
-      //           <option key='00' value=''> - select quantity - </option>
-      //           <option key='1' value='1'> - 1 - </option>
-      //           <option key='2' value='2'> - 2 - </option>
-      //           <option key='3' value='3'> - 3 - </option>
-      //           <option key='4' value='4'> - 4 - </option>
-      //           <option key='5' value='5'> - 5 - </option>
-      //           <option key='6' value='6'> - 6 - </option>
-      //           <option key='7' value='7'> - 7 - </option>
-      //           <option key='8' value='8'> - 8 - </option>
-      //           <option key='9' value='9'> - 9 - </option>
-      //           <option key='0' value='10'> - 10 - </option>
-      //           {/* {(n = 1) => {
-      //             while (n <= 10) {
-      //               <option value={n}> - {n} - </option>
-      //               n += 1
-      //             }
-      //           }} */}
-      //         </select>)  : null}
-      //       </div>
-      //       <div className='ticketing-panel-info'>
-      //         General Admission (Door)
-      //         <p className='ticket-small-print'>Event Admission; Express Check-In; Non-Refundable; Call For VIP Table Service</p>
-      //         {!ticket?.length && !ticketqty ? (
-      //         <select onChange={(e) => (setTicketQty(e.target.value), setTier("General Admission"), setMultiplier(1))}>
-      //           <option key='00' value=''> - select quantity - </option>
-      //           <option key='1' value='1'> - 1 - </option>
-      //           <option key='2' value='2'> - 2 - </option>
-      //           <option key='3' value='3'> - 3 - </option>
-      //           <option key='4' value='4'> - 4 - </option>
-      //           <option key='5' value='5'> - 5 - </option>
-      //           <option key='6' value='6'> - 6 - </option>
-      //           <option key='7' value='7'> - 7 - </option>
-      //           <option key='8' value='8'> - 8 - </option>
-      //           <option key='9' value='9'> - 9 - </option>
-      //           <option key='0' value='10'> - 10 - </option>
-      //           {/* {(n = 1) => {
-      //             while (n <= 10) {
-      //               <option value={n}> - {n} - </option>
-      //               n += 1
-      //             }
-      //           }} */}
-      //         </select>)  : null}
-
-      //       </div>
-      //       <div className='register-button-contaienr'>
-      //     <div className='registering-buttons'>
-      //       {ticket ? <button onClick={(e) => unregisterforthisevent(e)} className="unregister-button">unregister</button> : ( Number(ticketqty) !== 0 ? <button onClick={(e) => registerforthisevent(e)} className="register-button">register</button> : null )}
-      //       {ticketqty ? <button type='button' className='cancel-ticket-qty' onClick={(e) => cancelticketq()}>cancel</button> : null}
-      //     </div>
-      //       </div>
-      //     </div>
-      //     <div>
-      //         <div className='ticket-image-container'>
-      //             <button onClick={() => setPanel(!panel) } className="ticket-cancel-button">X</button>
-      //             <img alt='tix' className='ticketing-image' src={event?.events[0]?.image}/>
-      //         </div>
-      //       <div className='ticketing-calculate-panel'>
-      //           <div className='cost-panel'>
-      //               {paypanel}
-
-      //             </div>
-      //       </div>
-
-      //     </div>
-      //   </div>
-      // </div>
-      // </>
-  //   )
-  // }
-
 
 // ===========================================follow/unfollow===========================================================================
 
@@ -335,136 +227,6 @@ const editthisevent =  async (e) => {
     return data
 }
 
-
-let edit = null
-
-if (editForm) {
-    edit = (
-        <>
-            <div className='edit-panel-container'>
-                <div className="edit-container">
-                    <form className='edit-form' onSubmit={(e) =>{editthisevent(e)}}>
-                        <div>
-                            <label className='edit-labels'> Venue selection
-                                <select
-                                    type="number"
-                                    value={venue_id}
-                                    onChange={(e) => setVenue(e.target.value)}
-                                    required={true}
-                                    className='edit-input longer'
-                                >
-                                    <option value='' key='00'>select</option>
-                                    {venue?.map(ven => (
-                                        <option key={ven.id} value={ven.id}>{ven.name}, address: {ven.address} {ven.city}, {ven.state}</option>
-                                    ))}
-                                </select>
-                            </label>
-                        </div>
-                        <div>
-                            <label className='edit-labels'> Category
-                                <select
-                                        type="number"
-                                        value={category_id}
-                                        onChange={(e) => setCategory(e.target.value)}
-                                        required={true}
-                                        className='edit-input longer'
-                                    >
-                                        <option value='' key='00'>select</option>
-                                        {category?.map(cat => (
-                                            <option key={cat.id} value={cat.id}>{cat.type}</option>
-                                        ))}
-                                </select>
-                            </label>
-                        </div>
-                        <div>
-                            <label className='edit-labels'> Name of event
-                                <input
-                                    type="text"
-                                    value={name}
-                                    onChange={(e) => setName(e.target.value)}
-                                    required={true}
-                                    className='edit-input'
-                                    maxLength={255}
-                                />
-                            </label>
-                        </div>
-                        <div>
-                            <label className='edit-labels'> Description to event
-                                <textarea
-                                    // type="text"
-                                    value={description}
-                                    onChange={(e) => (setDescript(e.target.value))}
-                                    required={true}
-                                    className='edit-textarea'
-                                    maxLength={5000}
-                                />
-                            </label>
-                        </div>
-                        <div>
-                            <label className='edit-labels'> Start of event
-                                <input
-                                    type="datetime-local"
-                                    value={moment(start_time).format('YYYY-MM-DDTHH:mm')}
-                                    onChange={(e) => (setStart(moment(e.target.value).format('MMM D YYYY HH:mm:ss')))}
-                                    required={true}
-                                    className='edit-input'
-                                />
-                            </label>
-                        </div>
-                        <div>
-                            <label className='edit-labels'> End of event
-                                <input
-                                    type='datetime-local'
-                                    value={moment(end_time).format('YYYY-MM-DDTHH:mm')}
-                                    onChange={(e) => (setEnd(moment(e.target.value).format('MMM D YYYY HH:mm:ss')))}
-                                    required={true}
-                                    className='edit-input'
-                                />
-                            </label>
-                        </div>
-                        <div>
-                            <label className='edit-labels'> Capacity limit
-                                <input
-                                    type='number'
-                                    value={capacity}
-                                    onChange={(e) => setCap(e.target.value)}
-                                    required={true}
-                                    className='edit-input'
-                                    max={2000000000}
-                                />
-                            </label>
-                        </div>
-                        <div>
-                            <label className='edit-labels'> Main event image
-                                <input
-                                    type='text'
-                                    value={image}
-                                    onChange={(e) => setImg(e.target.value)}
-                                    className='edit-input'
-                                />
-                            </label>
-                        </div>
-                        <div>
-                            <label className='edit-labels'> ticket costs
-                                <input
-                                    type='number'
-                                    value={cost}
-                                    onChange={(e) => setCost(e.target.value)}
-                                    required={true}
-                                    className='edit-input'
-                                    max={2000000000}
-                                />
-                            </label>
-                        </div>
-                        <button className='edit-form-buttons' type='submit'>Update</button>
-                        <button className='edit-form-buttons' onClick={() => {handleCancel()}} type='button'>Cancel</button>
-                    </form>
-                </div>
-            </div>
-        </>
-    )
-}
-
 const handleCancel = () => {
     toggleEdit(!editForm)
 }
@@ -474,9 +236,9 @@ const handleCancel = () => {
 // ===========================================return===========================================================================
   return (
         <>
-            {window.addEventListener("LOAD", async (e) => {
-              dispatch(actionfollowers.get_follower_with_promo(Number(event?.events[0]?.host_id)))
-            })}
+          {window.addEventListener("LOAD", async (e) => {
+            dispatch(actionfollowers.get_follower_with_promo(Number(event?.events[0]?.host_id)))
+          })}
           <div className='event-page'>
             <div className='event-page-topcard'>
               <div className='event-page-img-container'>
@@ -553,7 +315,7 @@ const handleCancel = () => {
             <MapPanel event = {event} user={user} follower={follower} unfollow={unfollow} follow={follow}/>
             {/* <SideScroll /> */}
             {panel ? < TicketPanel event={event} ticket={ticket} ticketqty={ticketqty} setTicketQty={setTicketQty} setTier={setTier} setMultiplier={setMultiplier} unregisterforthisevent={unregisterforthisevent} registerforthisevent={registerforthisevent} cancelticketq={cancelticketq} setPanel={setPanel} panel={panel} paypanel={paypanel}/> : null}
-            {edit}
+            {editForm ? <EditForm editthisevent={editthisevent} venue_id={venue_id} setVenue={setVenue} venue={venue} category_id={category_id} setCategory={setCategory} category={category} name={name} setName={setName} description={description} setDescript={setDescript} start_time={start_time} setStart={setStart} end_time={end_time} setEnd={setEnd} capacity={capacity} setCap={setCap} image={image} setImg={setImg} cost={cost} setCost={setCost} handleCancel={handleCancel}/> : null}
 
           {/* <FooterBar/> */}
 
