@@ -2,10 +2,6 @@ import React from "react";
 import moment from "moment";
 
 
-// const handleCancel = () => {
-
-// }
-
 const EditForm = ({editthisevent, venue_id, setVenue, venue, category_id, setCategory, category, name, setName, description, setDescript, start_time, setStart, end_time, setEnd, capacity, setCap, image, setImg, cost, setCost, editForm, toggleEdit}) => {
 
 

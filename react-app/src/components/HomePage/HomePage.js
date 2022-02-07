@@ -5,12 +5,12 @@ import { Link } from 'react-router-dom';
 import moment from 'moment'
 
 import SplashPage from './SplashPage'
-import * as eventActions from '../../../store/event'
-import * as heartActions from '../../../store/heart'
-import { all_categories } from '../../../store/category';
-import { all_venues } from '../../../store/venue';
-import { authenticate } from '../../../store/session';
-import EditForm from '../../EditForm/EditForm';
+import * as eventActions from '../../store/event'
+import * as heartActions from '../../store/heart'
+import { all_categories } from '../../store/category';
+import { all_venues } from '../../store/venue';
+import { authenticate } from '../../store/session';
+import EditForm from '../EditForm/EditForm';
 
 
 const HomePage = () => {
@@ -253,75 +253,75 @@ const need = (
                 <div className='card-container'>
                     {events?.map(event => (
                         <>
-                                <div className="event-cards">
-                                    {/* <h4>{event.host_id}</h4> */}
-                                    <img alt='' src={event?.image}/>
-                                    { sessionUser ? (<>
+                            <div className="event-cards">
+                                {/* <h4>{event.host_id}</h4> */}
+                                <img alt='' src={event?.image}/>
+                                { sessionUser ? (<>
 
-                                    { !event?.heart?.length ?
-                                    <button
-                                    id={event?.id}
-                                    type='button'
-                                    onClick={(e) => {heartyou(event?.id)}}
-                                    className='heart-button'>{<img alt='' className="red-heart" />}
-                                    </button>
-                                    :
-                                    <button
-                                    id={event?.heart?.id}
-                                    onClick={(e) => {hateyou(event?.heart[0]?.id)}}
-                                    type='button'
-                                    className='heart-button'>{<img alt='' className="black-heart" />}
-                                    </button>}
+                                { !event?.heart?.length ?
+                                <button
+                                id={event?.id}
+                                type='button'
+                                onClick={(e) => {heartyou(event?.id)}}
+                                className='heart-button'>{<img alt='' className="red-heart" />}
+                                </button>
+                                :
+                                <button
+                                id={event?.heart?.id}
+                                onClick={(e) => {hateyou(event?.heart[0]?.id)}}
+                                type='button'
+                                className='heart-button'>{<img alt='' className="black-heart" />}
+                                </button>}
 
-                                    </>) : null }
-                                    <Link className='card-per' to={`/event/${event?.id}`}>
-                                    <div className='card-info-container'>
-                                        <div className='event-name-conatianer'>
-                                            { event?.name?.length < 50 ? <h2 className='card-print card-name-home-short'>{event?.name}</h2> : <h2 className='card-print card-name-home-long'>{event?.name}</h2> }
-                                        </div>
-                                        {/* <p className='card-print'>{event.category.type}</p> */}
-                                        <p hidden={true} className='card-print'>{event?.description}</p>
-                                        <p className='card-print card-date'>{moment((event?.start_time)).add(5, 'hours').format('ddd, MMM D, h:mm A')}</p>
-                                        {/* <p className='card-print'>{moment(event.end_time).format('ddd, MMM D, h:mm A')}</p> */}
-                                        <p className='card-print card-venue-home'>{event?.venue.name} • {event.venue.city}</p>
-                                        <p className='card-print card-cost-home'>Starts at ${event?.cost}</p>
-                                        <p className='card-print card-user-home'>{event.user?.email}</p>
-                                        <p className='card-print card-cap-home'>Limited to: {event?.capacity} seats!</p>
-                                        <p className='card-print card-cap-followers'> {<img alt='' className='home-card-followers-img'/>} {event?.followers?.length} followers </p>
+                                </>) : null }
+                                <Link className='card-per' to={`/event/${event?.id}`}>
+                                <div className='card-info-container'>
+                                    <div className='event-name-conatianer'>
+                                        { event?.name?.length < 50 ? <h2 className='card-print card-name-home-short'>{event?.name}</h2> : <h2 className='card-print card-name-home-long'>{event?.name}</h2> }
                                     </div>
-                                    </Link>
-                                        {(event?.host_id === sessionUser?.id ) ? (
-                                            <>
-                                                <button
-                                                type='button'
-                                                className='home-card-delete-button'
-                                                onClick={() => (
-                                                    toggleEdit(!editForm),
-                                                    setVenue(event.venue_id),
-                                                    setCategory(event.category_id),
-                                                    setName(event.name),
-                                                    setStart(moment(event.start_time).add(5, 'hours')),
-                                                    setEnd(moment(event.end_time).add(5, 'hours')),
-                                                    setCap(event.capacity),
-                                                    setImg(event.image),
-                                                    setCost(event.cost),
-                                                    setDescript(event.description),
-                                                    setId(event.id))}>edit</button>
-                                                <button
-                                                type='button'
-                                                className='home-card-edit-button'
-                                                onClick={(e) => (
-                                                    handleDelete(e))}
-                                                    value={event?.id}>X</button>
-                                            </>
-                                        ) : null}
+                                    {/* <p className='card-print'>{event.category.type}</p> */}
+                                    <p hidden={true} className='card-print'>{event?.description}</p>
+                                    <p className='card-print card-date'>{moment((event?.start_time)).add(5, 'hours').format('ddd, MMM D, h:mm A')}</p>
+                                    {/* <p className='card-print'>{moment(event.end_time).format('ddd, MMM D, h:mm A')}</p> */}
+                                    <p className='card-print card-venue-home'>{event?.venue.name} • {event.venue.city}</p>
+                                    <p className='card-print card-cost-home'>Starts at ${event?.cost}</p>
+                                    <p className='card-print card-user-home'>{event.user?.email}</p>
+                                    <p className='card-print card-cap-home'>Limited to: {event?.capacity} seats!</p>
+                                    <p className='card-print card-cap-followers'> {<img alt='' className='home-card-followers-img'/>} {event?.followers?.length} followers </p>
                                 </div>
+                                </Link>
+                                    {(event?.host_id === sessionUser?.id ) ? (
+                                        <>
+                                            <button
+                                            type='button'
+                                            className='home-card-delete-button'
+                                            onClick={() => (
+                                                toggleEdit(!editForm),
+                                                setVenue(event.venue_id),
+                                                setCategory(event.category_id),
+                                                setName(event.name),
+                                                setStart(moment(event.start_time).add(5, 'hours')),
+                                                setEnd(moment(event.end_time).add(5, 'hours')),
+                                                setCap(event.capacity),
+                                                setImg(event.image),
+                                                setCost(event.cost),
+                                                setDescript(event.description),
+                                                setId(event.id))}>edit</button>
+                                            <button
+                                            type='button'
+                                            className='home-card-edit-button'
+                                            onClick={(e) => (
+                                                handleDelete(e))}
+                                                value={event?.id}>X</button>
+                                        </>
+                                    ) : null}
+                            </div>
                         </>
                     ))}
                 </div>
             </div>
-        {editForm ? <EditForm editthisevent={editthisevent} venue_id={venue_id} setVenue={setVenue} venue={venue} category_id={category_id} setCategory={setCategory} category={category} name={name} setName={setName} description={description} setDescript={setDescript} start_time={start_time} setStart={setStart} end_time={end_time} setEnd={setEnd} capacity={capacity} setCap={setCap} image={image} setImg={setImg} cost={cost} setCost={setCost} editForm={editForm} toggleEdit={toggleEdit}/> : null}
-        </>)
+        </>
+        )
 
 /* --------------------------splash--------------------------------------------------------------- */
 
@@ -343,6 +343,7 @@ if (!sessionUser) {
         {content}
         {popular_bar}
         {need}
+        {editForm ? <EditForm editthisevent={editthisevent} venue_id={venue_id} setVenue={setVenue} venue={venue} category_id={category_id} setCategory={setCategory} category={category} name={name} setName={setName} description={description} setDescript={setDescript} start_time={start_time} setStart={setStart} end_time={end_time} setEnd={setEnd} capacity={capacity} setCap={setCap} image={image} setImg={setImg} cost={cost} setCost={setCost} editForm={editForm} toggleEdit={toggleEdit}/> : null}
         </>
     )
 }

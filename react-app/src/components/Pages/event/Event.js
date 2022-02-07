@@ -1,8 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux'
 import {  Link, useParams, useHistory } from 'react-router-dom';
-// import { all_tickets } from '../../../store/ticket';
-// import CovBar from '../../NavBar/CovBar/CovBar';
 import FooterBar from '../../NavBar/Footer/Footer';
 import { one_event, delete_event, edit_event, edit_event_capacity } from '../../../store/event';
 import * as actiontickets from '../../../store/ticket';
@@ -12,7 +10,6 @@ import { all_venues } from '../../../store/venue';
 
 
 import MapPanel from '../../MapPanel/MapPanel'
-// import Map from '../../Map/Map'
 
 import moment from 'moment';
 
@@ -226,8 +223,6 @@ const editthisevent =  async (e) => {
     }
     return data
 }
-
-/* --------------------------opening message------------ ------------------------------------------- */
 
 // ===========================================return===========================================================================
   return (
