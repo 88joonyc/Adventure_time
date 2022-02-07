@@ -16,6 +16,8 @@ import moment from 'moment';
 import './Event.css'
 import TicketPanel from '../../TicketPanel/TicketPanel';
 import EditForm from '../../EditForm/EditForm';
+import PayPanel from '../../PayPanel/PayPanel';
+import ShoppingCart from '../../ShoppingCart/ShoppingCart';
 
 const EachEvent = () => {
   const eventId = useParams()
@@ -110,41 +112,11 @@ const EachEvent = () => {
 
   // ===========================================register===========================================================================
 
-  let shoppingcart = (
-    <>
-    <div className='shopping-cart'>
-      <img alt='shop' className="no-quantity-shopping"/>
-    </div>
-    </>
-  )
-
-  let thispaypanel = (
-    <>
-    <div className='payslip'>
-      <p className='order-summary'>Order summary</p>
-      <p className='order-summary-calc'>{ticketqty} X {tier} tickets ${event?.events[0]?.cost}</p>
-      <div className='subtotal-summary'>
-        <p className='text'>Subtotal</p>
-        <p className='text'>${multiplier* ticketqty * event?.events[0]?.cost} </p>
-      </div>
-      <div className='subtotal-summary fee-bottom'>
-      <p className='text'>Fees  </p>
-      <p className='text'>${multiplier * ticketqty * event?.events[0]?.cost * .15}  </p>
-      </div>
-      <div className='subtotal-summary'>
-          <p>Total </p>
-          <p>${(ticketqty * event?.events[0]?.cost + ticketqty * event?.events[0]?.cost * .15) * multiplier}  </p>
-      </div>
-    </div>
-    </>
-  )
 
   let paypanel = null
 
   if (overload) {
-    paypanel = ( (/*!event?.events[0]?.cost &&*/ ticketqty) ? thispaypanel : shoppingcart )
-  } else {
-    paypanel = shoppingcart
+    paypanel = ( (/*!event?.events[0]?.cost &&*/ ticketqty) ? < PayPanel ticketqty={ticketqty} tier={tier} event={event} multiplier={multiplier}/> : <ShoppingCart /> )
   }
 
 // ===========================================shopping===========================================================================
