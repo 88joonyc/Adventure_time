@@ -2,7 +2,12 @@ import React from "react";
 import moment from "moment";
 
 
-const EditForm = ({editthisevent, venue_id, setVenue, venue, category_id, setCategory, category, name, setName, description, setDescript, start_time, setStart, end_time, setEnd, capacity, setCap, image, setImg, cost, setCost, handleCancel}) => {
+// const handleCancel = () => {
+
+// }
+
+const EditForm = ({editthisevent, venue_id, setVenue, venue, category_id, setCategory, category, name, setName, description, setDescript, start_time, setStart, end_time, setEnd, capacity, setCap, image, setImg, cost, setCost, editForm, toggleEdit}) => {
+
 
     return (
         <>
@@ -122,7 +127,7 @@ const EditForm = ({editthisevent, venue_id, setVenue, venue, category_id, setCat
                             </label>
                         </div>
                         <button className='edit-form-buttons' type='submit'>Update</button>
-                        <button className='edit-form-buttons' onClick={() => {handleCancel()}} type='button'>Cancel</button>
+                        <button className='edit-form-buttons' onClick={() => {toggleEdit(!editForm)}} type='button'>Cancel</button>
                     </form>
                 </div>
             </div>
