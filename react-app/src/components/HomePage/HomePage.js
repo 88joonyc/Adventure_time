@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
-
 import moment from 'moment'
 
 import SplashPage from './SplashPage'
@@ -24,7 +23,6 @@ const events = useSelector(state => state.events_reducer?.events?.events)
 const category = useSelector(state => (state?.categories_reducer?.categories));
 const venue = useSelector(state => state?.venues_reducer?.venues);
 
-// const [errors, setErrors] = useState([]);
 const [editForm, toggleEdit] = useState(false)
 const [eventId, setId] = useState([]);
 const [venue_id, setVenue] = useState('');
@@ -62,15 +60,11 @@ const editthisevent =  async (e) => {
     }
 }
 
-let content = null
-
 useEffect( () =>  {
     dispatch(eventActions.all_events())
     dispatch(all_categories())
     dispatch(all_venues())
     dispatch(authenticate())
-    // dispatch(authenticate())
-    // window.scroll(0, 0)
 }, [dispatch])
 
 /* --------------------------crud delete ----------------------------------------------------- */
@@ -84,10 +78,6 @@ const handleDelete = async (e) => {
         dispatch(eventActions.all_events())
     }
 }
-
-/* --------------------------opening message------------ ------------------------------------------- */
-
-
 
 /* -------------------------- hearts------------ ------------------------------------------- */
 
@@ -180,26 +170,14 @@ const need = (
                 </div>
             </div>
         </>
-        )
-
-/* --------------------------splash--------------------------------------------------------------- */
-
-
-if (!sessionUser) {
-    content = (
-        <>
-            <SplashPage/>
-        </>
     )
-}
 
 /* --------------------------return--------------------------------------------------------------- */
 
     return (
         <>
-        {sessionUser? <OpeningMessage /> : null}
+        {sessionUser ? <OpeningMessage /> : <SplashPage/>}
         <Search events={events} search={search} setSearch={setSearch}/>
-        {content}
         <PopularBar setSearch={setSearch} sessionUser={sessionUser}/>
         {need}
         {editForm ? <EditForm editthisevent={editthisevent} venue_id={venue_id} setVenue={setVenue} venue={venue} category_id={category_id} setCategory={setCategory} category={category} name={name} setName={setName} description={description} setDescript={setDescript} start_time={start_time} setStart={setStart} end_time={end_time} setEnd={setEnd} capacity={capacity} setCap={setCap} image={image} setImg={setImg} cost={cost} setCost={setCost} editForm={editForm} toggleEdit={toggleEdit}/> : null}
