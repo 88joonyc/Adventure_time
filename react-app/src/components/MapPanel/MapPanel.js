@@ -1,16 +1,21 @@
 import React from "react";
+import { useSelector } from "react-redux";
+
+import Map from '../Map/Map'
 
 
 
- let map_panel = (
+const MapPanel = (user, follower, unfollow, follow) => {
+
+  const event = useSelector(state => (state?.events_reducer?.events));
+
+    return (
     <>
       <div className='map-info-container'>
-
-
           <div>
             <div className='map-info-marker map-info-marker-top'>
               <div className='map-info-holder'>
-                <img alt='' className='map-info-marker-pic'src={event?.events[0]?.host?.image} />
+                <img alt='map_marker_pic' className='map-info-marker-pic'src={event?.events[0]?.host?.image} />
               <div className='map-info-naem'>
                 <div className='map-info-marker'>{event?.events[0]?.host?.first_name}</div>
                 <div className='map-info-marker'>{event?.events[0]?.host?.last_name}</div>
@@ -22,10 +27,15 @@ import React from "react";
               </div>
             </div>
               <div className='map-info-marker'>
-                { event?.events[0]?.host_id !== user.id ? <p className='follower-number'>{  ( follower ) ? <button value={follower[0]?.id} onClick={(e) => unfollow(e) } className='unfollow-me-button'>following</button> : <button onClick={() => follow()} className='follow-me-button'>follow</button> }</p> : null}
+                { event?.events[0]?.host_id !== user.id ?
+                <p className='follower-number'>{  ( follower ) ?
+                <button value={follower[0]?.id} onClick={(e) => unfollow(e) }
+                className='unfollow-me-button'>following</button> :
+                <button onClick={() => follow()} className='follow-me-button'>follow</button> }</p> :
+                null}
               </div>
           </div>
-          {promoter_panel}
+          {/* {promoter_panel} */}
 
           <div className=''>
             <div className='map-info-map'>
@@ -54,13 +64,6 @@ import React from "react";
       </div>
     </>
   )
-
-
-
-
-const MapPanel = () => {
-
-    return map_panel
 
 }
 

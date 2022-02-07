@@ -11,8 +11,8 @@ import { all_categories } from '../../../store/category';
 import { all_venues } from '../../../store/venue';
 
 
-import MapPanel from '../../MapPanel'
-import Map from '../../Map/Map'
+import MapPanel from '../../MapPanel/MapPanel'
+// import Map from '../../Map/Map'
 
 import moment from 'moment';
 
@@ -642,7 +642,7 @@ const handleCancel = () => {
             </div>
           </div>
           {/* {// ===========================================insert===========================================================================} */}
-            {map_panel}
+            <MapPanel user={user} follower={follower} unfollow={unfollow} follow={follow}/>
             {/* <SideScroll /> */}
             {ticket_panel}
             {edit}
