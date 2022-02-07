@@ -12,6 +12,7 @@ import { all_venues } from '../../store/venue';
 import { authenticate } from '../../store/session';
 import EditForm from '../EditForm/EditForm';
 import PopularBar from '../PopularBar/PopularBar';
+import Search from '../Search/Search';
 
 
 const HomePage = () => {
@@ -118,58 +119,6 @@ const hateyou = async (e) => {
     dispatch(eventActions.all_events())
 }
 
-
-
-
-
-/* -------------------------- filter/search------------ ------------------------------------------- */
-
-const filter = (memory, query) => {
-    return memory?.filter((brain) => {
-        const event_name = brain.name.toLowerCase()
-        if (event_name.includes(query)) return event_name.includes(query)
-    })
-}
-
-const filteredEvents = filter (events, search)
-
-  let searchField = null
-  if (search) (
-      searchField = (
-        <>
-            <div className="search-popup">
-                <div className='searchfield'>
-                    {filteredEvents?.map(event => (
-                        <Link className='search-link' to={`/event/${event.id}`}>
-                            <div className='search-container'>
-                                <p  className='search-link'>{event.name}</p>
-                            </div>
-                        </Link>
-                    ))}
-                </div>
-            </div>
-        </>
-      )
-  )
-
-  window.addEventListener(("click"), e => {
-      setSearch("")
-    //   if (search) {
-        //   document.querySelector('.venue-search-box').value = ''
-
-    //   }
-    //   if (document.querySelector('.venue-search-box').value) {
-    //   }
-
-  })
-
-
-
-/* -------------------------- popular_bar------------ ------------------------------------------- */
-
-
-
-
 /* -------------------------- cards------------ ------------------------------------------- */
 
 
@@ -265,7 +214,7 @@ if (!sessionUser) {
     return (
         <>
         {sessionUser? opening : null}
-        {searchField}
+        <Search events={events} search={search} setSearch={setSearch}/>
         {content}
         <PopularBar setSearch={setSearch} sessionUser={sessionUser}/>
         {need}
