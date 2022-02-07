@@ -17,7 +17,7 @@ import './Event.css'
 import TicketPanel from '../../TicketPanel/TicketPanel';
 import EditForm from '../../EditForm/EditForm';
 import PayPanel from '../../PayPanel/PayPanel';
-import ShoppingCart from '../../ShoppingCart/ShoppingCart';
+import ShoppingCart from '../../PayPanel/ShoppingCart';
 
 const EachEvent = () => {
   const eventId = useParams()
