@@ -20,9 +20,6 @@ const MapPanel = ({event, user, follower, unfollow, follow}) => {
                 <div className='map-info-marker'>{event?.events[0]?.host?.last_name}</div>
               </div>
                 <div className='map-info-marker'>{event?.events[0]?.host?.email}</div>
-
-
-
               </div>
             </div>
               <div className='map-info-marker'>
@@ -42,7 +39,6 @@ const MapPanel = ({event, user, follower, unfollow, follow}) => {
             <div>
               <Map props={{latitude: Number(event?.events[0]?.venue?.latitude), longitude:(event?.events[0]?.venue?.longitude), zoom:18}} style={{ height: '50vh', width: '10%' }} />
             </div>
-
 
             </div>
           </div>

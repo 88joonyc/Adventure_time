@@ -110,14 +110,6 @@ const EachEvent = () => {
     }
   }
 
-  // ===========================================register===========================================================================
-
-
-  let paypanel = null
-
-  if (overload) {
-    paypanel = ( (/*!event?.events[0]?.cost &&*/ ticketqty) ? < PayPanel ticketqty={ticketqty} tier={tier} event={event} multiplier={multiplier}/> : <ShoppingCart /> )
-  }
 
 // ===========================================shopping===========================================================================
 
@@ -174,7 +166,6 @@ const editthisevent =  async (e) => {
 
     let data
 
-
     if (moment(start_time).format('YYYY-MM-DD HH:mm:ss') < moment(end_time).format('YYYY-MM-DD HH:mm:ss')) {
       toggleEdit(!editForm)
       data = await dispatch(edit_event(
@@ -221,7 +212,7 @@ const editthisevent =  async (e) => {
               </div>
             </div>
             <div className="purchase-tix-bar">
-                { event?.events[0]?.host_id !== user.id ? <button type='button' onClick={() => (setPanel(!panel), console.log(panel))} className='ticket-button'>Tickets</button> : null }
+                { event?.events[0]?.host_id !== user.id ? <button type='button' onClick={() => (setPanel(!panel))} className='ticket-button'>Tickets</button> : null }
             </div>
             <div className='event-page-bot-grid'>
               <div className='events-main-cont-container'>
@@ -277,7 +268,7 @@ const editthisevent =  async (e) => {
           {/* {// ===========================================insert===========================================================================} */}
             <MapPanel event = {event} user={user} follower={follower} unfollow={unfollow} follow={follow}/>
             {/* <SideScroll /> */}
-            {panel ? < TicketPanel event={event} ticket={ticket} ticketqty={ticketqty} setTicketQty={setTicketQty} setTier={setTier} setMultiplier={setMultiplier} unregisterforthisevent={unregisterforthisevent} registerforthisevent={registerforthisevent} cancelticketq={cancelticketq} setPanel={setPanel} panel={panel} paypanel={paypanel}/> : null}
+            {panel ? < TicketPanel event={event} ticket={ticket} ticketqty={ticketqty} setTicketQty={setTicketQty} setTier={setTier} setMultiplier={setMultiplier} unregisterforthisevent={unregisterforthisevent} registerforthisevent={registerforthisevent} cancelticketq={cancelticketq} setPanel={setPanel} panel={panel} ticketqty={ticketqty} tier={tier} event={event} multiplier={multiplier}/> : null}
             {editForm ? <EditForm editthisevent={editthisevent} venue_id={venue_id} setVenue={setVenue} venue={venue} category_id={category_id} setCategory={setCategory} category={category} name={name} setName={setName} description={description} setDescript={setDescript} start_time={start_time} setStart={setStart} end_time={end_time} setEnd={setEnd} capacity={capacity} setCap={setCap} image={image} setImg={setImg} cost={cost} setCost={setCost} editForm={editForm} toggleEdit={toggleEdit}/> : null}
 
           {/* <FooterBar/> */}

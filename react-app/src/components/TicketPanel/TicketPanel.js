@@ -2,7 +2,18 @@ import React from "react";
 import moment from "moment";
 import { useSelector } from "react-redux";
 
-const TicketPanel = ({event, ticket, ticketqty, setTicketQty, setTier, setMultiplier, unregisterforthisevent, registerforthisevent, cancelticketq, setPanel, panel, paypanel}) => {
+import ShoppingCart from "../PayPanel/ShoppingCart";
+import PayPanel from "../PayPanel/PayPanel";
+
+const optionValue = () => {
+    let optionsArray = []
+    for (let i = 1; i <= 10; i++) {
+        optionsArray.push(i)
+    }
+    return optionsArray
+}
+
+const TicketPanel = ({event, ticket, ticketqty, setTicketQty, setTier, setMultiplier, unregisterforthisevent, registerforthisevent, cancelticketq, setPanel, panel, tier, multiplier }) => {
 
     return (
         <>
@@ -16,22 +27,11 @@ const TicketPanel = ({event, ticket, ticketqty, setTicketQty, setTier, setMultip
                         {!ticket?.length && !ticketqty? (
                         <select className='selecter' onChange={(e) => (setTicketQty(e.target.value), setTier('VIP Pass'), setMultiplier(25)) }>
                         <option key='00' value=''> - select quantity - </option>
-                        <option key='1' value='1'> - 1 - </option>
-                        <option key='2' value='2'> - 2 - </option>
-                        <option key='3' value='3'> - 3 - </option>
-                        <option key='4' value='4'> - 4 - </option>
-                        <option key='5' value='5'> - 5 - </option>     {/* this is not DRY!!!! CLEAN IT UP... later */}
-                        <option key='6' value='6'> - 6 - </option>
-                        <option key='7' value='7'> - 7 - </option>
-                        <option key='8' value='8'> - 8 - </option>
-                        <option key='9' value='9'> - 9 - </option>
-                        <option key='0' value='10'> - 10 - </option>
-                        {/* {(n = 1) => {
-                        while (n <= 10) {
-                            <option value={n}> - {n} - </option>
-                            n += 1
-                        }
-                        }} */}
+                        {optionValue().map((i) => (
+                            <>
+                                <option key={`${i}`} value={`${i}`}>{` - ${i} - `}</option>
+                            </>
+                        ))}
                     </select>)  : null}
                     </div>
                     <div className='ticketing-panel-info'>
@@ -40,22 +40,11 @@ const TicketPanel = ({event, ticket, ticketqty, setTicketQty, setTier, setMultip
                         {!ticket?.length && !ticketqty ?  (
                         <select onChange={(e) => (setTicketQty(e.target.value), setTier('Advanced Ticketing'), setMultiplier(2))}>
                         <option key='00' value=''> - select quantity - </option>
-                        <option key='1' value='1'> - 1 - </option>
-                        <option key='2' value='2'> - 2 - </option>
-                        <option key='3' value='3'> - 3 - </option>
-                        <option key='4' value='4'> - 4 - </option>
-                        <option key='5' value='5'> - 5 - </option>
-                        <option key='6' value='6'> - 6 - </option>
-                        <option key='7' value='7'> - 7 - </option>
-                        <option key='8' value='8'> - 8 - </option>
-                        <option key='9' value='9'> - 9 - </option>
-                        <option key='0' value='10'> - 10 - </option>
-                        {/* {(n = 1) => {
-                        while (n <= 10) {
-                            <option value={n}> - {n} - </option>
-                            n += 1
-                        }
-                        }} */}
+                        {optionValue().map((i) => (
+                            <>
+                                <option key={`${i}`} value={`${i}`}>{` - ${i} - `}</option>
+                            </>
+                        ))}
                     </select>)  : null}
                     </div>
                     <div className='ticketing-panel-info'>
@@ -64,22 +53,11 @@ const TicketPanel = ({event, ticket, ticketqty, setTicketQty, setTier, setMultip
                     {!ticket?.length && !ticketqty ? (
                     <select onChange={(e) => (setTicketQty(e.target.value), setTier("General Admission"), setMultiplier(1))}>
                         <option key='00' value=''> - select quantity - </option>
-                        <option key='1' value='1'> - 1 - </option>
-                        <option key='2' value='2'> - 2 - </option>
-                        <option key='3' value='3'> - 3 - </option>
-                        <option key='4' value='4'> - 4 - </option>
-                        <option key='5' value='5'> - 5 - </option>
-                        <option key='6' value='6'> - 6 - </option>
-                        <option key='7' value='7'> - 7 - </option>
-                        <option key='8' value='8'> - 8 - </option>
-                        <option key='9' value='9'> - 9 - </option>
-                        <option key='0' value='10'> - 10 - </option>
-                        {/* {(n = 1) => {
-                        while (n <= 10) {
-                            <option value={n}> - {n} - </option>
-                            n += 1
-                        }
-                        }} */}
+                        {optionValue().map((i) => (
+                            <>
+                                <option key={`${i}`} value={`${i}`}>{` - ${i} - `}</option>
+                            </>
+                        ))}
                     </select>)  : null}
 
                     </div>
@@ -97,7 +75,7 @@ const TicketPanel = ({event, ticket, ticketqty, setTicketQty, setTier, setMultip
                     </div>
                     <div className='ticketing-calculate-panel'>
                         <div className='cost-panel'>
-                            {paypanel}
+                            {ticketqty ? < PayPanel ticketqty={ticketqty} tier={tier} event={event} multiplier={multiplier}/> : <ShoppingCart />}
 
                         </div>
                     </div>
