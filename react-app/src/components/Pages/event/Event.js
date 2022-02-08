@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux'
-import {  Link, useParams, useHistory } from 'react-router-dom';
+import { useParams, useHistory } from 'react-router-dom';
 import FooterBar from '../../NavBar/Footer/Footer';
 import { one_event, delete_event, edit_event, edit_event_capacity } from '../../../store/event';
 import * as actiontickets from '../../../store/ticket';
@@ -16,8 +16,6 @@ import moment from 'moment';
 import './Event.css'
 import TicketPanel from '../../TicketPanel/TicketPanel';
 import EditForm from '../../EditForm/EditForm';
-import PayPanel from '../../PayPanel/PayPanel';
-import ShoppingCart from '../../PayPanel/ShoppingCart';
 
 const EachEvent = () => {
   const eventId = useParams()
@@ -25,7 +23,6 @@ const EachEvent = () => {
   const [ticketqty, setTicketQty] = useState(0)
   const [tier, setTier] = useState('')
   const [multiplier, setMultiplier] = useState('')
-  const [overload, /*toggleOverload*/] = useState('false')
 
   const history = useHistory()
 
@@ -38,7 +35,6 @@ const EachEvent = () => {
 
 
   const [editForm, toggleEdit] = useState(false)
-  // const [eventId, setId] = useState([]);
   const [venue_id, setVenue] = useState('');
   const [category_id, setCategory] = useState('');
   const [name, setName] = useState('');
@@ -75,7 +71,6 @@ const EachEvent = () => {
   }
 
 
-// This is my ticket modal which pops up when green 'ticket' is pressed
 // ===========================================ticket panel===========================================================================
 
 
@@ -130,7 +125,7 @@ const unfollow = async (e) => {
   runonce()
 }
 
-// ===========================================delete===========================================================================
+// ===========================================deleteevent===========================================================================
 
 
 const deletethisevent = async () => {
@@ -265,7 +260,7 @@ const editthisevent =  async (e) => {
             {panel ? < TicketPanel event={event} ticket={ticket} ticketqty={ticketqty} setTicketQty={setTicketQty} setTier={setTier} setMultiplier={setMultiplier} unregisterforthisevent={unregisterforthisevent} registerforthisevent={registerforthisevent} cancelticketq={cancelticketq} setPanel={setPanel} panel={panel} ticketqty={ticketqty} tier={tier} event={event} multiplier={multiplier}/> : null}
             {editForm ? <EditForm editthisevent={editthisevent} venue_id={venue_id} setVenue={setVenue} venue={venue} category_id={category_id} setCategory={setCategory} category={category} name={name} setName={setName} description={description} setDescript={setDescript} start_time={start_time} setStart={setStart} end_time={end_time} setEnd={setEnd} capacity={capacity} setCap={setCap} image={image} setImg={setImg} cost={cost} setCost={setCost} editForm={editForm} toggleEdit={toggleEdit}/> : null}
 
-          {/* <FooterBar/> */}
+          <FooterBar/>
 
         </>
   );

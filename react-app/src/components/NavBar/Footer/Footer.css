@@ -58,9 +58,10 @@
 
 .git-icon {
     content: url(../../../images/git.png);
-    width: 55px;
-    height: 55px;
-    margin-top: -5px;
+    width: 45px;
+    height: 45px;
+    background-color: rgb(240, 240, 240);
+    border-radius: 100%;
 }
 
 .git-icon:hover {
@@ -71,14 +72,20 @@
 
 .email-icon {
     content: url(../../../images/mail.png);
+    background-color: rgb(240, 240, 240);
+    border-radius: 100%;
 }
 
 .angel-icon {
     content: url(../../../images/angelist.png);
+    background-color: rgb(240, 240, 240);
+    border-radius: 100%;
 }
 
 .linked-icon {
     content: url(../../../images/linked.png);
+    background-color: rgb(240, 240, 240);
+    border-radius: 100%;
 }
 
 .personal-set {
