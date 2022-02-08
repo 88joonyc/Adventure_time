@@ -109,8 +109,8 @@ const need = (
                         <>
                             <div className="event-cards">
                                 {/* <h4>{event.host_id}</h4> */}
-                                {/* <img alt="dominant color placeholder" data-src={event?.image} className="lazy-wait"/> */}
-                                <img /*alt={`${event?.image}-for-events`}*/ src="some-image" data-src={event?.image} data-srcset={event?.image} className='lazy'/>
+                                <img alt={`${event?.image}-for-events`} src={event?.image} className="lazy-wait"/>
+                                {/* <img alt={`${event?.image}-for-events`} src="some-image" data-src={event?.image} data-srcset={event?.image} className='lazy'/> */}
                                 { sessionUser ? (<>
 
                                 { !event?.heart?.length ?
@@ -193,33 +193,36 @@ const need = (
 
 
 
-document.addEventListener("DOMContentLoaded", () => {
-    var lazyImages = [].slice.call(document.querySelectorAll("img.lazy"));
+// document.addEventListener("DOMContentLoaded", () => {
+//     var lazyImages = document.querySelectorAll("img.lazy");
 
-    console.log("========lazy images==================", lazyImages)
-    if ("IntersectionObserver" in window) {
-        let lazyImageObserver = new IntersectionObserver(function(entries, observer) {
-            console.log(entries)
-            entries.forEach(function(entry) {
-                console.log(entry)
-                if (entry.isIntersecting) {
-                    let lazyImage = entry.target;
-                    lazyImage.src = lazyImage.dataset.src;
-                    lazyImage.srcset = lazyImage.dataset.srcset;
-                    lazyImage.classList.remove("lazy");
-                    lazyImageObserver.unobserve(lazyImage);
-                }
-            });
-        })
-        lazyImages.forEach(lazyImage => {
-            lazyImageObserver.observe(lazyImage)
-        })
+//     console.log("========lazy images==================", lazyImages)
+//     if ("IntersectionObserver" in window) {
+//         const lazyImageObserver = new IntersectionObserver((entries, observer) => {
+//             console.log('=============entreis============',entries)
+//             entries.forEach(entry => {
+//                 console.log(entry)
+//                 if (entry.isIntersecting) {
+//                     let lazyImage = entry.target;
+//                     lazyImage.src = lazyImage.dataset.src;
+//                     lazyImage.srcset = lazyImage.dataset.srcset;
+//                     lazyImage.classList.remove("lazy");
+//                     lazyImageObserver.unobserve(lazyImage);
+//                 }
+//             });
+//         }, {})
 
-    } else {
+//         // console.log('==================intersection observer=========', lazyImageObserver)
 
-    }
+//         lazyImages.forEach(lazyImage => {
+//             lazyImageObserver.observe(lazyImage)
+//         })
 
-});
+//     } else {
+
+//     }
+
+// });
 
 
 /* --------------------------end--------------------------------------------------------------- */
