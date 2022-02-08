@@ -1,6 +1,5 @@
 import React from "react";
 import moment from "moment";
-import { useSelector } from "react-redux";
 
 import ShoppingCart from "../PayPanel/ShoppingCart";
 import PayPanel from "../PayPanel/PayPanel";
@@ -12,6 +11,7 @@ const optionValue = () => {
     }
     return optionsArray
 }
+
 
 const TicketPanel = ({event, ticket, ticketqty, setTicketQty, setTier, setMultiplier, unregisterforthisevent, registerforthisevent, cancelticketq, setPanel, panel, tier, multiplier }) => {
 

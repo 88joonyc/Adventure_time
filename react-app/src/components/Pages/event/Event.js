@@ -78,7 +78,6 @@ const EachEvent = () => {
 // This is my ticket modal which pops up when green 'ticket' is pressed
 // ===========================================ticket panel===========================================================================
 
-  let ticket_panel = null
 
   const registerforthisevent = async (e) => {
     e.preventDefault()
@@ -131,13 +130,6 @@ const unfollow = async (e) => {
   runonce()
 }
 
-// ===========================================listen===========================================================================
-
-// document.addEventListener("scroll", e => {
-//   document.querySelector('.purchase-tix-bar').classList.add('purchase-tix-bar-stick')
-// })
-
-
 // ===========================================delete===========================================================================
 
 
@@ -160,6 +152,8 @@ const findedit = () => {
   setImg(event?.events[0]?.image)
   setCost(event?.events[0]?.cost)
 }
+
+// ===========================================editevent===========================================================================
 
 const editthisevent =  async (e) => {
     e.preventDefault()
