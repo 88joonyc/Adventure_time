@@ -115,7 +115,7 @@
     justify-content: flex-end;
     align-items: center;
     position: sticky;
-    top: 0;
+    /* top: 0; */
     z-index: 0;
 }
 
@@ -283,8 +283,18 @@
     .event-page-topcard {
         display: block;
     }
+
     .purchase-tix-bar {
         position: fixed;
         bottom: 0;
+        height: 10%;
+        justify-content: center;
+
+    }
+
+    .ticket-button {
+        height: 50%;
+        width: 40%;
+        font-size: xx-large;
     }
 }

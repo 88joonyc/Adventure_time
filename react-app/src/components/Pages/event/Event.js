@@ -131,8 +131,8 @@ const unfollow = async (e) => {
 const deletethisevent = async () => {
   const ask = window.confirm("are you sure you want to delete your event?")
   if (ask) {
-      await dispatch(delete_event(eventId.eventId))
-      history.push('/')
+    await dispatch(delete_event(eventId.eventId))
+    history.push('/')
   }
 }
 
