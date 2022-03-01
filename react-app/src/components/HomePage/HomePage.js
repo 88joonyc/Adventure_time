@@ -83,14 +83,13 @@ const handleDelete = async (e) => {
 /* -------------------------- cards------------ ------------------------------------------- */
 
 
-const need = (
+const homeMain = (
         <>
             <div className='box' >
                 <div className='card-container'>
                     {events?.map(event => (
                         <>
                             <div className="event-cards">
-                                {/* <h4>{event.host_id}</h4> */}
                                 <img alt={`${event?.image}-for-events`} src={event?.image} className="lazy-wait"/>
                                 { sessionUser ? (<Heart event={event}/>) : null }
                                     <CardInfo event={event}/>
@@ -134,7 +133,7 @@ const need = (
         {sessionUser ? <OpeningMessage /> : <SplashPage/>}
         <Search events={events} search={search} setSearch={setSearch}/>
         <PopularBar setSearch={setSearch} sessionUser={sessionUser}/>
-        {need}
+        {homeMain}
         {editForm ? <EditForm editthisevent={editthisevent} venue_id={venue_id} setVenue={setVenue} venue={venue} category_id={category_id} setCategory={setCategory} category={category} name={name} setName={setName} description={description} setDescript={setDescript} start_time={start_time} setStart={setStart} end_time={end_time} setEnd={setEnd} capacity={capacity} setCap={setCap} image={image} setImg={setImg} cost={cost} setCost={setCost} editForm={editForm} toggleEdit={toggleEdit}/> : null}
         </>
     )
