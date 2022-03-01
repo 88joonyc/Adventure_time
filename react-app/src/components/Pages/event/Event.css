@@ -297,4 +297,8 @@
         width: 40%;
         font-size: xx-large;
     }
+
+    .event-page-bot-grid {
+        display: block;
+    }
 }

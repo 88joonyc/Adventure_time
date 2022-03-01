@@ -5,7 +5,6 @@ import moment from 'moment'
 
 import SplashPage from './SplashPage'
 import * as eventActions from '../../store/event'
-import * as heartActions from '../../store/heart'
 import { all_categories } from '../../store/category';
 import { all_venues } from '../../store/venue';
 import { authenticate } from '../../store/session';
@@ -13,6 +12,7 @@ import EditForm from '../EditForm/EditForm';
 import PopularBar from '../PopularBar/PopularBar';
 import Search from '../Search/Search';
 import OpeningMessage from '../OpeningMessage/OpeningMessage';
+import Heart from '../Heart/Heart';
 
 
 const HomePage = () => {
@@ -79,25 +79,6 @@ const handleDelete = async (e) => {
     }
 }
 
-/* -------------------------- lazy load scroll------------ ------------------------------------------- */
-
-
-
-
-/* -------------------------- hearts------------ ------------------------------------------- */
-
-
-const heartyou = async (e) => {
-    // e.preventDefault()
-    await dispatch(heartActions.heart(Number(e)))
-    dispatch(eventActions.all_events())
-}
-const hateyou = async (e) => {
-    // e.preventDefault()
-    await dispatch(heartActions.hate(Number(e)))
-    dispatch(eventActions.all_events())
-}
-
 /* -------------------------- cards------------ ------------------------------------------- */
 
 
@@ -111,24 +92,7 @@ const need = (
                                 {/* <h4>{event.host_id}</h4> */}
                                 <img alt={`${event?.image}-for-events`} src={event?.image} className="lazy-wait"/>
                                 {/* <img alt={`${event?.image}-for-events`} src="some-image" data-src={event?.image} data-srcset={event?.image} className='lazy'/> */}
-                                { sessionUser ? (<>
-
-                                { !event?.heart?.length ?
-                                <button
-                                id={event?.id}
-                                type='button'
-                                onClick={(e) => {heartyou(event?.id)}}
-                                className='heart-button'>{<img alt='' className="red-heart" />}
-                                </button>
-                                :
-                                <button
-                                id={event?.heart?.id}
-                                onClick={(e) => {hateyou(event?.heart[0]?.id)}}
-                                type='button'
-                                className='heart-button'>{<img alt='' className="black-heart" />}
-                                </button>}
-
-                                </>) : null }
+                                { sessionUser ? (<Heart event={event}/>) : null }
                                 <Link className='card-per' to={`/event/${event?.id}`}>
                                 <div className='card-info-container'>
                                     <div className='event-name-conatianer'>
