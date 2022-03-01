@@ -13,6 +13,7 @@ import PopularBar from '../PopularBar/PopularBar';
 import Search from '../Search/Search';
 import OpeningMessage from '../OpeningMessage/OpeningMessage';
 import Heart from '../Heart/Heart';
+import CardInfo from '../CardInfo/CardInfo';
 
 
 const HomePage = () => {
@@ -91,24 +92,8 @@ const need = (
                             <div className="event-cards">
                                 {/* <h4>{event.host_id}</h4> */}
                                 <img alt={`${event?.image}-for-events`} src={event?.image} className="lazy-wait"/>
-                                {/* <img alt={`${event?.image}-for-events`} src="some-image" data-src={event?.image} data-srcset={event?.image} className='lazy'/> */}
                                 { sessionUser ? (<Heart event={event}/>) : null }
-                                <Link className='card-per' to={`/event/${event?.id}`}>
-                                <div className='card-info-container'>
-                                    <div className='event-name-conatianer'>
-                                        { event?.name?.length < 50 ? <h2 className='card-print card-name-home-short'>{event?.name}</h2> : <h2 className='card-print card-name-home-long'>{event?.name}</h2> }
-                                    </div>
-                                    {/* <p className='card-print'>{event.category.type}</p> */}
-                                    <p hidden={true} className='card-print'>{event?.description}</p>
-                                    <p className='card-print card-date'>{moment((event?.start_time)).add(5, 'hours').format('ddd, MMM D, h:mm A')}</p>
-                                    {/* <p className='card-print'>{moment(event.end_time).format('ddd, MMM D, h:mm A')}</p> */}
-                                    <p className='card-print card-venue-home'>{event?.venue.name} • {event.venue.city}</p>
-                                    <p className='card-print card-cost-home'>Starts at ${event?.cost}</p>
-                                    <p className='card-print card-user-home'>{event.user?.email}</p>
-                                    <p className='card-print card-cap-home'>Limited to: {event?.capacity} seats!</p>
-                                    <p className='card-print card-cap-followers'> {<img alt='' className='home-card-followers-img'/>} {event?.followers?.length} followers </p>
-                                </div>
-                                </Link>
+                                    <CardInfo event={event}/>
                                     {(event?.host_id === sessionUser?.id ) ? (
                                         <>
                                             <button
