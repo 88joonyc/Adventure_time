@@ -92,7 +92,7 @@ const homeMain = (
                             <div className="event-cards">
                                 <LazyLoad
                                     key={`eventcard-photo-${event.id}`}
-                                    offset={-200,200}
+                                    offset={-500,500}
                                     placeholder={'...loading'}
                                 >
                                     <img alt={`${event?.image}-for-events`} src={event?.image} className="lazy-img"/>
