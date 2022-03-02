@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux'
 import { useParams, useHistory } from 'react-router-dom';
 import FooterBar from '../../NavBar/Footer/Footer';
-import { one_event, delete_event, edit_event, edit_event_capacity } from '../../../store/event';
+import { one_event, edit_event, edit_event_capacity } from '../../../store/event';
 import * as actiontickets from '../../../store/ticket';
 import * as actionfollowers from '../../../store/follower';
 import { all_categories } from '../../../store/category';
@@ -32,7 +32,6 @@ const EachEvent = () => {
   const venue = useSelector(state => (state?.venues_reducer?.venues));
   const category = useSelector(state => (state?.categories_reducer?.categories));
 
-
   const [editForm, toggleEdit] = useState(false)
   const [venue_id, setVenue] = useState('');
   const [category_id, setCategory] = useState('');
@@ -43,7 +42,6 @@ const EachEvent = () => {
   const [capacity, setCap] = useState('');
   const [image, setImg] = useState('');
   const [cost, setCost] = useState('');
-
 
   const dispatch = useDispatch();
 
@@ -123,6 +121,7 @@ const unfollow = async (e) => {
   runonce()
 }
 
+// ===========================================edit===========================================================================
 
 const editthisevent =  async (e) => {
     e.preventDefault()
@@ -173,7 +172,6 @@ const editthisevent =  async (e) => {
           {panel ? < TicketPanel {...{event, ticket, ticketqty, setTicketQty, setTier, setMultiplier, unregisterforthisevent, registerforthisevent, cancelticketq, setPanel, panel, ticketqty, tier, multiplier}}/> : null}
           {editForm ? <EditForm {...{editthisevent, venue_id, setVenue, venue, category_id, setCategory, category, name, setName, description, setDescript, start_time, setStart, end_time, setEnd, capacity, setCap, image, setImg, cost, setCost, editForm, toggleEdit}}/> : null}
           <FooterBar/>
-
         </>
   );
 };
