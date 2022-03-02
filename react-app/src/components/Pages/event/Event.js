@@ -11,11 +11,12 @@ import { all_venues } from '../../../store/venue';
 import MapPanel from '../../MapPanel/MapPanel'
 import TicketPanel from '../../TicketPanel/TicketPanel';
 import EditForm from '../../EditForm/EditForm';
+import BottomEventInfo from '../../BottomEventInfo/BottomEventInfo';
+import TopEventInfo from '../../TopEventInfo/TopEventInfo';
 
 import moment from 'moment';
 
 import './Event.css'
-import BottomEventInfo from '../../BottomEventInfo/BottomEventInfo';
 
 const EachEvent = () => {
   const eventId = useParams()
@@ -23,8 +24,6 @@ const EachEvent = () => {
   const [ticketqty, setTicketQty] = useState(0)
   const [tier, setTier] = useState('')
   const [multiplier, setMultiplier] = useState('')
-
-  const history = useHistory()
 
   const user = useSelector(state => state.session.user)
   const ticket = useSelector(state => (state?.tickets_reducer?.tickets));
@@ -111,7 +110,6 @@ const cancelticketq = () => {
   setTicketQty('')
 }
 
-
 // ===========================================follow/unfollow===========================================================================
 
 
@@ -125,30 +123,6 @@ const unfollow = async (e) => {
   runonce()
 }
 
-// ===========================================deleteevent===========================================================================
-
-
-const deletethisevent = async () => {
-  const ask = window.confirm("are you sure you want to delete your event?")
-  if (ask) {
-    await dispatch(delete_event(eventId.eventId))
-    history.push('/')
-  }
-}
-
-const findedit = () => {
-  setVenue(event?.events[0]?.venue_id)
-  setCategory(event?.events[0]?.category_id)
-  setName(event?.events[0]?.name)
-  setDescript(event?.events[0]?.description)
-  setStart(moment(event?.events[0]?.start_time).add(5, 'hours').format('MMM D YYYY HH:mm:ss'))
-  setEnd(moment(event?.events[0]?.end_time).add(5, 'hours').format('MMM D YYYY HH:mm:ss'))
-  setCap(event?.events[0]?.capacity)
-  setImg(event?.events[0]?.image)
-  setCost(event?.events[0]?.cost)
-}
-
-// ===========================================editevent===========================================================================
 
 const editthisevent =  async (e) => {
     e.preventDefault()
@@ -187,57 +161,7 @@ const editthisevent =  async (e) => {
               <div className='event-page-img-container'>
                 <img alt={event?.events[0]?.image} className='event-page-img'src={event?.events[0]?.image}/>
               </div>
-              <div className="event-page-card">
-                <div>
-                  <p>{moment(event?.events[0]?.start_time).format('MMM do')}</p>
-                  {(event?.events[0]?.name.toString().length > 50)
-                    ? <p className='events-page-card-naem-long'>{event?.events[0]?.name}</p>
-                    : <p className='events-page-card-naem-short'>{event?.events[0]?.name}</p>
-                  }
-                  {(event?.events[0]?.name.toString().length > 100)
-                    ? <p className='events-page-card-naem-very-long'>{event?.events[0]?.name}</p>
-                    : null
-                    }
-                  <p className='event-card-basic-info event-name-info'>By: {event?.events[0]?.host?.first_name} {event?.events[0]?.host?.last_name} </p>
-                  <p className='event-card-basic-info'>Contact: {event?.events[0]?.host?.email} </p>
-                  { event?.events[0]?.host_id !== user.id
-                    ?  <p className='follower-number'>{event?.events[0]?.followers?.length} followers
-                    { follower
-                      ? <button value={follower[0]?.id}
-                        onClick={(e) => unfollow(e)}
-                        className='unfollow-me-button'>following</button>
-                      : <button onClick={() => follow()} className='follow-me-button'>follow</button>
-                    }</p>
-                    : null
-                  }
-                  { event?.events[0]?.host_id !== user.id
-                    ?
-                    <p className='ticket-message'>
-                      {ticket
-                        ?
-                        <p className='ticket-message-inner'> You are going! </p>
-                        :
-                        <p className='ticket-message-inner'> You are not going! </p>
-                      }</p>
-                    : <> <p className='ticket-message-inner'> This is your event! </p>
-                    <button className='editable-event'
-                      onClick={() => (toggleEdit(!editForm), findedit())}
-                      type='button'>edit this event
-                    </button>
-                    <br/>
-                    <button className='deletable-event'
-                      onClick={() => deletethisevent()}
-                      type='button'>delete this event
-                    </button> </>
-                  }
-                  { event?.events[0]?.host_id !== user.id
-                    ? event?.events[0]?.cost
-                    ? <p className='ticket-prices-start'>Tickets start at: ${event?.events[0]?.cost}</p>
-                    : <p className='ticket-prices-start'>Free</p>
-                    : null
-                  }
-                </div>
-              </div>
+              <TopEventInfo {...{event, eventId, setVenue, setCategory, setName, setDescript, setStart, setEnd, setCap, setImg, setCost, user, follower, unfollow, follow, ticket, toggleEdit, editForm}}/>
             </div>
             <div className="purchase-tix-bar">
                 { event?.events[0]?.host_id !== user.id ? <button type='button' onClick={() => (setPanel(!panel))} className='ticket-button'>Tickets</button> : null }
@@ -245,11 +169,9 @@ const editthisevent =  async (e) => {
             <BottomEventInfo event={event}/>
           </div>
           {/* {// ===========================================insert===========================================================================} */}
-            <MapPanel event = {event} user={user} follower={follower} unfollow={unfollow} follow={follow}/>
-            {/* <SideScroll /> */}
-            {panel ? < TicketPanel event={event} ticket={ticket} ticketqty={ticketqty} setTicketQty={setTicketQty} setTier={setTier} setMultiplier={setMultiplier} unregisterforthisevent={unregisterforthisevent} registerforthisevent={registerforthisevent} cancelticketq={cancelticketq} setPanel={setPanel} panel={panel} ticketqty={ticketqty} tier={tier} event={event} multiplier={multiplier}/> : null}
-            {editForm ? <EditForm editthisevent={editthisevent} venue_id={venue_id} setVenue={setVenue} venue={venue} category_id={category_id} setCategory={setCategory} category={category} name={name} setName={setName} description={description} setDescript={setDescript} start_time={start_time} setStart={setStart} end_time={end_time} setEnd={setEnd} capacity={capacity} setCap={setCap} image={image} setImg={setImg} cost={cost} setCost={setCost} editForm={editForm} toggleEdit={toggleEdit}/> : null}
-
+          <MapPanel {...{event, user, follower, unfollow, follow}}/>
+          {panel ? < TicketPanel {...{event, ticket, ticketqty, setTicketQty, setTier, setMultiplier, unregisterforthisevent, registerforthisevent, cancelticketq, setPanel, panel, ticketqty, tier, multiplier}}/> : null}
+          {editForm ? <EditForm {...{editthisevent, venue_id, setVenue, venue, category_id, setCategory, category, name, setName, description, setDescript, start_time, setStart, end_time, setEnd, capacity, setCap, image, setImg, cost, setCost, editForm, toggleEdit}}/> : null}
           <FooterBar/>
 
         </>
