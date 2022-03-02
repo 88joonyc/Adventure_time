@@ -20,7 +20,6 @@
 .card-container {
     /* display: grid;
     grid-template-columns: 1fr 1fr 1fr; */
-
     display: flex;
     justify-content: space-around;
     flex-wrap: wrap;
@@ -37,6 +36,10 @@ img {
     /* height: 40px; */
     object-fit: cover;
     height: 150px;
+}
+
+.lazy-img {
+    width: 285px;
 }
 
 .opening-message {
@@ -155,6 +158,8 @@ img {
     color: rgb(119, 119, 132);
     font-size: small;
 }
+
+
 /*
 .event-name-conatianer {
     max-height: 430px;
@@ -205,7 +210,6 @@ img {
     transition: ease-out .5s;
 }
 
-
 @media screen and (max-device-width: 600px) {
     .card-container {
         display: block;
@@ -231,7 +235,6 @@ img {
         height: auto;
     }
     .card-print {}
-
     .card-name-home-short {
         font-size: xx-large;
         padding-bottom: 20px;

@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { Link } from 'react-router-dom';
+import LazyLoad from 'react-lazyload'
 import moment from 'moment'
 
 import SplashPage from './SplashPage'
@@ -90,7 +90,13 @@ const homeMain = (
                     {events?.map(event => (
                         <>
                             <div className="event-cards">
-                                <img alt={`${event?.image}-for-events`} src={event?.image} className="lazy-wait"/>
+                                <LazyLoad
+                                    key={`eventcard-photo-${event.id}`}
+                                    offset={-200,200}
+                                    placeholder={'...loading'}
+                                >
+                                    <img alt={`${event?.image}-for-events`} src={event?.image} className="lazy-img"/>
+                                </LazyLoad>
                                 { sessionUser ? (<Heart event={event}/>) : null }
                                     <CardInfo event={event}/>
                                     {(event?.host_id === sessionUser?.id ) ? (
@@ -138,39 +144,6 @@ const homeMain = (
         </>
     )
 }
-
-
-
-// document.addEventListener("DOMContentLoaded", () => {
-//     var lazyImages = document.querySelectorAll("img.lazy");
-
-//     console.log("========lazy images==================", lazyImages)
-//     if ("IntersectionObserver" in window) {
-//         const lazyImageObserver = new IntersectionObserver((entries, observer) => {
-//             console.log('=============entreis============',entries)
-//             entries.forEach(entry => {
-//                 console.log(entry)
-//                 if (entry.isIntersecting) {
-//                     let lazyImage = entry.target;
-//                     lazyImage.src = lazyImage.dataset.src;
-//                     lazyImage.srcset = lazyImage.dataset.srcset;
-//                     lazyImage.classList.remove("lazy");
-//                     lazyImageObserver.unobserve(lazyImage);
-//                 }
-//             });
-//         }, {})
-
-//         // console.log('==================intersection observer=========', lazyImageObserver)
-
-//         lazyImages.forEach(lazyImage => {
-//             lazyImageObserver.observe(lazyImage)
-//         })
-
-//     } else {
-
-//     }
-
-// });
 
 
 /* --------------------------end--------------------------------------------------------------- */
