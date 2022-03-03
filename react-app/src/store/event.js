@@ -92,18 +92,18 @@ export const create_event = (payload) => async dispatch => {
     return data
 }
 
-export const edit_event = (host_id, venueId, categoryId, name, description, startTime, endTime, capacity, image, cost, id) => async dispatch => {
+export const edit_event = (host_id, venue_id, category_id, name, description, start_time, end_time, capacity, image, cost, id) => async dispatch => {
     const res = await fetch(`/api/events/edit/${id}`, {
         method: 'PUT',
         headers: {"Content-Type": 'application/json'},
         body: JSON.stringify({
             host_id,
-            venueId,
-            categoryId,
+            venue_id,
+            category_id,
             name,
             description,
-            startTime,
-            endTime,
+            start_time,
+            end_time,
             capacity,
             image,
             cost

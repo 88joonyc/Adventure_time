@@ -22,7 +22,7 @@ const PromoterPanel = ({event}) => {
                 </div>
                 <div className='promoter-event-info'>
                     <div className='promoter-event-info-content'>
-                    <p className='promoter-event-date'>{moment(event?.startTime).format("ddd, MMM do [at] h:mm A")}</p>
+                    <p className='promoter-event-date'>{moment(event?.start_time).format("ddd, MMM do [at] h:mm A")}</p>
                     <p className='promoter-event-name'>{event?.name}</p>
                     </div>
                 </div>
