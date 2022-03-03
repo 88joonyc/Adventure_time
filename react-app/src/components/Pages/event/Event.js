@@ -172,7 +172,7 @@ const editthisevent =  async (e) => {
           </div>
           {/* {// ===========================================insert===========================================================================} */}
           <MapPanel {...{event, user, follower, unfollow, follow}}/>
-          {/* {panel ? < TicketPanel {...{event, ticket, ticketqty, setTicketQty, setTier, setMultiplier, unregisterforthisevent, registerforthisevent, cancelticketq, setPanel, panel, ticketqty, tier, multiplier}}/> : null} */}
+          {panel ? < TicketPanel {...{event, ticket, ticketqty, setTicketQty, setTier, setMultiplier, unregisterforthisevent, registerforthisevent, cancelticketq, setPanel, panel, ticketqty, tier, multiplier}}/> : null}
           {/* {editForm ? <EditForm {...{editthisevent, venue_id, setVenue, venue, category_id, setCategory, category, name, setName, description, setDescript, start_time, setStart, end_time, setEnd, capacity, setCap, image, setImg, cost, setCost, editForm, toggleEdit}}/> : null} */}
           <FooterBar/>
         </>

@@ -20,7 +20,7 @@ const TicketPanel = ({event, ticket, ticketqty, setTicketQty, setTier, setMultip
             <div className='ticket-panel-container'>
                 <div className='ticketing-panel'>
                 <div className='general-ticketing-panel'>
-                    <div className='ticketing-panel-title'>{event?.events[0]?.name} <div className='title-datetimestamp'>{moment(event?.events[0]?.start_time).format('ddd, MMMM do, YYYY [at] h:mm A')}</div></div>
+                    <div className='ticketing-panel-title'>{event?.name} <div className='title-datetimestamp'>{moment(event?.start_time).format('ddd, MMMM do, YYYY [at] h:mm A')}</div></div>
                     <div className='ticketing-panel-info'>
                     VIP Pass
                     <p className='ticket-small-print'>Please call to confirm a reservation for your ticket. RSVP does not guarantee a reservation for seating. Admission prices/times are subject to change based on demand, special events, and/or holiday weekends.</p>
@@ -71,7 +71,7 @@ const TicketPanel = ({event, ticket, ticketqty, setTicketQty, setTier, setMultip
                 <div>
                     <div className='ticket-image-container'>
                         <button onClick={() => setPanel(!panel) } className="ticket-cancel-button">X</button>
-                        <img alt='tiximage_for_event' className='ticketing-image' src={event?.events[0]?.image}/>
+                        <img alt='tiximage_for_event' className='ticketing-image' src={event?.image}/>
                     </div>
                     <div className='ticketing-calculate-panel'>
                         <div className='cost-panel'>
