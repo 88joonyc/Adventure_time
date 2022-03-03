@@ -9,6 +9,17 @@
     background-color: rgba(3, 4, 16, 0.85);
 }
 
+/* .ticketing-panel {
+    margin: 0 auto;
+    margin-top: 100%;
+    width: 900px;
+    margin-bottom: 15%;
+    background-color: rgb(251, 251, 245);
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    border-radius: 5px;
+} */
+
 .ticketing-panel {
     margin: 0 auto;
     margin-top: 100%;

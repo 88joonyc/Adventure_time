@@ -2,8 +2,8 @@ import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux'
 import { useParams, useHistory } from 'react-router-dom';
 import FooterBar from '../../NavBar/Footer/Footer';
-import { /*one_event,*/ edit_event, edit_event_capacity } from '../../../store/event';
-import {one_event} from '../../../store/oneEvent'
+import { edit_event, edit_event_capacity } from '../../../store/event';
+import { one_event } from '../../../store/oneEvent'
 import * as actiontickets from '../../../store/ticket';
 import * as actionfollowers from '../../../store/follower';
 import { all_categories } from '../../../store/category';
@@ -32,8 +32,6 @@ const EachEvent = () => {
   const follower = useSelector(state => (state?.followers_reducer?.followers));
   const venue = useSelector(state => (state?.venues_reducer?.venues));
   const category = useSelector(state => (state?.categories_reducer?.categories));
-
-  console.log('===========thisisevnetim---------------------',event)
 
   const [editForm, toggleEdit] = useState(false)
   const [venue_id, setVenue] = useState('');
@@ -76,12 +74,12 @@ const EachEvent = () => {
 
   const registerforthisevent = async (e) => {
     e.preventDefault()
-    const id = event?.events[0]?.id
-    const message = window.confirm(`Are you sure you want to purchase ${ticketqty} tickets for $${(ticketqty * event?.events[0]?.cost + ticketqty * event?.events[0]?.cost * .15) * multiplier}?`)
+    const id = event?.id
+    const message = window.confirm(`Are you sure you want to purchase ${ticketqty} tickets for $${(ticketqty * event?.cost + ticketqty * event?.cost * .15) * multiplier}?`)
     if (message) {
-      if (ticketqty <= event?.events[0]?.capacity) {
+      if (ticketqty <= event?.capacity) {
         await dispatch(actiontickets.create_ticket(id))
-        await(dispatch(edit_event_capacity((event?.events[0]?.capacity - ticketqty), eventId.eventId)))
+        await(dispatch(edit_event_capacity((event?.capacity - ticketqty), eventId.eventId)))
         window.alert("purchase has been made!")
         setTicketQty('')
         setPanel(!panel)
@@ -173,7 +171,7 @@ const editthisevent =  async (e) => {
           {/* {// ===========================================insert===========================================================================} */}
           <MapPanel {...{event, user, follower, unfollow, follow}}/>
           {panel ? < TicketPanel {...{event, ticket, ticketqty, setTicketQty, setTier, setMultiplier, unregisterforthisevent, registerforthisevent, cancelticketq, setPanel, panel, ticketqty, tier, multiplier}}/> : null}
-          {/* {editForm ? <EditForm {...{editthisevent, venue_id, setVenue, venue, category_id, setCategory, category, name, setName, description, setDescript, start_time, setStart, end_time, setEnd, capacity, setCap, image, setImg, cost, setCost, editForm, toggleEdit}}/> : null} */}
+          {editForm ? <EditForm {...{editthisevent, venue_id, setVenue, venue, category_id, setCategory, category, name, setName, description, setDescript, start_time, setStart, end_time, setEnd, capacity, setCap, image, setImg, cost, setCost, editForm, toggleEdit}}/> : null}
           <FooterBar/>
         </>
   );
