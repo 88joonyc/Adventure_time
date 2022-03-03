@@ -10,7 +10,7 @@ const PromoterPanel = ({event}) => {
     <>
         <h3 className='promo-title'>More events from this organizer</h3>
         <div className='promo-events-box'>
-            {event?.events[0]?.promoter?.map(event=> (
+            {event?.promoter?.map(event=> (
             <>
             {/* {event.id != eventId?.eventId ? ( */}
 
