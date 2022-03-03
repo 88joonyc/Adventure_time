@@ -19,33 +19,33 @@ const TopEventInfo = ({event, eventId, setVenue, setCategory, setName, setDescri
     }
 
     const findedit = () => {
-        setVenue(event?.events[0]?.venue_id)
-        setCategory(event?.events[0]?.category_id)
-        setName(event?.events[0]?.name)
-        setDescript(event?.events[0]?.description)
-        setStart(moment(event?.events[0]?.start_time).add(5, 'hours').format('MMM D YYYY HH:mm:ss'))
-        setEnd(moment(event?.events[0]?.end_time).add(5, 'hours').format('MMM D YYYY HH:mm:ss'))
-        setCap(event?.events[0]?.capacity)
-        setImg(event?.events[0]?.image)
-        setCost(event?.events[0]?.cost)
+        setVenue(event?.venue_id)
+        setCategory(event?.category_id)
+        setName(event?.name)
+        setDescript(event?.description)
+        setStart(moment(event?.start_time).add(5, 'hours').format('MMM D YYYY HH:mm:ss'))
+        setEnd(moment(event?.end_time).add(5, 'hours').format('MMM D YYYY HH:mm:ss'))
+        setCap(event?.capacity)
+        setImg(event?.image)
+        setCost(event?.cost)
     }
 
     return (
         <div className="event-page-card">
             <div>
-                <p>{moment(event?.events[0]?.start_time).format('MMM do')}</p>
-                {(event?.events[0]?.name.toString().length > 50)
-                ? <p className='events-page-card-naem-long'>{event?.events[0]?.name}</p>
-                : <p className='events-page-card-naem-short'>{event?.events[0]?.name}</p>
+                <p>{moment(event?.start_time).format('MMM do')}</p>
+                {(event?.name.toString().length > 50)
+                ? <p className='events-page-card-naem-long'>{event?.name}</p>
+                : <p className='events-page-card-naem-short'>{event?.name}</p>
                 }
-                {(event?.events[0]?.name.toString().length > 100)
-                ? <p className='events-page-card-naem-very-long'>{event?.events[0]?.name}</p>
+                {(event?.name.toString().length > 100)
+                ? <p className='events-page-card-naem-very-long'>{event?.name}</p>
                 : null
                 }
-                <p className='event-card-basic-info event-name-info'>By: {event?.events[0]?.host?.first_name} {event?.events[0]?.host?.last_name} </p>
-                <p className='event-card-basic-info'>Contact: {event?.events[0]?.host?.email} </p>
-                { event?.events[0]?.host_id !== user.id
-                ?  <p className='follower-number'>{event?.events[0]?.followers?.length} followers
+                <p className='event-card-basic-info event-name-info'>By: {event?.host?.first_name} {event?.host?.last_name} </p>
+                <p className='event-card-basic-info'>Contact: {event?.host?.email} </p>
+                { event?.host_id !== user.id
+                ?  <p className='follower-number'>{event?.followers?.length} followers
                 { follower
                     ? <button value={follower[0]?.id}
                     onClick={(e) => unfollow(e)}
@@ -54,7 +54,7 @@ const TopEventInfo = ({event, eventId, setVenue, setCategory, setName, setDescri
                 }</p>
                 : null
                 }
-                { event?.events[0]?.host_id !== user.id
+                { event?.host_id !== user.id
                 ?
                 <p className='ticket-message'>
                     {ticket
@@ -74,9 +74,9 @@ const TopEventInfo = ({event, eventId, setVenue, setCategory, setName, setDescri
                     type='button'>delete this event
                 </button> </>
                 }
-                { event?.events[0]?.host_id !== user.id
-                ? event?.events[0]?.cost
-                ? <p className='ticket-prices-start'>Tickets start at: ${event?.events[0]?.cost}</p>
+                { event?.host_id !== user.id
+                ? event?.cost
+                ? <p className='ticket-prices-start'>Tickets start at: ${event?.cost}</p>
                 : <p className='ticket-prices-start'>Free</p>
                 : null
                 }
