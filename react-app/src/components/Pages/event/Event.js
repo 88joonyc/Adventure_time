@@ -168,7 +168,7 @@ const editthisevent =  async (e) => {
             <div className="purchase-tix-bar">
                 { event?.host_id !== user.id ? <button type='button' onClick={() => (setPanel(!panel))} className='ticket-button'>Tickets</button> : null }
             </div>
-            {/* <BottomEventInfo event={event}/> */}
+            <BottomEventInfo event={event}/>
           </div>
           {/* {// ===========================================insert===========================================================================} */}
           {/* <MapPanel {...{event, user, follower, unfollow, follow}}/> */}
