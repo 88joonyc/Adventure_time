@@ -30,7 +30,7 @@ const [venue_id, setVenue] = useState('');
 const [category_id, setCategory] = useState('');
 const [name, setName] = useState('');
 const [description, setDescript] = useState('');
-const [start_time, setStart] = useState('');
+const [startTime, setStart] = useState('');
 const [end_time, setEnd] = useState('');
 const [capacity, setCap] = useState('');
 const [image, setImg] = useState('');
@@ -40,14 +40,14 @@ const [search, setSearch] = useState('');
 const editthisevent =  async (e) => {
     e.preventDefault()
     let data
-    if (moment(start_time).format('YYYY-MM-DD HH:mm:ss') < moment(end_time).format('YYYY-MM-DD HH:mm:ss')) {
+    if (moment(startTime).format('YYYY-MM-DD HH:mm:ss') < moment(end_time).format('YYYY-MM-DD HH:mm:ss')) {
         data = await dispatch(eventActions.edit_event(
             sessionUser.id,
             venue_id,
             category_id,
             name,
             description,
-            moment(start_time).format('YYYY-MM-DD HH:mm:ss'),
+            moment(startTime).format('YYYY-MM-DD HH:mm:ss'),
             moment(end_time).format('YYYY-MM-DD HH:mm:ss'),
             capacity,
             image,
@@ -92,12 +92,12 @@ const homeMain = (
                             <div className="event-cards">
                                 <LazyLoad
                                     key={`eventcard-photo-${event.id}`}
-                                    offset={-500,500}
+                                    offset={-200,200}
                                     placeholder={'...loading'}
                                 >
                                     <img alt={`${event?.image}-for-events`} src={event?.image} className="lazy-img"/>
                                 </LazyLoad>
-                                { sessionUser ? (<Heart event={event}/>) : null }
+                                {sessionUser ? (<Heart event={event}/>) : null}
                                     <CardInfo event={event}/>
                                     {(event?.host_id === sessionUser?.id ) ? (
                                         <>
@@ -109,7 +109,7 @@ const homeMain = (
                                                 setVenue(event.venue_id),
                                                 setCategory(event.category_id),
                                                 setName(event.name),
-                                                setStart(moment(event.start_time).add(5, 'hours')),
+                                                setStart(moment(event.startTime).add(5, 'hours')),
                                                 setEnd(moment(event.end_time).add(5, 'hours')),
                                                 setCap(event.capacity),
                                                 setImg(event.image),
@@ -140,7 +140,7 @@ const homeMain = (
         <Search events={events} search={search} setSearch={setSearch}/>
         <PopularBar setSearch={setSearch} sessionUser={sessionUser}/>
         {homeMain}
-        {editForm ? <EditForm editthisevent={editthisevent} venue_id={venue_id} setVenue={setVenue} venue={venue} category_id={category_id} setCategory={setCategory} category={category} name={name} setName={setName} description={description} setDescript={setDescript} start_time={start_time} setStart={setStart} end_time={end_time} setEnd={setEnd} capacity={capacity} setCap={setCap} image={image} setImg={setImg} cost={cost} setCost={setCost} editForm={editForm} toggleEdit={toggleEdit}/> : null}
+        {editForm ? <EditForm {...{editthisevent,venue_id, setVenue, venue, category_id, setCategory, category, name, setName, description, setDescript, startTime, setStart, setEnd, capacity, setCap, image, setImg, cost, setCost, editForm, toggleEdit}}/> : null}
         </>
     )
 }

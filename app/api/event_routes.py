@@ -9,7 +9,7 @@ event_routes = Blueprint('events', __name__)
 
 @event_routes.route('/splash/')
 def unregistered():
-    events_query = Event.query.order_by(Event.start_time.asc()).all()
+    events_query = Event.query.order_by(Event.startTime.asc()).all()
     events = [ event.to_dict() for event in events_query ]
     followers_query = Follower.query.all()
     ticket_query = Ticket.query.all()
@@ -24,7 +24,7 @@ def unregistered():
 @event_routes.route('/')
 @login_required
 def evented():
-    events_query = Event.query.order_by(Event.start_time.asc()).all()
+    events_query = Event.query.order_by(Event.startTime.asc()).all()
     events = [ event.to_dict() for event in events_query ]
     followers_query = Follower.query.all()
     ticket_query = Ticket.query.all()
@@ -165,7 +165,7 @@ def create():
             category_id = form.data['category_id'],
             name = form.data['name'],
             description = form.data['description'],
-            start_time = form.data['start_time'],
+            startTime = form.data['startTime'],
             end_time = form.data['end_time'],
             capacity = form.data['capacity'],
             image = form.data['image'],
@@ -184,7 +184,7 @@ def edit(id):
     event.category_id = form.data['category_id']
     event.name = form.data['name']
     event.description = form.data['description']
-    event.start_time = form.data['start_time']
+    event.startTime = form.data['startTime']
     event.end_time = form.data['end_time']
     event.capacity = form.data['capacity']
     event.image = form.data['image']

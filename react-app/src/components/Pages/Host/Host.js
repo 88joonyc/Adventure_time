@@ -14,7 +14,7 @@ const HostForm = () => {
   const [category_id, setCategory] = useState('');
   const [name, setName] = useState('');
   const [description, setDescript] = useState('');
-  const [start_time, setStart] = useState('');
+  const [startTime, setStart] = useState('');
   const [end_time, setEnd] = useState('');
   const [capacity, setCap] = useState('');
   const [image, setImg] = useState('');
@@ -34,7 +34,7 @@ const HostForm = () => {
         category_id,
         name,
         description,
-        start_time: start_time.split("T").join(" ").concat(":00"),
+        startTime: startTime.split("T").join(" ").concat(":00"),
         end_time: end_time.split("T").join(" ").concat(":00"),
         capacity,
         image,
@@ -42,7 +42,7 @@ const HostForm = () => {
       }
       let data
 
-      if (payload.start_time < payload.end_time) {
+      if (payload.startTime < payload.end_time) {
           data = await dispatch(create_event(payload))
           if (data) {
             history.push('/')

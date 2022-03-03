@@ -11,7 +11,7 @@ class Event(db.Model):
     category_id = db.Column(db.Integer, db.ForeignKey('categories.id'), nullable=False)
     name = db.Column(db.String(255), nullable=False)
     description = db.Column(db.String(5000), nullable=False)
-    start_time = db.Column(db.DateTime(timezone=False), nullable=False)
+    startTime = db.Column(db.DateTime(timezone=False), nullable=False)
     end_time = db.Column(db.DateTime(timezone=False), nullable=False)
     capacity = db.Column(db.Integer )
     image = db.Column(db.String)
@@ -33,7 +33,7 @@ class Event(db.Model):
             'category_id': self.category_id,
             'name': self.name,
             'description': self.description,
-            'start_time': self.start_time,
+            'startTime': self.startTime,
             'end_time': self.end_time,
             'capacity': self.capacity,
             'image': self.image,

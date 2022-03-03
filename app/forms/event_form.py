@@ -9,7 +9,7 @@ class EventForm(FlaskForm):
     category_id = IntegerField('category_id', validators=[DataRequired()])
     name = StringField('name', validators=[DataRequired()])
     description = TextAreaField('description', validators=[DataRequired()])
-    start_time = DateTimeField('start_time time(None)', validators=[DataRequired()])
+    startTime = DateTimeField('startTime time(None)', validators=[DataRequired()])
     end_time = DateTimeField('end_time time(None)', validators=[DataRequired()])
     capacity = IntegerField('capacity', validators=[DataRequired()])
     cost = IntegerField('cost', validators=[DataRequired()])

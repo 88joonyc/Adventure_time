@@ -2,7 +2,7 @@ import React from "react";
 import moment from "moment";
 
 
-const EditForm = ({editthisevent, venue_id, setVenue, venue, category_id, setCategory, category, name, setName, description, setDescript, start_time, setStart, end_time, setEnd, capacity, setCap, image, setImg, cost, setCost, editForm, toggleEdit}) => {
+const EditForm = ({editthisevent, venue_id, setVenue, venue, category_id, setCategory, category, name, setName, description, setDescript, startTime, setStart, end_time, setEnd, capacity, setCap, image, setImg, cost, setCost, editForm, toggleEdit}) => {
 
 
     return (
@@ -70,7 +70,7 @@ const EditForm = ({editthisevent, venue_id, setVenue, venue, category_id, setCat
                             <label className='edit-labels'> Start of event
                                 <input
                                     type="datetime-local"
-                                    value={moment(start_time).format('YYYY-MM-DDTHH:mm')}
+                                    value={moment(startTime).format('YYYY-MM-DDTHH:mm')}
                                     onChange={(e) => (setStart(moment(e.target.value).format('MMM D YYYY HH:mm:ss')))}
                                     required={true}
                                     className='edit-input'

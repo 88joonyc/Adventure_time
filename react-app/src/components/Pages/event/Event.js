@@ -37,7 +37,7 @@ const EachEvent = () => {
   const [category_id, setCategory] = useState('');
   const [name, setName] = useState('');
   const [description, setDescript] = useState('');
-  const [start_time, setStart] = useState('');
+  const [startTime, setStart] = useState('');
   const [end_time, setEnd] = useState('');
   const [capacity, setCap] = useState('');
   const [image, setImg] = useState('');
@@ -128,7 +128,7 @@ const editthisevent =  async (e) => {
 
     let data
 
-    if (moment(start_time).format('YYYY-MM-DD HH:mm:ss') < moment(end_time).format('YYYY-MM-DD HH:mm:ss')) {
+    if (moment(startTime).format('YYYY-MM-DD HH:mm:ss') < moment(end_time).format('YYYY-MM-DD HH:mm:ss')) {
       toggleEdit(!editForm)
       data = await dispatch(edit_event(
           user.id,
@@ -136,7 +136,7 @@ const editthisevent =  async (e) => {
           category_id,
           name,
           description,
-          moment(start_time).format('YYYY-MM-DD HH:mm:ss'),
+          moment(startTime).format('YYYY-MM-DD HH:mm:ss'),
           moment(end_time).format('YYYY-MM-DD HH:mm:ss'),
           capacity,
           image,
@@ -170,7 +170,7 @@ const editthisevent =  async (e) => {
           {/* {// ===========================================insert===========================================================================} */}
           <MapPanel {...{event, user, follower, unfollow, follow}}/>
           {panel ? < TicketPanel {...{event, ticket, ticketqty, setTicketQty, setTier, setMultiplier, unregisterforthisevent, registerforthisevent, cancelticketq, setPanel, panel, ticketqty, tier, multiplier}}/> : null}
-          {editForm ? <EditForm {...{editthisevent, venue_id, setVenue, venue, category_id, setCategory, category, name, setName, description, setDescript, start_time, setStart, end_time, setEnd, capacity, setCap, image, setImg, cost, setCost, editForm, toggleEdit}}/> : null}
+          {editForm ? <EditForm {...{editthisevent, venue_id, setVenue, venue, category_id, setCategory, category, name, setName, description, setDescript, startTime, setStart, end_time, setEnd, capacity, setCap, image, setImg, cost, setCost, editForm, toggleEdit}}/> : null}
           <FooterBar/>
         </>
   );
