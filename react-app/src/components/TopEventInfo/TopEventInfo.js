@@ -19,12 +19,12 @@ const TopEventInfo = ({event, eventId, setVenue, setCategory, setName, setDescri
     }
 
     const findedit = () => {
-        setVenue(event?.events[0]?.venue_id)
-        setCategory(event?.events[0]?.category_id)
+        setVenue(event?.events[0]?.venueId)
+        setCategory(event?.events[0]?.categoryId)
         setName(event?.events[0]?.name)
         setDescript(event?.events[0]?.description)
-        setStart(moment(event?.events[0]?.start_time).add(5, 'hours').format('MMM D YYYY HH:mm:ss'))
-        setEnd(moment(event?.events[0]?.end_time).add(5, 'hours').format('MMM D YYYY HH:mm:ss'))
+        setStart(moment(event?.events[0]?.startTime).add(5, 'hours').format('MMM D YYYY HH:mm:ss'))
+        setEnd(moment(event?.events[0]?.endTime).add(5, 'hours').format('MMM D YYYY HH:mm:ss'))
         setCap(event?.events[0]?.capacity)
         setImg(event?.events[0]?.image)
         setCost(event?.events[0]?.cost)
@@ -33,7 +33,7 @@ const TopEventInfo = ({event, eventId, setVenue, setCategory, setName, setDescri
     return (
         <div className="event-page-card">
             <div>
-                <p>{moment(event?.events[0]?.start_time).format('MMM do')}</p>
+                <p>{moment(event?.events[0]?.startTime).format('MMM do')}</p>
                 {(event?.events[0]?.name.toString().length > 50)
                 ? <p className='events-page-card-naem-long'>{event?.events[0]?.name}</p>
                 : <p className='events-page-card-naem-short'>{event?.events[0]?.name}</p>

@@ -20,7 +20,7 @@ const TicketPanel = ({event, ticket, ticketqty, setTicketQty, setTier, setMultip
             <div className='ticket-panel-container'>
                 <div className='ticketing-panel'>
                 <div className='general-ticketing-panel'>
-                    <div className='ticketing-panel-title'>{event?.events[0]?.name} <div className='title-datetimestamp'>{moment(event?.events[0]?.start_time).format('ddd, MMMM do, YYYY [at] h:mm A')}</div></div>
+                    <div className='ticketing-panel-title'>{event?.events[0]?.name} <div className='title-datetimestamp'>{moment(event?.events[0]?.startTime).format('ddd, MMMM do, YYYY [at] h:mm A')}</div></div>
                     <div className='ticketing-panel-info'>
                     VIP Pass
                     <p className='ticket-small-print'>Please call to confirm a reservation for your ticket. RSVP does not guarantee a reservation for seating. Admission prices/times are subject to change based on demand, special events, and/or holiday weekends.</p>

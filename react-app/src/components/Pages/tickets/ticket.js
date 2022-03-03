@@ -78,7 +78,7 @@ const some_content = (
           <div className="ticket-card">
             <img className="tix-card-img" src={tix.event.image}/>
             <div className='tix-card-info'>
-              <p className='tix-date'>{moment(tix.event.start_time).format('ddd, MMM Do, [at] LT')}</p>
+              <p className='tix-date'>{moment(tix.event.startTime).format('ddd, MMM Do, [at] LT')}</p>
               <p className='tix-title'>{tix.event.name}</p>
             </div>
             <div className='register-button-container'>
@@ -100,7 +100,7 @@ const heart_content = (
           <div className="ticket-card">
             <img className="tix-card-img" src={heart?.event?.image}/>
             <div className='tix-card-info'>
-              <p className='tix-date'>{moment(heart?.event?.start_time).format('ddd, MMM Do, [at] LT')}</p>
+              <p className='tix-date'>{moment(heart?.event?.startTime).format('ddd, MMM Do, [at] LT')}</p>
               <p className='tix-title'>{heart?.event?.name}</p>
             </div>
             {/* <div className='register-button-container'>

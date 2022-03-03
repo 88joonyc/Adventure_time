@@ -9,7 +9,7 @@ const BottomEventInfo = ({event}) => {
                 <div className='events-main-cont'>
                   <div class='events-description-text'>
                     <p>
-                      {moment(event?.events[0]?.start_time).format('MMM do')}
+                      {moment(event?.events[0]?.startTime).format('MMM do')}
                       - SINGLE DAY PASS - One (1) general admission RSVP to attend&nbsp;
                     {event?.events[0]?.name} in {event?.events[0]?.venue?.city},&nbsp;
                     {event?.events[0]?.venue?.state}
@@ -36,9 +36,9 @@ const BottomEventInfo = ({event}) => {
                     </div>
                     <p>Date and time</p>
                     <p>Starts: </p>
-                    <p className='startend-times'>{moment(event?.events[0]?.start_time).add(5, 'hours').format('ddd[,] MMMM Do [,] YYYY [at] h:mm A')}</p>
+                    <p className='startend-times'>{moment(event?.events[0]?.startTime).add(5, 'hours').format('ddd[,] MMMM Do [,] YYYY [at] h:mm A')}</p>
                     <p>Ends:</p>
-                    <p className='startend-times'>{moment(event?.events[0]?.end_time).add(5, 'hours').format('dddd[,] MMMM Do[,] YYYY [at] h:mm A')}</p>
+                    <p className='startend-times'>{moment(event?.events[0]?.endTime).add(5, 'hours').format('dddd[,] MMMM Do[,] YYYY [at] h:mm A')}</p>
 
                     <p className="events-address-label">Location:</p>
                     <div className='events-page-location'>
