@@ -26,12 +26,12 @@ const venue = useSelector(state => state?.venues_reducer?.venues);
 
 const [editForm, toggleEdit] = useState(false)
 const [eventId, setId] = useState([]);
-const [venue_id, setVenue] = useState('');
-const [category_id, setCategory] = useState('');
+const [venueId, setVenue] = useState('');
+const [categoryId, setCategory] = useState('');
 const [name, setName] = useState('');
 const [description, setDescript] = useState('');
 const [startTime, setStart] = useState('');
-const [end_time, setEnd] = useState('');
+const [endTime, setEnd] = useState('');
 const [capacity, setCap] = useState('');
 const [image, setImg] = useState('');
 const [cost, setCost] = useState('');
@@ -40,15 +40,15 @@ const [search, setSearch] = useState('');
 const editthisevent =  async (e) => {
     e.preventDefault()
     let data
-    if (moment(startTime).format('YYYY-MM-DD HH:mm:ss') < moment(end_time).format('YYYY-MM-DD HH:mm:ss')) {
+    if (moment(startTime).format('YYYY-MM-DD HH:mm:ss') < moment(endTime).format('YYYY-MM-DD HH:mm:ss')) {
         data = await dispatch(eventActions.edit_event(
             sessionUser.id,
-            venue_id,
-            category_id,
+            venueId,
+            categoryId,
             name,
             description,
             moment(startTime).format('YYYY-MM-DD HH:mm:ss'),
-            moment(end_time).format('YYYY-MM-DD HH:mm:ss'),
+            moment(endTime).format('YYYY-MM-DD HH:mm:ss'),
             capacity,
             image,
             cost,
@@ -106,11 +106,11 @@ const homeMain = (
                                             className='home-card-delete-button'
                                             onClick={() => (
                                                 toggleEdit(!editForm),
-                                                setVenue(event.venue_id),
-                                                setCategory(event.category_id),
+                                                setVenue(event.venueId),
+                                                setCategory(event.categoryId),
                                                 setName(event.name),
                                                 setStart(moment(event.startTime).add(5, 'hours')),
-                                                setEnd(moment(event.end_time).add(5, 'hours')),
+                                                setEnd(moment(event.endTime).add(5, 'hours')),
                                                 setCap(event.capacity),
                                                 setImg(event.image),
                                                 setCost(event.cost),
@@ -140,7 +140,7 @@ const homeMain = (
         <Search events={events} search={search} setSearch={setSearch}/>
         <PopularBar setSearch={setSearch} sessionUser={sessionUser}/>
         {homeMain}
-        {editForm ? <EditForm {...{editthisevent,venue_id, setVenue, venue, category_id, setCategory, category, name, setName, description, setDescript, startTime, setStart, setEnd, capacity, setCap, image, setImg, cost, setCost, editForm, toggleEdit}}/> : null}
+        {editForm ? <EditForm {...{editthisevent,venueId, setVenue, venue, categoryId, setCategory, category, name, setName, description, setDescript, startTime, setStart, setEnd, capacity, setCap, image, setImg, cost, setCost, editForm, toggleEdit}}/> : null}
         </>
     )
 }

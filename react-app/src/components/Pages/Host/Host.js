@@ -10,12 +10,12 @@ import './Host.css'
 
 const HostForm = () => {
 //   const [errors, setErrors] = useState([]);
-  const [venue_id, setVenue] = useState('');
-  const [category_id, setCategory] = useState('');
+  const [venueId, setVenue] = useState('');
+  const [categoryId, setCategory] = useState('');
   const [name, setName] = useState('');
   const [description, setDescript] = useState('');
   const [startTime, setStart] = useState('');
-  const [end_time, setEnd] = useState('');
+  const [endTime, setEnd] = useState('');
   const [capacity, setCap] = useState('');
   const [image, setImg] = useState('');
   const [cost, setCost] = useState(0);
@@ -30,19 +30,19 @@ const HostForm = () => {
   const handleSubmit =  async (e) => {
       e.preventDefault()
       const payload = {
-        venue_id,
-        category_id,
+        venueId,
+        categoryId,
         name,
         description,
         startTime: startTime.split("T").join(" ").concat(":00"),
-        end_time: end_time.split("T").join(" ").concat(":00"),
+        endTime: endTime.split("T").join(" ").concat(":00"),
         capacity,
         image,
         cost,
       }
       let data
 
-      if (payload.startTime < payload.end_time) {
+      if (payload.startTime < payload.endTime) {
           data = await dispatch(create_event(payload))
           if (data) {
             history.push('/')
@@ -129,7 +129,7 @@ if (!category) {
                                 <label> Category selection:
                                     <select
                                         type="number"
-                                        value={category_id}
+                                        value={categoryId}
                                         onChange={(e) => setCategory(e.target.value)}
                                         required={true}
                                         className='host-input'
@@ -152,7 +152,7 @@ if (!category) {
                             <label> Venue location
                                 <select
                                     type="number"
-                                    value={venue_id}
+                                    value={venueId}
                                     onChange={(e) => setVenue(e.target.value)}
                                     required={true}
                                     className='host-input'

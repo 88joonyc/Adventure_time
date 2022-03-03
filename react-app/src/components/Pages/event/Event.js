@@ -33,12 +33,12 @@ const EachEvent = () => {
   const category = useSelector(state => (state?.categories_reducer?.categories));
 
   const [editForm, toggleEdit] = useState(false)
-  const [venue_id, setVenue] = useState('');
-  const [category_id, setCategory] = useState('');
+  const [venueId, setVenue] = useState('');
+  const [categoryId, setCategory] = useState('');
   const [name, setName] = useState('');
   const [description, setDescript] = useState('');
   const [startTime, setStart] = useState('');
-  const [end_time, setEnd] = useState('');
+  const [endTime, setEnd] = useState('');
   const [capacity, setCap] = useState('');
   const [image, setImg] = useState('');
   const [cost, setCost] = useState('');
@@ -128,16 +128,16 @@ const editthisevent =  async (e) => {
 
     let data
 
-    if (moment(startTime).format('YYYY-MM-DD HH:mm:ss') < moment(end_time).format('YYYY-MM-DD HH:mm:ss')) {
+    if (moment(startTime).format('YYYY-MM-DD HH:mm:ss') < moment(endTime).format('YYYY-MM-DD HH:mm:ss')) {
       toggleEdit(!editForm)
       data = await dispatch(edit_event(
           user.id,
-          venue_id,
-          category_id,
+          venueId,
+          categoryId,
           name,
           description,
           moment(startTime).format('YYYY-MM-DD HH:mm:ss'),
-          moment(end_time).format('YYYY-MM-DD HH:mm:ss'),
+          moment(endTime).format('YYYY-MM-DD HH:mm:ss'),
           capacity,
           image,
           cost,
@@ -170,7 +170,7 @@ const editthisevent =  async (e) => {
           {/* {// ===========================================insert===========================================================================} */}
           <MapPanel {...{event, user, follower, unfollow, follow}}/>
           {panel ? < TicketPanel {...{event, ticket, ticketqty, setTicketQty, setTier, setMultiplier, unregisterforthisevent, registerforthisevent, cancelticketq, setPanel, panel, ticketqty, tier, multiplier}}/> : null}
-          {editForm ? <EditForm {...{editthisevent, venue_id, setVenue, venue, category_id, setCategory, category, name, setName, description, setDescript, startTime, setStart, end_time, setEnd, capacity, setCap, image, setImg, cost, setCost, editForm, toggleEdit}}/> : null}
+          {editForm ? <EditForm {...{editthisevent, venueId, setVenue, venue, categoryId, setCategory, category, name, setName, description, setDescript, startTime, setStart, endTime, setEnd, capacity, setCap, image, setImg, cost, setCost, editForm, toggleEdit}}/> : null}
           <FooterBar/>
         </>
   );

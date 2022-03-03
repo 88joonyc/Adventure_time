@@ -2,7 +2,7 @@ import React from "react";
 import moment from "moment";
 
 
-const EditForm = ({editthisevent, venue_id, setVenue, venue, category_id, setCategory, category, name, setName, description, setDescript, startTime, setStart, end_time, setEnd, capacity, setCap, image, setImg, cost, setCost, editForm, toggleEdit}) => {
+const EditForm = ({editthisevent, venueId, setVenue, venue, categoryId, setCategory, category, name, setName, description, setDescript, startTime, setStart, endTime, setEnd, capacity, setCap, image, setImg, cost, setCost, editForm, toggleEdit}) => {
 
 
     return (
@@ -14,7 +14,7 @@ const EditForm = ({editthisevent, venue_id, setVenue, venue, category_id, setCat
                             <label className='edit-labels'> Venue selection
                                 <select
                                     type="number"
-                                    value={venue_id}
+                                    value={venueId}
                                     onChange={(e) => setVenue(e.target.value)}
                                     required={true}
                                     className='edit-input longer'
@@ -30,7 +30,7 @@ const EditForm = ({editthisevent, venue_id, setVenue, venue, category_id, setCat
                             <label className='edit-labels'> Category
                                 <select
                                         type="number"
-                                        value={category_id}
+                                        value={categoryId}
                                         onChange={(e) => setCategory(e.target.value)}
                                         required={true}
                                         className='edit-input longer'
@@ -81,7 +81,7 @@ const EditForm = ({editthisevent, venue_id, setVenue, venue, category_id, setCat
                             <label className='edit-labels'> End of event
                                 <input
                                     type='datetime-local'
-                                    value={moment(end_time).format('YYYY-MM-DDTHH:mm')}
+                                    value={moment(endTime).format('YYYY-MM-DDTHH:mm')}
                                     onChange={(e) => (setEnd(moment(e.target.value).format('MMM D YYYY HH:mm:ss')))}
                                     required={true}
                                     className='edit-input'

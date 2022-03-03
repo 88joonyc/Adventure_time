@@ -38,7 +38,7 @@ const BottomEventInfo = ({event}) => {
                     <p>Starts: </p>
                     <p className='startend-times'>{moment(event?.events[0]?.startTime).add(5, 'hours').format('ddd[,] MMMM Do [,] YYYY [at] h:mm A')}</p>
                     <p>Ends:</p>
-                    <p className='startend-times'>{moment(event?.events[0]?.end_time).add(5, 'hours').format('dddd[,] MMMM Do[,] YYYY [at] h:mm A')}</p>
+                    <p className='startend-times'>{moment(event?.events[0]?.endTime).add(5, 'hours').format('dddd[,] MMMM Do[,] YYYY [at] h:mm A')}</p>
 
                     <p className="events-address-label">Location:</p>
                     <div className='events-page-location'>
