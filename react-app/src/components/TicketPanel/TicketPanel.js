@@ -4,6 +4,8 @@ import moment from "moment";
 import ShoppingCart from "../PayPanel/ShoppingCart";
 import PayPanel from "../PayPanel/PayPanel";
 
+import './TicketPanel.css'
+
 const optionValue = () => {
     let optionsArray = []
     for (let i = 1; i <= 10; i++) {
