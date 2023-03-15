@@ -1,5 +1,4 @@
 @import url(./VenueForm.css);
-
 .host-container {
     background-color: inherit;
     height: 100%;
@@ -48,31 +47,31 @@ select {
 }
 
 .basic-info-img {
-    content: url('./icons8-finn-480.png');
+    content: url('../../../images/icons8-finn-480.png');
 }
 
 .location-info-img {
-    content: url('./icons8-quest-100.png');
+    content: url('../../../images/icons8-quest-100.png');
 }
 
 .description-img {
-    content: url('./icons8-bmo-500.png');
+    content: url('../../../images/icons8-bmo-500.png');
 }
 
 .capacity-img {
-    content: url('./icons8-lumpy-space-princess-500.png');
+    content: url('../../../images/icons8-lumpy-space-princess-500.png');
 }
 
 .cos-img {
-    content: url('./icons8-coins-64.png');
+    content: url('../../../images/icons8-coins-64.png');
 }
 
 .mainimg-img {
-    content: url('./icons8-jake-500.png');
+    content: url('../../../images/icons8-jake-500.png');
 }
 
 .date-img {
-    content: url('./icons8-schedule-480.png');
+    content: url('../../../images/icons8-schedule-480.png');
 }
 
 .info-input {
@@ -108,4 +107,34 @@ select {
 
 .required {
     font-size: x-small;
+}
+
+@media screen and (max-device-width: 600px) {
+    .host-card {
+        padding: -20px -40px
+    }
+    .info-input {
+        width: 100%;
+        font-size: xx-large;
+    }
+    p {
+        font-size: xx-large;
+    }
+    .host-input {
+        height: 60px;
+        font-size: xx-large;
+    }
+    .basic-img-settings {
+        padding-top: 100px;
+    }
+    .required {
+        font-size: x-large;
+    }
+    .text-area {
+        height: 250px;
+        width: 95%;
+    }
+    select {
+        font-size: medium;
+    }
 }

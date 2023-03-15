@@ -18,7 +18,7 @@
     background-color: rgb(38, 16, 94);
     width: 100%;
     height: 420px;
-    padding: 23px
+    padding: 23px;
 }
 
 .footer-tabs {
@@ -57,10 +57,11 @@
 /* ===============================icons========================================= */
 
 .git-icon {
-    content: url(./git.png);
-    width: 55px;
-    height: 55px;
-    margin-top: -5px;
+    content: url(../../../images/git.png);
+    width: 45px;
+    height: 45px;
+    background-color: rgb(240, 240, 240);
+    border-radius: 100%;
 }
 
 .git-icon:hover {
@@ -70,15 +71,21 @@
 }
 
 .email-icon {
-    content: url(./mail.png);
+    content: url(../../../images/mail.png);
+    background-color: rgb(240, 240, 240);
+    border-radius: 100%;
 }
 
 .angel-icon {
-    content: url(./angelist.png);
+    content: url(../../../images/angelist.png);
+    background-color: rgb(240, 240, 240);
+    border-radius: 100%;
 }
 
 .linked-icon {
-    content: url(./linked.png);
+    content: url(../../../images/linked.png);
+    background-color: rgb(240, 240, 240);
+    border-radius: 100%;
 }
 
 .personal-set {
@@ -90,4 +97,18 @@
     box-shadow: 3px 3px 20px hotpink;
     border-radius: 40px;
     transition: ease-in-out 1.3s;
+}
+
+@media screen and (max-device-width: 600px) {
+    .footer-container {
+        height: auto;
+        background-color: rgb(93, 86, 163);
+        margin-left: -8px;
+    }
+    .footer-tabs {
+        display: none
+    }
+    .footer-message {
+        display: none;
+    }
 }

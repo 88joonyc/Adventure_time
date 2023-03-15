@@ -16,7 +16,7 @@
 }
 
 .navbar-image {
-    content: url('../NavBar/adventure_time-logo.jpeg');
+    content: url('../../images/adventure_time-logo.jpeg');
     width: 100%;
     height: 42px;
     padding: 8px;
@@ -24,6 +24,7 @@
 
 body {
     background-color: rgb(249, 250, 252);
+
 }
 
 .navbar-drop-container {
@@ -97,7 +98,7 @@ body {
 }
 
 .search-icon {
-    content: url(./outline_search_black_24dp.png);
+    content: url(../../images/outline_search_black_24dp.png);
     width: auto;
     height: 16px;
     padding: 0 20px;
@@ -105,15 +106,40 @@ body {
 }
 
 .ticket-icon {
-    content: url('./createe-event.png');
+    content: url('../../images/createe-event.png');
     height: 16px;
     /* padding-bottom: 5px; */
     width: auto;
 }
 
 .ticketing-icon {
-    content: url('./ticket.png');
+    content: url('../../images/ticket.png');
     height: 16px;
     /* padding-bottom: 5px; */
     width: auto;
+}
+
+@media screen and (max-device-width: 600px) {
+    .navbar-container {
+        height: 120px;
+    }
+    .login-signup {
+        font-size: xx-large;
+        padding-top: 30px;
+    }
+    .ticket-icon {
+        height: 40%;
+    }
+    .ticketing-icon {
+        height: 40%;
+    }
+    .navbar-image {
+        height: 70%;
+    }
+    .profile-pic {
+        height: 40%;
+    }
+    .create-event {
+        font-size: large;
+    }
 }

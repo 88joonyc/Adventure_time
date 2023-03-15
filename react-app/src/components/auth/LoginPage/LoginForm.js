@@ -74,9 +74,9 @@ const LoginForm = () => {
                 onChange={updatePassword}
               />
           </div>
-              <button className='verify-button' type='submit'>Login</button>
-              <button className="verify-button demo-but" onClick={() => demoUser()} >Demo Login</button>
-              <Link className="sign-up-link" to='/sign-up'>Sign up for Adventure Time!</Link>
+            <button className='verify-button' type='submit'>Login</button>
+            <button className="verify-button demo-but" onClick={() => demoUser()} >Demo Login</button>
+            <Link className="sign-up-link" to='/sign-up'>Sign up for Adventure Time!</Link>
           </div>
               {/* <button className="demo-button" onClick={() => demoUser()} >Demo Login</button> */}
         </form>

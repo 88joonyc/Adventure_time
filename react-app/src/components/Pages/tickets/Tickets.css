@@ -115,7 +115,7 @@
 /* -------------------------------------------------------not tix */
 
 .no-tickets-img {
-    content: url('./ticket-logo.gif');
+    content: url('../../../images/ticket-logo.gif');
     width: 100%;
     height: 40%;
     margin-top: 40px;
@@ -132,7 +132,7 @@
 }
 
 .no-hearts-img {
-    content: url('./1432115547.jpeg');
+    content: url('../../../images/1432115547.jpeg');
     width: 100%;
     height: 40%;
     border-radius: 10px;
@@ -171,4 +171,25 @@
 .user-info {
     font-size: larger;
     color: rgb(54, 73, 89)
+}
+
+@media screen and (max-device-width: 600px) {
+    .ticker-grid {
+        display: block;
+    }
+    .user-info-card {
+        padding-top: 150px;
+        padding-bottom: 50px;
+        position: static;
+    }
+    .user-stats {
+        font-size: x-large;
+        width: 150px;
+    }
+    .user-marks {
+        width: 100%;
+    }
+    .name {
+        font-size: xx-large;
+    }
 }

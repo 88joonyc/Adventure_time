@@ -70,3 +70,41 @@
     height: 37px;
     color: rgb(12, 0, 237);
 }
+
+@media screen and (max-device-width: 600px) {
+    .home-card-categories {
+        width: auto;
+        overflow: auto;
+        white-space: nowrap;
+        margin-left: 100px;
+        overflow-y: hidden;
+    }
+    .cat-button {
+        font-size: xx-large;
+        margin-left: 10px;
+        margin-right: 10px;
+    }
+    .cat-all {
+        margin-left: 800px;
+    }
+    .cat-food {
+        margin-right: 100px;
+    }
+    .card-popular-in-title {
+        font-size: 50px;
+    }
+    .venue-search-box {
+        font-size: 50px;
+        max-width: 300px;
+        height: 70px;
+    }
+    .venue-search-box::placeholder {
+        height: 70px;
+    }
+    .venue-search-box:focus::placeholder {
+        height: 70px;
+    }
+    .venue-search-box:focus {
+        height: 70px;
+    }
+}

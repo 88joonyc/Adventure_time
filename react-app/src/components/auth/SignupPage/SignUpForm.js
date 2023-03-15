@@ -146,7 +146,7 @@ const SignUpForm = () => {
             />
           </div>
           <button className="verify-button" type='submit'>Sign Up</button>
-          <Link to='/login'>Log In</Link>
+          <Link className='sign-up-link-2' to='/login'>Log In</Link>
         </form>
       </div>
     </div>

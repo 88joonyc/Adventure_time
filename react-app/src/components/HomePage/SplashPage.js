@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
-import * as eventActions from '../../../store/event'
+import * as eventActions from '../../store/event'
 import './SplashPage.css'
 
 const SplashPage = () => {

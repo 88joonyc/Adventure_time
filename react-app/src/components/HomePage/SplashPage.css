@@ -1,6 +1,6 @@
 @import url('./HomePage.css');
 .spalsh-image {
-    background-image: url('./edm2.jpeg');
+    background-image: url('../../images/edm2.jpeg');
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center center;
@@ -8,6 +8,7 @@
 
 body {
     font-family: 'Noto Sans JP', sans-serif;
+    /* margin: -8px; */
 }
 
 .top-sent {
@@ -69,4 +70,13 @@ p {
 
 .covid-header-title {
     color: rgb(39, 35, 50);
+}
+
+@media screen and (max-device-width: 600px) {
+    .event-button {
+        width: 600px;
+        height: 100px;
+        border-radius: 12px;
+        font-size: 30px;
+    }
 }

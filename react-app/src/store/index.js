@@ -2,6 +2,7 @@ import { createStore, combineReducers, applyMiddleware, compose } from 'redux';
 import thunk from 'redux-thunk';
 import session from './session'
 import events_reducer from './event';
+import event_reducer from './oneEvent';
 import categories_reducer from './category';
 import venues_reducer from './venue';
 import tickets_reducer from './ticket';
@@ -16,6 +17,7 @@ const rootReducer = combineReducers({
   tickets_reducer,
   hearts_reducer,
   followers_reducer,
+  event_reducer,
 });
 
 

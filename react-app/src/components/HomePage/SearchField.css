@@ -32,3 +32,10 @@
     text-decoration: none;
     color: rgb(75, 60, 152);
 }
+
+@media screen and (max-device-width: 600px) {
+    .searchfield {
+        height: 1000px;
+        width: auto;
+    }
+}

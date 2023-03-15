@@ -21,6 +21,7 @@
     /* display: grid;
     grid-template-columns: 1fr 1fr 1fr; */
     display: flex;
+    justify-content: space-around;
     flex-wrap: wrap;
 }
 
@@ -35,6 +36,10 @@ img {
     /* height: 40px; */
     object-fit: cover;
     height: 150px;
+}
+
+.lazy-img {
+    width: 285px;
 }
 
 .opening-message {
@@ -54,7 +59,7 @@ img {
 }
 
 .spalsh-image-2 {
-    background-image: url('./large-group-activity2.jpeg');
+    background-image: url('../../images/large-group-activity2.jpeg');
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center center;
@@ -140,7 +145,7 @@ img {
 }
 
 .home-card-followers-img {
-    content: url('pngtree-outline-user-icon-png-image_1727916.jpeg');
+    content: url('../../images/pngtree-outline-user-icon-png-image_1727916.jpeg');
     width: 20px;
     height: 20px;
     border-radius: 20px;
@@ -153,6 +158,8 @@ img {
     color: rgb(119, 119, 132);
     font-size: small;
 }
+
+
 /*
 .event-name-conatianer {
     max-height: 430px;
@@ -201,4 +208,60 @@ img {
     background-color: lightslategrey;
     color: white;
     transition: ease-out .5s;
+}
+
+@media screen and (max-device-width: 600px) {
+    .card-container {
+        display: block;
+    }
+    .event-cards {
+        width: 100%;
+        padding-bottom: 10px;
+        height: auto;
+    }
+    img {
+        height: 300px;
+    }
+    .card-cap-home {
+        font-size: small;
+    }
+    .card-cap-followers {
+        font-size: x-large;
+    }
+    .card-cost-home {
+        font-size: medium;
+    }
+    .card-info-container {
+        height: auto;
+    }
+    .card-print {}
+    .card-name-home-short {
+        font-size: xx-large;
+        padding-bottom: 20px;
+    }
+    .card-name-home-long {
+        font-size: xx-large;
+        padding-bottom: 20px;
+    }
+    .card-date {
+        font-size: large;
+    }
+    .card-cap-followers {
+        font-size: x-large;
+    }
+    .card-user-home {
+        font-size: small;
+    }
+    .home-card-delete-button {
+        display: none;
+    }
+    .home-card-edit-button {
+        display: none;
+    }
+    .spalsh-image-2 {
+        height: 500px;
+    }
+    .top-home-sent {
+        font-size: 100px;
+    }
 }

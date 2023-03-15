@@ -20,11 +20,11 @@ h1 {
 .login-image-container {
     /* height: 1000px; */
     background-size: cover;
-    background-image: url('event3.jpeg');
+    background-image: url('../../../images/event3.jpeg');
 }
 
 .logo-image-container {
-    content: url('../../NavBar/adventure_time-logo2.jpeg');
+    content: url('../../../images/adventure_time-logo2.jpeg');
     max-height: 70px;
 }
 
@@ -137,4 +137,48 @@ h1 {
     color: white;
     cursor: pointer;
     transition: all ease 0.3s;
+}
+
+
+/* ==========================mobile================================================== */
+
+@media screen and (max-device-width: 600px) {
+    .login-image-container {
+        display: none;
+    }
+    .login-form-container {
+        display: block;
+    }
+    .logo-image-container {
+        max-height: 100px;
+    }
+    .user-input-container {
+        width: 100%;
+        height: 100px;
+        margin-top: 20px;
+        margin-bottom: 20px;
+        background-color: white;
+    }
+    .verify-button {
+        font-size: xx-large;
+        height: 100px;
+        margin-bottom: 20px;
+    }
+    .input-label {
+        font-size: xx-large;
+    }
+    .login-form {
+        width: 90%;
+        padding-top: 20px;
+        padding: 10px
+    }
+    .input-container {
+        padding: 30px 0px;
+    }
+    .sign-up-link-2 {
+        font-size: 150px;
+    }
+    .user-input {
+        font-size: xx-large;
+    }
 }

@@ -4,7 +4,7 @@ import { Link  } from 'react-router-dom';
 import { useSelector, useDispatch  } from 'react-redux';
 
 
-import './Side_scroll.css'
+import './SideScroll.css'
 import all_slide_events from '../../store/side_event';
 
 const SideScroll = ({event_number}) => {

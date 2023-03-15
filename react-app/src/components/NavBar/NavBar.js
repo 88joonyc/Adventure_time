@@ -39,16 +39,16 @@ const NavBar = () => {
 
   let verificationtabs = (
     <>
-        <NavLink className="signup-link" to='/login' exact={true} activeClassName='active'>
-      <div className='login-signup'>
-          Log In
-      </div>
-        </NavLink>
-        <NavLink className="signup-link" to='/sign-up' exact={true} activeClassName='active'>
-      <div className='login-signup'>
-          Sign Up
-      </div>
-        </NavLink>
+      <NavLink className="signup-link" to='/login' exact={true} activeClassName='active'>
+        <div className='login-signup'>
+            Log In
+        </div>
+      </NavLink>
+      <NavLink className="signup-link" to='/sign-up' exact={true} activeClassName='active'>
+        <div className='login-signup'>
+            Sign Up
+        </div>
+      </NavLink>
     </>
   )
 
@@ -130,21 +130,21 @@ const NavBar = () => {
     )
   } else {
       content = (
-        <nav>
-          <div className="navbar-container">
-            <div>
-              <NavLink to='/' onClick={() => dispatch(all_events())} exact={true} activeClassName='active'>
-                <img alt='' className="navbar-image logo-image-container"/>
-              </NavLink>
-            </div>
-                <div className="right-side-control">
-              {/* <button className="searchbar-toggle" onClick={() => toggleSearch(!searchBar)}>
-                {<img alt='' className='search-icon'/>}
-                search
-              </button> */}
-              {sessionUser ? usertab : verificationtabs}
-            </div>
+      <nav>
+        <div className="navbar-container">
+          <div>
+            <NavLink to='/' onClick={() => dispatch(all_events())} exact={true} activeClassName='active'>
+              <img alt='' className="navbar-image logo-image-container"/>
+            </NavLink>
           </div>
+              <div className="right-side-control">
+            {/* <button className="searchbar-toggle" onClick={() => toggleSearch(!searchBar)}>
+              {<img alt='' className='search-icon'/>}
+              search
+            </button> */}
+            {sessionUser ? usertab : verificationtabs}
+          </div>
+        </div>
       </nav>
     )
   }

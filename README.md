@@ -148,13 +148,11 @@
 
 # Contact
 [![github](https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white)][1]
-[![angellist](https://github.com/hull/hullstrap/blob/master/source/images/icons/angellist.svg)][2]
 [![linkedin](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)][3]
 
 [joonyc88@gmail.com](mailto:joonyc88@gmail.com)
 
 [1]: https://github.com/88joonyc
-[2]: https://angel.co/u/_paulchang_
 [3]: https://www.linkedin.com/in/pchang1216/
 
 

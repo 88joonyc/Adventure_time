@@ -1,4 +1,4 @@
-@import url(./TicketPanel.css);
+/* @import url(./TicketPanel.css); */
 @import url(./MapCard.css);
 .event-page-img {
     width: 100%;
@@ -115,7 +115,7 @@
     justify-content: flex-end;
     align-items: center;
     position: sticky;
-    top: 0;
+    /* top: 0; */
     z-index: 0;
 }
 
@@ -272,4 +272,33 @@
 
 .ticket-message-inner:hover {
     color: red;
+}
+
+@media screen and (max-device-width: 600px) {
+    .unregister-tickets-page {
+        height: 100%;
+        font-size: x-large;
+    }
+
+    .event-page-topcard {
+        display: block;
+    }
+
+    .purchase-tix-bar {
+        position: fixed;
+        bottom: 0;
+        height: 10%;
+        justify-content: center;
+
+    }
+
+    .ticket-button {
+        height: 50%;
+        width: 40%;
+        font-size: xx-large;
+    }
+
+    .event-page-bot-grid {
+        display: block;
+    }
 }
