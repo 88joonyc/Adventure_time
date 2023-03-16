@@ -1,5 +1,10 @@
 @import url(./EditForm.css);
 @import url(./Popular_cat.css);
+body {
+    margin: 0;
+    padding: 0;
+}
+
 .event-cards {
     width: 285px;
     height: 250px;
