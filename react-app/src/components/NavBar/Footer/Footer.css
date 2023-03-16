@@ -56,7 +56,6 @@
     color: rgb(130, 163, 230);
 }
 
-
 /* ===============================icons========================================= */
 
 .git-icon {
@@ -102,7 +101,7 @@
     transition: ease-in-out 1.3s;
 }
 
-@media screen and (max-device-width: 600px) {
+@media screen and (max-device-width: 880px) {
     .footer-container {
         height: auto;
         background-color: rgb(93, 86, 163);

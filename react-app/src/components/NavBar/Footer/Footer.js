@@ -58,7 +58,6 @@ const FooterBar = () => {
             <a href='https://linkedin.com/in/pchang1216' className="my-links"><img className='linked-icon personal-set'/></a>
           </div>
           </div>
-
       </nav>
 
       </>

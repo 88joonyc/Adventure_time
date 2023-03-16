@@ -167,11 +167,11 @@ const editthisevent =  async (e) => {
                 { event?.host_id !== user.id ? <button type='button' onClick={() => (setPanel(!panel))} className='ticket-button'>Tickets</button> : null }
             </div>
             <BottomEventInfo event={event}/>
+            {/* {// ===========================================insert===========================================================================} */}
+            <MapPanel {...{event, user, follower, unfollow, follow}}/>
+            {panel ? < TicketPanel {...{event, ticket, ticketqty, setTicketQty, setTier, setMultiplier, unregisterforthisevent, registerforthisevent, cancelticketq, setPanel, panel, ticketqty, tier, multiplier}}/> : null}
+            {editForm ? <EditForm {...{editthisevent, venueId, setVenue, venue, categoryId, setCategory, category, name, setName, description, setDescript, startTime, setStart, endTime, setEnd, capacity, setCap, image, setImg, cost, setCost, editForm, toggleEdit}}/> : null}
           </div>
-          {/* {// ===========================================insert===========================================================================} */}
-          <MapPanel {...{event, user, follower, unfollow, follow}}/>
-          {panel ? < TicketPanel {...{event, ticket, ticketqty, setTicketQty, setTier, setMultiplier, unregisterforthisevent, registerforthisevent, cancelticketq, setPanel, panel, ticketqty, tier, multiplier}}/> : null}
-          {editForm ? <EditForm {...{editthisevent, venueId, setVenue, venue, categoryId, setCategory, category, name, setName, description, setDescript, startTime, setStart, endTime, setEnd, capacity, setCap, image, setImg, cost, setCost, editForm, toggleEdit}}/> : null}
           <FooterBar/>
         </>
   );

@@ -20,12 +20,22 @@
 }
 
 .card-container {
-    /* display: grid;
-    grid-template-columns: 1fr 1fr 1fr; */
-    display: flex;
-    justify-content: space-around;
-    gap: .5rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    /* display: flex; */
+    /* justify-content: space-around; */
     flex-wrap: wrap;
+}
+
+@media screen and (min-device-width: 880px) {
+    .card-container {
+        /* display: grid;
+        grid-template-columns: 1fr 1fr 1fr; */
+        display: flex;
+        justify-content: space-around;
+        gap: .5rem;
+        flex-wrap: wrap;
+    }
 }
 
 .box {
@@ -47,6 +57,7 @@ img {
 }
 
 .opening-message {
+    display: none;
     width: 90%;
     margin: 0 auto;
     margin-top: 40px;
@@ -60,6 +71,12 @@ img {
 .opening-message:hover {
     box-shadow: 4px 4px 10px rgb(25, 28, 118);
     transition: ease-in-out 5.5s;
+}
+
+@media screen and (min-device-width:880px ) {
+    .opening-message {
+        display: block;
+    }
 }
 
 .spalsh-image-2 {
