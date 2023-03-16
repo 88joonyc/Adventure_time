@@ -133,7 +133,7 @@ const NavBar = () => {
       <nav>
         <div className="navbar-container">
           <div>
-            <NavLink to='/' onClick={() => dispatch(all_events())} exact={true} activeClassName='active'>
+            <NavLink to='/' /*onClick={() => dispatch(all_events())}*/ exact={true} activeClassName='active'>
               <img alt='' className="navbar-image logo-image-container"/>
             </NavLink>
           </div>
