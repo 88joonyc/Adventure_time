@@ -4,9 +4,11 @@ const OpeningMessage = () => {
     return (
     <>
         <div className='spalsh-image-2'>
-            <p className="top-sent top-home-sent">Get down</p>
-            <p className="bottom-sent top-home-sent">and get JIGGY!</p>
-            <button onClick={() => window.scrollTo({left: 0, top: 580, behavior: 'smooth'})} className="event-button">Find your next event</button>
+            <div>
+                <p className="top-sent top-home-sent">Get down</p>
+                <p className="bottom-sent top-home-sent">and get JIGGY!</p>
+                <button onClick={() => window.scrollTo({left: 0, top: 580, behavior: 'smooth'})} className="event-button">Find your next event</button>
+            </div>
         </div>
         <div className='opening-message'>
             <h3 className='covid-header-title'>

@@ -67,6 +67,12 @@ img {
     background-position: center center;
 }
 
+.spalsh-image-2 div {
+    max-width: 1440px;
+    margin: auto;
+    padding: 20px 0px;
+}
+
 
 /* --------------------------card--------------------------------------------------------- */
 
