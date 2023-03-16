@@ -41,7 +41,7 @@ const set_unregisterd_paid_events = (id) => {
 
     return (
     <>
-        <div>
+        <div class='popularity-selector'>
             <h1 className='card-popular-in-title'>Search by  {'>'}
             {<input
                     placeholder='event name'

@@ -6,6 +6,12 @@
     background-position: center center;
 }
 
+.spalsh-image div {
+    max-width: 1440px;
+    margin: auto;
+    padding: 20px 0px;
+}
+
 body {
     font-family: 'Noto Sans JP', sans-serif;
     /* margin: -8px; */
