@@ -4,7 +4,9 @@
     display: flex;
     background-color: white;
     justify-content: space-between;
-    margin-top: -10px;
+    max-width: 1440px;
+    margin: auto;
+    padding: 5px 20px;
     z-index: 1;
     border-bottom: 1px solid rgba(203, 203, 230, 0.42);
 }
