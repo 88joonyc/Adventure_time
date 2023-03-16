@@ -5,7 +5,7 @@ const OpeningMessage = () => {
     <>
         <div className='spalsh-image-2'>
             <p className="top-sent top-home-sent">Get down</p>
-            <p className="bottom-sent top-home-sent">for the HOOK!</p>
+            <p className="bottom-sent top-home-sent">and get JIGGY!</p>
             <button onClick={() => window.scrollTo({left: 0, top: 580, behavior: 'smooth'})} className="event-button">Find your next event</button>
         </div>
         <div className='opening-message'>
