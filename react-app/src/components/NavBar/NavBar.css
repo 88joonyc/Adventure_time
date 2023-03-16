@@ -138,9 +138,9 @@ body {
     .navbar-image {
         height: 70%;
     }
-    .profile-pic {
+    /* .profile-pic {
         height: 40%;
-    }
+    } */
     .create-event {
         font-size: large;
     }
