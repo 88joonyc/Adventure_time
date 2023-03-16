@@ -48,12 +48,12 @@
 }
 
 .footer-linked {
-    color: rgb(176, 234, 228);
+    text-decoration: none;
+    color: rgb(212, 212, 239);
 }
 
 .footer-linked:hover {
-    color: rgb(0, 255, 132);
-    box-shadow: 10px 10px 40px rgb(0, 255, 132);
+    color: rgb(130, 163, 230);
 }
 
 

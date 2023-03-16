@@ -44,9 +44,9 @@ const FooterBar = () => {
                 <li className="footer-lists">Like the Site?</li>
                 <li className="footer-lists">like the project?</li>
                 <li className="footer-lists">Check out past projects below</li>
-                <li> <a className="footer-linked" href='https://sneaxs.herokuapp.com/'> - Sneax - </a> </li>
-                <li> <a className="footer-linked" href='https://air-land-n-sea.herokuapp.com/login'> - Air land n Sea - </a> </li>
-                <li> <a className="footer-linked" href='https://thefastandthecurious.herokuapp.com/'> - theFastandtheCurious - </a> </li>
+                <li> <a className="footer-linked" href='https://sneaxs.herokuapp.com/'>Sneax</a> </li>
+                <li> <a className="footer-linked" href='https://air-land-n-sea.herokuapp.com/login'>Air land n Sea</a> </li>
+                <li> <a className="footer-linked" href='https://thefastandthecurious.herokuapp.com/'>theFastandtheCurious</a> </li>
               </ul>
             </div>
           </div>

@@ -24,10 +24,12 @@
     grid-template-columns: 1fr 1fr 1fr; */
     display: flex;
     justify-content: space-around;
+    gap: .5rem;
     flex-wrap: wrap;
 }
 
 .box {
+    max-width: 1440px;
     width: 90%;
     margin: 0 auto;
     padding-top: 40px;
