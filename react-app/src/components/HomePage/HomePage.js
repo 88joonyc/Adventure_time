@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
+import { Link } from "react-router-dom";
 import LazyLoad from 'react-lazyload'
 import moment from 'moment'
 
@@ -90,40 +91,42 @@ const homeMain = (
                     {events?.map(event => (
                         <>
                             <div className="event-cards">
-                                <LazyLoad
-                                    key={`eventcard-photo-${event.id}`}
-                                    offset={-200,200}
-                                    placeholder={'...loading'}
-                                >
-                                    <img alt={`${event?.image}-for-events`} src={event?.image} className="lazy-img"/>
-                                </LazyLoad>
-                                {sessionUser ? (<Heart event={event}/>) : null}
-                                    <CardInfo event={event}/>
-                                    {(event?.host_id === sessionUser?.id ) ? (
-                                        <>
-                                            <button
-                                            type='button'
-                                            className='home-card-delete-button'
-                                            onClick={() => (
-                                                toggleEdit(!editForm),
-                                                setVenue(event.venueId),
-                                                setCategory(event.categoryId),
-                                                setName(event.name),
-                                                setStart(moment(event.startTime).add(5, 'hours')),
-                                                setEnd(moment(event.endTime).add(5, 'hours')),
-                                                setCap(event.capacity),
-                                                setImg(event.image),
-                                                setCost(event.cost),
-                                                setDescript(event.description),
-                                                setId(event.id))}>edit</button>
-                                            <button
-                                            type='button'
-                                            className='home-card-edit-button'
-                                            onClick={(e) => (
-                                                handleDelete(e))}
-                                                value={event?.id}>X</button>
-                                        </>
-                                    ) : null}
+                                <Link className='card-per' to={`/event/${event?.id}`}>
+                                    <LazyLoad
+                                        key={`eventcard-photo-${event.id}`}
+                                        offset={[-200, 200]}
+                                        placeholder={'...loading'}
+                                    >
+                                        <img alt={`${event?.image}-for-events`} src={event?.image} className="lazy-img"/>
+                                    </LazyLoad>
+                                    {sessionUser ? (<Heart event={event}/>) : null}
+                                        <CardInfo event={event}/>
+                                        {/* {(event?.host_id === sessionUser?.id ) ? (
+                                            <>
+                                                <button
+                                                type='button'
+                                                className='home-card-delete-button'
+                                                onClick={() => (
+                                                    toggleEdit(!editForm),
+                                                    setVenue(event.venueId),
+                                                    setCategory(event.categoryId),
+                                                    setName(event.name),
+                                                    setStart(moment(event.startTime).add(5, 'hours')),
+                                                    setEnd(moment(event.endTime).add(5, 'hours')),
+                                                    setCap(event.capacity),
+                                                    setImg(event.image),
+                                                    setCost(event.cost),
+                                                    setDescript(event.description),
+                                                    setId(event.id))}>edit</button>
+                                                <button
+                                                type='button'
+                                                className='home-card-edit-button'
+                                                onClick={(e) => (
+                                                    handleDelete(e))}
+                                                    value={event?.id}>X</button>
+                                            </>
+                                        ) : null} */}
+                                    </Link>
                             </div>
                         </>
                     ))}

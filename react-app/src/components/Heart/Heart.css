@@ -34,22 +34,22 @@
     height: 35px;
     padding-top: 10%;
     cursor: pointer;
-    transition: all ease-out 2.5s;
+    transition: all ease-in .15s;
 }
 
 .red-heart {
-    content: url(../../images/kiKnnLyoT.jpeg);
-    width: 22px;
-    height: 22px;
+    content: url(../../images/heart-outline.png);
+    width: auto;
+    height: 20px;
     padding-top: 10%;
 }
 
 .black-heart:hover {
-    content: url(../../images/kiKnnLyoT.jpeg);
+    content: url(../../images/heart-outline.png);
     width: 20px;
     height: 20px;
     border-radius: 15px;
-    transition: all ease-out 3.5s;
+    transition: all ease-out .5s;
     cursor: pointer;
 }
 

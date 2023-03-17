@@ -53,8 +53,13 @@ img {
 }
 
 .lazy-img {
-    width: 285px;
+    width: 100%;
 }
+
+
+/* @media screen and (max-device-width: 880px) {
+    
+} */
 
 .opening-message {
     display: none;
@@ -77,6 +82,11 @@ img {
     .opening-message {
         display: block;
     }
+
+    .lazy-img {
+        width: 285px%;
+    }
+    
 }
 
 .spalsh-image-2 {
