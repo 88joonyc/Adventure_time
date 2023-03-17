@@ -6,9 +6,13 @@
     justify-content: space-between;
     max-width: 1440px;
     margin: auto;
-    padding: 5px 20px;
     z-index: 1;
     border-bottom: 1px solid rgba(203, 203, 230, 0.42);
+}
+
+.navbar-home {
+    display: flex;
+    align-items: center;
 }
 
 .searchbar-container {
@@ -21,7 +25,7 @@
     content: url('../../images/adventure_time-logo.jpeg');
     width: 100%;
     height: 42px;
-    padding: 8px;
+    margin-left: 20px;
 }
 
 body {
@@ -46,6 +50,7 @@ body {
 .right-side-control {
     display: flex;
     flex-direction: row;
+    margin-right: 20px;
 }
 
 .search-input {

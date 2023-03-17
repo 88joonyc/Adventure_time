@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux'
-import { Redirect, Link } from 'react-router-dom';
+import { Redirect, Link, NavLink } from 'react-router-dom';
 import { signUp } from '../../../store/session';
 
 import './SignUpForm.css'
@@ -69,9 +69,9 @@ const SignUpForm = () => {
         </div>
       </div>
     <div className='singup-form'>
-        <Link to="/">
+        <NavLink to="/">
           <img className="logo-image-container"/>
-        </Link>
+        </NavLink>
           <h1 className="formuser-top-message">Sign up</h1>
         <div>
           {errors.map((error, ind) => (

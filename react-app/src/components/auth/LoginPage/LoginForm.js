@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { Redirect, Link } from 'react-router-dom';
+import { Redirect, Link, NavLink } from 'react-router-dom';
 import { login } from '../../../store/session';
 
 import './LoginForm.css'
@@ -43,9 +43,9 @@ const LoginForm = () => {
   return (
     <div className='login-form-container'>
       <div className='login-form'>
-        <Link to="/">
+        <NavLink to="/">
           <img className="logo-image-container"/>
-        </Link>
+        </NavLink>
       <h1 className="formuser-top-message">Log in</h1>
         <form onSubmit={onLogin}>
           <div>

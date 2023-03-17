@@ -263,10 +263,10 @@ img {
         font-size: small;
     }
     .card-cap-followers {
-        font-size: x-large;
+        font-size: x-40px;
     }
     .card-cost-home {
-        font-size: medium;
+        font-size: 40px;
     }
     .card-info-container {
         height: auto;

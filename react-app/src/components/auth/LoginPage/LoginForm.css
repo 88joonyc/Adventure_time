@@ -66,6 +66,7 @@ h1 {
     background-color: inherit;
     outline: none;
     font-family: 'Manrope', sans-serif;
+    padding-left: 20px;
 }
 
 .input-label {
@@ -175,8 +176,11 @@ h1 {
     .input-container {
         padding: 30px 0px;
     }
+    .sign-up-link {
+        font-size: 40px;
+    }
     .sign-up-link-2 {
-        font-size: 150px;
+        font-size: 40px;
     }
     .user-input {
         font-size: xx-large;

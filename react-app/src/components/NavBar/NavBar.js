@@ -132,9 +132,8 @@ const NavBar = () => {
       content = (
       <nav>
         <div className="navbar-container">
-          <div>
-            <NavLink to='/' /*onClick={() => dispatch(all_events())}*/ exact={true} activeClassName='active'>
-              <img alt='' className="navbar-image logo-image-container"/>
+          <div className='navbar-home'>
+            <NavLink to='/' /*onClick={() => dispatch(all_events())}*/ exact={true} activeClassName='active' className="navbar-image logo-image-container">
             </NavLink>
           </div>
               <div className="right-side-control">
