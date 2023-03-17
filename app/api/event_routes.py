@@ -22,7 +22,7 @@ def unregistered():
 
 
 @event_routes.route('/')
-@login_required
+# @login_required
 def evented():
     events_query = Event.query.order_by(Event.start_time.asc()).all()
     events = [ event.to_dict() for event in events_query ]
@@ -34,7 +34,7 @@ def evented():
         event['category'] = Category.query.get(event["category_id"]).to_dict()
         event['user'] = User.query.get(event["host_id"]).to_dict()
         event['ticket'] = [ ticket.to_dict() for ticket in ticket_query if ticket.event_id == event['id'] ]
-        event['heart'] = [ heart.to_dict() for heart in heart_query if (heart.event_id == event['id'] and heart.user_id == current_user.id) ]
+        event['heart'] = [ heart.to_dict() for heart in heart_query if (heart.event_id == event['id'] and heart.user_id == current_user.id)]
         event['followers'] = [follower.to_dict() for follower in followers_query if follower.promoter_id == event['host_id']]
     return { 'events': events } #  <  this needs to change... but too much needs to change.... this is causing the nesting..
 

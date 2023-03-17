@@ -149,7 +149,7 @@ const events_reducer = (state = initialState, action ) => {
             if (state) {
                 state = null
                 const all = {
-                    ...state
+                    ...state,
                 }
                 if (action.events.events) {
                     action.events.events.forEach((event => {

@@ -8,8 +8,8 @@ const SplashPage = () => {
     const dispatch = useDispatch()
 
 useEffect( () =>  {
-    dispatch(eventActions.unregistered_events())
-}, [dispatch])
+    // dispatch(eventActions.unregistered_events())
+}, [])
 
     return (
     <>

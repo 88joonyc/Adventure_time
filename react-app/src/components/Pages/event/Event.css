@@ -246,6 +246,7 @@
     background-color: inherit;
     border-radius: 4px;
     width: 80px;
+    margin-left: 10px;
 }
 
 .follow-me-button:hover {

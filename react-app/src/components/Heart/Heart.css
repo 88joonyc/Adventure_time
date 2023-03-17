@@ -4,13 +4,13 @@
     position: relative;
     float: right;
     border: none;
-    background-color: inherit;
+    background-color: white;
     height: 53px;
     width: 53px;
     right: 10px;
     bottom: 30px;
     border-radius: 53px;
-    border: 1px solid rgb(227, 215, 215);
+    border: 1px solid rgb(180, 176, 176);
 }
 
 .heart-button:hover {

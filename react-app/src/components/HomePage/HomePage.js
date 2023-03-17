@@ -63,7 +63,12 @@ const editthisevent =  async (e) => {
 }
 
 useEffect( () =>  {
-    // dispatch(eventActions.all_events())
+
+    if (sessionUser) {
+        dispatch(eventActions.all_events())
+    } else {
+        dispatch(eventActions.unregistered_events())
+    }
     // dispatch(all_categories())
     // dispatch(all_venues())
     // dispatch(authenticate())
