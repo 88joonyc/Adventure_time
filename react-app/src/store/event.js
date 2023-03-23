@@ -203,9 +203,10 @@ const events_reducer = (state = initialState, action ) => {
             }
         }
         case ADD_EVENT:
+            console.log(state, action, '-------------------------------hjer--------------------------------')
             return {
                 ...state,
-                ['events']: action.events
+                ['events']: [...state.events, action.events]
             }
 
         case REMOVE_EVENT:
@@ -213,7 +214,6 @@ const events_reducer = (state = initialState, action ) => {
             return data
 
         case EDIT_EVENT:
-            console.log(action.event,'---------------------------act---------------------------------')
             return {
                 ...state,
                 [action.event.id]: action.event

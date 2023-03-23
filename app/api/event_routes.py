@@ -158,7 +158,6 @@ def event(id):
 def create():
     form = EventForm()
     form['csrf_token'].data = request.cookies['csrf_token']
-    print(form.data, 'herllo0----------------------------------------')
     if form.validate_on_submit:
         event = Event(
             host_id = current_user.id,
@@ -174,7 +173,9 @@ def create():
         )
         db.session.add(event)
         db.session.commit()
-        return event.to_dict()
+        new_event = event.to_dict()
+        new_event['venue'] = Venue.query.get(form.data['venue_id']).to_dict()
+        return new_event
 
 @event_routes.route('/edit/<int:id>', methods=['PUT'])
 @login_required
