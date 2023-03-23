@@ -11,13 +11,13 @@ const Heart = ({event}) => {
     const dispatch = useDispatch()
 
     const heartyou = async (e) => {
-        // e.preventDefault()
-        await dispatch(heartActions.heart(Number(e)))
+        e.preventDefault()
+        await dispatch(heartActions.heart(Number(event.id)))
         dispatch(eventActions.all_events())
     }
-    const hateyou = async (e) => {
-        // e.preventDefault()
-        await dispatch(heartActions.hate(Number(e)))
+    const hateyou = async (e, id) => {
+        e.preventDefault()
+        await dispatch(heartActions.hate(Number(id)))
         dispatch(eventActions.all_events())
     }
 
@@ -26,13 +26,13 @@ const Heart = ({event}) => {
         <button
         id={event?.id}
         type='button'
-        onClick={(e) => {heartyou(event?.id)}}
+        onClick={(e) => {heartyou(e)}}
         className='heart-button'>{<img alt='' className="red-heart" />}
         </button>
         :
         <button
         id={event?.heart?.id}
-        onClick={(e) => {hateyou(event?.heart[0]?.id)}}
+        onClick={(e) => {hateyou(e, event?.heart[0]?.id)}}
         type='button'
         className='heart-button'>{<img alt='' className="black-heart" />}
         </button>

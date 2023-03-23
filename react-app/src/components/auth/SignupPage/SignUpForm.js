@@ -24,7 +24,7 @@ const SignUpForm = () => {
     e.preventDefault();
     if (password === repeatPassword) {
 
-      const data = await dispatch(signUp(firstName, lastName, email, (!image ? 'https://image.flaticon.com/icons/png/512/149/149071.png' : image), password));
+      const data = await dispatch(signUp(firstName, lastName, email, (!image ? 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTkHv0_Ng0_cU7BHrNZNrGqzSfvC3OTeMLJ5rjb21x92A&usqp=CAU&ec=48600113' : image), password));
       if (data) {
         setErrors(data)
       }

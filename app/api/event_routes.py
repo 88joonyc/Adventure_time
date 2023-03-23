@@ -150,7 +150,7 @@ def event(id):
         event['followers'] = [ follower.to_dict() for follower in (Follower.query.filter( Follower.promoter_id == event["host_id"])) ]
         event['following'] = [ my_follower.to_dict() for my_follower in Follower.query.filter( Follower.follower_id == current_user.id ) if event['host_id'] == my_follower.promoter_id ]
         event['promoter'] = [ promoter.to_dict() for promoter in Event.query.filter(Event.host_id == event['host_id']) ]
-    return {'events': events }
+    return {'events': events[0] }
 
 
 @event_routes.route('/', methods=['POST'])
@@ -158,6 +158,7 @@ def event(id):
 def create():
     form = EventForm()
     form['csrf_token'].data = request.cookies['csrf_token']
+    print(form.data, 'herllo0----------------------------------------')
     if form.validate_on_submit:
         event = Event(
             host_id = current_user.id,

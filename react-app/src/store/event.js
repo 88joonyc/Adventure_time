@@ -2,6 +2,7 @@ const LOAD = 'events/LOAD'
 const ADD_EVENT = 'events/ADD_EVENT'
 const EDIT_EVENT = 'events/EDIT_EVENT'
 const REMOVE_EVENT = 'events/REMOVE_EVENT'
+const ADD_ONE = 'event/ADD_ONE'
 
 const load = (events) => ({
     type: LOAD,
@@ -12,6 +13,13 @@ const add = (events) => ({
     type: ADD_EVENT,
     events
 })
+
+// this is new
+const addOne = (event) => ({
+    type: ADD_ONE,
+    event
+})
+
 
 const update = (event) => ({
     type: EDIT_EVENT,
@@ -71,19 +79,26 @@ export const cashed_events = (id) => async dispatch => {
     dispatch(load(events))
 }
 
-// export const one_event = (id ) => async dispatch => {
-//     const res = await fetch(`/api/events/${id}`)
-//     const events = await res.json()
-//     dispatch(load(events))
-// }
+
+
+
+// this is new 
+export const get_one_event = (id ) => async dispatch => {
+    const res = await fetch(`/api/events/${id}`)
+    const event = await res.json()
+    await dispatch(addOne(event))
+}
+
+
+
 
 export const create_event = (payload) => async dispatch => {
     const res = await fetch('/api/events/', {
         method: 'POST',
         headers: {"Content-Type": 'application/json'},
-        body: JSON.stringify(payload)
+        body: JSON.stringify(payload),
     })
-    const data = res.json()
+    const data = await res.json()
     if (res.ok) {
 
         await dispatch(add(data))
@@ -98,12 +113,12 @@ export const edit_event = (host_id, venueId, categoryId, name, description, star
         headers: {"Content-Type": 'application/json'},
         body: JSON.stringify({
             host_id,
-            venueId,
-            categoryId,
+            venue_id: venueId,
+            category_id: categoryId,
             name,
             description,
-            startTime,
-            endTime,
+            start_time: startTime,
+            end_time: endTime,
             capacity,
             image,
             cost
@@ -111,7 +126,7 @@ export const edit_event = (host_id, venueId, categoryId, name, description, star
     })
     const data = res.json()
     if (res.ok) {
-        dispatch(update(data))
+        await dispatch(update(data))
         if (data.errors) return data.errors
     }
     return data
@@ -127,7 +142,7 @@ export const edit_event_capacity = (capacity, id) => async dispatch => {
     })
     const data = res.json()
     if (res.ok) {
-        dispatch(update(data))
+        await dispatch(update(data))
         if (data.errors) return data.errors
     }
     return data
@@ -145,17 +160,19 @@ const initialState = { events: null}
 
 const events_reducer = (state = initialState, action ) => {
     switch (action.type) {
-        case LOAD:
-            if (state) {
-                state = null
-                const all = {
-                    ...state,
+        case LOAD:{
+            const allEvents = {}
+            if (action.events.events) {
+                action.events.events.forEach((event => {
+                    allEvents[event.id] = event
+                }))
+                return {
+                    'events' : action.events.events,
+                    'listed': allEvents
+
                 }
-                if (action.events.events) {
-                    action.events.events.forEach((event => {
-                        all[event.id] = event
-                    }))
             }
+
         }
         // case LOAD:
         //     if (state) {
@@ -166,14 +183,37 @@ const events_reducer = (state = initialState, action ) => {
         //             return {'events' : action.events.events}
         //     }
         // }
+        case ADD_ONE: {
+            if(!action.event.events.id) {
+                const newState = {
+                    ...state,
+                    ['events']: action.events,
+                };
+
+                const eventList = newState.listed.map((id) => newState[id]);
+                eventList.push(action.events.events)
+                return newState
+            }
+            return {
+                ...state,
+                [action.event.events.id]: {
+                    ...state[action.event.events.id],
+                    ...action.event.events
+                }
+            }
+        }
         case ADD_EVENT:
-            return {events: action.events }
+            return {
+                ...state,
+                ['events']: action.events
+            }
 
         case REMOVE_EVENT:
             const data = {...state};
             return data
 
         case EDIT_EVENT:
+            console.log(action.event,'---------------------------act---------------------------------')
             return {
                 ...state,
                 [action.event.id]: action.event

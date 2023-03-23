@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux'
 import { useParams, useHistory } from 'react-router-dom';
 import FooterBar from '../../NavBar/Footer/Footer';
-import { edit_event, edit_event_capacity } from '../../../store/event';
+import { edit_event, edit_event_capacity, get_one_event } from '../../../store/event';
 import { one_event } from '../../../store/oneEvent'
 import * as actiontickets from '../../../store/ticket';
 import * as actionfollowers from '../../../store/follower';
@@ -28,8 +28,8 @@ const EachEvent = () => {
 
   const user = useSelector(state => state.session.user)
   const ticket = useSelector(state => (state?.tickets_reducer?.tickets));
-  const event = useSelector(state => (state?.event_reducer?.event));
-  const follower = useSelector(state => (state?.followers_reducer?.followers));
+  const event = useSelector(state => state.events_reducer?.[eventId.eventId])
+  const follower = useSelector(state => (state?.followers_reducer));
   const venue = useSelector(state => (state?.venues_reducer?.venues));
   const category = useSelector(state => (state?.categories_reducer?.categories));
 
@@ -46,28 +46,27 @@ const EachEvent = () => {
 
   const dispatch = useDispatch();
 
-  useEffect( async () => {
-    dispatch(one_event(eventId?.eventId))
-    dispatch(actiontickets.one_ticket(eventId?.eventId))
-    dispatch(actionfollowers.get_follower_with_promo(Number(event?.host_id)))
-    window.scrollTo({top: 0, left: 0, behavior: 'auto'})   // this take is to the top of the page
-    dispatch(all_categories())
-    dispatch(all_venues())
 
-  }, [dispatch, eventId, event?.host_id], event)
+  useEffect( async () => {
+    dispatch(get_one_event(eventId.eventId))
+    dispatch(actiontickets.one_ticket(eventId.eventId))
+    dispatch(actionfollowers.get_follower_with_promo(Number(event?.host_id)))
+    window.scrollTo({top: 0, left: 0, behavior: 'auto'})   // this take is to the top of the page    dispatch(all_categories())
+    dispatch(all_venues())
+    dispatch(all_categories())
+  }, [eventId.eventId, event?.host_id])
 
   window.addEventListener('load' , e => {
     e.preventDefault()
-    dispatch(actionfollowers.get_follower_with_promo(Number(event?.host_id)))
+
   })
 
-  const runonce = async () => {
-    dispatch(actiontickets.one_ticket(eventId?.eventId))
-    dispatch(one_event(eventId?.eventId))
+  async function runonce () {
+    console.log('raaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaan-----------------------------------------------------------')
+    dispatch(get_one_event(eventId.eventId))
+    dispatch(actiontickets.one_ticket(eventId.eventId))
     dispatch(actionfollowers.get_follower_with_promo(Number(event?.host_id)))
-    dispatch(one_event(eventId?.eventId))
   }
-
 
 // ===========================================ticket panel===========================================================================
 
@@ -117,10 +116,12 @@ const follow = async () => {
   runonce()
 }
 
-const unfollow = async (e) => {
-  await dispatch(actionfollowers.leave_loser(e.target.value))
+const unfollow = async (id) => {
+  await dispatch(actionfollowers.leave_loser(id))
   runonce()
 }
+
+const follow_me = follower?.followers?.filter(foll => foll.follower_id == user.id)[0];
 
 // ===========================================edit===========================================================================
 
@@ -161,16 +162,18 @@ const editthisevent =  async (e) => {
               <div className='event-page-img-container'>
                 <img alt={event?.image} className='event-page-img'src={event?.image}/>
               </div>
-              <TopEventInfo {...{event, eventId, setVenue, setCategory, setName, setDescript, setStart, setEnd, setCap, setImg, setCost, user, follower, unfollow, follow, ticket, toggleEdit, editForm}}/>
+              <TopEventInfo {...{event, eventId, setVenue, setCategory, setName, setDescript, setStart, setEnd, setCap, setImg, setCost, user, follower, unfollow, follow, follow_me, ticket, toggleEdit, editForm}}/>
             </div>
             <div className="purchase-tix-bar">
                 { event?.host_id !== user.id ? <button type='button' onClick={() => (setPanel(!panel))} className='ticket-button'>Tickets</button> : null }
             </div>
             <BottomEventInfo event={event}/>
             {/* {// ===========================================insert===========================================================================} */}
-            <MapPanel {...{event, user, follower, unfollow, follow}}/>
+            
+            <MapPanel {...{event, user, follower, unfollow, follow, follow_me}}/>
             {panel ? < TicketPanel {...{event, ticket, ticketqty, setTicketQty, setTier, setMultiplier, unregisterforthisevent, registerforthisevent, cancelticketq, setPanel, panel, ticketqty, tier, multiplier}}/> : null}
             {editForm ? <EditForm {...{editthisevent, venueId, setVenue, venue, categoryId, setCategory, category, name, setName, description, setDescript, startTime, setStart, endTime, setEnd, capacity, setCap, image, setImg, cost, setCost, editForm, toggleEdit}}/> : null}
+            
           </div>
           <FooterBar/>
         </>

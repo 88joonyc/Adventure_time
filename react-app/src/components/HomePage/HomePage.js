@@ -16,12 +16,11 @@ import OpeningMessage from '../OpeningMessage/OpeningMessage';
 import Heart from '../Heart/Heart';
 import CardInfo from '../CardInfo/CardInfo';
 
-
 const HomePage = () => {
 const dispatch = useDispatch()
 
 const sessionUser = useSelector(state => state.session.user)
-const events = useSelector(state => state.events_reducer?.events?.events)
+const events = useSelector(state => state.events_reducer?.events)
 const category = useSelector(state => (state?.categories_reducer?.categories));
 const venue = useSelector(state => state?.venues_reducer?.venues);
 
@@ -62,13 +61,17 @@ const editthisevent =  async (e) => {
     }
 }
 
-useEffect( () =>  {
 
+async function getContent() {
     if (sessionUser) {
-        dispatch(eventActions.all_events())
+        return await dispatch(eventActions.all_events())
     } else {
-        dispatch(eventActions.unregistered_events())
+        return await dispatch(eventActions.unregistered_events)
     }
+}
+
+useEffect( () =>  {
+    getContent()
     // dispatch(all_categories())
     // dispatch(all_venues())
     // dispatch(authenticate())

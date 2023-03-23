@@ -24,7 +24,7 @@ export const all_user_follows = () => async dispatch => {
 }
 
 export const get_follower_with_promo = (id) => async dispatch => {
-    const res = await fetch(`/api/followers/${id}`)
+    const res = await fetch(`/api/followers/all/${id}`)
     const followers = await res.json()
     dispatch(load(followers))
 }

@@ -9,10 +9,10 @@ follower_routes = Blueprint('followers', __name__)
 
 @follower_routes.route('/all')
 def follows():
-    followers_query = Follower.query.filter(Follower.follower_id == current_user.id)
+    followers_query = Follower.query.filter(Follower.promoter_id == current_user.id)
     followers = [follower.to_dict() for follower in followers_query]
     for follower in followers:
-        follower['user'] = User.query.get(follower['promoter_id']).to_dict()
+        follower['user'] = User.query.get(follower['follower_id']).to_dict()
     return {"followers": followers }
 
     # return {'followers': [ follower.to_dict() for follower in followers_query if  ] }

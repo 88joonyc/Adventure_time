@@ -4,7 +4,7 @@
     display: flex;
     background-color: white;
     justify-content: space-between;
-    max-width: 1440px;
+    /* max-width: 1440px; */
     margin: auto;
     z-index: 1;
     border-bottom: 1px solid rgba(203, 203, 230, 0.42);

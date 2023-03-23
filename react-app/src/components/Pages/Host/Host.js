@@ -5,6 +5,7 @@ import { create_event  } from '../../../store/event';
 import { all_categories } from '../../../store/category';
 import { all_venues } from '../../../store/venue';
 import VenueForm from '../../Venue/venue';
+import moment from 'moment';
 
 import './Host.css'
 
@@ -30,19 +31,19 @@ const HostForm = () => {
   const handleSubmit =  async (e) => {
       e.preventDefault()
       const payload = {
-        venueId,
-        categoryId,
+        venue_id: venueId,
+        category_id: categoryId,
         name,
         description,
-        startTime: startTime.split("T").join(" ").concat(":00"),
-        endTime: endTime.split("T").join(" ").concat(":00"),
+        start_time: moment(startTime).format('YYYY-MM-DD HH:mm:ss'),
+        end_time: moment(endTime).format('YYYY-MM-DD HH:mm:ss'),
         capacity,
         image,
         cost,
       }
       let data
 
-      if (payload.startTime < payload.endTime) {
+      if (payload.start_time < payload.end_time) {
           data = await dispatch(create_event(payload))
           if (data) {
             history.push('/')

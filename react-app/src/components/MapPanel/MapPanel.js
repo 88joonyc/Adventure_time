@@ -5,7 +5,7 @@ import PromoterPanel from "../PromoterPanel/PromoterPanel";
 
 
 
-const MapPanel = ({event, user, follower, unfollow, follow}) => {
+const MapPanel = ({event, user, follower, unfollow, follow, follow_me}) => {
 
     return (
     <>
@@ -23,8 +23,8 @@ const MapPanel = ({event, user, follower, unfollow, follow}) => {
             </div>
               <div className='map-info-marker'>
                 { event?.host_id !== user.id ?
-                <p className='follower-number'>{  ( follower ) ?
-                <button value={follower[0]?.id} onClick={(e) => unfollow(e) }
+                <p className='follower-number'>{  ( follow_me ) ?
+                <button value={follower[0]?.id} onClick={(e) => unfollow(follow_me.id) }
                 className='unfollow-me-button'>following</button> :
                 <button onClick={() => follow()} className='follow-me-button'>follow</button> }</p> :
                 null}
