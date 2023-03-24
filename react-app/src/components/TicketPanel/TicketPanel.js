@@ -20,7 +20,7 @@ const TicketPanel = ({event, ticket, ticketqty, setTicketQty, setTier, setMultip
     return (
         <>
             <div className='ticket-panel-container'>
-                <div className='ticketing-panel' style={{marginBottom: '25%'}}>
+                <div className='ticketing-panel' style={{marginBottom: '15%'}}>
                 <div className='general-ticketing-panel'>
                     <div className='ticketing-panel-title'>{event?.name} <div className='title-datetimestamp'>{moment(event?.start_time).format('ddd, MMMM do, YYYY [at] h:mm A')}</div></div>
                     <div className='ticketing-panel-info'>
@@ -65,12 +65,12 @@ const TicketPanel = ({event, ticket, ticketqty, setTicketQty, setTier, setMultip
                     </div>
                     <div className='register-button-contaienr'>
                 <div className='registering-buttons'>
-                    {ticket ? <button onClick={(e) => unregisterforthisevent(e)} className="unregister-button">unregister</button> : ( Number(ticketqty) !== 0 ? <button onClick={(e) => registerforthisevent(e)} className="register-button">register</button> : null )}
+                    {ticket ? <button onClick={(e) => unregisterforthisevent(e)} className="unregister-button">return</button> : ( Number(ticketqty) !== 0 ? <button onClick={(e) => registerforthisevent(e)} className="register-button">check out</button> : null )}
                     {ticketqty ? <button type='button' className='cancel-ticket-qty' onClick={(e) => cancelticketq()}>cancel</button> : null}
                 </div>
                     </div>
                 </div>
-                <div>
+                <div className="ticket-image-containers">
                     <div className='ticket-image-container'>
                         <button onClick={() => setPanel(!panel) } className="ticket-cancel-button">X</button>
                         <img alt='tiximage_for_event' className='ticketing-image' src={event?.image}/>

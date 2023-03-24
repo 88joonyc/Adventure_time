@@ -194,3 +194,8 @@
 .icon-car {
     content: url(../../../images/23-bird.png);
 }
+
+
+@media screen and (max-device-width:600px) {
+    
+}
