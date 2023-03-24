@@ -42,18 +42,20 @@ const TopEventInfo = ({event, eventId, setVenue, setCategory, setName, setDescri
                 ? <p className='events-page-card-naem-very-long'>{event?.name}</p>
                 : null
                 }
-                <p className='event-card-basic-info event-name-info'>By: {event?.host?.first_name} {event?.host?.last_name} </p>
-                <p className='event-card-basic-info'>Contact: {event?.host?.email} </p>
-                { event?.host_id !== user.id
-                ?  <p className='follower-number'>{follower?.followers?.length} followers
-                { follow_me
-                    ? <button
-                    onClick={() => unfollow(follow_me?.id)}
-                    className='unfollow-me-button'>following</button>
-                    : <button onClick={() => follow()} className='follow-me-button'>follow</button>
-                }</p>
-                : null
-                }
+                <div className="mobile-follower">
+                    <p className='event-card-basic-info event-name-info'>By: <span className="event-name-info-bold">{event?.host?.first_name} {event?.host?.last_name}</span> </p>
+                    {/* <p className='event-card-basic-info'>Contact: {event?.host?.email} </p> */}
+                    { event?.host_id !== user.id
+                    ?  <p className='follower-number'>{follower?.followers?.length} followers
+                    { follow_me
+                        ? <button
+                        onClick={() => unfollow(follow_me?.id)}
+                        className='unfollow-me-button'>following</button>
+                        : <button onClick={() => follow()} className='follow-me-button'>follow</button>
+                    }</p>
+                    : null
+                    }
+                </div>
                 { event?.host_id !== user.id
                 ?
                 <p className='ticket-message'>

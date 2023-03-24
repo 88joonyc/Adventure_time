@@ -22,6 +22,51 @@
     padding: 20px;
 }
 
+@media screen and (max-device-width: 600px) {
+    .event-page-card {
+        width: 100;
+        display: block;
+        padding: 40px;
+    }
+
+    .event-page-card p {
+        margin: 0;
+        padding:0;
+    }
+
+    .mobile-follower {
+        background-color: rgb(240, 240, 240);
+        border-radius: 10px;
+        padding: 32px;
+        margin: 40px 0;
+    }
+
+    .mobile-follower p {
+        font-size: 30px;
+   
+    }
+
+    .mobile-follower .follower-number {
+        margin-top: 20px;
+        font-size: 25px;
+    }
+
+    .mobile-follower p button{
+        width: 100%;
+        font-size: 40px;
+        text-transform: capitalize;
+        padding: 20px;
+        margin-top: 30px;
+    }
+
+    .event-name-info-bold {
+
+        font-weight: 700;
+    }
+
+
+}
+
 .startend-times {
     color: rgb(134, 134, 160);
     font-size: small;
@@ -34,6 +79,13 @@
     grid-template-columns: 5fr 2fr;
     grid-template-rows: 1fr;
     background-color: rgb(240, 241, 245);
+}
+
+@media screen and (max-device-width: 600px) {
+    .event-page-topcard {
+        height: 100%;
+        background-color: white;
+    }
 }
 
 .event-page-bot-grid {
@@ -182,6 +234,12 @@
     padding: 40px 120px
 }
 
+@media screen and (max-device-width: 600px){
+    .events-main-cont {
+        padding: 20px;
+    }
+}
+
 .tags {
     padding: 50px 0;
 }
@@ -210,21 +268,31 @@
 }
 
 .events-page-card-naem-long {
-    font-family: 'Abril Fatface', cursive;
+    /* font-family: 'Abril Fatface', cursive; */
     font-size: 20px;
     max-height: 30px;
 }
 
 .events-page-card-naem-very-long {
-    font-family: 'Abril Fatface', cursive;
+    /* font-family: 'Abril Fatface', cursive; */
     font-size: 15px;
     max-height: 30px;
 }
 
 .events-page-card-naem-short {
-    font-family: 'Abril Fatface', cursive;
+    /* font-family: 'Abril Fatface', cursive; */
     font-size: 25px;
     max-height: 30px;
+}
+
+@media screen and (maX-device-width: 600px) {
+    .events-page-card-naem-short, 
+    .events-page-card-naem-long, 
+    .events-page-card-naem-very-long {
+        font-size: 90px;
+        max-height: 100%;
+        font-weight: 700;
+    }
 }
 
 .event-name-info {

@@ -20,7 +20,7 @@ const TicketPanel = ({event, ticket, ticketqty, setTicketQty, setTier, setMultip
     return (
         <>
             <div className='ticket-panel-container'>
-                <div className='ticketing-panel'>
+                <div className='ticketing-panel' style={{marginBottom: '25%'}}>
                 <div className='general-ticketing-panel'>
                     <div className='ticketing-panel-title'>{event?.name} <div className='title-datetimestamp'>{moment(event?.start_time).format('ddd, MMMM do, YYYY [at] h:mm A')}</div></div>
                     <div className='ticketing-panel-info'>

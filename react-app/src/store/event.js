@@ -203,7 +203,6 @@ const events_reducer = (state = initialState, action ) => {
             }
         }
         case ADD_EVENT:
-            console.log(state, action, '-------------------------------hjer--------------------------------')
             return {
                 ...state,
                 ['events']: [...state.events, action.events]
