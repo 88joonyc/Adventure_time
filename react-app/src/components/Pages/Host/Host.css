@@ -2,7 +2,7 @@
 .host-container {
     background-color: inherit;
     height: 100%;
-    width: 90%;
+    max-width: 1440px;
     margin: 0 auto;
 }
 

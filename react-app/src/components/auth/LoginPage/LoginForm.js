@@ -48,7 +48,7 @@ const LoginForm = () => {
         </NavLink>
       <h1 className="formuser-top-message">Log in</h1>
         <form onSubmit={onLogin}>
-          <div>
+          <div className='error-message'>
             {errors.map((error, ind) => (
               <div key={ind}>{error}</div>
             ))}
