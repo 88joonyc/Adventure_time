@@ -27,7 +27,7 @@
     flex-wrap: wrap;
 }
 
-@media screen and (max-device-width-width: 880px) {
+@media screen and (min-device-width: 880px) {
     .card-container {
         /* display: grid;
         grid-template-columns: 1fr 1fr 1fr; */
@@ -78,7 +78,7 @@ img {
     transition: ease-in-out 5.5s;
 }
 
-@media screen and (max-device-width-width:880px ) {
+@media screen and (min-device-width:880px ) {
     .opening-message {
         display: block;
     }
@@ -247,7 +247,7 @@ img {
     transition: ease-out .5s;
 }
 
-@media screen and (min-width: 600px) {
+@media screen and (max-device-width: 600px) {
     .card-container {
         gap: 15px;
     }
