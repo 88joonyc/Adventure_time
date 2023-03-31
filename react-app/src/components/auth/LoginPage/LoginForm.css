@@ -140,10 +140,15 @@ h1 {
     transition: all ease 0.3s;
 }
 
+/* ==========================error message================================================== */
+.error-message {
+
+}
+
 
 /* ==========================mobile================================================== */
 
-@media screen and (max-device-width: 600px) {
+@media screen and (min-width: 600px) {
     .login-image-container {
         display: none;
     }
