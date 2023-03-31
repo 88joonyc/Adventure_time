@@ -163,7 +163,7 @@
     color: rgb(54, 73, 89)
 }
 
-@media screen and (min-width: 600px) {
+@media screen and (max-device-width: 600px) {
     .ticker-grid {
         display: block;
     }

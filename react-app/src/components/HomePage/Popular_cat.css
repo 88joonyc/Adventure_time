@@ -74,7 +74,7 @@
     text-decoration: none;
 }
 
-@media screen and (min-width: 600px) {
+@media screen and (max-device-width: 600px) {
     .home-card-categories {
         width: auto;
         overflow: auto;

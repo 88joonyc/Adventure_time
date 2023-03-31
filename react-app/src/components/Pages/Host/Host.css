@@ -109,7 +109,7 @@ select {
     font-size: x-small;
 }
 
-@media screen and (min-width: 600px) {
+@media screen and (max-device-width: 600px) {
     .host-card {
         padding: -20px -40px
     }

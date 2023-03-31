@@ -93,7 +93,7 @@
     padding: 120px;
 }
 
-@media screen and (min-width: 600px) {
+@media screen and (max-device-width: 600px) {
     .event-page-topcard {
         height: 100%;
         background-color: white;
@@ -110,7 +110,7 @@
     }
 }
 
-@media screen and (min-device-width:880px) {
+@media screen and (max-device-width-width:880px) {
     .event-page-bot-grid {
         display: grid;
         grid-template-columns: 5fr 2fr;
@@ -195,7 +195,7 @@
     z-index: 0;
 }
 
-@media screen and (min-width: 880px) {
+@media screen and (max-device-width: 880px) {
  .purchase-tix-bar {
     position: sticky;
     bottom: 0;
@@ -246,7 +246,7 @@
     padding: 40px 120px
 }
 
-@media screen and (min-width: 600px){
+@media screen and (max-device-width: 600px){
     .events-main-cont {
         padding: 20px;
     }
@@ -301,7 +301,7 @@
     max-height: 30px;
 }
 
-@media screen and (min-width: 600px) {
+@media screen and (maX-device-width: 600px) {
     .events-page-card-naem-short, 
     .events-page-card-naem-long, 
     .events-page-card-naem-very-long {
@@ -379,7 +379,7 @@
     color: red;
 }
 
-@media screen and (min-width: 600px) {
+@media screen and (max-device-width: 600px) {
     .unregister-tickets-page {
         height: 100%;
         font-size: x-large;
