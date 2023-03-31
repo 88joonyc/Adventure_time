@@ -249,7 +249,7 @@ img {
 
 @media screen and (max-device-width: 600px) {
     .card-container {
-        display: block;
+        gap: 15px;
     }
     .event-cards {
         width: 100%;
