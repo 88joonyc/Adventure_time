@@ -78,7 +78,7 @@ p {
     color: rgb(39, 35, 50);
 }
 
-@media screen and (max-device-width: 600px) {
+@media screen and (min-width: 600px) {
     .event-button {
         width: 400px;
         height: 100px;

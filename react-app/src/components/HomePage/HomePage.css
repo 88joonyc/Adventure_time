@@ -57,7 +57,7 @@ img {
 }
 
 
-/* @media screen and (max-device-width: 880px) {
+/* @media screen and (min-width: 880px) {
     
 } */
 
@@ -247,7 +247,7 @@ img {
     transition: ease-out .5s;
 }
 
-@media screen and (max-device-width: 600px) {
+@media screen and (min-width: 600px) {
     .card-container {
         gap: 15px;
     }

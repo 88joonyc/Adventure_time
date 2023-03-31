@@ -35,7 +35,7 @@
     color: rgb(53, 19, 87);
 }
 
-@media screen and (max-device-width: 600px) {
+@media screen and (min-width: 600px) {
     .singup-form {
         padding: 50px;
     }

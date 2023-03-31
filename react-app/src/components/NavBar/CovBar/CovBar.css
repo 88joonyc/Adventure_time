@@ -6,7 +6,7 @@
     padding: 17px;
 }
 
-@media screen and (max-device-width: 600px) {
+@media screen and (min-width: 600px) {
     .cov-message {
         display: none;
     }
