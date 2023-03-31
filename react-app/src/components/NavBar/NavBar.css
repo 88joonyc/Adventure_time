@@ -1,11 +1,14 @@
 @import url('./EventForm.css');
 @import url(./dropdown.css);
 .navbar-container {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
     display: flex;
     background-color: white;
-    justify-content: space-between;
     -webkit-box-pack: justify;
     -ms-flex-pack: justify;
+    justify-content: space-between;
     /* max-width: 1440px; */
     margin: auto;
     height: 72px;
@@ -14,6 +17,9 @@
 }
 
 .navbar-home {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
     display: flex;
     align-items: center;
 }
@@ -51,6 +57,9 @@ body {
 }
 
 .right-side-control {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
     display: flex;
     flex-direction: row;
     margin-right: 0px;
@@ -100,6 +109,11 @@ body {
 }
 
 .signup-link {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    align-items: center;
     text-decoration: none;
     color: rgb(13, 24, 29);
     font-weight: lighter;
@@ -130,6 +144,10 @@ body {
 
 @media screen and (max-device-width: 600px) {
     .navbar-container {
+        display: -webkit-box;
+        display: -webkit-flex;
+        display: -ms-flexbox;
+        display: flex;
         height: 120px;
     }
     .login-signup {
