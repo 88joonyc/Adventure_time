@@ -28,7 +28,7 @@ const EachEvent = () => {
 
   const user = useSelector(state => state.session.user)
   const ticket = useSelector(state => (state?.tickets_reducer?.tickets));
-  const event = useSelector(state => state.events_reducer?.[eventId.eventId])
+  const event = useSelector(state => state.events_reducer?.listed[eventId.eventId])
   const follower = useSelector(state => (state?.followers_reducer));
   const venue = useSelector(state => (state?.venues_reducer?.venues));
   const category = useSelector(state => (state?.categories_reducer?.categories));
@@ -48,7 +48,7 @@ const EachEvent = () => {
 
 
   useEffect( async () => {
-    dispatch(get_one_event(eventId.eventId))
+    // dispatch(get_one_event(eventId.eventId))
     dispatch(actiontickets.one_ticket(eventId.eventId))
     dispatch(actionfollowers.get_follower_with_promo(Number(event?.host_id)))
     window.scrollTo({top: 0, left: 0, behavior: 'auto'})   // this take is to the top of the page    dispatch(all_categories())
@@ -62,7 +62,7 @@ const EachEvent = () => {
   })
 
   async function runonce () {
-    console.log('raaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaan-----------------------------------------------------------')
+    // console.log('raaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaan-----------------------------------------------------------')
     dispatch(get_one_event(eventId.eventId))
     dispatch(actiontickets.one_ticket(eventId.eventId))
     dispatch(actionfollowers.get_follower_with_promo(Number(event?.host_id)))
