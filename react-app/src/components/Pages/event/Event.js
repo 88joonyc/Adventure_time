@@ -30,7 +30,6 @@ const EachEvent = ({listed}) => {
   const ticket = useSelector(state => (state?.tickets_reducer?.tickets));
   // const event = useSelector(state => state?.events_reducer?.listed?.[eventId?.eventId])
   const event = listed?.[eventId?.eventId]
-  console.log(event, 'yuiaebwrfkduabnwdkj---------------------------------------------')
   const follower = useSelector(state => (state?.followers_reducer));
   const venue = useSelector(state => (state?.venues_reducer?.venues));
   const category = useSelector(state => (state?.categories_reducer?.categories));
@@ -65,8 +64,7 @@ const EachEvent = ({listed}) => {
   })
 
   async function runonce () {
-    // console.log('raaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaan-----------------------------------------------------------')
-    // await dispatch(get_one_event(eventId.eventId))
+    
     await dispatch(actiontickets.one_ticket(eventId.eventId))
     await dispatch(actionfollowers.get_follower_with_promo(Number(event?.host_id)))
   }

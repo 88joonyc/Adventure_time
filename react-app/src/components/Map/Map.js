@@ -12,6 +12,7 @@ function Map({props}) {
   // })
 
   const [map, setMap] = React.useState(null)
+  const [zoom, setZoom] = React.useState()
 
   // const Marker = (('42', '-37') => (
   //   <>
@@ -47,6 +48,7 @@ function Map({props}) {
         center={{lat: props.latitude, lng:props.longitude}}
         onLoad={onLoad}
         onUnmount={onUnmount}
+        zoom={18}
       >
         { /* Child components, such as markers, info windows, etc. */ }
         <></>

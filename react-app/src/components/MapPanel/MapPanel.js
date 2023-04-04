@@ -36,7 +36,7 @@ const MapPanel = ({event, user, follower, unfollow, follow, follow_me}) => {
             <div className='map-info-map'>
 
             <div>
-              <Map props={{latitude: Number(event?.venue?.latitude), longitude:(event?.venue?.longitude), zoom:18}} style={{ height: '50vh', width: '10%' }} />
+              <Map props={{latitude: (+event?.venue?.latitude), longitude:(+event?.venue?.longitude), zoom:18}} style={{ height: '50vh', width: '10%' }} />
             </div>
 
             </div>
