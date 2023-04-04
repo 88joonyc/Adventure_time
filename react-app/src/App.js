@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
-import { useDispatch } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
+import * as eventActions from './store/event'
 import LoginForm from './components/auth/LoginPage/LoginForm';
 import SignUpForm from './components/auth/SignupPage/SignUpForm';
 import HomePage from './components/HomePage/HomePage';
@@ -17,12 +18,33 @@ function App() {
   const [loaded, setLoaded] = useState(false);
   const dispatch = useDispatch();
 
+  const sessionUser = useSelector(state => state.session.user)
+  const events = useSelector(state => state.events_reducer?.events)
+  const listed = useSelector(state => state.events_reducer?.listed)
+
   useEffect(() => {
     (async() => {
       await dispatch(authenticate());
       setLoaded(true);
+
     })();
-  }, [dispatch]);
+  }, []);
+  
+  
+//   async function getContent() 
+// }
+
+useEffect( async() =>  {
+  if (sessionUser) {
+    await dispatch(eventActions.all_events())
+  } else {
+    await dispatch(eventActions.unregistered_events)
+  }
+//   getContent()
+//   // dispatch(all_categories())
+//   // dispatch(all_venues())
+//   // dispatch(authenticate())
+}, [sessionUser])
 
   if (!loaded) {
     return null;
@@ -44,11 +66,11 @@ function App() {
           <TicketPage />
         </ProtectedRoute>
         <ProtectedRoute path='/event/:eventId' exact={true} >
-          <EachEvent />
+          <EachEvent listed={listed} />
         </ProtectedRoute>
         <Route path='/' exact={true} >
         <NavBar />
-        <HomePage />
+        <HomePage events={events}/>
         <FooterBar/>
         </Route>
         <FourOhFour/>

@@ -3,7 +3,7 @@ import { useSelector, useDispatch } from 'react-redux'
 import { useParams, useHistory } from 'react-router-dom';
 import FooterBar from '../../NavBar/Footer/Footer';
 import { edit_event, edit_event_capacity, get_one_event } from '../../../store/event';
-import { one_event } from '../../../store/oneEvent'
+import { all_events, one_event } from '../../../store/event'
 import * as actiontickets from '../../../store/ticket';
 import * as actionfollowers from '../../../store/follower';
 import { all_categories } from '../../../store/category';
@@ -19,7 +19,7 @@ import moment from 'moment';
 
 import './Event.css'
 
-const EachEvent = () => {
+const EachEvent = ({listed}) => {
   const eventId = useParams()
   const [panel, setPanel] = useState(false);
   const [ticketqty, setTicketQty] = useState(0)
@@ -28,7 +28,9 @@ const EachEvent = () => {
 
   const user = useSelector(state => state.session.user)
   const ticket = useSelector(state => (state?.tickets_reducer?.tickets));
-  const event = useSelector(state => state.events_reducer?.listed[eventId.eventId])
+  // const event = useSelector(state => state?.events_reducer?.listed?.[eventId?.eventId])
+  const event = listed?.[eventId?.eventId]
+  console.log(event, 'yuiaebwrfkduabnwdkj---------------------------------------------')
   const follower = useSelector(state => (state?.followers_reducer));
   const venue = useSelector(state => (state?.venues_reducer?.venues));
   const category = useSelector(state => (state?.categories_reducer?.categories));
@@ -49,11 +51,12 @@ const EachEvent = () => {
 
   useEffect( async () => {
     // dispatch(get_one_event(eventId.eventId))
-    dispatch(actiontickets.one_ticket(eventId.eventId))
-    dispatch(actionfollowers.get_follower_with_promo(Number(event?.host_id)))
+    // await dispatch(all_events())
+    await dispatch(actiontickets.one_ticket(eventId.eventId))
+    await dispatch(actionfollowers.get_follower_with_promo(Number(event?.host_id)))
     window.scrollTo({top: 0, left: 0, behavior: 'auto'})   // this take is to the top of the page    dispatch(all_categories())
-    dispatch(all_venues())
-    dispatch(all_categories())
+    await dispatch(all_venues())
+    await dispatch(all_categories())
   }, [eventId.eventId, event?.host_id])
 
   window.addEventListener('load' , e => {
@@ -63,9 +66,9 @@ const EachEvent = () => {
 
   async function runonce () {
     // console.log('raaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaan-----------------------------------------------------------')
-    dispatch(get_one_event(eventId.eventId))
-    dispatch(actiontickets.one_ticket(eventId.eventId))
-    dispatch(actionfollowers.get_follower_with_promo(Number(event?.host_id)))
+    // await dispatch(get_one_event(eventId.eventId))
+    await dispatch(actiontickets.one_ticket(eventId.eventId))
+    await dispatch(actionfollowers.get_follower_with_promo(Number(event?.host_id)))
   }
 
 // ===========================================ticket panel===========================================================================
