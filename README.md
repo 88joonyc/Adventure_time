@@ -1,7 +1,7 @@
 ![adventure_time-logo](https://user-images.githubusercontent.com/79543569/132349789-6060506a-813b-4b2a-a8de-0b26e804b13c.png)
 # Adventure Time
 
-*By: Paul Chang. --  [Adventrure_Time](https://adventure--time.herokuapp.com/ "Named link title")*
+*By: Paul Chang. --  [Adventrure_Time](https://adventure-time.onrender.com/ "Named link title")*
 
 [Adventrure_Time](https://adventure--time.herokuapp.com/ "Named link title") is an [Eventbrite](https://eventbrite.com/ "Named link title") clone with a theme of the cartoon *[Adventure Time](https://en.wikipedia.org/wiki/Adventure_Time "Named link title")*. It is a platform where users can search and purchase tickets to exciting events across the nation or create their own event within their own community. [Adventrure_Time](https://adventure--time.herokuapp.com/ "Named link title") is a fullstack React Redux application with a Python backend incorporating FLask & SQL-Alchemy with a PostgresSQL database system and Heroku to host. 
 
@@ -122,7 +122,7 @@
 - PosgreSQL
 - GoogleMaps JavaScript API
 - Moment
-- Heroku
+- ~~Heroku~~ Render
 - Git
 - Docker
 
@@ -156,4 +156,4 @@
 [3]: https://www.linkedin.com/in/pchang1216/
 
 
-Visit the live app powered by Heroku [here](https://adventure--time.herokuapp.com/ "Named link title")
+Visit the live app powered by Render [here](https://adventure-time.onrender.com/ "Named link title")
