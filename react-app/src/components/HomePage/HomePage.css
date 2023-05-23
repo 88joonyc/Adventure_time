@@ -19,6 +19,7 @@
     transition: all 0.4s ease 0s;
 }
 
+
 .card-container {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -27,7 +28,7 @@
     flex-wrap: wrap;
 }
 
-@media screen and (min-device-width: 880px) {
+@media only screen and (min-width: 550px) {
     .card-container {
         /* display: grid;
         grid-template-columns: 1fr 1fr 1fr; */
@@ -37,6 +38,8 @@
         flex-wrap: wrap;
     }
 }
+
+
 
 .box {
     max-width: 1440px;
@@ -78,16 +81,16 @@ img {
     transition: ease-in-out 5.5s;
 }
 
-@media screen and (min-device-width:880px ) {
+/* @media screen and (min-device-width:880px ) { */
     .opening-message {
         display: block;
     }
 
     .lazy-img {
-        width: 285px%;
+        width: 285px;
     }
     
-}
+/* } */
 
 .spalsh-image-2 {
     background-image: url('../../images/clubbing.jpeg');
@@ -247,7 +250,7 @@ img {
     transition: ease-out .5s;
 }
 
-@media screen and (max-device-width: 600px) {
+/* @media screen and (max-width: 600px) {
     .card-container {
         gap: 15px;
     }
@@ -301,4 +304,4 @@ img {
     .top-home-sent {
         font-size: 100px;
     }
-}
+} */
