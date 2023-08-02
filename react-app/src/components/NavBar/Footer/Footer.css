@@ -40,7 +40,7 @@
 }
 
 .my-links {
-    padding: 50px 40px;
+    padding: 50px 20px;
 }
 
 .footer-lists {
@@ -105,7 +105,6 @@
     .footer-container {
         height: auto;
         background-color: rgb(93, 86, 163);
-        margin-left: -8px;
     }
     .footer-tabs {
         display: none
