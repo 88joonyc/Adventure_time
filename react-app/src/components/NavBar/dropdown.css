@@ -106,7 +106,7 @@
     /* border-radius: 50px; */
     cursor: pointer;
     align-items: center;
-    padding: 0 40px;
+    padding: 0 20px;
 }
 
 .drop-button-items {
@@ -132,10 +132,10 @@
 }
 
 .profile-pic {
-    width: 30px;
-    height: 30px;
+    height: 40px;
+    width: 40px;
     border-radius: 30px;
-
+    
     border: 1px solid rgb(165, 177, 215);
 }
 
@@ -166,14 +166,15 @@
 
 .home-container {}
 
-@media screen and (max-device-width: 600px) {
+@media screen and (min-width: 600px) {
     .profile-pic {
-        height: 70px;
-        width: 70px;
+        width: 55px;
+        height: 55px;
+
     }
+ 
     .drop-nav-email {
-        padding-top: 10px;
-        font-size: x-large;
+        font-size: large;
     }
     .menu-dropdown {
         width: 68%;
