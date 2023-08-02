@@ -8,18 +8,24 @@
     font-size: 35px;
     color: rgb(65, 69, 113);
     margin-left: 5%;
-    display: flex;
+    /* display: flex; */
     align-items: center;
 }
 
 .home-card-categories {
     width: 75%;
     height: 40px;
-    display: flex;
+    display: none;
     flex-direction: row;
     align-items: center;
     justify-content: space-evenly;
     margin-left: 35px;
+}
+
+@media screen and (min-width: 600px) {
+    .home-card-categories {
+        display: flex;
+    }
 }
 
 .cat-button {
@@ -74,8 +80,8 @@
     text-decoration: none;
 }
 
-@media screen and (max-device-width: 600px) {
-    .home-card-categories {
+@media screen and (min-width: 600px) {
+    /* .home-card-categories {
         width: auto;
         overflow: auto;
         white-space: nowrap;
@@ -109,5 +115,5 @@
     }
     .venue-search-box:focus {
         height: 70px;
-    }
+    } */
 }
