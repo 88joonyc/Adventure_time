@@ -178,6 +178,9 @@ console.log('hello,', event)
             {editForm ? <EditForm {...{editthisevent, venueId, setVenue, venue, categoryId, setCategory, category, name, setName, description, setDescript, startTime, setStart, endTime, setEnd, capacity, setCap, image, setImg, cost, setCost, editForm, toggleEdit}}/> : null}
             
           </div>
+          <div className="purchase-tix-bar-mobile">
+                { event?.host_id !== user.id ? <button type='button' onClick={() => (setPanel(!panel))} className='ticket-button'>Tickets</button> : null }
+            </div>
           <FooterBar/>
         </>
   );

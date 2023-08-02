@@ -180,26 +180,40 @@
 
 
 /* -------------------purchasetickets------------------------------- */
-
 .purchase-tix-bar {
-    width: 100%;
-    height: 75px;
-    background-color: rgb(255, 255, 255);
-    border-top: 1px solid rgb(235, 235, 240);
-    border-bottom: 1px solid rgb(235, 235, 240);
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
-    position: sticky;
-    /* top: 0; */
-    z-index: 0;
+    display: none;
 }
 
-@media screen and (max-device-width: 880px) {
- .purchase-tix-bar {
+.purchase-tix-bar-mobile {
+    border-top: 1px solid black;
+    padding: 10px;
     position: sticky;
     bottom: 0;
- }
+    left: 0;
+    display: flex;
+    justify-content: center;
+    background-color: white;
+}
+
+@media screen and (min-width: 880px) {
+    .purchase-tix-bar {
+        width: 100%;
+        height: 75px;
+        background-color: rgb(255, 255, 255);
+        border-top: 1px solid rgb(235, 235, 240);
+        border-bottom: 1px solid rgb(235, 235, 240);
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        position:relatives;
+        /* top: 0; */
+        z-index: 0;
+    }
+
+    .purchase-tix-bar-mobile {
+        display: none;
+    }
+ 
 }
 
 .purchase-tix-bar-stick {
@@ -243,12 +257,12 @@
 
 .events-main-cont {
     /* background-color: lavender; */
-    padding: 40px 120px
+    padding: 20px;
 }
 
-@media screen and (max-device-width: 600px){
+@media screen and (min-width: 800px){
     .events-main-cont {
-        padding: 20px;
+        padding: 40px 120px
     }
 
     .events-description-text {
