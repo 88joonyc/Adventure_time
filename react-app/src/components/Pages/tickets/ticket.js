@@ -143,9 +143,9 @@ const follow_content = (
                     </div>
                     <div className="user-marks">
                         <p className="user-stats">{tickets?.length} orders</p>
-                        <p> * </p>
+
                         <p className="user-stats">{hearts?.length} hearts</p>
-                        <p> * </p>
+
                         <p className="user-stats">{follows?.length} following</p>
                     </div>
                   </div>
