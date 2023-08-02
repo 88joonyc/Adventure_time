@@ -170,7 +170,7 @@ body {
         font-size: large;
     }
     .navbar-image {
-        height: 70%;
+        max-height: 70%;
     }
 
     .create-event {
