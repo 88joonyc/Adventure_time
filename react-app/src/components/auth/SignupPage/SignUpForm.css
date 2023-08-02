@@ -1,5 +1,5 @@
 .signup-form-container {
-    display: grid;
+    display: block;
     grid-template-columns: repeat(2, 50%);
     background-color: rgb(249, 250, 252);
     width: 100%;
@@ -8,16 +8,15 @@
 
 .signup-image-container {
     background-image: url('../../../images/Screenshot-2019-09-24-at-16.11.44.png');
-    height: 100vh;
-    /* height: 100%; */
     background-size: cover;
+    display: none;
+    
 }
 
 .singup-form {
     height: fit-content;
     margin: 0 auto;
-    position: relative;
-    top: 100px;
+    padding: 60px;
 }
 
 .error-messages {
@@ -33,21 +32,26 @@
     /* font-size: 38px; */
     font-family: 'Fredoka One', cursive;
     color: rgb(53, 19, 87);
+    
 }
 
-@media screen and (max-device-width: 600px) {
+@media screen and (min-width: 600px) {
     .singup-form {
-        padding: 50px;
+        margin-top: 100px;
+        padding: 0;
     }
 
     .signup-image-container {
-        display: none;
+        display: block;
+        height: 100vh;
+
+
     }
     .signup-form-container {
-        display: inline;
+        display: grid;
     }
     .formuser-top-message {
-        font-size: 80px;
+        
     }
 
 }
