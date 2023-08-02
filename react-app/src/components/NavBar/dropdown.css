@@ -195,7 +195,7 @@
 }
 
 a:visited {
-    color: black;
+    color: inherit;
     /* text-decoration-color: hotpink; */
   }
   
