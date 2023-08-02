@@ -17,12 +17,15 @@
     margin-top: 15px;
     box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
     position: absolute;
-    top: 60px;
+
     right: 0px;
     overflow-y: auto;
-    width: 28%;
+
     height: fit-content;
     z-index: 100;
+
+    width: 68%;
+    top: 60px;
 }
 
 .dropddown-tab {
@@ -59,7 +62,9 @@
     text-align: left;
     /* height: 30px; */
     padding: 20px;
+  
     font-size: 18px;
+    /* height: 120px; */
 }
 
 .dropdown-items-mid {
@@ -177,15 +182,20 @@
         font-size: large;
     }
     .menu-dropdown {
-        width: 68%;
-        top: 100px;
+        width: 28%;
+        top: 60px;
     }
     .dropdown-items-mid {
-        font-size: 50px;
-        height: 120px;
+        font-size: 18px;
     }
     .dropdown-items-out-top {
         font-size: 50px;
         height: 150px;
     }
 }
+
+a:visited {
+    color: black;
+    /* text-decoration-color: hotpink; */
+  }
+  
