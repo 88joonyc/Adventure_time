@@ -11,9 +11,13 @@
     justify-content: space-between;
     /* max-width: 1440px; */
     margin: auto;
-    height: 72px;
     z-index: 1;
     border-bottom: 1px solid rgba(203, 203, 230, 0.42);
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    height: 72px;
 }
 
 .navbar-home {
@@ -132,41 +136,48 @@ body {
     content: url('../../images/createe-event.png');
     height: 16px;
     /* padding-bottom: 5px; */
+    height: 40%;
     width: auto;
 }
 
 .ticketing-icon {
     content: url('../../images/ticket.png');
-    height: 16px;
+    height: 24px;
     /* padding-bottom: 5px; */
     width: auto;
 }
 
-@media screen and (max-device-width: 600px) {
+.create-event {
+    display: none;
+}
+
+.drop-nav-email {
+    display: none;
+}
+
+@media screen and (min-width: 600px) {
     .navbar-container {
         display: -webkit-box;
         display: -webkit-flex;
         display: -ms-flexbox;
         display: flex;
-        height: 120px;
+        height: 72px;
     }
+    
+
     .login-signup {
         font-size: xx-large;
         padding-top: 30px;
     }
-    .ticket-icon {
-        height: 40%;
-    }
-    .ticketing-icon {
-        height: 40%;
-    }
     .navbar-image {
         height: 70%;
     }
-    /* .profile-pic {
-        height: 40%;
-    } */
+
     .create-event {
-        font-size: large;
+        display: flex;
+    }
+
+    .drop-nav-email {
+        display: flex;
     }
 }
