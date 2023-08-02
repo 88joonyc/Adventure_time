@@ -89,11 +89,11 @@
     border-bottom: 1px solid rgb(235, 235, 240);
 }
 
-.event-page-sidepanel {
+/* .event-page-sidepanel {
     padding: 120px;
-}
+} */
 
-@media screen and (max-device-width: 600px) {
+@media screen and (min-width: 600px) {
     .event-page-topcard {
         height: 100%;
         background-color: white;

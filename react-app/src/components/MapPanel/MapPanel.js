@@ -13,12 +13,13 @@ const MapPanel = ({event, user, follower, unfollow, follow, follow_me}) => {
           <div>
             <div className='map-info-marker map-info-marker-top'>
               <div className='map-info-holder'>
-                <img alt='map_marker_pic' className='map-info-marker-pic'src={event?.host?.image} />
+                <img alt='map_marker_pic' className='map-info-marker-pic'src={event?.user?.image} />
+                
               <div className='map-info-naem'>
-                <div className='map-info-marker'>{event?.host?.first_name}</div>
-                <div className='map-info-marker'>{event?.host?.last_name}</div>
+                <div className='map-info-marker'>{event?.user?.first_name}</div>
+                <div className='map-info-marker'>{event?.user?.last_name}</div>
               </div>
-                <div className='map-info-marker'>{event?.host?.email}</div>
+                <div className='map-info-marker'>{event?.user?.email}</div>
               </div>
             </div>
               <div className='map-info-marker'>
@@ -30,7 +31,7 @@ const MapPanel = ({event, user, follower, unfollow, follow, follow_me}) => {
                 null}
               </div>
           </div>
-          <PromoterPanel event={event}/>
+          {/* <PromoterPanel event={event}/> */}
 
           <div className=''>
             <div className='map-info-map'>

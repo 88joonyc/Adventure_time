@@ -117,11 +117,20 @@ img {
 }
 
 .card-print {
-    font-size: 10px;
+    font-size: 24px;
     padding-left: 17px;
-    padding-top: 1px;
-    margin-top: -2px;
     font-family: 'Roboto', sans-serif;
+    margin: 0;
+    font-weight: 600;
+    padding: 4px 12px;
+    max-height: 90px;
+}
+
+@media screen and (min-width: 600px) {
+    .card-print {
+        font-size: 20px;
+
+    }
 }
 
 .card-per {
@@ -137,7 +146,7 @@ img {
     transition: all 0.4s ease 0s;
 }
 
-.card-name-home-short {
+/* .card-name-home-short {
     padding-top: 15px;
     font-size: 16.3px;
     max-height: 33px;
@@ -145,9 +154,24 @@ img {
 
 .card-name-home-long {
     padding-top: 13px;
-    font-size: 12px;
+    font-size: 20px;
     max-height: 42px;
 }
+
+@media screen and (min-width: 600px) {
+    .card-name-home-short {
+        font-size: 16.3px;
+
+    }
+    
+    .card-name-home-long {
+        padding-top: 13px;
+        font-size: 20px;
+        max-height: 42px;
+    }
+}
+ */
+
 
 .card-date {
     color: rgb(255, 116, 66);

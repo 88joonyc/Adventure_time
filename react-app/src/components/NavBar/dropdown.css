@@ -194,8 +194,12 @@
     }
 }
 
-a:visited {
-    color: inherit;
+a {
+    color: rgb(65, 65, 65);
     /* text-decoration-color: hotpink; */
-  }
+}
   
+a:visited {
+    color: rgb(65, 65, 65);;
+    /* text-decoration-color: hotpink; */
+}
