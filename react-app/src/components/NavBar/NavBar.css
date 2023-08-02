@@ -52,13 +52,9 @@ body {
 }
 
 .login-signup {
-    padding: 26px 30px;
+    padding: 12px 15px;
 }
 
-.login-signup:hover {
-    background-color: rgb(240, 248, 255);
-    transition: all ease 0.3s;
-}
 
 .right-side-control {
     display: -webkit-box;
@@ -124,6 +120,11 @@ body {
     font-size: 18px;
 }
 
+.signup-link:hover {
+    background-color: rgb(240, 248, 255);
+    transition: all ease 0.3s;
+}
+
 .search-icon {
     content: url(../../images/outline_search_black_24dp.png);
     width: auto;
@@ -161,13 +162,12 @@ body {
         display: -webkit-flex;
         display: -ms-flexbox;
         display: flex;
-        height: 72px;
+        min-height: 75px;
     }
     
 
     .login-signup {
-        font-size: xx-large;
-        padding-top: 30px;
+        font-size: large;
     }
     .navbar-image {
         height: 70%;
