@@ -117,7 +117,7 @@ const follow_content = (
   <>
     {follows?.map( follow =>
       // {/* // <Link to={`/event/${heart?.event?.id}`} className='tix-link'> */}
-          <div className="ticket-card user-card">
+          <div className="user-card">
             <img className="follow-card-img" src={follow?.user?.image}/>
             <div className='tix-card-info'>
               <p className='user-info'>Name: {follow?.user?.first_name} {follow?.user?.last_name}</p>
