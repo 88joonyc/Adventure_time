@@ -26,6 +26,7 @@
     display: -ms-flexbox;
     display: flex;
     align-items: center;
+
 }
 
 .searchbar-container {
@@ -36,9 +37,8 @@
 
 .navbar-image {
     content: url('../../images/adventure_time-logo.jpeg');
-    width: 100%;
     height: 42px;
-    margin-left: 35px;
+    margin-left: 25px;
 }
 
 body {
