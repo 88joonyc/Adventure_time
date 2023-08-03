@@ -35,7 +35,7 @@
     .event-page-card {
         width: 100;
         display: block;
-        padding: 40px;
+        /* padding: 40px; */
     }
 
     .event-page-card p {
