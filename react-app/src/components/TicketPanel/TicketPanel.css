@@ -71,9 +71,11 @@
     .ticket-cancel-button {
         position: absolute;
         right: 50px;
-        font-size: 40px;
-        width: 70px;
-        height: 70px;
+        font-size: 35px;
+        width: 50px;
+        height: 50px;
+        border: 1px solid rgb(190, 184, 184);
+        border-radius: 100%;
 
     }
 }
