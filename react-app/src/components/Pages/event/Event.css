@@ -29,6 +29,7 @@
 .event-page-card {
     border: 1px solid rgb(239, 239, 255);
     padding: 20px;
+    background-color: white;
 }
 
 @media screen and (max-device-width: 600px) {
@@ -48,6 +49,7 @@
         border-radius: 10px;
         padding: 32px;
         /* margin: 40px 0; */
+        margin: 20px 0;
     }
 
     .mobile-follower p {
@@ -62,7 +64,7 @@
 
     .mobile-follower p button{
         width: 100%;
-        font-size: 40px;
+        font-size: 20px;
         text-transform: capitalize;
         padding: 20px;
         margin-top: 30px;
@@ -329,7 +331,7 @@
 .events-page-card-naem-short {
     /* font-family: 'Abril Fatface', cursive; */
     font-size: 25px;
-    max-height: 30px;
+    /* max-height: 30px; */
 }
 
 @media screen and (min-width: 600px) {
