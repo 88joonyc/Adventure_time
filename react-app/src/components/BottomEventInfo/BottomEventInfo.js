@@ -16,7 +16,7 @@ const BottomEventInfo = ({event}) => {
                     </p>
                     <h2 className="events-description-label">About this event</h2>
                     <p className="events-description-innertext">{event?.description}</p>
-                    <div className="tags">Tags</div>
+                    {/* <div className="tags">Tags</div> */}
                   </div>
                 </div>
               </div>

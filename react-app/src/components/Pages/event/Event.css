@@ -13,8 +13,17 @@
     background-color: white;
 }
 
+
 .event-page-img-container {
-    height: 400px;
+    display: none;
+}
+
+@media screen and (min-width: 600px) {
+    .event-page-img-container {
+        display: block;
+        height: 400px;
+    }
+    
 }
 
 .event-page-card {
@@ -38,7 +47,7 @@
         background-color: rgb(240, 240, 240);
         border-radius: 10px;
         padding: 32px;
-        margin: 40px 0;
+        /* margin: 40px 0; */
     }
 
     .mobile-follower p {
@@ -73,8 +82,8 @@
 }
 
 .event-page-topcard {
-    height: 400px;
-    display: grid;
+    /* height: 400px; */
+    display: block;
     /* background-color: blue; */
     grid-template-columns: 5fr 2fr;
     grid-template-rows: 1fr;
@@ -96,12 +105,13 @@
 @media screen and (min-width: 600px) {
     .event-page-topcard {
         height: 100%;
+        display: grid;
         background-color: white;
     }
 
-    .event-page-sidepanel {
+    /* .event-page-sidepanel {
         padding: 40px;
-    }
+    } */
 
     .startend-times {
         font-size: 20px;
@@ -110,7 +120,7 @@
     }
 }
 
-@media screen and (min-device-width:880px) {
+@media screen and (min-width:880px) {
     .event-page-bot-grid {
         display: grid;
         grid-template-columns: 5fr 2fr;
@@ -118,13 +128,19 @@
     }
 
     .event-page-sidepanel {
-        padding: 0px;
+        padding: 12px;
     }
 
 }
 
 .events-main-cont-container {
-    min-height: 800px;
+    /* min-height: 800px; */
+}
+
+@media screen and (min-width: 850px) {
+    .events-main-cont-container {
+        min-height: 800px;
+    }
 }
 
 .unregister-tickets-page {
@@ -143,7 +159,7 @@
 
 .side-panel-container {
     margin-top: 40px;
-    padding: 12px;
+    padding: 30px;
 }
 
 .register-button-container {
@@ -316,19 +332,16 @@
     max-height: 30px;
 }
 
-@media screen and (maX-device-width: 600px) {
+@media screen and (min-width: 600px) {
     .events-page-card-naem-short, 
     .events-page-card-naem-long, 
     .events-page-card-naem-very-long {
-        font-size: 90px;
+        font-size: 20px;
         max-height: 100%;
         font-weight: 700;
     }
 }
 
-.event-name-info {
-    padding-top: 45px;
-}
 
 .event-card-basic-info {
     margin: 0;

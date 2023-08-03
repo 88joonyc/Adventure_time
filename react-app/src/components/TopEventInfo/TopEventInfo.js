@@ -43,7 +43,7 @@ const TopEventInfo = ({event, eventId, setVenue, setCategory, setName, setDescri
                 : null
                 }
                 <div className="mobile-follower">
-                    <p className='event-card-basic-info event-name-info'>By: <span className="event-name-info-bold">{event?.host?.first_name} {event?.host?.last_name}</span> </p>
+                    <p className='event-card-basic-info event-name-info'>By: <span className="event-name-info-bold">{event?.user?.first_name} {event?.user?.last_name}</span> </p>
                     {/* <p className='event-card-basic-info'>Contact: {event?.host?.email} </p> */}
                     { event?.host_id !== user.id
                     ?  <p className='follower-number'>{follower?.followers?.length} followers
