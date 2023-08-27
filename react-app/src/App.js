@@ -69,9 +69,9 @@ useEffect( async() =>  {
           <EachEvent listed={listed} />
         </ProtectedRoute>
         <Route path='/' exact={true} >
-        <NavBar />
-        <HomePage events={events}/>
-        <FooterBar/>
+          <NavBar />
+          <HomePage events={events}/>
+          <FooterBar/>
         </Route>
         <FourOhFour/>
       </Switch>

@@ -29,13 +29,13 @@ def evented():
     followers_query = Follower.query.all()
     ticket_query = Ticket.query.all()
     heart_query = Heart.query.all()
-    for event in events:
-        event['venue'] = Venue.query.get(event["venue_id"]).to_dict()
-        event['category'] = Category.query.get(event["category_id"]).to_dict()
-        event['user'] = User.query.get(event["host_id"]).to_dict()
-        event['ticket'] = [ ticket.to_dict() for ticket in ticket_query if ticket.event_id == event['id'] ]
-        event['heart'] = [ heart.to_dict() for heart in heart_query if (heart.event_id == event['id'] and heart.user_id == current_user.id)]
-        event['followers'] = [follower.to_dict() for follower in followers_query if follower.promoter_id == event['host_id']]
+    # for event in events:
+    #     event['venue'] = Venue.query.get(event["venue_id"]).to_dict()
+    #     event['category'] = Category.query.get(event["category_id"]).to_dict()
+    #     event['user'] = User.query.get(event["host_id"]).to_dict()
+    #     event['ticket'] = [ ticket.to_dict() for ticket in ticket_query if ticket.event_id == event['id'] ]
+    #     event['heart'] = [ heart.to_dict() for heart in heart_query if (heart.event_id == event['id'] and heart.user_id == current_user.id)]
+    #     event['followers'] = [follower.to_dict() for follower in followers_query if follower.promoter_id == event['host_id']]
     return { 'events': events } #  <  this needs to change... but too much needs to change.... this is causing the nesting..
 
 
