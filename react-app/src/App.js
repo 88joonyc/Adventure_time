@@ -38,7 +38,7 @@ useEffect( async() =>  {
   if (sessionUser) {
     await dispatch(eventActions.all_events())
   } else {
-    await dispatch(eventActions.unregistered_events)
+    // await dispatch(eventActions.unregistered_events())
   }
 //   getContent()
 //   // dispatch(all_categories())

@@ -152,7 +152,7 @@ const editthisevent =  async (e) => {
     return data
 }
 
-console.log('hello,', event)
+// console.log('hello,', event)
 
 // ===========================================return===========================================================================
   return (

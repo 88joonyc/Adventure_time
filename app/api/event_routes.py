@@ -15,9 +15,9 @@ def unregistered():
     ticket_query = Ticket.query.all()
     for event in events:
         event['venue'] = Venue.query.get(event["venue_id"]).to_dict()
-        event['category'] = Category.query.get(event["category_id"]).to_dict()
-        event['ticket'] = [ ticket.to_dict() for ticket in ticket_query if ticket.event_id == event['id'] ]
-        event['followers'] = [follower.to_dict() for follower in followers_query if follower.promoter_id == event['host_id']]
+        # event['category'] = Category.query.get(event["category_id"]).to_dict()
+        # event['ticket'] = [ ticket.to_dict() for ticket in ticket_query if ticket.event_id == event['id'] ]
+        # event['followers'] = [follower.to_dict() for follower in followers_query if follower.promoter_id == event['host_id']]
     return {'events': events}
 
 

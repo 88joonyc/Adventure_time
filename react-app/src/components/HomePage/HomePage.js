@@ -106,8 +106,8 @@ const homeMain = (
                                         placeholder={'...loading'}
                                     >
                                         <img alt={`${event?.image}-for-events`} src={event?.image} className="lazy-img"/>
-                                    </LazyLoad>
-                                    {sessionUser ? (<Heart event={event}/>) : null}
+                                        </LazyLoad>
+                                        {sessionUser ? (<Heart event={event}/>) : null}
                                         <CardInfo event={event}/>
                                         {/* {(event?.host_id === sessionUser?.id ) ? (
                                             <>
@@ -147,11 +147,11 @@ const homeMain = (
 
     return (
         <>
-        {sessionUser ? <OpeningMessage /> : <SplashPage/>}
-        <Search events={events} search={search} setSearch={setSearch}/>
-        <PopularBar setSearch={setSearch} sessionUser={sessionUser}/>
-        {homeMain}
-        {editForm ? <EditForm {...{editthisevent,venueId, setVenue, venue, categoryId, setCategory, category, name, setName, description, setDescript, startTime, setStart, setEnd, capacity, setCap, image, setImg, cost, setCost, editForm, toggleEdit}}/> : null}
+            {sessionUser ? <OpeningMessage /> : <SplashPage/>}
+            <Search events={events} search={search} setSearch={setSearch}/>
+            <PopularBar setSearch={setSearch} sessionUser={sessionUser}/>
+            {homeMain}
+            {editForm ? <EditForm {...{editthisevent,venueId, setVenue, venue, categoryId, setCategory, category, name, setName, description, setDescript, startTime, setStart, setEnd, capacity, setCap, image, setImg, cost, setCost, editForm, toggleEdit}}/> : null}
         </>
     )
 }
