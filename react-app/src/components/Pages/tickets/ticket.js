@@ -29,6 +29,7 @@ const TicketPage = () => {
     dispatch(actiontickets.all_tickets())
     dispatch(all_user_follows())
     dispatch(hearted_events())
+    dispatch(actiontickets.all_tickets())
   }, [dispatch])
 
   const runonce = () => {
