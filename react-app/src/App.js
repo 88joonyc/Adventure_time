@@ -13,6 +13,7 @@ import EachEvent from './components/Pages/event/Event';
 import { authenticate } from './store/session';
 import FourOhFour from './components/auth/404/404';
 import FooterBar from './components/NavBar/Footer/Footer';
+import { all_venues } from './store/venue';
 
 function App() {
   const [loaded, setLoaded] = useState(false);
@@ -37,6 +38,7 @@ function App() {
 useEffect( async() =>  {
   if (sessionUser) {
     await dispatch(eventActions.all_events())
+    await dispatch(all_venues())
   } else {
     // await dispatch(eventActions.unregistered_events())
   }

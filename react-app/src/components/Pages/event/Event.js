@@ -31,8 +31,9 @@ const EachEvent = ({listed}) => {
   // const event = useSelector(state => state?.events_reducer?.listed?.[eventId?.eventId])
   const event = listed?.[eventId?.eventId]
   const follower = useSelector(state => (state?.followers_reducer));
-  const venue = useSelector(state => (state?.venues_reducer?.venues));
+  const venue = useSelector(state => (state?.venues_reducer));
   const category = useSelector(state => (state?.categories_reducer?.categories));
+  const thisVenue = venue?.listed?.[event.venue_id]
 
   const [editForm, toggleEdit] = useState(false)
   const [venueId, setVenue] = useState('');
@@ -54,8 +55,8 @@ const EachEvent = ({listed}) => {
     await dispatch(actiontickets.one_ticket(eventId.eventId))
     await dispatch(actionfollowers.get_follower_with_promo(Number(event?.host_id)))
     window.scrollTo({top: 0, left: 0, behavior: 'auto'})   // this take is to the top of the page    dispatch(all_categories())
-    await dispatch(all_venues())
-    await dispatch(all_categories())
+    // await dispatch(all_venues())
+    // await dispatch(all_categories())
   }, [eventId.eventId, event?.host_id])
 
   window.addEventListener('load' , e => {
@@ -152,8 +153,6 @@ const editthisevent =  async (e) => {
     return data
 }
 
-// console.log('hello,', event)
-
 // ===========================================return===========================================================================
   return (
         <>
@@ -170,10 +169,10 @@ const editthisevent =  async (e) => {
             <div className="purchase-tix-bar">
                 { event?.host_id !== user.id ? <button type='button' onClick={() => (setPanel(!panel))} className='ticket-button'>Tickets</button> : null }
             </div>
-            <BottomEventInfo event={event}/>
+            <BottomEventInfo event={event} venue={thisVenue}/>
             {/* {// ===========================================insert===========================================================================} */}
             
-            <MapPanel {...{event, user, follower, unfollow, follow, follow_me}}/>
+            <MapPanel {...{event, user, thisVenue, follower, unfollow, follow, follow_me}}/>
             {panel ? < TicketPanel {...{event, ticket, ticketqty, setTicketQty, setTier, setMultiplier, unregisterforthisevent, registerforthisevent, cancelticketq, setPanel, panel, ticketqty, tier, multiplier}}/> : null}
             {editForm ? <EditForm {...{editthisevent, venueId, setVenue, venue, categoryId, setCategory, category, name, setName, description, setDescript, startTime, setStart, endTime, setEnd, capacity, setCap, image, setImg, cost, setCost, editForm, toggleEdit}}/> : null}
             

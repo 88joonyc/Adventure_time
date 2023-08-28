@@ -51,15 +51,21 @@ const venues_reducer = (state = initialState, action ) => {
         case LOAD:
             if (state) {
                 const venues = []
-                const all = {
-                    ...state
-                }
+                const all = {}
+                let listed 
                 if (action.venues.venues) {
+                    listed = action.venues.venues.forEach(venue => {
+                        all[venue.id] = venue
+                    })
+
                     action.venues.venues.forEach((venue => {
                         venues.push(all[venue.id] = venue)
                     }))
                 }
-                return {"venues": venues }
+                return {
+                    "venues": venues,
+                    "listed": all
+                }
         }
         case ADD_VENUE: {
             return {venue: action.venue}

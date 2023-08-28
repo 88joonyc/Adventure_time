@@ -1,7 +1,7 @@
 import React from "react";
 import moment from "moment";
 
-const BottomEventInfo = ({event}) => {
+const BottomEventInfo = ({event, venue}) => {
 
     return (
         <div className='event-page-bot-grid'>
@@ -34,7 +34,7 @@ const BottomEventInfo = ({event}) => {
                     <div className='events-address-para'>
                       <p>{event?.category?.type}</p>
                     </div>
-                    <p>Date and time</p>
+                    {/* <p>Date and time</p> */}
                     <p>Starts: </p>
                     <p className='startend-times'>{moment(event?.start_time).add(5, 'hours').format('ddd[,] MMMM Do [,] YYYY [at] h:mm A')}</p>
                     <p>Ends:</p>
@@ -42,12 +42,12 @@ const BottomEventInfo = ({event}) => {
 
                     <p className="events-address-label">Location:</p>
                     <div className='events-page-location'>
-                      <p className="events-address-para">{event?.venue?.name}</p>
-                      <p className="events-address-para">{event?.venue?.address}</p>
-                      <p className="events-address-para">{event?.venue?.city}, {event?.venue?.state}</p>
-                      <p className="events-address-para">{event?.venue?.zip_code}</p>
-                      <p className="events-address-para">Lat: {event?.venue?.latitude} Lon: {event?.venue?.longitude} </p>
-                      <button className='view-map-button' onClick={() => document.querySelector('.the-real-map').scrollIntoView({behavior: 'smooth'})}>view map</button>
+                      <p className="events-address-para">{venue?.name}</p>
+                      <p className="events-address-para">{venue?.address}</p>
+                      <p className="events-address-para">{venue?.city}, {event?.venue?.state}</p>
+                      <p className="events-address-para">{venue?.zip_code}</p>
+                      <p className="events-address-para">Lat: {venue?.latitude} Lon: {venue?.longitude} </p>
+                      <button className='view-map-button' onClick={() => document.querySelector('.map-info-map').scrollIntoView({behavior: 'smooth'})}>view map</button>
                     </div>
                     <p className="events-address-label">Refund Policy: </p>
                     <p  className="events-address-para">Contact the organizer to request a refund. Adventure Time's fee is nonrefundable. </p>

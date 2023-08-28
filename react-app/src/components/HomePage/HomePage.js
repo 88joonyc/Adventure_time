@@ -22,7 +22,7 @@ const dispatch = useDispatch()
 const sessionUser = useSelector(state => state.session.user)
 // const events = useSelector(state => state.events_reducer?.events)
 const category = useSelector(state => (state?.categories_reducer?.categories));
-const venue = useSelector(state => state?.venues_reducer?.venues);
+const venues = useSelector(state => state?.venues_reducer?.listed);
 
 const [editForm, toggleEdit] = useState(false)
 const [eventId, setId] = useState([]);
@@ -107,8 +107,8 @@ const homeMain = (
                                     >
                                         <img alt={`${event?.image}-for-events`} src={event?.image} className="lazy-img"/>
                                         </LazyLoad>
-                                        {sessionUser ? (<Heart event={event}/>) : null}
-                                        <CardInfo event={event}/>
+                                        {/* {sessionUser ? (<Heart event={event}/>) : null} */}
+                                        <CardInfo event={event} venues={venues}/>
                                         {/* {(event?.host_id === sessionUser?.id ) ? (
                                             <>
                                                 <button
@@ -151,7 +151,7 @@ const homeMain = (
             <Search events={events} search={search} setSearch={setSearch}/>
             <PopularBar setSearch={setSearch} sessionUser={sessionUser}/>
             {homeMain}
-            {editForm ? <EditForm {...{editthisevent,venueId, setVenue, venue, categoryId, setCategory, category, name, setName, description, setDescript, startTime, setStart, setEnd, capacity, setCap, image, setImg, cost, setCost, editForm, toggleEdit}}/> : null}
+            {editForm ? <EditForm {...{editthisevent,venueId, setVenue, venues, categoryId, setCategory, category, name, setName, description, setDescript, startTime, setStart, setEnd, capacity, setCap, image, setImg, cost, setCost, editForm, toggleEdit}}/> : null}
         </>
     )
 }

@@ -25,7 +25,7 @@ const NavBar = () => {
             setShowMenu(false);
         };
         document.addEventListener('click', closeMenu);
-        dispatch(authenticate())
+        // dispatch(authenticate())
 
         return () => document.removeEventListener('click', closeMenu);
     }, [showMenu, authenticate, dispatch]);
@@ -67,7 +67,7 @@ const NavBar = () => {
             {showMenu && (
                 <div className='menu-dropdown'>
                     {/* <div className='dropdown-items-out-bot'>Manage my events</div> */}
-                    <Link className='linke-not-deco' to='/tickets'><div className='dropdown-items-mid'>Tickets ( current : {sessionUser.tickets?.length})</div></Link>
+                    <Link className='linke-not-deco' to='/tickets'><div className='dropdown-items-mid'>Tickets </div></Link>
                     {/* <Link className='linke-not-deco' to='/tickets'><div className='dropdown-items-mid'>Hearted</div></Link> */}
                     {/* <Link className='linke-not-deco' to='/tickets'><div className='dropdown-items-mid'>Following</div></Link> */}
                     {/* <Link className='linke-not-deco' to='/tickets'><div className='dropdown-items-mid'>Collection</div></Link> */}
